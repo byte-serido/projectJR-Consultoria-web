@@ -3,11 +3,21 @@
         <div class="container navbar">
             <img src="../assets/nav/logo-bar.svg" alt="Logo da ByteSeridó Jr">
             <div class="menu-bar">
-                <a class="menu-button" href="#hero">Início</a>
-                <a class="menu-button">Quem somos</a>
-                <a class="menu-button">Serviços</a>
-                <a class="menu-button">Blog</a>
-                <a class="menu-button" href="#contact">Fale conosco</a>
+                <router-link class="menu-button" to="/" tag="a" active-class="active" exact>
+                    <a>Início</a>
+                </router-link>
+                <router-link class="menu-button" to="/about" tag="a"  active-class="active">
+                    <a>Quem somos</a>
+                </router-link>
+                <router-link class="menu-button" to="/services" tag="a"  active-class="active">
+                    <a>Serviços</a>
+                </router-link>
+                <router-link class="menu-button" to="/blog" tag="a"  active-class="active">
+                    <a>Blog</a>
+                </router-link>
+                <router-link class="menu-button" to="/contact" tag="a"  active-class="active">
+                    <a>Fale conosco</a>
+                </router-link>
             </div>
             <button class="nav-button">Agende um Diagnóstico</button>
         </div>
@@ -52,7 +62,7 @@ export default {
         letter-spacing: -0.01rem;
     }
     .menu-button:hover{
-        font-weight: 700;
+        color: #41A8D3;
     }
 
     .nav-button{
