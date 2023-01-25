@@ -56,7 +56,7 @@ export default {
         color: black;
         font-size: 4.5rem;
         font-weight: 700;
-        letter-spacing: 0.01em;
+        letter-spacing: 0.01rem;
     }
 
     article strong{
@@ -70,7 +70,7 @@ export default {
         line-height: 35px;
         font-size: 1.375rem;
         font-weight: 400;
-        letter-spacing: -0.01em;
+        letter-spacing: -0.01rem;
     }
 
     article .action-call{
@@ -78,7 +78,7 @@ export default {
         font-size: 1.125rem;
         font-weight: 600;
         color: #1A202C;
-        letter-spacing: -0.01em;
+        letter-spacing: -0.01rem;
     }
 
     .content-hero button{
@@ -90,7 +90,7 @@ export default {
         font-family: "Assistant",sans-serif;
         font-weight: 700;
         font-size: 1.125rem;
-        letter-spacing: -0.01em;
+        letter-spacing: -0.01rem;
         cursor:pointer;
         box-sizing: border-box;
         position: relative;
