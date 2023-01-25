@@ -31,9 +31,15 @@
                 <div class="social">
                     <p class="title">Redes Sociais</p>
                     <div class="menu-social">
-                        <img src="../assets/footer/facebook.svg" alt="Facebook">
-                        <img src="../assets/footer/instagram.svg" alt="Instagram">
-                        <img src="../assets/footer/linkedin.svg" alt="LinkedIn">
+                        <a href="http://" target="_blank">
+                            <img src="../assets/footer/facebook.svg" alt="Facebook">
+                        </a>
+                        <a href="http://" target="_blank">
+                            <img src="../assets/footer/instagram.svg" alt="Instagram">
+                        </a>
+                        <a href="http://" target="_blank">
+                            <img src="../assets/footer/linkedin.svg" alt="LinkedIn">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -90,6 +96,10 @@ export default {
         font-weight: 300;
         color:#EDF0F7;
         letter-spacing: -0.01rem;
+    }
+
+    .menu-button:hover{
+        color: #41A8D3;
     }
 
     .social{
