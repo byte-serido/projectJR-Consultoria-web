@@ -175,7 +175,7 @@ export default {
 
     @media (max-width:780px){
         .hero{
-            padding: 61px 20px 0px 20px;
+            padding:86px 20px 80px 20px;
         }
 
         .content-hero{
