@@ -1,8 +1,8 @@
 <template >
     <section class="footer-container">
         <div class="container footer">
-            <img src="../assets/footer/logotipo.svg" alt="Logotipo da Project Jr Consultoria"/>
-    
+            <img class="logotipo" src="../assets/footer/logotipo.svg" alt="Logotipo da Project Jr Consultoria"/>
+
             <div class="footer-content">
                 <div class="navigation">
                     <p class="title">Mapa do Site</p>
@@ -31,13 +31,13 @@
                 <div class="social">
                     <p class="title">Redes Sociais</p>
                     <div class="menu-social">
-                        <a href="http://" target="_blank">
+                        <a href="https://m.facebook.com/100063631264547/" target="_blank">
                             <img src="../assets/footer/facebook.svg" alt="Facebook">
                         </a>
-                        <a href="http://" target="_blank">
+                        <a href="https://instagram.com/projectjrconsultoria?igshid=YmMyMTA2M2Y=" target="_blank">
                             <img src="../assets/footer/instagram.svg" alt="Instagram">
                         </a>
-                        <a href="http://" target="_blank">
+                        <a href="https://www.linkedin.com/company/projectjr/" target="_blank">
                             <img src="../assets/footer/linkedin.svg" alt="LinkedIn">
                         </a>
                     </div>
@@ -117,5 +117,76 @@ export default {
 
     a{
         text-decoration: none;
+    }
+
+    @media (max-width:1080px){
+        .footer{
+            padding: 86px 80px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+
+    @media (max-width:880px){
+        .footer{
+            padding: 70px 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logotipo{
+            height: 140px;
+            width: 140px;
+        }
+
+        .title{
+            font-size: 1.2rem;
+            font-weight: 700;
+            color:#EDF0F7;
+        }
+
+        .menu-button{
+            font-size: 1rem;
+            font-weight: 300;
+            color:#EDF0F7;
+            letter-spacing: -0.01rem;
+        }
+    }
+
+    @media (max-width:680px){
+        .footer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .footer-content{
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .logotipo{
+            height: 180px;
+            width: 180px;
+        }
+    }
+
+    @media (max-width:480px){
+        .footer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logotipo{
+            height: 160px;
+            width: 160px;
+        }
     }
 </style>
