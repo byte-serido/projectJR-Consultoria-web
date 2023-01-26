@@ -102,4 +102,87 @@ export default {
         color: #0A4B69;
         border: 1px solid #0A4B69;
     }
+
+    /* Reponsividade */
+
+    @media (max-width:1098px){
+        .content-hero{
+            padding-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        article .headline{
+            color: black;
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: 0.01rem;
+        }
+
+       .img-hero{
+            width: 500px;
+            height: 600px;
+       }
+    }
+
+    @media (max-width:940px){
+
+        .content-hero{
+            gap: 14px;
+        }
+
+        article .headline{
+            color: black;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 0.01rem;
+        }
+
+        article .body{
+            font-family: 'Asap', sans-serif;
+            color: #1A202C;
+            line-height: 26px;
+            font-size: 1.2rem;
+            font-weight: 400;
+            letter-spacing: -0.01rem;
+        }
+
+        article .action-call{
+            font-family: "Asap",sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1A202C;
+            letter-spacing: -0.01rem;
+        }
+
+        .img-hero{
+                width: 500px;
+                height: 600px;
+        }
+    }
+
+    @media (max-width:848px){
+        .hero{
+            padding: 61px 0px 0px 20px;
+        }
+        .img-hero{
+            width: 400px;
+            height: 500px;
+       }
+    }
+
+    @media (max-width:780px){
+        .hero{
+            padding: 61px 20px 0px 20px;
+        }
+
+        .content-hero{
+            gap: 14px;
+        }
+        .img-hero{
+            display: none;
+        }
+    }
 </style>
