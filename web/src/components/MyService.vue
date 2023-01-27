@@ -187,7 +187,7 @@ export default {
     }
 
     img{
-        margin-top: 20px;
+        margin-top: 10px;
         margin-left: 20px;
         background-color: #EDF0F7;
         padding: 15px;
