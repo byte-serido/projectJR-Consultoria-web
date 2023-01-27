@@ -1,10 +1,10 @@
 <template lang="pt-br">
     <section class="service-container">
         <div class="container service">
-            <div>
+            <article>
                 <h2>SERVIÇOS</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.</p>
-            </div>
+            </article>
             <div class="box-container">
                 <div class="box">
                     <img src="../../assets/serv/stack.svg">
@@ -60,6 +60,13 @@ export default {
         align-items: center;
         padding: 60px 92px;
         gap: 50px;
+    }
+
+    .service article{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
     }
 
     h2{
