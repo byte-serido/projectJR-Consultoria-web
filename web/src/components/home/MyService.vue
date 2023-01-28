@@ -74,7 +74,7 @@ export default {
         font-family: 'Inter';
         font-style: normal;
         font-weight: 700;
-        font-size: 48px;
+        font-size: 3rem;
         line-height: 120%;
         text-align: center;
         letter-spacing: 0.01em;
@@ -84,9 +84,8 @@ export default {
         font-family: 'Inter';
         font-style: normal;
         font-weight: 700;
-        font-size: 20px;
+        font-size: 1.25rem;
         line-height: 140%;
-
         color: #EDF0F7;
     }
 
@@ -95,9 +94,8 @@ export default {
         font-family: 'Inter';
         font-style: normal;
         font-weight: 400;
-        font-size: 18px;
+        font-size: 1.125rem;
         line-height: 150%;
-
         text-align: center;
         letter-spacing: -0.01em;
     }
@@ -131,31 +129,20 @@ export default {
         font-weight: 600;
         font-size: 1rem;
         line-height: 150%;
-
         letter-spacing: -0.01em;
-
         color: #EDF0F7;
     }
 
     .a-box{
         cursor: pointer;
-        margin-top: 10px;
-        margin-left: 20px;
         display: flex;
         flex-direction: row;
         align-items: center;
-        padding: 0px;
-        
-
-        width: 195px;
-        height: 24px;
     }
 
     img{
-        margin-top: 10px;
-        margin-left: 20px;
         background-color: #EDF0F7;
-        padding: 15px;
+        padding: 0.938rem;
         border-radius: 20%;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.26);
     }
