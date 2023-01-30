@@ -148,11 +148,11 @@ export default {
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.26);
     }
 
-    @media (max-width:1080px){
+    /* @media (max-width:1080px){
         .box-container{
             
         }
-    }
+    } */
 
     @media(max-width:880px){
         .service{
@@ -185,9 +185,9 @@ export default {
             letter-spacing: -0.01em;
         }
 
-        .box-container{
+        /* .box-container{
             
-        }
+        } */
     }
 
     @media(max-width:680px){
