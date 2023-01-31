@@ -60,6 +60,7 @@ export default {
         align-items: center;
         padding: 60px 92px;
         gap: 50px;
+        justify-content: space-between;
     }
 
     .service article{
@@ -145,5 +146,70 @@ export default {
         padding: 0.938rem;
         border-radius: 20%;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.26);
+    }
+
+    /* @media (max-width:1080px){
+        .box-container{
+            
+        }
+    } */
+
+    @media(max-width:880px){
+        .service{
+            padding: 70px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+            h2{
+            color: #0A4B69;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 2.5rem;
+            line-height: 120%;
+            text-align: center;
+            letter-spacing: 0.01em;
+        }
+
+            p{
+            color: #1A202C;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 1.1rem;
+            line-height: 150%;
+            text-align: center;
+            letter-spacing: -0.01em;
+        }
+
+        /* .box-container{
+            
+        } */
+    }
+
+    @media(max-width:680px){
+        .service{
+            padding: 54px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .box-container{
+            justify-content: center;
+        }
+        
+    }
+
+    @media(max-width:480px){
+        .service{
+            padding: 38px 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     }
 </style>    
