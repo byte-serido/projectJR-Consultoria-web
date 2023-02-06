@@ -63,23 +63,40 @@ export default {
     .dep p{
         color: #F7F9FC;
         font-weight: 700;
+        text-align: start;
         font-size: 2.25rem;
         letter-spacing: 0.01em;
     }
 
-    @media (max-width:400px){
+    @media (max-width:800px){
+        .dep p{
+            color: #F7F9FC;
+            font-weight: 700;
+            font-size: 2rem;
+            letter-spacing: 0.01em;
+        }
+    }
+
+    @media (max-width:560px){
+        .dep p{
+            color: #F7F9FC;
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: 0.01em;
+        }
+    }
+
+    @media (max-width:460px){
         .dep{
-            padding: 50px 20px 0px 20px;
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap:50px;
         }
         .dep p{
             color: #F7F9FC;
             font-weight: 700;
-            font-size: 2.25rem;
-            text-align: center;
+            font-size: 1.6rem;
             letter-spacing: 0.01em;
         }
     }
