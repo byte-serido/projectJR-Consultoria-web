@@ -175,10 +175,6 @@ export default {
     }
 
     @media (max-width:1098px){
-        .img-padrao{
-            display: none;
-        }
-
         .person-row{
             max-width:100%;
             display: flex;
@@ -186,11 +182,37 @@ export default {
             align-items: center;
             justify-content: flex-start;
         }
+
+        .card-article{
+            gap:20px
+        }
     }
 
-    @media (max-width:400px){
+    @media (max-width:800px){
+        .img-padrao{
+            display: none;
+        }
+
+        .card-article{
+            gap:20px
+        }
+    }
+
+    @media (max-width:560px){
+        .card-article{
+            padding: 40px 50px;
+        }
+
+        .container-text{
+            gap: 20px;
+        }
+    }
+
+    @media (max-width:460px){
         .card{
+            min-width: 90%;
             height: 300px;
+            padding:36px 26px ;
         }
 
         .card-article{
