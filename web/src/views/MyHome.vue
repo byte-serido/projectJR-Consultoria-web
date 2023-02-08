@@ -3,6 +3,7 @@
         <MyHero id="hero"></MyHero>
         <MyAbout></MyAbout>
         <MyService></MyService>
+        <MyBlog></MyBlog>
     </main>
 </template>
 
@@ -11,8 +12,9 @@
 import MyHero from "../components/home/MyHero.vue"
 import MyAbout from "@/components/home/MyAbout.vue";
 import MyService from "../components/home/MyService.vue"
+import MyBlog from "@/components/home/MyBlog.vue";
 export default {
-    components:{MyHero, MyAbout, MyService},
+    components:{MyHero, MyAbout, MyService, MyBlog},
 }
 </script>
 
