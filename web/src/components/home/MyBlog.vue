@@ -137,7 +137,7 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
-        max-width: 570px;
+        max-width: 520px;
         height: 560px;
     }
 
@@ -196,6 +196,10 @@
         .principal{
             min-width: 40%;
         }
+
+        #principal-img{
+            height: 230px;
+        }
         .text{
             min-width: 90%;
             gap: 20px;
@@ -210,9 +214,6 @@
         }
         .content p{
             line-height: 100%
-        }
-        #principal-img{
-            height: 230px;
         }
     }
 
@@ -243,6 +244,19 @@
     }
 
     @media(max-width:840px){
+        .text{
+            min-width: 80%;
+        }
+        .text h3{
+            font-size: 1.30rem;
+        }
+
+        .text p{
+            font-size: 1rem;
+        }
+        .text a{
+            font-size: 1rem;
+        }
         .post-column{
             min-width: 250px;
             gap: 5px;
@@ -261,26 +275,9 @@
             height: 100px;
         }
 
-        .text{
-            min-width: 80%;
-        }
-        .text h3{
-            font-size: 1.30rem;
-        }
-
-        .text p{
-            font-size: 1rem;
-        }
-        .text a{
-            font-size: 1rem;
-        }
     }
 
     @media (max-width: 640px){
-
-        .text{
-            gap: 20px;
-        }
         .text h3{
             font-size: 1.50rem;
         }
@@ -305,7 +302,7 @@
 
     @media(max-width:560px){
         article h2{
-            font-size: 1.9rem;
+            font-size: 2rem;
         }
         
         article p{
@@ -318,7 +315,7 @@
         #principal-img{
             height: 150px;
         }
-
+        
         .text{
             gap: 15px;
         }
@@ -333,6 +330,36 @@
     }
 
     @media(max-width: 460px){
+        
+        .blog{
+            padding: 30px 20px;
+        }
+        
+        .text{
+            gap: 20px;
+        }
+        .text h3{
+            font-size: 1.30rem;
+        }
 
+        .text p{
+            font-size: 1.10rem;
+        }
+
+        .text a{
+            font-size: 1rem;
+        }
+
+        .post-column{
+            height: 600px;
+        }
+
+        .post{
+            height: 180px;
+        }
+
+        #last{
+            font-size: 1rem;
+        }
     }
 </style>
