@@ -1,70 +1,76 @@
 <template>
-    <section class="blog-container">
-        <div class="container blog">
-            <article>
-                <h2>CONHEÇA O NOSSO BLOG!</h2>
-                <p>Criamos conteúdos com insights valiosos que podem ajudar você e sua empresa. Confira algumas das nossas publicações abaixo:</p>
-            </article>
-            <div class="wrapper">
-                <div class="principal">
-                    <div id="principal-img">
+    <div class="posts">
+        <article>
+            <h2>CONHEÇA O NOSSO BLOG!</h2>
+            <p>Criamos conteúdos com insights valiosos que podem ajudar você e sua empresa. Confira algumas das nossas publicações abaixo:</p>
+        </article>
+        <div class="wrapper">
+            <div class="principal">
+                <div id="principal-img">
+                </div>
+                <div class="text">
+                    <h3>{{ title }}</h3>
+                    <p>{{ corp }}</p>
+                    <a :href="link">Leia mais ></a>
+                </div>
+            </div>
+            <div class="post-column">
+                <div class="post">
+                    <div class="post-img">
+                        <img :src="lamp" alt="">
                     </div>
-                    <div class="text">
-                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <a href="#">Leia mais ></a>
+                    <div class="content">
+                        <h3>{{ title }}</h3>
+                        <p>{{ corp }}</p>
+                        <a :href="link">Leia mais ></a>
                     </div>
                 </div>
-                <div class="post-column">
-                    <div class="post">
-                        <div class="post-img">
-
-                        </div>
-                        <div class="content">
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <a href="#">Leia mais ></a>
-                        </div>
+                <div class="post">
+                    <div class="post-img">
+                        
                     </div>
-                    <div class="post">
-                        <div class="post-img">
-                            
-                        </div>
-                        <div class="content">
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <a href="#">Leia mais ></a>
-                        </div>
+                    <div class="content">
+                        <h3>{{ title }}</h3>
+                        <p>{{ corp }}</p>
+                        <a :href="link">Leia mais ></a>
                     </div>
-                    <div class="post">
-                        <div class="post-img">
-                            
-                        </div>
-                        <div class="content">
-                            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <a href="#">Leia mais ></a>
-                        </div>
+                </div>
+                <div class="post">
+                    <div class="post-img">
+                        
+                    </div>
+                    <div class="content">
+                        <h3>{{ title }}</h3>
+                        <p>{{ corp }}</p>
+                        <a :href="link">Leia mais ></a>
                     </div>
                 </div>
             </div>
-            <a href="#" id="last">Veja todos os posts do nosso blog ></a>
         </div>
-    </section>
+        <a :href="link" id="last">Veja todos os posts do nosso blog ></a>
+    </div>
 </template>
 <script>
     export default{
-        
+        props:{
+            title:{
+                type: String,
+            },
+            corp:{
+                type: String,
+            },
+            link:{
+                type: String,
+            },
+            lamp:{
+                type: String,
+            },
+        }
     }
 </script>
 
 <style scoped>
-    .blog-container{
-        background-color: #F7F9FC;
-        font-family: 'Inter',sans-serif;
-    }
-    .blog{
-        padding: 60px 61px;
+    .posts{
         display: flex;
         flex-direction: column;
         gap: 32px;
@@ -330,11 +336,6 @@
     }
 
     @media(max-width: 460px){
-        
-        .blog{
-            padding: 30px 20px;
-        }
-        
         .text{
             gap: 20px;
         }
