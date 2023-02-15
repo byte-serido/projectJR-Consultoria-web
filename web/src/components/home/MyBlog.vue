@@ -9,20 +9,19 @@
                 <div id="principal-img">
                 </div>
                 <div class="text">
-                    <h3>{{ title }}</h3>
-                    <p>{{ corp }}</p>
-                    <a :href="link">Leia mais ></a>
+                    <h3>{{ principal.title }}</h3>
+                    <p>{{ principal.corp }}</p>
+                    <a :href="principal.link">Leia mais ></a>
                 </div>
             </div>
             <div class="post-column">
                 <div class="post">
                     <div class="post-img">
-                        <img :src="lamp" alt="">
                     </div>
                     <div class="content">
-                        <h3>{{ title }}</h3>
-                        <p>{{ corp }}</p>
-                        <a :href="link">Leia mais ></a>
+                        <h3>{{ post1.title }}</h3>
+                        <p>{{ post1.corp }}</p>
+                        <a :href="post1.link">Leia mais ></a>
                     </div>
                 </div>
                 <div class="post">
@@ -30,9 +29,9 @@
                         
                     </div>
                     <div class="content">
-                        <h3>{{ title }}</h3>
-                        <p>{{ corp }}</p>
-                        <a :href="link">Leia mais ></a>
+                        <h3>{{ post2.title }}</h3>
+                        <p>{{ post2.corp }}</p>
+                        <a :href="post2.link">Leia mais ></a>
                     </div>
                 </div>
                 <div class="post">
@@ -40,9 +39,9 @@
                         
                     </div>
                     <div class="content">
-                        <h3>{{ title }}</h3>
-                        <p>{{ corp }}</p>
-                        <a :href="link">Leia mais ></a>
+                        <h3>{{ post3.title }}</h3>
+                        <p>{{ post3.corp }}</p>
+                        <a :href="post3.link">Leia mais ></a>
                     </div>
                 </div>
             </div>
@@ -53,17 +52,18 @@
 <script>
     export default{
         props:{
-            title:{
-                type: String,
+
+            principal:{
+                type: Object,
             },
-            corp:{
-                type: String,
+            post1:{
+                type: Object,
             },
-            link:{
-                type: String,
+            post2:{
+                type: Object,
             },
-            lamp:{
-                type: String,
+            post3:{
+                type: Object,
             },
         }
     }
