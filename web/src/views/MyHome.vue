@@ -3,8 +3,8 @@
         <MyHero id="hero"></MyHero>
         <MyAbout></MyAbout>
         <MyService></MyService>
-        <MyPostBlog></MyPostBlog>
         <MyDepoiment></MyDepoiment>
+        <MyPostBlog></MyPostBlog>
     </main>
 </template>
 
