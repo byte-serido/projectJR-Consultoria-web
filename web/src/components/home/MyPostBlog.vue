@@ -2,10 +2,10 @@
     <section class="blog-container">
         <div class="container blog">
             <MyBlog 
-                :title="items[0].title"
-                :corp="items[0].corp"
-                :link="items[0].link"
-                :lamp ="items[0].lamp"
+                :principal="principal"
+                :post1="post1"
+                :post2="post2"
+                :post3="post3"
             />
         </div>
     </section>
@@ -17,14 +17,26 @@ import MyBlog from './MyBlog.vue';
         components:{MyBlog},
         data(){
             return{
-                items:[
-                    {
-                        title: "Postagem 1",
-                        corp: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                        link: "#",
-                        lamp: "web/src/assets/blog/desk-lamp-svgrepo-com.svg"
-                    }
-                ]
+                principal:{
+                    title: "Postagem 1",
+                    corp: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                    link: "#",
+                },
+                post1:{
+                    title: "Postagem 2",
+                    corp: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                    link: "#",
+                },
+                post2:{
+                    title: "Postagem 3",
+                    corp: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                    link: "#",
+                },
+                post3:{
+                    title: "Postagem 4",
+                    corp: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                    link: "#",
+                }
             }
         }
     }
