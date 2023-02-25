@@ -58,7 +58,7 @@
                     </div>
                     <div class="form">
                         <h5>Mensagem</h5>
-                        <input class="white" type="text" v-model="msg" placeholder="Escreva uma Mensagem.">
+                        <textarea name="mensagem" id="M" rows="7">Descreva seu problema e encontraremos a melhor forma para te ajudar.</textarea>
                     </div>
                 </div>
                 <input class="buttom" type="submit" value="Enviar" v-on:click="submitform">
@@ -204,30 +204,14 @@ export default {
     }
 
 
-    .white{
-        width: 401px;
-        height: 130px;
-        
-        padding-left: 10px;
-        border: 2px solid #cbd2e0;
-        border-radius: 6px;
-    }
-
-    .white::placeholder{
-        font-family: 'Inter';
-        font-style: normal;
-        font-size: 1rem;
-        color: #2D3648;
-        
-    }
-
-
     .form{
         padding-bottom: 19px;
     }
 
     .buttom{
         cursor: pointer;
+        
+        
         width: 417px;
         height: 40px;
         padding: 0;
@@ -247,6 +231,21 @@ export default {
         padding-bottom: 20px;
     }
 
+    #M{
+        border-radius: 6px;
+        border: 2px solid #CBD2E0;
+        padding-left: 10px;
+    }
+
+    textarea{
+        width: 401px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        color: #2D3648;
+    }
+
     @media(max-width:1300px){
         
         .contact{
@@ -256,9 +255,19 @@ export default {
             justify-content: center;
             align-items: center;
             padding: 100px 80px;
-            gap: 60px;
+            gap: 50px;
             background-color: #023F5C;
     }
+
+        .contatos{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0px;
+
+            max-width: 587px;
+            height: 613px;
+        }
     }
 
     @media(max-width:610px){
@@ -283,13 +292,13 @@ export default {
 
         .ent{
             width: 417px;
-            height: 54px;
+            height: 34px;
             font-family: 'Inter';
             font-style: normal;
             font-weight: 400;
             font-size: 1rem;
             color: #000000;
-            padding-bottom: 40px;
+            padding-bottom: 20px;
         }
 
         .Msg{
@@ -320,7 +329,7 @@ export default {
             font-weight: 400;
             font-size: 1rem;
             color: #000000;
-            padding-bottom: 40px;
+            padding-bottom: 20px;
         }
 
         h5{
@@ -342,15 +351,6 @@ export default {
             border-radius: 6px;
         }
 
-        .white{
-            width: 380px;
-            height: 130px;
-
-            padding: 0;
-            border: 2px solid #cbd2e0;
-            border-radius: 6px;
-        }
-
         .buttom{
             width: 380px;
             height: 40px;
@@ -361,6 +361,16 @@ export default {
             border-radius: 6px;
             color: #FFFFFF;
         }
+
+        textarea{
+        width: 368px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        color: #2D3648;
+        
+    }
     }
 
         
