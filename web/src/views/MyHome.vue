@@ -18,7 +18,7 @@ import MyDepoiment from "@/components/home/MyDepoiment.vue";
 import MyPostBlog from "@/components/home/MyPostBlog.vue";
 import MyContact from "@/components/home/MyContact.vue";
 export default {
-    components:{MyHero, MyAbout, MyService, MyPostBlog, MyDepoiment},
+    components:{MyHero, MyAbout, MyService, MyPostBlog, MyContact, MyDepoiment},
 }
 </script>
 
