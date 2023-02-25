@@ -22,9 +22,18 @@
                 <div>
                     <h2 class="msg">Redes Sociais</h2>
                     <div class="img">
-                        <img src="../../assets/cont/face.svg">
-                        <img src="../../assets/cont/insta.svg">
-                        <img src="../../assets/cont/link.svg">
+                        
+                        <a href="https://m.facebook.com/100063631264547/" target="_blank">
+                            <img src="../../assets/cont/face.svg" alt="Facebook">
+                        </a>
+
+                        <a href="https://instagram.com/projectjrconsultoria?igshid=YmMyMTA2M2Y=" target="_blank">
+                            <img src="../../assets/cont/insta.svg" alt="Instagram">
+                        </a>
+
+                        <a href="https://www.linkedin.com/company/projectjr/" target="_blank">
+                            <img src="../../assets/cont/link.svg" alt="LinkedIn">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -110,7 +119,7 @@ export default {
         font-weight: 700;
         color: #4CB8E7;
         font-size: 2.25rem;
-        padding-bottom: 20px;
+        padding-bottom: 30px;
     }
 
     .super{
@@ -185,20 +194,21 @@ export default {
         padding-bottom: 8px;
     }
 
-    .label{
-        width: 417px;
+    input{
+        width: 401px;
         height: 46px;
 
-        padding: 0;
+        padding-left: 10px;
         border: 2px solid #CBD2E0;
         border-radius: 6px;
     }
 
-    .white{
-        width: 417px;
-        height: 130px;
 
-        padding: 0;
+    .white{
+        width: 401px;
+        height: 130px;
+        
+        padding-left: 10px;
         border: 2px solid #cbd2e0;
         border-radius: 6px;
     }
@@ -217,6 +227,7 @@ export default {
     }
 
     .buttom{
+        cursor: pointer;
         width: 417px;
         height: 40px;
         padding: 0;
