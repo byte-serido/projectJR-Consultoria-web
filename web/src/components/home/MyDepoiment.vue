@@ -53,7 +53,7 @@ export default {
     }
 
     .dep{
-        padding: 50px 80px 0px 80px;
+        padding: 50px 80px 30px 80px;
         display: flex;
         flex-direction: column;
         align-items: center;

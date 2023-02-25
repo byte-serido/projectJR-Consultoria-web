@@ -74,6 +74,7 @@ export default {
         background-color: #F7F9FC;
         align-items: center;
         border-radius: 20px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
     .card-article{
         padding: 40px 80px;

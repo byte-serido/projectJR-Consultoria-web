@@ -49,7 +49,7 @@
                     </div>
                     <div class="form">
                         <h5>Mensagem</h5>
-                        <input class="white" type="text" v-model="msg" placeholder="Descreva seu problema e encontraremos a melhor forma para te ajudar.">
+                        <input class="white" type="text" v-model="msg" placeholder="Escreva uma Mensagem.">
                     </div>
                 </div>
                 <input class="buttom" type="submit" value="Enviar" v-on:click="submitform">
@@ -235,6 +235,124 @@ export default {
         color: #115A7B;
         padding-bottom: 20px;
     }
+
+    @media(max-width:1300px){
+        
+        .contact{
+            flex-wrap: wrap;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 80px;
+            gap: 60px;
+            background-color: #023F5C;
+    }
+    }
+
+    @media(max-width:610px){
+        .tel{
+            flex-wrap: wrap;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 20px;
+        }
+    }
+
+    @media(max-width:560px){
+        .Msg1{
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 1.875rem;
+            color: #115A7B;
+            padding-bottom: 20px;
+        }
+
+        .ent{
+            width: 417px;
+            height: 54px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 1rem;
+            color: #000000;
+            padding-bottom: 40px;
+        }
+
+        .Msg{
+            background-color: #FFFFFF;
+            border: 1px solid #000000;
+            border-radius: 10px;
+            padding: 30px 40px;
+
+        }
+    }
+
+    @media(max-width:510px){
+
+        .Msg1{
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 1.875rem;
+            color: #115A7B;
+            padding-bottom: 20px;
+        }
+
+        .ent{
+            width: 380px;
+            height: 54px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 1rem;
+            color: #000000;
+            padding-bottom: 40px;
+        }
+
+        h5{
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 0.275re;
+            color: #2D3648;
+            padding-bottom: 8px;
+        }
+
+
+        .label{
+            width: 380px;
+            height: 46px;
+
+            padding: 0;
+            border: 2px solid #CBD2E0;
+            border-radius: 6px;
+        }
+
+        .white{
+            width: 380px;
+            height: 130px;
+
+            padding: 0;
+            border: 2px solid #cbd2e0;
+            border-radius: 6px;
+        }
+
+        .buttom{
+            width: 380px;
+            height: 40px;
+            padding: 0;
+            border: none;
+
+            background: #41A8D3;
+            border-radius: 6px;
+            color: #FFFFFF;
+        }
+    }
+
+        
 
 
     
