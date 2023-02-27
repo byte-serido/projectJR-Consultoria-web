@@ -58,7 +58,7 @@
                     </div>
                     <div class="form">
                         <h5>Mensagem</h5>
-                        <textarea name="mensagem" id="M" rows="7">Descreva seu problema e encontraremos a melhor forma para te ajudar.</textarea>
+                        <textarea name="mensagem" class="description" rows="7" v-model="description" placeholder="Descreva seu problema e encontraremos a melhor forma para te ajudar."></textarea>
                     </div>
                 </div>
                 <input class="buttom" type="submit" value="Enviar" v-on:click="submitform">
@@ -75,6 +75,7 @@ export default {
             email:'',
             tel:'',
             msg:'',
+            description:'',
         }
     },
 }
@@ -194,15 +195,18 @@ export default {
         padding-bottom: 8px;
     }
 
-    input{
+    .label{
         width: 401px;
         height: 46px;
-
         padding-left: 10px;
         border: 2px solid #CBD2E0;
         border-radius: 6px;
     }
-
+    
+    .label:focus{
+        border: 2px solid #41A8D3;
+        outline:none; 
+    }
 
     .form{
         padding-bottom: 19px;
@@ -231,10 +235,15 @@ export default {
         padding-bottom: 20px;
     }
 
-    #M{
+    .description{
         border-radius: 6px;
         border: 2px solid #CBD2E0;
-        padding-left: 10px;
+        padding: 10px;
+    }
+
+    .description:focus{
+        border: 2px solid #41A8D3;
+        outline: none;
     }
 
     textarea{
@@ -345,7 +354,6 @@ export default {
         .label{
             width: 380px;
             height: 46px;
-
             padding: 0;
             border: 2px solid #CBD2E0;
             border-radius: 6px;
@@ -356,25 +364,18 @@ export default {
             height: 40px;
             padding: 0;
             border: none;
-
             background: #41A8D3;
             border-radius: 6px;
             color: #FFFFFF;
         }
 
         textarea{
-        width: 368px;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        color: #2D3648;
-        
+            min-width: 330;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            color: #2D3648;   
+        }
     }
-    }
-
-        
-
-
-    
 </style>
