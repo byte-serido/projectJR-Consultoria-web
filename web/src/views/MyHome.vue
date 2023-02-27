@@ -5,6 +5,7 @@
         <MyService></MyService>
         <MyDepoiment></MyDepoiment>
         <MyPostBlog></MyPostBlog>
+        <MyContact></MyContact>
     </main>
 </template>
 
@@ -15,8 +16,9 @@ import MyAbout from "@/components/home/MyAbout.vue";
 import MyService from "../components/home/MyService.vue"
 import MyDepoiment from "@/components/home/MyDepoiment.vue";
 import MyPostBlog from "@/components/home/MyPostBlog.vue";
+import MyContact from "@/components/home/MyContact.vue";
 export default {
-    components:{MyHero, MyAbout, MyService, MyPostBlog, MyDepoiment},
+    components:{MyHero, MyAbout, MyService, MyPostBlog, MyContact, MyDepoiment},
 }
 </script>
 
