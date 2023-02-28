@@ -14,6 +14,9 @@ import Footer from "./components/MyFooter.vue"
 export default {
   components:{NavBar, Footer},
   name: 'App',
+  created(){
+    this.$store.dispatch('setInDepoiments')
+  }
 }
 </script>
 
