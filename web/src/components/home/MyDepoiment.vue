@@ -4,11 +4,11 @@
             <p>DEPOIMENTOS DE CLIENTES E PARCEIROS</p>
             <MyCardDep 
                 :i="index"
-                :length="items.length"
-                :name="items[index].name" 
-                :coment="items[index].coment" 
-                :company="items[index].company" 
-                :office="items[index].office" 
+                :length="depoiments.length"
+                :name="depoiments[index].name" 
+                :coment="depoiments[index].coment" 
+                :company="depoiments[index].company" 
+                :office="depoiments[index].office" 
                 @next="index = $event"
             />
         </div>
@@ -22,28 +22,13 @@ export default {
     data () {
       return {
         index: 0,
-        items: [
-            {
-                name: "Fulano da Silva",
-                coment: "Trabalhei com a Project Jr, uma empresa com pessoas incriveis e atenciosas!",
-                office: "CEO",
-                company: "Alura"
-            },
-            {
-                name: "Fulano Maia",
-                coment: "Trabalhei com a Project Jr é muito legal!",
-                office: "Gerente",
-                company: "DIO"
-            },
-            {
-                name: "Fulano Araujo",
-                coment: "Trabalhei com a Project Jr, é realizar um sonho!",
-                office: "Funcionário",
-                company: "Nasa"
-            },
-        ],
       }
     },
+    computed:{
+        depoiments(){
+            return this.$store.getters.getDepoiments
+        } 
+    }
   }
 </script>
 <style scoped>
