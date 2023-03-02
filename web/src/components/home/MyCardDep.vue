@@ -6,7 +6,7 @@
                 <p class="coment">{{ coment }}</p>
             </div>
             <div class="person-row">
-                <img class="avatar" src="../../assets/dep/avatar-generic.svg" alt="Avatar">
+                <div class="avatar" alt="Avatar" :style="{backgroundImage:`url(${imageUrl})`}"></div>
                 <article class="person-article">
                     <p class="name-person">{{ name }}</p>
                     <p class="off-comp">{{ office }}/{{ company }}</p>
@@ -44,13 +44,12 @@ export default {
             type: Number,
             required: true,
         },
-
         i:{
             type: Number,
             required: true,
             default: 0
         },
-        name:{
+        user:{
             type: String,
         },
         coment:{
@@ -62,6 +61,9 @@ export default {
         company:{
             type: String,
         },
+        imageUrl:{
+            type: String,
+        }
     },
 }
 </script>
@@ -115,6 +117,14 @@ export default {
         width: 60px;
     }
 
+    .avatar{
+        background-size: cover;
+        border-radius: 50%;
+        border: #4CB8E7 solid 2px;
+        height: 60px;
+        width: 60px;
+    }
+
     .person-row .avatar{
         height: 64px;
         width: 64px;
@@ -130,7 +140,7 @@ export default {
 
     .name-person{
         font-family: "Inter",sans-serif;
-        font-weight: 600;
+        font-weight: 700;
         font-size: 1rem;
         letter-spacing: -1%;
     }
@@ -174,7 +184,7 @@ export default {
     .r-button button:hover{
         color: #41A8D3;
     }
-
+    
     @media (max-width:1098px){
         .person-row{
             max-width:100%;

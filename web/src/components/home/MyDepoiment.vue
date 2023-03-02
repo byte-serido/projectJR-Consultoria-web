@@ -5,10 +5,11 @@
             <MyCardDep 
                 :i="index"
                 :length="depoiments.length"
-                :name="depoiments[index].name" 
-                :coment="depoiments[index].coment" 
+                :user="depoiments[index].name" 
+                :coment="depoiments[index].testimony" 
                 :company="depoiments[index].company" 
                 :office="depoiments[index].office" 
+                :image-url="depoiments[index].imgUrl"
                 @next="index = $event"
             />
         </div>

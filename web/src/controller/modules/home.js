@@ -1,4 +1,3 @@
-import dataDepoiments from "@/utils/data"
 import axios from 'axios';
 
 export default{
@@ -35,13 +34,19 @@ export default{
     },
     actions:{
         setInDepoiments({commit}){
-            commit('setDepoiments',dataDepoiments);
+            axios.get("http://localhost:3333/depositions/getall").then(resp =>{
+                const dataDepoiments = resp.data;
+                commit('setDepoiments',dataDepoiments);
+            }).catch((error)=>{
+                return error.message
+            })
         },
         setInServices({commit}){
-            axios.get("http://localhost:3333/solution/getall/").then(function(response){
-                commit('setServices',response);
-            }).catch(function(error){
-                console.log(error);
+            axios.get("http://localhost:3333/solution/getall/").then(resp =>{
+                const dataServices = resp.data;
+                commit('setServices',dataServices);
+            }).catch((error)=>{
+                return error.message
             })
         }
     }
