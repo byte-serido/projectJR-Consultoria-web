@@ -140,7 +140,7 @@ export default {
 
     .name-person{
         font-family: "Inter",sans-serif;
-        font-weight: 700;
+        font-weight: 600;
         font-size: 1rem;
         letter-spacing: -1%;
     }
