@@ -90,6 +90,8 @@ export default {
     }
 
     .box{
+        height: 240px;
+        width: 240px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
