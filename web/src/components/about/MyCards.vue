@@ -171,9 +171,35 @@
     }
 
     @media(max-width: 640px){
+
+        .cards{
+            height: 900px;
+            max-width: 80%;
+        }
         .wrapper{
             display: flex;
+            align-items: center;
             flex-direction: column;
+            height: 100%;
+        }
+
+        .card{
+            gap: 6px;
+        }
+        .card span{
+            line-height: 150%;
+        }
+    }
+
+    @media(max-width: 560px){
+        header{
+            font-size: 1.800rem;
+            line-height: 120%;
+            text-align: center;
+        }
+
+        .cards{
+            padding: 60px 20px;
         }
     }
 </style>
