@@ -15,7 +15,8 @@ export default {
   components:{NavBar, Footer},
   name: 'App',
   created(){
-    this.$store.dispatch('setInDepoiments')
+    this.$store.dispatch('setInDepoiments');
+    this.$store.dispatch("setInServices");
   }
 }
 </script>

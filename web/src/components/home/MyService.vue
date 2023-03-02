@@ -6,28 +6,10 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.</p>
             </article>
             <div class="box-container">
-                <div class="box">
+                <div class="box" v-for="service in services" :key="service.id">
                     <img src="../../assets/serv/stack.svg">
-                    <h3>Organização</h3>
-                    <p class="p-box">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                    <a class="a-box">Saiba Mais ></a>
-                </div>
-                <div class="box">
-                    <img src="../../assets/serv/seta.svg">
-                    <h3>Estratégia</h3>
-                    <p class="p-box">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                    <a class="a-box">Saiba Mais ></a>
-                </div>
-                <div class="box">
-                    <img src="../../assets/serv/doc.svg">
-                    <h3>Finanças</h3>
-                    <p class="p-box">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                    <a class="a-box">Saiba Mais ></a>
-                </div>
-                <div class="box">
-                    <img src="../../assets/serv/doc.svg">
-                    <h3>Lorem ipsum</h3>
-                    <p class="p-box">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                    <h3>{{service.name}}</h3>
+                    <p class="p-box">{{service.description}}</p>
                     <a class="a-box">Saiba Mais ></a>
                 </div>
             </div>
@@ -36,14 +18,10 @@
 </template>
 <script>
 export default {
-    data(){
-        return{
-            listService: [
-                {
-                    title: "ORGANIZAÇÃO",
-                }
-            ]
-        }
+    computed:{
+        services(){
+            return this.$store.getters.getServices
+        } 
     }
 }
 

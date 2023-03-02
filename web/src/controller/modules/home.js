@@ -1,4 +1,5 @@
 import dataDepoiments from "@/utils/data"
+import axios from 'axios';
 
 export default{
     state:{
@@ -35,6 +36,13 @@ export default{
     actions:{
         setInDepoiments({commit}){
             commit('setDepoiments',dataDepoiments);
+        },
+        setInServices({commit}){
+            axios.get("http://localhost:3333/solution/getall/").then(function(response){
+                commit('setServices',response);
+            }).catch(function(error){
+                console.log(error);
+            })
         }
     }
 }
