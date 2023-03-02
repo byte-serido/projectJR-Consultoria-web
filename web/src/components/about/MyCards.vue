@@ -150,6 +150,12 @@
         .card span{
             line-height: 130%;
         }
+
+        .card li{
+            font-weight: 600;
+            font-size: 0.875rem;
+            line-height: 200%;
+        }
     }
 
     @media(max-width: 840px){
@@ -165,12 +171,26 @@
             gap: 0px;
         }
 
+        .card h3{
+            font-size: 1.15rem;
+        }
+
         .card span{
             line-height: 115%;
+        }
+
+        .card:hover{
+            transform: scale(1.0);
         }
     }
 
     @media(max-width: 640px){
+        
+        header{
+            font-size: 1.800rem;
+            line-height: 120%;
+            text-align: center;
+        }
 
         .cards{
             height: 900px;
@@ -189,15 +209,11 @@
         .card span{
             line-height: 150%;
         }
+        
+        
     }
 
     @media(max-width: 560px){
-        header{
-            font-size: 1.800rem;
-            line-height: 120%;
-            text-align: center;
-        }
-
         .cards{
             padding: 60px 20px;
         }
