@@ -49,7 +49,7 @@ export default {
             required: true,
             default: 0
         },
-        user:{
+        name:{
             type: String,
         },
         coment:{

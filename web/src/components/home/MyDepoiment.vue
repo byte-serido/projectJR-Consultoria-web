@@ -5,7 +5,7 @@
             <MyCardDep 
                 :i="index"
                 :length="depoiments.length"
-                :user="depoiments[index].name" 
+                :name="depoiments[index].name" 
                 :coment="depoiments[index].testimony" 
                 :company="depoiments[index].company" 
                 :office="depoiments[index].office" 
