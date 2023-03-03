@@ -89,6 +89,7 @@
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
         transition: transform 0.3s;
+        cursor: pointer;
     }
 
     .card:hover{
@@ -178,10 +179,6 @@
         .card span{
             line-height: 115%;
         }
-
-        .card:hover{
-            transform: scale(1.0);
-        }
     }
 
     @media(max-width: 640px){
@@ -195,6 +192,7 @@
         .cards{
             height: 900px;
             max-width: 80%;
+            padding-bottom: 70px;
         }
         .wrapper{
             display: flex;
@@ -213,9 +211,9 @@
         
     }
 
-    @media(max-width: 560px){
+    @media(max-width: 480px){
         .cards{
-            padding: 60px 20px;
+            padding-bottom: 100px;
         }
     }
 </style>
