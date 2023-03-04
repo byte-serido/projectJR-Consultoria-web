@@ -179,6 +179,10 @@
         .card span{
             line-height: 115%;
         }
+
+        .card:hover{
+            transform: scale(0.9);
+        }
     }
 
     @media(max-width: 640px){
