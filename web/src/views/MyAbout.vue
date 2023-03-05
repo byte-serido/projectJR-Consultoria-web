@@ -1,11 +1,13 @@
 <template >
     <section>
-        <h1>About</h1>
+        <MyIntroAbout></MyIntroAbout>
     </section>
 </template>
 
 <script>
+import MyIntroAbout from "@/components/about/MyIntroAbout.vue"
 export default {
+    components:{MyIntroAbout}
     
 }
 </script>
