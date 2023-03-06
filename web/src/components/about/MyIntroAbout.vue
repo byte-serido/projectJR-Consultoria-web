@@ -2,7 +2,7 @@
     <section class="about-container">
         <div class="container about">
             <article>
-                <h2>Conheça a  <span>Project Jr.</span></h2>
+                <h2>CONHEÇA A  <span>PROJECT JR.</span></h2>
                 <p>Descubra mais sobre nossa Cultura e Equipe</p>
             </article>
 
@@ -29,7 +29,7 @@ export default {
     }
 
     article{
-        padding: 142px 250px 20px 80px;
+        padding: 152px 250px 152px 80px;
     }
 
     h2{
@@ -57,7 +57,26 @@ export default {
         font-style: normal;
         font-weight: 400;
         font-size: 1.375rem;
+        color: #F7F9FC;
     }
+
+    @media(max-width:1130PX){
+        article{
+        padding: 152px 150px 152px 80px;
+    }
+    }
+    
+    @media(max-width:1060PX){
+        article{
+        padding: 152px 100px 152px 80px;
+    }
+
+    img{
+        display: none;
+    }
+    }
+
+
 
 
     
