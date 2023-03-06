@@ -1,12 +1,15 @@
 <template >
     <section>
-        <h1>About</h1>
+        <MyCards></MyCards>
     </section>
 </template>
 
 <script>
+import MyCards from '@/components/about/MyCards.vue';
 export default {
-    
+    components: {
+        MyCards
+    }    
 }
 </script>
 <style scoped>
