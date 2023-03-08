@@ -6,8 +6,12 @@ export default{
         services:[],
         posts:[],
         contact:{},
+        isValid:false,
     },
     getters:{
+        getIsValid(state){
+            return state.isValid
+        },
         getDepoiments(state){
             return state.depoiments;
         },
@@ -30,23 +34,34 @@ export default{
         },
         setContact(state,contact){
             state.contact = contact;
+        },
+        setIsValid(state,valeu){
+            state.isValid = valeu;
         }
     },
     actions:{
         setInDepoiments({commit}){
-            axios.get("http://localhost:3333/depositions/getall").then(resp =>{
-                const dataDepoiments = resp.data;
-                commit('setDepoiments',dataDepoiments);
-            }).catch((error)=>{
-                return error.message
+            axios.get("http://localhost:3000/depositions/getall/").then(resp =>{
+                if(resp.status === 201){
+                    commit('setDepoiments',resp.data);
+                    commit('setIsValid',true);
+                }else{
+                    commit('setIsValid',false);
+                }
+            }).catch(()=>{
+                commit('setIsValid',false);
             })
         },
         setInServices({commit}){
-            axios.get("http://localhost:3333/solution/getall/").then(resp =>{
-                const dataServices = resp.data;
-                commit('setServices',dataServices);
-            }).catch((error)=>{
-                return error.message
+            axios.get("http://localhost:3000/solution/getall/").then(resp =>{
+                if(resp.status === 201){
+                    commit('setServices',resp.data);
+                    commit('setIsValid',true);
+                }else{
+                    commit('setIsValid',false);
+                }
+            }).catch(()=>{
+                commit('setIsValid',false);
             })
         }
     }
