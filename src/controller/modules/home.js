@@ -41,7 +41,7 @@ export default{
     },
     actions:{
         setInDepoiments({commit}){
-            axios.get("http://localhost:3000/depositions/getall/").then(resp =>{
+            axios.get("https://api-pjr.onrender.com/depositions/getall").then(resp =>{
                 if(resp.status === 201){
                     commit('setDepoiments',resp.data);
                     commit('setIsValid',true);
@@ -53,7 +53,7 @@ export default{
             })
         },
         setInServices({commit}){
-            axios.get("http://localhost:3000/solution/getall/").then(resp =>{
+            axios.get("https://api-pjr.onrender.com/solution/getall").then(resp =>{
                 if(resp.status === 201){
                     commit('setServices',resp.data);
                     commit('setIsValid',true);
