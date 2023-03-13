@@ -69,7 +69,11 @@ export default {
     @media(max-width:1060PX){
         article{
         padding: 152px 100px 152px 80px;
+        justify-content: center;
+        text-align: center;
     }
+
+
 
     img{
         display: none;
