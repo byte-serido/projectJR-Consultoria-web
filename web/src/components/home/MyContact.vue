@@ -255,6 +255,8 @@ export default {
         color: #2D3648;
     }
 
+    /* RESPONSIVIDADE */
+
     @media(max-width:1300px){
         
         .contact{
