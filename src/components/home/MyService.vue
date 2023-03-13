@@ -148,9 +148,10 @@ export default {
     }
 
     .a-box:hover{
-        filter: invert(56%) sepia(94%) saturate(346%) hue-rotate(154deg) brightness(89%) contrast(84%);
+        filter: invert(48%) sepia(63%) saturate(445%) hue-rotate(152deg) brightness(109%) contrast(91%);
+        color:  #41A8D3;
     }
-
+    
     img{
         background-color: #EDF0F7;
         padding: 0.938rem;
