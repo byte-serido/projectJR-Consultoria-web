@@ -10,25 +10,25 @@
                     <img src="../../assets/serv/stack.svg">
                     <h3>Organização</h3>
                     <p class="p-box">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                    <a class="a-box">Saiba Mais ></a>
+                    <a class="a-box">Saiba Mais <img class="arrow" src="../../assets/serv/icon-arrow-up-right.svg" alt="Seta"></a>
                 </div>
                 <div class="box">
                     <img src="../../assets/serv/seta.svg">
                     <h3>Estratégia</h3>
                     <p class="p-box">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                    <a class="a-box">Saiba Mais ></a>
+                    <a class="a-box">Saiba Mais <img class="arrow" src="../../assets/serv/icon-arrow-up-right.svg" alt="Seta"></a>
                 </div>
                 <div class="box">
                     <img src="../../assets/serv/doc.svg">
                     <h3>Finanças</h3>
                     <p class="p-box">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                    <a class="a-box">Saiba Mais ></a>
+                    <a class="a-box">Saiba Mais <img class="arrow" src="../../assets/serv/icon-arrow-up-right.svg" alt="Seta"></a>
                 </div>
                 <div class="box">
                     <img src="../../assets/serv/doc.svg">
                     <h3>Lorem ipsum</h3>
                     <p class="p-box">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                    <a class="a-box">Saiba Mais ></a>
+                    <a class="a-box">Saiba Mais <img class="arrow" src="../../assets/serv/icon-arrow-up-right.svg" alt="Seta"></a>
                 </div>
             </div>
         </div>
@@ -141,6 +141,17 @@ export default {
         align-items: center;
     }
 
+    .arrow{
+        background-color: transparent;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    .a-box:hover{
+        filter: invert(48%) sepia(63%) saturate(445%) hue-rotate(152deg) brightness(109%) contrast(91%);
+        color:  #41A8D3;
+    }
+    
     img{
         background-color: #EDF0F7;
         padding: 0.938rem;
