@@ -121,6 +121,17 @@ export default {
         align-items: center;
     }
 
+    .arrow{
+        background-color: transparent;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    .a-box:hover{
+        filter: invert(48%) sepia(63%) saturate(445%) hue-rotate(152deg) brightness(109%) contrast(91%);
+        color:  #41A8D3;
+    }
+    
     img{
         background-color: #EDF0F7;
         padding: 0.938rem;

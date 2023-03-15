@@ -1,21 +1,23 @@
 <template>
     <div class="card">
-        <article class="card-article">
-            <div class="container-text">
-                <img class="aspas" src="../../assets/dep/icon-aspas.svg" alt="Icone de aspas">
-                <p class="coment">{{ coment }}</p>
-            </div>
-            <div class="person-row">
-                <div class="avatar" alt="Avatar" :style="{backgroundImage:`url(${imageUrl})`}"></div>
-                <article class="person-article">
-                    <p class="name-person">{{ name }}</p>
-                    <p class="off-comp">{{ office }}/{{ company }}</p>
-                </article>
-            </div>
+        <div class="content">
+            <article class="card-article">
+                <div class="container-text">
+                    <img class="aspas" src="../../assets/dep/icon-aspas.svg" alt="Icone de aspas">
+                    <p class="coment">{{ coment }}</p>
+                </div>
+                <div class="person-row">
+                    <img class="avatar" src="../../assets/dep/avatar-generic.svg" alt="Avatar">
+                    <article class="person-article">
+                        <p class="name-person">{{ name }}</p>
+                        <p class="off-comp">{{ office }}/{{ company }}</p>
+                    </article>
+                </div>
+            </article>
             <div class="r-button">
                 <button @click="next">Proximo ></button>
             </div>
-        </article>
+        </div>
         <div class="img-padrao">
         </div>
     </div>
@@ -78,6 +80,14 @@ export default {
         border-radius: 20px;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
+
+    .content{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        min-height: 410px;
+    }
+
     .card-article{
         padding: 40px 80px;
         display: flex;
@@ -109,7 +119,7 @@ export default {
         min-width: 100%;
         display: flex;
         flex-direction: column;
-        gap: 50px;
+        gap: 20px;
     }
 
     .aspas{
@@ -163,10 +173,10 @@ export default {
     }
 
     .r-button{
-        min-width: 100%;
         display: flex;
         align-items: center;
-        justify-content: flex-end;
+        padding-right: 20px;
+        padding-top: 10px;
     }
 
     .r-button button{
@@ -215,11 +225,14 @@ export default {
         }
 
         .container-text{
-            gap: 20px;
+            gap: 10px;
         }
     }
 
     @media (max-width:460px){
+        .content{
+            min-height: 50%;
+        }
         .card{
             min-width: 90%;
             height: 300px;
