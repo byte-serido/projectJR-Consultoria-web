@@ -6,6 +6,7 @@ export default{
         services:[],
         posts:[],
         contact:{},
+        isValid:true
     },
     getters:{
         getIsValid(state){
@@ -34,30 +35,33 @@ export default{
         setContact(state,contact){
             state.contact = contact;
         },
+        setIsValid(state,isValid){
+            state.isValid = isValid;
+        }
     },
     actions:{
-        async setInDepoiments({commit}){
-            await axios.get("https://api-pjr.onrender.com/depositions/getall").then(resp =>{
+        setInDepoiments({commit}){
+            axios.get("https://api-pjr.onrender.com/depositions/getall/").then(resp =>{
                 if(resp.status === 201){
                     commit('setDepoiments',resp.data);
-                    return(false);
+                    commit('setIsValid', false);
                 }else{
-                    return(true);
+                    commit('setIsValid', true);
                 }
             }).catch(()=>{
-                return(true);
+                commit('setIsValid', true);
             })
         },
-        async setInServices({commit}){
-            await axios.get("https://api-pjr.onrender.com/solution/getall").then(resp =>{
+        setInServices({commit}){
+            axios.get("https://api-pjr.onrender.com/solution/getall/").then(resp =>{
                 if(resp.status === 201){
                     commit('setServices',resp.data);
-                    return(false)
+                    commit('setIsValid', false);
                 }else{
-                    return(true)
+                    commit('setIsValid', true);
                 }
             }).catch(()=>{
-                return(true);
+                commit('setIsValid', true);
             })
         }
     }
