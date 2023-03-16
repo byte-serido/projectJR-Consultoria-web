@@ -11,7 +11,7 @@
                 <div class="text">
                     <h3>{{ principal.title }}</h3>
                     <p>{{ principal.corp }}</p>
-                    <a :href="principal.link">Leia mais ></a>
+                    <a :href="principal.link">Leia mais <img class="arrow" src="../../assets/blog/icon-arrow-up-right.svg" alt="Arrow"></a>
                 </div>
             </div>
             <div class="post-column">
@@ -21,7 +21,7 @@
                     <div class="content">
                         <h3>{{ post1.title }}</h3>
                         <p>{{ post1.corp }}</p>
-                        <a :href="post1.link">Leia mais ></a>
+                        <a :href="post1.link">Leia mais <img class="arrow" src="../../assets/blog/icon-arrow-up-right.svg" alt="Arrow"></a>
                     </div>
                 </div>
                 <div class="post">
@@ -31,7 +31,7 @@
                     <div class="content">
                         <h3>{{ post2.title }}</h3>
                         <p>{{ post2.corp }}</p>
-                        <a :href="post2.link">Leia mais ></a>
+                        <a :href="post2.link">Leia mais <img class="arrow" src="../../assets/blog/icon-arrow-up-right.svg" alt="Arrow"></a>
                     </div>
                 </div>
                 <div class="post">
@@ -41,7 +41,7 @@
                     <div class="content">
                         <h3>{{ post3.title }}</h3>
                         <p>{{ post3.corp }}</p>
-                        <a :href="post3.link">Leia mais ></a>
+                        <a :href="post3.link">Leia mais <img class="arrow" src="../../assets/blog/icon-arrow-up-right.svg" alt="Arrow"></a>
                     </div>
                 </div>
             </div>
@@ -137,6 +137,11 @@
     .text a{
         color: #1A688A;
         font-size: 1.25rem;
+    }
+
+    .arrow{
+        width: 25px;
+        height: 16px;
     }
 
     .post-column{
