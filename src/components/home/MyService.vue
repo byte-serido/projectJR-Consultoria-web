@@ -21,19 +21,16 @@
 import Loading from "@/components/MyLoading.vue"
 export default {
     components:{Loading},
-    data(){
-        return{
-            loading:true,
-            services:[]
+    computed:{
+        loading(){
+            return this.$store.getters.getIsValid
+        },
+        services(){
+            return this.$store.getters.getServices
         }
     },
-    
-    mounted(){
-        const isloading = this.$store.dispatch("setInServices")
-        if (isloading === false) {
-            this.services = this.$store.state.services;
-            this.loading = false;
-        }
+    async mounted(){
+        await this.$store.dispatch("setInServices")
     }
 }
 
