@@ -1,14 +1,5 @@
 <template>
-  <template v-if="isValid">
-    <header>
-      <NavBar></NavBar>
-    </header>
-    <router-view></router-view>
-    <footer>
-      <Footer></Footer>
-    </footer>
-  </template>
-  <template v-else>
+  <template v-if="loading">
     <div class="error-conect">
       <div class="error-text">
         <h1 class="error-title">ERROR 500</h1>
@@ -18,6 +9,15 @@
       </div>
     </div>
   </template>
+  <template v-else>
+    <header>
+      <NavBar></NavBar>
+    </header>
+    <router-view></router-view>
+    <footer>
+      <Footer></Footer>
+    </footer>
+  </template>
 </template>
 
 <script>
@@ -26,14 +26,13 @@ import Footer from "./components/MyFooter.vue"
 export default {
   components:{NavBar, Footer},
   name: 'App',
-  computed:{
-    isValid(){
-      return this.$store.getters.getIsValid
+  data(){
+    return{
+      loading:true,
     }
   },
-  created(){
-    this.$store.dispatch("setInDepoiments")
-    this.$store.dispatch("setInServices")
+  mounted(){
+    this.loading = this.$store.dispatch("setInDepoiments") && this.$store.dispatch("setInServices")
   }
 }
 </script>
