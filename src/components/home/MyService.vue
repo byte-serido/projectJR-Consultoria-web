@@ -1,11 +1,12 @@
-<template lang="pt-br">
+<template>
     <section class="service-container">
         <div class="container service">
             <article>
                 <h2>SERVIÇOS</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.</p>
             </article>
-            <div class="box-container">
+            <Loading v-if="loading"></Loading>
+            <div class="box-container" v-else>
                 <div class="box" v-for="service in services" :key="service.id">
                     <img src="../../assets/serv/stack.svg">
                     <h3>{{service.name}}</h3>
@@ -17,11 +18,22 @@
     </section>
 </template>
 <script>
+import Loading from "@/components/MyLoading.vue"
 export default {
-    computed:{
-        services(){
-            return this.$store.getters.getServices
-        } 
+    components:{Loading},
+    data(){
+        return{
+            loading:true,
+            services:[]
+        }
+    },
+    
+    mounted(){
+        const isloading = this.$store.dispatch("setInServices")
+        if (isloading === false) {
+            this.services = this.$store.state.services;
+            this.loading = false;
+        }
     }
 }
 
