@@ -31,8 +31,9 @@ export default {
       loading:true,
     }
   },
-  mounted(){
-    this.loading = this.$store.dispatch("setInDepoiments") && this.$store.dispatch("setInServices")
+  async mounted(){
+    this.loading = await this.$store.dispatch("setInDepoiments") && this.$store.dispatch("setInServices")
+    console.log(this.loading)
   }
 }
 </script>
