@@ -26,14 +26,13 @@ import Footer from "./components/MyFooter.vue"
 export default {
   components:{NavBar, Footer},
   name: 'App',
-  data(){
-    return{
-      loading:true,
+  computed:{
+    loading(){
+      return this.$store.getters.getIsConnect
     }
   },
   async mounted(){
-    this.loading = await this.$store.dispatch("setInDepoiments") && this.$store.dispatch("setInServices")
-    console.log(this.loading)
+    await this.$store.dispatch("setInConnect")
   }
 }
 </script>
