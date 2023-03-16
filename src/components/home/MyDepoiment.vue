@@ -26,16 +26,18 @@ export default {
     data () {
       return {
         index: 0,
-        loading:true,
-        depoiments:[]
       }
-    },    
-    mounted(){
-        const isloading = this.$store.dispatch("setInDepoiments")
-        if (isloading === false) {
-            this.services = this.$store.state.depoiments;
-            this.loading = false;
+    },   
+    computed:{
+        loading(){
+            return this.$store.getters.getIsValid
+        },
+        depoiments(){
+            return this.$store.getters.getDepoiments
         }
+    },
+    async mounted(){
+        await this.$store.dispatch("setInDepoiments")
     }
   }
 </script>
