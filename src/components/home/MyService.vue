@@ -11,7 +11,7 @@
                     <img src="../../assets/serv/stack.svg">
                     <h3>{{service.name}}</h3>
                     <p class="p-box">{{service.description}}</p>
-                    <a class="a-box">Saiba Mais ></a>
+                    <a class="a-box">Saiba Mais <img class="arrow" src="../../assets/serv/icon-arrow-up-right.svg" alt="Seta"></a>
                 </div>
             </div>
         </div>
@@ -128,6 +128,9 @@ export default {
         display: flex;
         flex-direction: row;
         align-items: center;
+        position: relative;
+        transition: all 400ms ease;
+        cursor: pointer;
     }
 
     .arrow{
