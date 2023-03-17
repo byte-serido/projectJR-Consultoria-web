@@ -167,7 +167,7 @@ export default {
         font-family: 'Inter';
         font-style: normal;
         font-weight: 600;
-        font-size: 0.275re;
+        font-size: 0.875rem;
         color: #2D3648;
         padding-bottom: 8px;
         line-height: 16px;
@@ -262,6 +262,13 @@ export default {
         background: #41A8D3;
         border-radius: 6px;
         color: #FFFFFF;
+        transition: all 400ms ease;
+    }
+
+    .buttom:hover{
+        background-color: white;
+        color: #0A4B69;
+        border: 1px solid #0A4B69;
     }
     
     textarea{
@@ -488,6 +495,16 @@ export default {
         font-size: 1rem;
     }
 
+    h5{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 0.800rem;
+        color: #2D3648;
+        padding-bottom: 8px;
+        line-height: 16px;
+    }
+
     .cont{
         font-family: 'Inter';
         font-style: normal;
@@ -504,34 +521,35 @@ export default {
         padding-bottom: 20px;
     }
 
-        .Msg1{
+    .Msg1{
         font-family: 'Inter';
         font-style: normal;
         font-weight: 700;
         font-size: 1.25rem;
         color: #115A7B;
         padding-bottom: 10px;
-        }
+    }
 
-        .label{
-            width: 300px;
-            height: 22px;
-            padding: 10px;
-            border: 2px solid #CBD2E0;
-            border-radius: 6px;
-        }
+    .label{
+        width: 300px;
+        height: 22px;
+        padding: 10px;
+        border: 2px solid #CBD2E0;
+        border-radius: 6px;
+    }
 
-        .buttom{
-            width: 324px;
-            height: 40px;
-            padding: 0;
-            border: none;
-            background: #41A8D3;
-            border-radius: 6px;
-            color: #FFFFFF;
-        }
+    .buttom{
+        width: 324px;
+        height: 40px;
+        padding: 0;
+        font-size: 0.800rem;
+        border: none;
+        background: #41A8D3;
+        border-radius: 6px;
+        color: #FFFFFF;
+    }
 
-        textarea{
+    textarea{
         width: 300px;
         height: 50px;
         font-family: 'Inter';
@@ -539,9 +557,9 @@ export default {
         font-weight: 400;
         font-size: 12px;
         color: #2D3648;   
-        }
+    }
 
-        .ent{
+    .ent{
         width: 300px;
         height: 30px;
         font-family: 'Inter';
@@ -550,23 +568,23 @@ export default {
         font-size: 0.75rem;
         color: #000000;
         padding-bottom: 5px;
-        }
+    }
 
-        .form{
+    .form{
         padding-bottom: 10px;
-        }
+    }
 
-        img{
+    img{
         width: 50px;
         height: 50px;
     }
 
-        .img{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            gap: 5px;
-        }
+    .img{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 5px;
+    }
     }
 
     
