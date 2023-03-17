@@ -29,20 +29,19 @@ export default {
     }
 
     article{
-        padding: 152px 250px 152px 80px;
+        padding: 142px 250px 142px 80px;
+        
     }
 
     h2{
-        width: 639px;
-        height: 61px;
-        
         color: #F7F9FC;
         font-family: 'Inter';
         font-style: normal;
         font-weight: 700;
-        font-size: 50px;
+        font-size: 3.1rem;
         line-height: 61px;
         padding-bottom: 20px;
+        
     }
 
     span{
@@ -63,7 +62,7 @@ export default {
         color: #F7F9FC;
         line-height: 160%;
     }
-
+    
     @media(max-width:1130PX){
         article{
         padding: 152px 150px 152px 80px;
