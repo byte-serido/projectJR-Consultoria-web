@@ -33,13 +33,16 @@ export default {
     }
 
     h2{
+        width: 639px;
+        height: 61px;
+        
         color: #F7F9FC;
         font-family: 'Inter';
         font-style: normal;
         font-weight: 700;
-        font-size: 3.125rem;
+        font-size: 50px;
+        line-height: 61px;
         padding-bottom: 20px;
-        
     }
 
     span{
@@ -58,6 +61,7 @@ export default {
         font-weight: 400;
         font-size: 1.375rem;
         color: #F7F9FC;
+        line-height: 160%;
     }
 
     @media(max-width:1130PX){
