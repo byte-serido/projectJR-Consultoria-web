@@ -5,16 +5,16 @@
             <div class="contatos">
                 <article class="super">
                     <h2 class="msg">Fale Conosco</h2>
-                    <p>Tem alguma dúvida sobre nossos serviços ou deseja marcar um diagnóstico gratuito? Deixe uma mensagem através do formulário ao lado ou entre em contato conosco através dos seguintes canais:</p>
+                    <p class="text">Tem alguma dúvida sobre nossos serviços ou deseja marcar um diagnóstico gratuito? Deixe uma mensagem através do formulário ao lado ou entre em contato conosco através dos seguintes canais:</p>
                 </article>
                 <div class="mid">
                     <h3>Contatos</h3>
                     <div class="tel">
-                        <article >
+                        <article class="num">
                             <h4>Telefone</h4>
                             <p class="cont">(84) 9 9999-9999</p>
                         </article>
-                        <article>
+                        <article class="num">
                             <h4>E-mail</h4>
                             <p class="cont">contato@projectjr.com</p>
                         </article>
@@ -97,6 +97,16 @@ export default {
         background-color: #023F5C;
     }
 
+    .super{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.125rem;
+        padding-bottom: 50px;
+        color: #F7F9FC;
+        gap: 20px;
+    }
+
     .contatos{
         display: flex;
         flex-direction: column;
@@ -108,12 +118,6 @@ export default {
 
     }
 
-    .Msg{
-        background-color: #FFFFFF;
-        border: 1px solid #000000;
-        border-radius: 10px;
-        padding: 50px 60px;
-    }
 
     .msg{
         font-family: 'Inter';
@@ -124,18 +128,21 @@ export default {
         padding-bottom: 30px;
     }
 
-    .super{
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.125rem;
-        padding-bottom: 50px;
-        color: #F7F9FC;
+    .Msg{
+        background-color: #FFFFFF;
+        border: 1px solid #000000;
+        border-radius: 10px;
+        padding: 50px 60px;
     }
 
-    .mid{
-        padding-bottom: 50px;
-        
+    .Msg1{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 2.25rem;
+        color: #115A7B;
+        padding-bottom: 20px;
+        line-height: 130%;
     }
 
     h3{
@@ -147,44 +154,13 @@ export default {
         padding-bottom: 20px;
     }
 
-    .tel{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 20px;
-    }
-
     h4{
         padding-bottom: 5px;
         font-family: 'Inter';
         font-style: normal;
         font-weight: 700;
         font-size: 1.5rem;
-    }
-
-    .cont{
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.375rem;
-    }
-    
-    .img{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 10px;
-    }
-
-    .ent{
-        width: 417px;
-        height: 54px;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.125rem;
-        color: #000000;
-        padding-bottom: 40px;
+        line-height: 140%;
     }
 
     h5{
@@ -194,10 +170,64 @@ export default {
         font-size: 0.275re;
         color: #2D3648;
         padding-bottom: 8px;
+        line-height: 16px;
     }
 
+    .text{
+        line-height: 150%;
+    }
+
+    .mid{
+        padding-bottom: 50px;
+        
+    }
+
+    .tel{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .num{
+        gap: 5px;
+        width: 200px;
+        height: 74px;
+    }
+
+    .cont{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.375rem;
+        line-height: 160%;
+    }
+    
+    .img{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    
+    .ent{
+        width: 417px;
+        height: 54px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.125rem;
+        color: #000000;
+        padding-bottom: 40px;
+        line-height: 150%;
+    }
+
+    .form{
+        padding-bottom: 19px;
+    }
+    
     .label{
-        width: 401px;
+        width: 394.5px;
         height: 46px;
         padding: 0px 10px 0px 10px;
         border: 2px solid #CBD2E0;
@@ -206,13 +236,20 @@ export default {
     
     .label:focus{
         border: 2px solid #41A8D3;
-        outline:none; 
+        outline: none; 
     }
 
-    .form{
-        padding-bottom: 19px;
+    .description{
+        border-radius: 6px;
+        border: 2px solid #CBD2E0;
+        padding: 10px;
     }
 
+    .description:focus{
+        border: 2px solid #41A8D3;
+        outline: none;
+    }
+    
     .buttom{
         cursor: pointer;
         
@@ -226,35 +263,18 @@ export default {
         border-radius: 6px;
         color: #FFFFFF;
     }
-
-    .Msg1{
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 2.25rem;
-        color: #115A7B;
-        padding-bottom: 20px;
-    }
-
-    .description{
-        border-radius: 6px;
-        border: 2px solid #CBD2E0;
-        padding: 10px;
-    }
-
-    .description:focus{
-        border: 2px solid #41A8D3;
-        outline: none;
-    }
-
+    
     textarea{
-        width: 401px;
+        width: 394.5px;
         font-family: 'Inter';
         font-style: normal;
         font-weight: 400;
         font-size: 16px;
         color: #2D3648;
-    }
+        line-height: 150%;
+    }   
+
+    
 
     /* RESPONSIVIDADE */
 
@@ -293,6 +313,16 @@ export default {
     }
 
     @media(max-width:560px){
+
+        .msg{
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            color: #4CB8E7;
+            font-size: 2.25rem;
+            padding-bottom: 10px;
+        }
+
         .Msg1{
             font-family: 'Inter';
             font-style: normal;
@@ -323,6 +353,7 @@ export default {
     }
 
     @media(max-width:510px){
+
 
         .Msg{
             background-color: #FFFFFF;
