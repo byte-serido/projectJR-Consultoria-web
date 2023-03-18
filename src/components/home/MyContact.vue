@@ -1,19 +1,20 @@
-<template lang="pt-br">
+
+78<template lang="pt-br">
     <section class="contact-container">
         <div class="container contact">
             <div class="contatos">
                 <article class="super">
                     <h2 class="msg">Fale Conosco</h2>
-                    <p>Tem alguma dúvida sobre nossos serviços ou deseja marcar um diagnóstico gratuito? Deixe uma mensagem através do formulário ao lado ou entre em contato conosco através dos seguintes canais:</p>
+                    <p class="text">Tem alguma dúvida sobre nossos serviços ou deseja marcar um diagnóstico gratuito? Deixe uma mensagem através do formulário ao lado ou entre em contato conosco através dos seguintes canais:</p>
                 </article>
                 <div class="mid">
                     <h3>Contatos</h3>
                     <div class="tel">
-                        <article >
+                        <article class="num">
                             <h4>Telefone</h4>
                             <p class="cont">(84) 9 9999-9999</p>
                         </article>
-                        <article>
+                        <article class="num">
                             <h4>E-mail</h4>
                             <p class="cont">contato@projectjr.com</p>
                         </article>
@@ -96,6 +97,16 @@ export default {
         background-color: #023F5C;
     }
 
+    .super{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.125rem;
+        padding-bottom: 50px;
+        color: #F7F9FC;
+        gap: 20px;
+    }
+
     .contatos{
         display: flex;
         flex-direction: column;
@@ -107,12 +118,6 @@ export default {
 
     }
 
-    .Msg{
-        background-color: #FFFFFF;
-        border: 1px solid #000000;
-        border-radius: 10px;
-        padding: 50px 60px;
-    }
 
     .msg{
         font-family: 'Inter';
@@ -123,18 +128,21 @@ export default {
         padding-bottom: 30px;
     }
 
-    .super{
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.125rem;
-        padding-bottom: 50px;
-        color: #F7F9FC;
+    .Msg{
+        background-color: #FFFFFF;
+        border: 1px solid #000000;
+        border-radius: 10px;
+        padding: 50px 60px;
     }
 
-    .mid{
-        padding-bottom: 50px;
-        
+    .Msg1{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 2.25rem;
+        color: #115A7B;
+        padding-bottom: 20px;
+        line-height: 130%;
     }
 
     h3{
@@ -146,6 +154,34 @@ export default {
         padding-bottom: 20px;
     }
 
+    h4{
+        padding-bottom: 5px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.5rem;
+        line-height: 140%;
+    }
+
+    h5{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: #2D3648;
+        padding-bottom: 8px;
+        line-height: 16px;
+    }
+
+    .text{
+        line-height: 150%;
+    }
+
+    .mid{
+        padding-bottom: 50px;
+        
+    }
+
     .tel{
         display: flex;
         flex-direction: row;
@@ -153,12 +189,10 @@ export default {
         gap: 20px;
     }
 
-    h4{
-        padding-bottom: 5px;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 1.5rem;
+    .num{
+        gap: 5px;
+        width: 200px;
+        height: 74px;
     }
 
     .cont{
@@ -166,6 +200,7 @@ export default {
         font-style: normal;
         font-weight: 400;
         font-size: 1.375rem;
+        line-height: 160%;
     }
     
     .img{
@@ -174,7 +209,7 @@ export default {
         justify-content: space-between;
         gap: 10px;
     }
-
+    
     .ent{
         width: 417px;
         height: 54px;
@@ -184,55 +219,24 @@ export default {
         font-size: 1.125rem;
         color: #000000;
         padding-bottom: 40px;
+        line-height: 150%;
     }
 
-    h5{
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 0.275re;
-        color: #2D3648;
-        padding-bottom: 8px;
+    .form{
+        padding-bottom: 19px;
     }
-
+    
     .label{
-        width: 401px;
+        width: 394.5px;
         height: 46px;
-        padding-left: 10px;
+        padding: 0px 10px 0px 10px;
         border: 2px solid #CBD2E0;
         border-radius: 6px;
     }
     
     .label:focus{
         border: 2px solid #41A8D3;
-        outline:none; 
-    }
-
-    .form{
-        padding-bottom: 19px;
-    }
-
-    .buttom{
-        cursor: pointer;
-        
-        
-        width: 417px;
-        height: 40px;
-        padding: 0;
-        border: none;
-
-        background: #41A8D3;
-        border-radius: 6px;
-        color: #FFFFFF;
-    }
-
-    .Msg1{
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 2.25rem;
-        color: #115A7B;
-        padding-bottom: 20px;
+        outline: none; 
     }
 
     .description{
@@ -245,15 +249,40 @@ export default {
         border: 2px solid #41A8D3;
         outline: none;
     }
+    
+    .buttom{
+        cursor: pointer;
+        width: 417px;
+        height: 40px;
+        padding: 0;
+        border: none;
+        font-size: 0.800rem;
+        font-weight: 700;
+        background: #41A8D3;
+        border-radius: 6px;
+        color: #FFFFFF;
+        transition: all 400ms ease;
+    }
 
+    .buttom:hover{
+        background-color: white;
+        color: #0A4B69;
+        border: 1px solid #0A4B69;
+    }
+    
     textarea{
-        width: 401px;
+        width: 394.5px;
         font-family: 'Inter';
         font-style: normal;
         font-weight: 400;
         font-size: 16px;
         color: #2D3648;
-    }
+        line-height: 150%;
+    }   
+
+    
+
+    /* RESPONSIVIDADE */
 
     @media(max-width:1300px){
         
@@ -290,6 +319,16 @@ export default {
     }
 
     @media(max-width:560px){
+
+        .msg{
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            color: #4CB8E7;
+            font-size: 2.25rem;
+            padding-bottom: 10px;
+        }
+
         .Msg1{
             font-family: 'Inter';
             font-style: normal;
@@ -321,6 +360,15 @@ export default {
 
     @media(max-width:510px){
 
+
+        .Msg{
+            background-color: #FFFFFF;
+            border: 1px solid #000000;
+            border-radius: 10px;
+            padding: 30px 30px;
+
+        }
+
         .Msg1{
             font-family: 'Inter';
             font-style: normal;
@@ -341,26 +389,16 @@ export default {
             padding-bottom: 20px;
         }
 
-        h5{
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 0.275re;
-            color: #2D3648;
-            padding-bottom: 8px;
-        }
-
-
         .label{
             width: 380px;
-            height: 46px;
-            padding: 0;
+            height: 22px;
+            padding: 10px;
             border: 2px solid #CBD2E0;
             border-radius: 6px;
         }
 
         .buttom{
-            width: 380px;
+            width: 404px;
             height: 40px;
             padding: 0;
             border: none;
@@ -370,7 +408,8 @@ export default {
         }
 
         textarea{
-            min-width: 330;
+            width: 380px;
+            height: 100px;
             font-family: 'Inter';
             font-style: normal;
             font-weight: 400;
@@ -378,4 +417,182 @@ export default {
             color: #2D3648;   
         }
     }
+
+
+    @media(max-width:480px){
+        .contatos{
+            height: 620px;
+        }
+
+        .Msg1{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: #115A7B;
+        padding-bottom: 10px;
+        }
+
+        .label{
+            width: 350px;
+            height: 22px;
+            padding: 10px;
+            border: 2px solid #CBD2E0;
+            border-radius: 6px;
+        }
+
+        .buttom{
+            width: 374px;
+            height: 40px;
+            padding: 0;
+            border: none;
+            background: #41A8D3;
+            border-radius: 6px;
+            color: #FFFFFF;
+        }
+
+        textarea{
+        width: 350px;
+        height: 50px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        color: #2D3648;   
+        }
+
+        .ent{
+        width: 350px;
+        height: 54px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1rem;
+        color: #000000;
+        padding-bottom: 5px;
+    }
+
+    }
+
+    @media(max-width: 450px){
+
+        .contatos{
+            height: 650px;
+        }
+
+        .msg{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        color: #4CB8E7;
+        font-size: 1.75rem;
+        padding-bottom: 30px;
+    }
+
+    p{
+        font-size: 1rem;
+    }
+
+    h4{
+        padding-bottom: 5px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1rem;
+    }
+
+    h5{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 0.800rem;
+        color: #2D3648;
+        padding-bottom: 8px;
+        line-height: 16px;
+    }
+
+    .cont{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1rem;
+    }
+
+    h3{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: #4CB8E7;
+        padding-bottom: 20px;
+    }
+
+    .Msg1{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: #115A7B;
+        padding-bottom: 10px;
+    }
+
+    .label{
+        width: 300px;
+        height: 22px;
+        padding: 10px;
+        border: 2px solid #CBD2E0;
+        border-radius: 6px;
+    }
+
+    .buttom{
+        width: 324px;
+        height: 40px;
+        padding: 0;
+        font-size: 0.800rem;
+        border: none;
+        background: #41A8D3;
+        border-radius: 6px;
+        color: #FFFFFF;
+    }
+
+    textarea{
+        width: 300px;
+        height: 50px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        color: #2D3648;   
+    }
+
+    .ent{
+        width: 300px;
+        height: 30px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 0.75rem;
+        color: #000000;
+        padding-bottom: 5px;
+    }
+
+    .form{
+        padding-bottom: 10px;
+    }
+
+    img{
+        width: 50px;
+        height: 50px;
+    }
+
+    .img{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 5px;
+    }
+    }
+
+    
+
 </style>
