@@ -82,9 +82,10 @@ export default {
         display: none;
     }
     }
-
-
-
-
     
+    @media(max-width:480PX){
+        article{
+            padding: 152px 50px 152px 80px;
+        }
+    }
 </style>
