@@ -53,6 +53,11 @@ export default {
 }
 </script>
 <style scoped>
+
+    /* INICIO DO CSS */
+
+    /* ESTILIZAÇÃO DO CONTAINER FOOTER */
+
     .footer-container{
         font-family: 'Inter',sans-serif;
         background-color: #023F5C;
@@ -71,6 +76,8 @@ export default {
         flex-direction: row;
         gap: 79px;
     }
+
+    /* ESTILIZAÇÃO DO MENU DO MAPA DO SITE */
 
     .navigation{
         display: flex;
@@ -102,6 +109,8 @@ export default {
         color: #41A8D3;
     }
 
+    /* ESTILIZAÇÃO DO MENU SOCIAL DO SITE */
+
     .social{
         display: flex;
         flex-direction: column;
@@ -115,9 +124,13 @@ export default {
         gap: 20px;
     }
 
+    /* STYLE RESET */
+
     a{
         text-decoration: none;
     }
+
+    /* RESPONSIVIDADE */
 
     @media (max-width:1080px){
         .footer{
