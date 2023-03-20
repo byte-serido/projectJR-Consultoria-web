@@ -20,26 +20,10 @@ export default {
 }
 </script>
 <style scoped>
-    h1{
-        color: #023F5C;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 40px;
-        line-height: 48px;
-        text-transform: uppercase;
-    }
 
-    p{
-        font-family: 'Asap';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        text-align: justify;
-        letter-spacing: -0.01em;
-        color: #000000;
-    }
+    /* INICIO DO CSS */
+
+    /* ESTILIZAÇÃO CONTAINER DESCRIÇÃO */
 
     .description-container{
         background-color: #F7F9FC;
@@ -53,6 +37,8 @@ export default {
         padding: 0px 0px 0px 80px;
         gap: 50px;
     }
+
+    /* ESTILIZAÇÃO TEXTO DESCRIÇÃO */
 
     .description-text{
         display: flex;
@@ -68,7 +54,33 @@ export default {
         gap: 20px;
     }
 
+    h1{
+        color: #023F5C;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 48px;
+        text-transform: uppercase;
+    }
+
+    /* ESTILIZAÇÃO TEXTOS */
+
+    p{
+        font-family: 'Asap';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: justify;
+        letter-spacing: -0.01em;
+        color: #000000;
+    }
+
+    
+
     /* Responsividade */
+
     @media (max-width:1250px) {
         .img{
             display: none;
