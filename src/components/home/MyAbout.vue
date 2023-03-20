@@ -26,6 +26,11 @@ export default {
 </script>
 
 <style scoped>
+
+  /* INICIO DO CSS */
+
+  /* ESTILIZAÇÃO CONTAINER ABOUT */
+
   .about-container{
     background-color:#023F5C;
   }
@@ -36,6 +41,8 @@ export default {
     gap: 40px;
   }
   
+  /* ESTILIZAÇÃO CONTEÚDO */
+
   .content{
     display: flex;
     flex-direction: column;
@@ -44,35 +51,6 @@ export default {
     max-width: 50%;
     border-right: solid #A0ABC0 1px;
     padding-right: 80px;
-  }
-
-  .wrapper{
-    /* flex-wrap: wrap; */
-    display: grid;
-    grid-template-columns: 200px 200px;
-    padding: 20px;
-    gap: 40px;
-    max-width: 50%;
-  }
-
-  .number{
-    font-family: 'Assistant';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 3.5rem;
-    line-height: 67px;
-    letter-spacing: 0.01em;
-    color: #41A8D3;
-  }
-
-  .text{
-    font-family: 'Asap';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.125rem;
-    line-height: 27px;
-    letter-spacing: -0.01em;
-    color: #FFFFFF;
   }
 
   .headline{
@@ -85,6 +63,11 @@ export default {
     max-width: 405px;
     letter-spacing: 0.01em;
   }
+
+  strong{
+    color: #41A8D3; 
+  }
+
 
   .body{
     color: #EDF0F7;
@@ -117,11 +100,38 @@ export default {
     background-color: transparent;
   }
 
-  strong{
-    color: #41A8D3; 
+  /* ESTILIZAÇÃO NUMERAÇÃO */
+
+  .wrapper{
+    display: grid;
+    grid-template-columns: 200px 200px;
+    padding: 20px;
+    gap: 40px;
+    max-width: 50%;
+  }
+
+  .number{
+    font-family: 'Assistant';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 3.5rem;
+    line-height: 67px;
+    letter-spacing: 0.01em;
+    color: #41A8D3;
+  }
+
+  .text{
+    font-family: 'Asap';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 27px;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
   }
 
   /* Responsividade */
+
   @media (max-width:1098px) {
 
     .about{
