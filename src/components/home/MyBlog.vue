@@ -70,6 +70,11 @@
 </script>
 
 <style scoped>
+
+    /* INICIO DO CSS */
+
+    /* ESTILIZAÇÃO DO CONTAINER NOS POSTS PRINCIPAL */
+
     .posts{
         display: flex;
         flex-direction: column;
@@ -144,6 +149,8 @@
         height: 16px;
     }
 
+    /* ESTILIZAÇÃO DO POST DA COLUNA */
+
     .post-column{
         display: flex;
         flex-direction: column;
@@ -202,6 +209,8 @@
         line-height: 140%;
         color: #1A688A;
     }
+
+    /* REPONSIVIDADE */
 
     @media (max-width:1098px){
         .principal{
