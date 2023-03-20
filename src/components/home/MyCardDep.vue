@@ -1,3 +1,5 @@
+<!-- ESSE ARQUIVO É PARA ADCIONAR OS DEPOIMENTOS DE FORMA ROTATIVA -->
+
 <template>
     <div class="card">
         <div class="content">
@@ -69,6 +71,12 @@ export default {
 </script>
 
 <style scoped>
+
+    /* INICIO DO CSS  */
+
+    /* ESTILIZAÇÃO CARD */
+
+
     .card{
         height: 469px;
         min-width: 100%;
@@ -96,6 +104,8 @@ export default {
         align-items: flex-start;
     }
 
+    /* ESTILIZAÇÃO DOS COMENTARIOS */
+
     .coment{
         max-width: 294px;
         font-family: "Asap",sans-serif;
@@ -105,6 +115,15 @@ export default {
         font-weight: 600;
     }
 
+    .container-text{
+        min-width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* ESTILIZAÇÃO DAS IMAGENS */
+
     .person-row{
         min-width:100%;
         display: flex;
@@ -113,17 +132,12 @@ export default {
         justify-content: flex-start;
     }
 
-    .container-text{
-        min-width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
     .aspas{
         height: 60px;
         width: 60px;
     }
+
+    /* ESTILIZAÇÃO DO AVATAR PEQUENO */
 
     .person-row .avatar{
         height: 64px;
@@ -131,6 +145,8 @@ export default {
         background-size: cover;
         border-radius: 50%;
     }
+
+    /* ESTILIZAÇÃO DO NOME E EMPRESA DO AVATAR */
 
     .person-article{
         display:flex;
@@ -153,6 +169,8 @@ export default {
         color: #4CB8E7;
     }
 
+    /* IMAGEM PADRÃO DE GRUPO */
+
     .img-padrao{
         flex: 2;
         min-height: 100%;  
@@ -161,6 +179,8 @@ export default {
         background-size: cover;
         text-decoration: none;
     }
+
+    /* ESTILIZAÇÃO DO BOTÃO DE ROTAÇÃO DE DEPOIMENTOS */
 
     .r-button{
         display: flex;
@@ -184,6 +204,8 @@ export default {
     .r-button button:hover{
         color: #41A8D3;
     }
+
+    /* RESPOSIVIDADE */
 
     @media (max-width:1098px){
         .person-row{
