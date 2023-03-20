@@ -47,6 +47,11 @@
 </script>
 
 <style scoped>
+
+    /* INICIO CSS */
+
+    /* ESTILIZAÇÃO CONTAINER CARDS */
+
     .cards-container{
         background-color: #F7F9FC;
         font-family: 'Inter', normal;
@@ -63,6 +68,8 @@
         height: 385px;
     }
 
+    /* ESTILIZAÇÃO TITULO */
+
     header{
         font-weight: 700;
         font-size: 1.875rem;
@@ -71,12 +78,16 @@
         color: #023F5C;
     }
 
+    /* ESILIZAÇÃO CONTAINER WRAPPER */
+
     .wrapper{
         display: flex;
         gap: 40px;
         width: 100%;
         height: 290px;
     }
+
+    /* ESTILIZAÇÃO CARDS COM ANIMAÇÃO HOVER TRANSFORM */
 
     .card{
         display: flex;
@@ -122,6 +133,8 @@
         letter-spacing: -0.01em;
         color: #115A7B;
     }
+
+    /* RESPONSIVIDADE */
 
     @media(max-width:1098px){
         .cards{
