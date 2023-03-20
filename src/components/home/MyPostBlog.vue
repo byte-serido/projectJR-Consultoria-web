@@ -43,6 +43,11 @@ import MyBlog from './MyBlog.vue';
 </script>
 
 <style scoped>
+
+    /* INICIO DO CSS */
+
+    /* ESTILIZAÇÃO CONTAINER BLOG */
+
     .blog-container{
             background-color: #F7F9FC;
             font-family: 'Inter',sans-serif;
@@ -53,6 +58,8 @@ import MyBlog from './MyBlog.vue';
         flex-direction: column;
     }
 
+    /* RESPONSIVIDADE */
+    
     @media(max-width: 460px){
         
         .blog{
