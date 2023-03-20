@@ -49,6 +49,11 @@ export default {
 
 </script>
 <style scoped>
+
+    /* INICIO DO CSS */
+
+    /* ESTILIZAÇÃO CONTAINER SERVICE */
+    
     .service-container{
         background-color: white;
         font-family: 'Inter', sans-serif;
@@ -62,6 +67,8 @@ export default {
         gap: 50px;
         justify-content: space-between;
     }
+
+    /* ESTILIAÇÃO TITULO DA SEÇÃO */
 
     .service article{
         display: flex;
@@ -81,15 +88,6 @@ export default {
         letter-spacing: 0.01em;
     }
 
-    h3{
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 1.25rem;
-        line-height: 140%;
-        color: #EDF0F7;
-    }
-
     p{
         color: #1A202C;
         font-family: 'Inter';
@@ -101,6 +99,16 @@ export default {
         letter-spacing: -0.01em;
     }
 
+    /* ESTILIZAÇÃO DAS BOX */
+
+    h3{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.25rem;
+        line-height: 140%;
+        color: #EDF0F7;
+    }
 
     .box-container{
         flex-wrap: wrap;
@@ -151,6 +159,8 @@ export default {
         filter: invert(48%) sepia(63%) saturate(445%) hue-rotate(152deg) brightness(109%) contrast(91%);
         color:  #41A8D3;
     }
+
+    /* ESTILIZAÇÃO DA IMG */
     
     img{
         background-color: #EDF0F7;
