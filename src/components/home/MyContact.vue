@@ -82,6 +82,11 @@ export default {
 }
 </script>
 <style scoped>
+
+    /* INICIO DO CSS */
+
+    /* ESTILIZAÇÃO CONTAIER CONTATO */
+    
     .contact-container{
         background-color: #023F5C;
         font-family: 'Inter', sans-serif;
@@ -97,16 +102,6 @@ export default {
         background-color: #023F5C;
     }
 
-    .super{
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.125rem;
-        padding-bottom: 50px;
-        color: #F7F9FC;
-        gap: 20px;
-    }
-
     .contatos{
         display: flex;
         flex-direction: column;
@@ -118,6 +113,15 @@ export default {
 
     }
 
+    .super{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.125rem;
+        padding-bottom: 50px;
+        color: #F7F9FC;
+        gap: 20px;
+    }
 
     .msg{
         font-family: 'Inter';
@@ -126,51 +130,6 @@ export default {
         color: #4CB8E7;
         font-size: 2.25rem;
         padding-bottom: 30px;
-    }
-
-    .Msg{
-        background-color: #FFFFFF;
-        border: 1px solid #000000;
-        border-radius: 10px;
-        padding: 50px 60px;
-    }
-
-    .Msg1{
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 2.25rem;
-        color: #115A7B;
-        padding-bottom: 20px;
-        line-height: 130%;
-    }
-
-    h3{
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 1.5rem;
-        color: #4CB8E7;
-        padding-bottom: 20px;
-    }
-
-    h4{
-        padding-bottom: 5px;
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 1.5rem;
-        line-height: 140%;
-    }
-
-    h5{
-        font-family: 'Inter';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 0.875rem;
-        color: #2D3648;
-        padding-bottom: 8px;
-        line-height: 16px;
     }
 
     .text{
@@ -202,14 +161,51 @@ export default {
         font-size: 1.375rem;
         line-height: 160%;
     }
-    
+
     .img{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         gap: 10px;
     }
-    
+
+    h3{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: #4CB8E7;
+        padding-bottom: 20px;
+    }
+
+    h4{
+        padding-bottom: 5px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.5rem;
+        line-height: 140%;
+    }
+
+    /* ESTILIZAÇÃO CONTAINER DE MENSAGEM */
+
+    .Msg{
+        background-color: #FFFFFF;
+        border: 1px solid #000000;
+        border-radius: 10px;
+        padding: 50px 60px;
+    }
+
+    .Msg1{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 2.25rem;
+        color: #115A7B;
+        padding-bottom: 20px;
+        line-height: 130%;
+    }
+
     .ent{
         width: 417px;
         height: 54px;
@@ -220,6 +216,16 @@ export default {
         color: #000000;
         padding-bottom: 40px;
         line-height: 150%;
+    }
+
+    h5{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: #2D3648;
+        padding-bottom: 8px;
+        line-height: 16px;
     }
 
     .form{
