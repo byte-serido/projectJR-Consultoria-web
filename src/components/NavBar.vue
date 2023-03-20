@@ -30,23 +30,29 @@ export default {
 }
 </script>
 <style scoped lang="css">
+
+    /* INICIO DO CSS */
+
+    /* ESTILIZAÇÃO DO NAVBAR */
     .navbar-container {
         padding: 25px 80px;
         background-color: #023F5C;
         font-family: 'Assistant', sans-serif;
     }
+
     .navbar{
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
+
+    /* ESTILIZAÇÃO DOS BOTÕES DE NAVEGAÇÃO */
+
     .menu-bar{
         display: flex;
         gap: 50px;
     }
-    li{
-        list-style: none;
-    }
+
     .menu-button{
         background-color: transparent;
         border: none;
@@ -61,9 +67,12 @@ export default {
         transition: all 400ms ease;
         letter-spacing: -0.01rem;
     }
+
     .menu-button:hover{
         color: #41A8D3;
     }
+
+    /* ESTILIZAÇÃO DO BOTÃO DE AGENDAMENTO */
 
     .nav-button{
         font-family: 'Assistant', sans-serif;
@@ -86,11 +95,18 @@ export default {
         background-color: transparent;
     }
 
+    /* RESET STYLE */
+
     a{
         text-decoration: none;
     }
 
-    /* @media */
+    li{
+        list-style: none;
+    }
+
+    /* RESPONSIVIDADE */
+    
     @media (max-width:1080px){
         .menu-bar{
             display: none;
