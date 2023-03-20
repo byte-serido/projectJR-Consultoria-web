@@ -46,7 +46,6 @@ export default {
             type: Number,
             required: true,
         },
-
         i:{
             type: Number,
             required: true,
@@ -64,6 +63,9 @@ export default {
         company:{
             type: String,
         },
+        imageUrl:{
+            type: String,
+        }
     },
 }
 </script>
@@ -121,6 +123,14 @@ export default {
     }
 
     .aspas{
+        height: 60px;
+        width: 60px;
+    }
+
+    .avatar{
+        background-size: cover;
+        border-radius: 50%;
+        border: #4CB8E7 solid 2px;
         height: 60px;
         width: 60px;
     }
@@ -184,7 +194,7 @@ export default {
     .r-button button:hover{
         color: #41A8D3;
     }
-
+    
     @media (max-width:1098px){
         .person-row{
             max-width:100%;

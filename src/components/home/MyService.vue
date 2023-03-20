@@ -1,33 +1,16 @@
-<template lang="pt-br">
+<template>
     <section class="service-container">
         <div class="container service">
             <article>
                 <h2>SERVIÇOS</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.</p>
             </article>
-            <div class="box-container">
-                <div class="box">
+            <Loading v-if="loading"></Loading>
+            <div class="box-container" v-else>
+                <div class="box" v-for="service in services" :key="service.id">
                     <img src="../../assets/serv/stack.svg">
-                    <h3>Organização</h3>
-                    <p class="p-box">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                    <a class="a-box">Saiba Mais <img class="arrow" src="../../assets/serv/icon-arrow-up-right.svg" alt="Seta"></a>
-                </div>
-                <div class="box">
-                    <img src="../../assets/serv/seta.svg">
-                    <h3>Estratégia</h3>
-                    <p class="p-box">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                    <a class="a-box">Saiba Mais <img class="arrow" src="../../assets/serv/icon-arrow-up-right.svg" alt="Seta"></a>
-                </div>
-                <div class="box">
-                    <img src="../../assets/serv/doc.svg">
-                    <h3>Finanças</h3>
-                    <p class="p-box">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                    <a class="a-box">Saiba Mais <img class="arrow" src="../../assets/serv/icon-arrow-up-right.svg" alt="Seta"></a>
-                </div>
-                <div class="box">
-                    <img src="../../assets/serv/doc.svg">
-                    <h3>Lorem ipsum</h3>
-                    <p class="p-box">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                    <h3>{{service.name}}</h3>
+                    <p class="p-box">{{service.description}}</p>
                     <a class="a-box">Saiba Mais <img class="arrow" src="../../assets/serv/icon-arrow-up-right.svg" alt="Seta"></a>
                 </div>
             </div>
@@ -35,15 +18,19 @@
     </section>
 </template>
 <script>
+import Loading from "@/components/MyLoading.vue"
 export default {
-    data(){
-        return{
-            listService: [
-                {
-                    title: "ORGANIZAÇÃO",
-                }
-            ]
+    components:{Loading},
+    computed:{
+        loading(){
+            return this.$store.getters.getIsValid
+        },
+        services(){
+            return this.$store.getters.getServices
         }
+    },
+    async mounted(){
+        await this.$store.dispatch("setInServices")
     }
 }
 
@@ -112,6 +99,8 @@ export default {
     }
 
     .box{
+        height: 240px;
+        width: 246px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -139,6 +128,9 @@ export default {
         display: flex;
         flex-direction: row;
         align-items: center;
+        position: relative;
+        transition: all 400ms ease;
+        cursor: pointer;
     }
 
     .arrow{

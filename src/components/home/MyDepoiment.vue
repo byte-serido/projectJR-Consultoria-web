@@ -2,14 +2,17 @@
     <section class="dep-container">
         <div class="container dep">
             <p>DEPOIMENTOS DE CLIENTES E PARCEIROS</p>
+            <Loading v-if="loading"></Loading>
             <MyCardDep 
                 :i="index"
                 :length="depoiments.length"
                 :name="depoiments[index].name" 
-                :coment="depoiments[index].coment" 
+                :coment="depoiments[index].testimony" 
                 :company="depoiments[index].company" 
                 :office="depoiments[index].office" 
+                :image-url="depoiments[index].imgUrl"
                 @next="index = $event"
+                v-else
             />
         </div>
     </section>
@@ -17,17 +20,24 @@
 
 <script>
 import MyCardDep from './MyCardDep.vue';
+import Loading from "@/components/MyLoading.vue"
 export default {
-    components:{MyCardDep},
+    components:{MyCardDep, Loading},
     data () {
       return {
         index: 0,
       }
-    },
+    },   
     computed:{
+        loading(){
+            return this.$store.getters.getIsValid
+        },
         depoiments(){
             return this.$store.getters.getDepoiments
-        } 
+        }
+    },
+    async mounted(){
+        await this.$store.dispatch("setInDepoiments")
     }
   }
 </script>
