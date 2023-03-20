@@ -32,6 +32,11 @@ export default {
   }
 </script>
 <style scoped>
+
+    /* INICIO DO CSS */
+
+    /* ESTILIZAÇÃO CONTAINER DEPOIENTOS */
+
     .dep-container{
         font-family: 'Inter', sans-serif;
         background-color: #023F5C;
@@ -52,6 +57,8 @@ export default {
         font-size: 2.25rem;
         letter-spacing: 0.01em;
     }
+
+    /* REPONSIVIDADE */
 
     @media (max-width:800px){
         .dep p{
