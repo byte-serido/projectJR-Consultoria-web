@@ -23,6 +23,11 @@ export default {
 </script>
 
 <style scoped>
+
+    /* INICIO DO CSS */
+
+    /* ESTILIZAÇÃO DO CONTAINER DA HERO */
+
     .hero-container{
         font-family: 'Inter', sans-serif;
         background-image: url("../../assets/hero/background.svg");
@@ -36,6 +41,8 @@ export default {
         align-items: flex-end;
         justify-items: center;
     }
+
+    /* CONTEUDO PRESENTE NA HERO */
 
     .content-hero{
         padding-bottom: 161px;
