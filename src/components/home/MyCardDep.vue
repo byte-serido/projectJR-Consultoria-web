@@ -15,7 +15,7 @@
                 </div>
             </article>
             <div class="r-button">
-                <button @click="next">Proximo ></button>
+                <button @click="next">Proximo <img class="arrow" src="../../assets/dep/icon-arrow-right.svg" alt="Seta apontando para a direita"></button>
             </div>
         </div>
         <div class="img-padrao">
@@ -179,7 +179,14 @@ export default {
         padding-top: 10px;
     }
 
+    .r-button:hover{
+        filter: invert(48%) sepia(63%) saturate(445%) hue-rotate(152deg) brightness(109%) contrast(91%);
+        color: #41A8D3;
+        transition: all 200ms ease;
+    }
+
     .r-button button{
+        display: flex;
         background: transparent;
         border: none;
         color: #023F5C;
@@ -191,8 +198,10 @@ export default {
         cursor: pointer;
     }
 
-    .r-button button:hover{
-        color: #41A8D3;
+    .arrow{
+        width: 20px;
+        padding: 0;
+        box-shadow: none;
     }
     
     @media (max-width:1098px){
