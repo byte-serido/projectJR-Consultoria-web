@@ -258,13 +258,12 @@ export default {
     
     .buttom{
         cursor: pointer;
-        
-        
         width: 417px;
         height: 40px;
         padding: 0;
         border: none;
-
+        font-size: 0.800rem;
+        font-weight: 700;
         background: #41A8D3;
         border-radius: 6px;
         color: #FFFFFF;
@@ -427,6 +426,9 @@ export default {
 
 
     @media(max-width:480px){
+        .contatos{
+            height: 620px;
+        }
 
         .Msg1{
         font-family: 'Inter';
@@ -479,6 +481,10 @@ export default {
     }
 
     @media(max-width: 450px){
+
+        .contatos{
+            height: 650px;
+        }
 
         .msg{
         font-family: 'Inter';

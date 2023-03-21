@@ -48,7 +48,6 @@ export default {
             type: Number,
             required: true,
         },
-
         i:{
             type: Number,
             required: true,
@@ -66,6 +65,9 @@ export default {
         company:{
             type: String,
         },
+        imageUrl:{
+            type: String,
+        }
     },
 }
 </script>
@@ -137,7 +139,15 @@ export default {
         width: 60px;
     }
 
-    /* ESTILIZAÇÃO DO AVATAR PEQUENO */
+    /* ESTILIZAÇÃO AVATAR PEQUENO */
+
+    .avatar{
+        background-size: cover;
+        border-radius: 50%;
+        border: #4CB8E7 solid 2px;
+        height: 60px;
+        width: 60px;
+    }
 
     .person-row .avatar{
         height: 64px;
@@ -204,9 +214,7 @@ export default {
     .r-button button:hover{
         color: #41A8D3;
     }
-
-    /* RESPOSIVIDADE */
-
+    
     @media (max-width:1098px){
         .person-row{
             max-width:100%;
