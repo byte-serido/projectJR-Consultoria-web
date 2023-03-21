@@ -20,6 +20,8 @@
   </template>
 </template>
 
+  <!-- AQUI É O PRINCIPAL MENU DO SITE, ONDE ESTÃO ARMAZENADOS OS PRINCIPAIS COMPONENTS E TODA AS ROTAS DE NAVEGAÇÃO OTIMIZADAS -->
+
 <script>
 import NavBar from "./components/NavBar.vue"
 import Footer from "./components/MyFooter.vue"
