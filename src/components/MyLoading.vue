@@ -11,6 +11,11 @@ export default {
 </script>
 
 <style scoped>
+
+    /* INICIO DO CSS */
+
+    /* ANIMAÇÃO DE LOADING */
+
     .loading {
         display: flex;
         flex-direction: column;
@@ -27,6 +32,8 @@ export default {
         height: 30px;
         animation: spin 1s linear infinite;
     }
+
+    /* RESPONSIVIDADE */
 
     @keyframes spin {
         0% { transform: rotate(0deg); }
