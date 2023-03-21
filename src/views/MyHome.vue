@@ -9,7 +9,13 @@
     </main>
 </template>
 
+    <!-- O MENU HOME SERÁ RESPONSAVEL PELA APRESENTAÇÃO PRINCIPAL DO SITE -->
+
 <script>
+
+    // AQUI É A PRINCIPAL É O MAPEAMENTO DO MENU PRINCIPAL
+
+    // IMPORTAMOS CADA COMPONENTE EM SEU DIRETORIO RESPECTIVO
 
 import MyHero from "../components/home/MyHero.vue"
 import MyAbout from "@/components/home/MyAbout.vue";
