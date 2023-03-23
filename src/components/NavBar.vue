@@ -17,7 +17,7 @@
                     <img src="@/assets/nav/arrow-down.svg">
                 </button>
 
-                <v-menu transition="scale-transition" activator="#menu-activator">
+                <v-menu transition="scale-transition" activator="#menu-activator" open-on-hover>
                     <v-list>
                         <div
                             class="list-itens"
