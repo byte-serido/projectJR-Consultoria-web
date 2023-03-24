@@ -1,16 +1,33 @@
-<template lang="pt-br">
+<template>
     <section class="container-login">
         <div class="container login">
+            <!-- Imagem maior da logo -->
             <img class="img-login" src="@/assets/login/logo-login.svg" alt="Logo da Empresa">
+            <!-- Card para efetuar login -->
             <div class="card-login">
+                <!-- Logo da empresa em tamanho menor -->
                 <img src="@/assets/login/logo-login-min.svg" alt="Logo da empresa pequena">
+                <!-- Espaço para colocar inputs e link para recuperação de senha, feito para centralizar tudo.-->
                 <div class="box-login">
                     <input class="input-login" type="text" placeholder="username">
-                    <input class="input-login" type="password" placeholder="password">
-                    <router-link class="link-login" to="/" tag="a" active-class="active" exact>
+                    <!-- Div especifica para criar um input com icone de visibilidade de senha-->
+                    <div class="container-input">
+                        <input class="input-login" :type="isVisiblity ? 'text' : 'password'" placeholder="password">
+                        <button @click="isVisiblity=!isVisiblity" class="button-eye">
+                            <template v-if="isVisiblity">
+                                <fa :icon="['fa', 'eye']" style="color: #48b3e2;" size="lg"/>
+                            </template>
+                            <template v-else>
+                                <fa :icon="['fa', 'eye-slash']" style="color: #48b3e2;" size="lg" />
+                            </template>
+                        </button>
+                    </div>
+                    <!-- Linke de recuperação de senha utilizando o router-link-->
+                    <router-link class="link-login" to="/" active-class="active" exact>
                         Esqueceu sua senha ?
                     </router-link>
                 </div>
+                <!-- Button para para fazer login-->
                 <button class="card-button">
                     Entrar
                 </button>
@@ -20,8 +37,13 @@
 </template>
 
 <script>
+
 export default {
-    
+    data(){
+        return{
+            isVisiblity:false
+        }
+    },
 }
 </script>
 
@@ -63,6 +85,12 @@ export default {
         min-width: 100%;
     }
 
+    /* CSS dos inputs */
+    .container-input{
+        position: relative;
+        min-width: 100%;
+    }
+
     .input-login{
         font-family: 'Inter', sans-serif;
         padding: 16px;
@@ -71,7 +99,7 @@ export default {
         border-radius: 4px;
         font-size: 1rem;
         font-weight: 700;
-        min-width: 90%;
+        min-width: 91%;
         position: relative;
         transition: all 400ms ease;
     }
@@ -81,7 +109,22 @@ export default {
         outline: none; 
     }
 
+    .button-eye{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-height: 100%;
+        position:absolute;
+        top:0; right:0;
+        z-index:10;
+        border:none;
+        background:transparent;
+        outline:none;
+        padding: 20px;
+        cursor: pointer;
+    }
 
+    /* CSS do link */
     .link-login{
         text-decoration: none;
         color: #48B3E2;
@@ -96,6 +139,7 @@ export default {
         color: #1e789e;
     }
 
+    /* CSS do button de login */
     .card-button{
         border-radius: 4px;
         background-color: #52B6E3;
@@ -114,4 +158,7 @@ export default {
     .card-button:hover{
         background-color: #1e789e;
     }
+
+    /* Responsividade */
+
 </style>
