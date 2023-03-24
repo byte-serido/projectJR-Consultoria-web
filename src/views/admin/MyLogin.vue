@@ -23,7 +23,7 @@
                         </button>
                     </div>
                     <!-- Linke de recuperação de senha utilizando o router-link-->
-                    <router-link class="link-login" to="/" active-class="active" exact>
+                    <router-link class="link-login" to="" active-class="active" exact>
                         Esqueceu sua senha ?
                     </router-link>
                 </div>
