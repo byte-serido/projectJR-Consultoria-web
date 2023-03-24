@@ -46,7 +46,7 @@
                 </div>
             </div>
         </div>
-        <a :href="link" id="last">Veja todos os posts do nosso blog ></a>
+        <a :href="link" id="last">Veja todos os posts do nosso Blog <img class="right-arrow" src="../../assets/blog/icon-arrow-right-circle.svg" alt="Arrow"></a>
     </div>
 </template>
 <script>
@@ -137,6 +137,11 @@
     .text a{
         color: #1A688A;
         font-size: 1.25rem;
+        transition: all 400ms ease;
+    }
+
+    .text a:hover, .content a:hover, #last:hover{
+        filter: invert(48%) sepia(63%) saturate(445%) hue-rotate(152deg) brightness(109%) contrast(91%);
     }
 
     .arrow{
@@ -194,6 +199,7 @@
         font-size: 0.90rem;
         line-height: 140%;
         color: #1A688A;
+        transition: all 400ms ease;
     }
 
     #last{
@@ -201,6 +207,14 @@
         font-size: 1.25rem;
         line-height: 140%;
         color: #1A688A;
+        cursor: pointer;
+        display: flex;
+        width: fit-content;
+        transition: all 400ms ease;
+    }
+
+    .right-arrow{
+        padding-left: 5px;
     }
 
     @media (max-width:1098px){
@@ -338,6 +352,9 @@
             font-size: 1.10rem;
         }
 
+        .right-arrow{
+            width: 25px;
+        }
     }
 
     @media(max-width: 460px){
@@ -366,6 +383,11 @@
 
         #last{
             font-size: 1rem;
+        }
+
+        .right-arrow{
+            padding-top: 2px;
+            width: 20px;
         }
     }
 </style>
