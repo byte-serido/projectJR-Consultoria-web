@@ -6,6 +6,7 @@ const About = () => import('./views/MyAbout.vue');
 const Services = () => import('./views/MyServices.vue');
 const Blog = () => import('./views/MyBlog.vue');
 const Contact = () => import('./views/MyContact.vue');
+const Login = () => import('./views/admin/MyLogin.vue');
 
 const routes = [
     {
@@ -44,6 +45,14 @@ const routes = [
       path: '/contact',
       name: 'contact',
       component: Contact,
+      //Permitindo que todos os parametros da rota sejam passados como atributos
+      props:true,
+    },
+
+    {
+      path: '/login',
+      name: 'login',
+      component:Login,
       //Permitindo que todos os parametros da rota sejam passados como atributos
       props:true,
     }
