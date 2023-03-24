@@ -19,8 +19,7 @@ import * as components from 'vuetify/components'
 // Vuetify
 import * as directives from 'vuetify/directives'
 
-
-
+// Set Vuetify
 const vuetify = createVuetify({
   components,
   directives,
