@@ -53,6 +53,8 @@ export default {
         background-image: url("@/assets/login/background.svg");
         background-size: cover;
         min-height: 100%;
+        padding-left:138px;
+        padding-right: 138px;
     }
 
     .login{
@@ -61,8 +63,6 @@ export default {
         justify-content: space-between;
         align-items: center;
         min-height: 100%;
-        padding-left:138px;
-        padding-right: 138px;
     }
 
     .card-login{
@@ -161,4 +161,52 @@ export default {
 
     /* Responsividade */
 
+    @media (max-width:1080px){
+        .container-login{
+            font-family: 'Inter', sans-serif;
+            background-image: url("@/assets/login/background.svg");
+            background-size: cover;
+            min-height: 100%;
+            padding: 40px 30px;
+        }
+        .img-login{
+            display: none;
+        }
+
+        .login{
+            padding: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            min-height: 100%;
+        }
+    }
+
+    @media (max-width:490px){
+        .card-login{
+            padding: 54px 40px;
+            min-width: 280px;
+            background-color: #E1E5ED;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 64px;
+        }
+
+        .input-login{
+            font-family: 'Inter', sans-serif;
+            padding: 16px;
+            background-color: white;
+            border: solid 1px white;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 700;
+            min-width: 88%;
+            position: relative;
+            transition: all 400ms ease;
+        }
+    }
 </style>
