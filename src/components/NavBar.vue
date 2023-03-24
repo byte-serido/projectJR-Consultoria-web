@@ -9,9 +9,28 @@
                 <router-link class="menu-button" to="/about" tag="a"  active-class="active">
                     <a>Quem somos</a>
                 </router-link>
-                <router-link class="menu-button" to="/services" tag="a"  active-class="active">
-                    <a>Serviços</a>
-                </router-link>
+                <button 
+                    class="button-services"
+                    id="menu-activator"
+                >
+                    Serviços
+                    <img src="@/assets/nav/arrow-down.svg">
+                </button>
+
+                <v-menu transition="scale-transition" activator="#menu-activator" open-on-hover>
+                    <v-list>
+                        <div
+                            class="list-itens"
+                            v-for="(item, index) in items"
+                            :key="index"
+                            :value="index"
+                        >
+                            <div class="list-item">
+                                <router-link class="item" to="" tag="a"  active-class="active">{{ item.title }}</router-link>
+                            </div>
+                        </div>
+                    </v-list>
+                </v-menu>
                 <router-link class="menu-button" to="/blog" tag="a"  active-class="active">
                     <a>Blog</a>
                 </router-link>
@@ -26,10 +45,19 @@
 
 <script>
 export default {
-    
+    data(){
+        return{
+            items: [
+                { title: 'Comunicação' },
+                { title: 'Organização' },
+                { title: 'Proatividade' },
+                { title: 'Reuniões' },
+            ],
+        }
+    }
 }
 </script>
-<style scoped lang="css">
+<style scoped>
     .navbar-container {
         padding: 25px 80px;
         background-color: #023F5C;
@@ -65,6 +93,30 @@ export default {
         color: #41A8D3;
     }
 
+    .button-services{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 5px;
+        background-color: transparent;
+        border: none;
+        color: #FFFFFF;
+        font-size: 1.25rem;
+        font-weight: 400;
+        font-family: 'Assistant', sans-serif;
+        line-height: 1.5rem;
+        cursor: pointer;
+        box-sizing: border-box;
+        position: relative;
+        transition: all 400ms ease;
+        letter-spacing: -0.01rem;
+    }
+
+    .button-services:hover{
+        filter: invert(48%) sepia(63%) saturate(445%) hue-rotate(152deg) brightness(109%) contrast(91%);
+        color:  #41A8D3;
+    }
+
     .nav-button{
         font-family: 'Assistant', sans-serif;
         color: #FFFFFF;
@@ -90,6 +142,24 @@ export default {
         text-decoration: none;
     }
 
+    .list-itens{
+        padding: 20px;
+        color: #41A8D3;
+        background-color: transparent;
+        cursor: pointer;
+        box-sizing: border-box;
+        position: relative;
+        transition: all 400ms ease;
+        letter-spacing: -0.01rem;
+    }
+    .list-itens:hover{
+        color: #41A8D3;
+        background-color: #bce3f3;
+    }
+
+    .item{
+        color: #41A8D3;
+    }
     /* @media */
     @media (max-width:1080px){
         .menu-bar{
