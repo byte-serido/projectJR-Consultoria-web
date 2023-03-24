@@ -95,6 +95,7 @@ export default {
         font-size: 1.125rem;
         font-weight: 300;
         color:#EDF0F7;
+        transition: all 400ms ease;
         letter-spacing: -0.01rem;
     }
 
