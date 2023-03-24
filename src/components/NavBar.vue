@@ -9,9 +9,28 @@
                 <router-link class="menu-button" to="/about" tag="a"  active-class="active">
                     <a>Quem somos</a>
                 </router-link>
-                <router-link class="menu-button" to="/services" tag="a"  active-class="active">
-                    <a>Serviços</a>
-                </router-link>
+                <button 
+                    class="button-services"
+                    id="menu-activator"
+                >
+                    Serviços
+                    <img src="@/assets/nav/arrow-down.svg">
+                </button>
+
+                <v-menu transition="scale-transition" activator="#menu-activator" open-on-hover>
+                    <v-list>
+                        <div
+                            class="list-itens"
+                            v-for="(item, index) in items"
+                            :key="index"
+                            :value="index"
+                        >
+                            <div class="list-item">
+                                <router-link class="item" to="" tag="a"  active-class="active">{{ item.title }}</router-link>
+                            </div>
+                        </div>
+                    </v-list>
+                </v-menu>
                 <router-link class="menu-button" to="/blog" tag="a"  active-class="active">
                     <a>Blog</a>
                 </router-link>
@@ -26,7 +45,16 @@
 
 <script>
 export default {
-    
+    data(){
+        return{
+            items: [
+                { title: 'Comunicação' },
+                { title: 'Organização' },
+                { title: 'Proatividade' },
+                { title: 'Reuniões' },
+            ],
+        }
+    }
 }
 </script>
 <style scoped lang="css">
