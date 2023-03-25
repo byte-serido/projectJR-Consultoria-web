@@ -9,10 +9,10 @@
                 <img src="@/assets/login/logo-login-min.svg" alt="Logo da empresa pequena">
                 <!-- Espaço para colocar inputs e link para recuperação de senha, feito para centralizar tudo.-->
                 <div class="box-login">
-                    <input class="input-login" type="text" placeholder="username">
+                    <input class="input-login" type="text" placeholder="username" v-model="username">
                     <!-- Div especifica para criar um input com icone de visibilidade de senha-->
                     <div class="container-input">
-                        <input class="input-login" :type="isVisiblity ? 'text' : 'password'" placeholder="password">
+                        <input class="input-login" :type="isVisiblity ? 'text' : 'password'" placeholder="password" v-model="password">
                         <button @click="isVisiblity=!isVisiblity" class="button-eye">
                             <template v-if="isVisiblity">
                                 <fa :icon="['fa', 'eye']" style="color: #48b3e2;" size="lg"/>
@@ -28,7 +28,7 @@
                     </router-link>
                 </div>
                 <!-- Button para para fazer login-->
-                <button class="card-button">
+                <button :class="isReleased ? 'card-button-disabled' : 'card-button'" :disabled="isReleased">
                     Entrar
                 </button>
             </div>
@@ -41,9 +41,20 @@
 export default {
     data(){
         return{
+            username:"",
+            password:"",
             isVisiblity:false
         }
     },
+    computed:{
+        isReleased(){
+            if(this.username == "" || this.password == ""){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    }
 }
 </script>
 
@@ -157,6 +168,18 @@ export default {
 
     .card-button:hover{
         background-color: #1e789e;
+    }
+
+    .card-button-disabled{
+        border-radius: 4px;
+        background-color: #9c9b9b;
+        font-family: 'Inter', sans-serif;
+        padding: 12px 16px;
+        text-transform: uppercase;
+        font-size: 1rem;
+        font-weight: 700;
+        color:  #3f4547;
+        border: none;
     }
 
     /* Responsividade */
