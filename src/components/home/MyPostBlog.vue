@@ -44,8 +44,8 @@ import MyBlog from './MyBlog.vue';
 
 <style scoped>
     .blog-container{
-            background-color: #F7F9FC;
-            font-family: 'Inter',sans-serif;
+        background-color: #F7F9FC;
+        font-family: 'Inter',sans-serif;
     }
     .blog{
         padding: 60px 61px;

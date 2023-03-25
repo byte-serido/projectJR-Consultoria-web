@@ -10,21 +10,12 @@
     </div>
   </template>
   <template v-else>
-    <header>
-      <NavBar></NavBar>
-    </header>
     <router-view></router-view>
-    <footer>
-      <Footer></Footer>
-    </footer>
   </template>
 </template>
 
 <script>
-import NavBar from "./components/NavBar.vue"
-import Footer from "./components/MyFooter.vue"
 export default {
-  components:{NavBar, Footer},
   name: 'App',
   computed:{
     loading(){
