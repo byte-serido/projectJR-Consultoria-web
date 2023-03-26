@@ -58,7 +58,7 @@ export default {
 
     methods:{
         loginSubmit(){
-            this.$store.dispatch('login',this.username,this.password);
+            this.$store.dispatch('login',{username:this.username, password:this.password});
         }
     }
 }
