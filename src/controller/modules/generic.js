@@ -16,7 +16,7 @@ export default{
     },
     actions:{
         setInConnect({commit}){
-            axios.get("https://api-pjr.onrender.com/").then(resp =>{
+            axios.get("https://pjr-api.onrender.com/").then(resp =>{
                 if(resp.status === 200){
                     commit('setIsConnect',false);
                 }else{

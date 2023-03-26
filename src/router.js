@@ -6,7 +6,8 @@ const About = () => import('./views/MyAbout.vue');
 const Services = () => import('./views/MyServices.vue');
 const Blog = () => import('./views/MyBlog.vue');
 const Contact = () => import('./views/MyContact.vue');
-const Login = () => import('./views/admin/MyLogin.vue');
+const Login = () => import('./views/MyLogin.vue');
+const Dashboard = () => import('./views/MyDashboard.vue');
 
 const routes = [
     {
@@ -55,7 +56,15 @@ const routes = [
       component:Login,
       //Permitindo que todos os parametros da rota sejam passados como atributos
       props:true,
-    }
+    },
+
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component:Dashboard,
+      //Permitindo que todos os parametros da rota sejam passados como atributos
+      props:true,
+    },
 
   ]
   

@@ -28,7 +28,7 @@
                     </router-link>
                 </div>
                 <!-- Button para para fazer login-->
-                <button :class="isReleased ? 'card-button-disabled' : 'card-button'" :disabled="isReleased">
+                <button @click="loginSubmit()" :class="isReleased ? 'card-button-disabled' : 'card-button'" :disabled="isReleased">
                     Entrar
                 </button>
             </div>
@@ -53,6 +53,12 @@ export default {
             }else{
                 return false;
             }
+        }
+    },
+
+    methods:{
+        loginSubmit(){
+            this.$store.dispatch('login',this.username,this.password);
         }
     }
 }
