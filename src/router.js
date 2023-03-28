@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-
+import controller from '@/controller/index'
 //Configuração pra renderização tardia, pois os imports só viram quando for realmente necessario.
 const Home = () => import('./views/MyHome.vue');
 const About = () => import('./views/MyAbout.vue');
@@ -56,6 +56,7 @@ const routes = [
       component:Login,
       //Permitindo que todos os parametros da rota sejam passados como atributos
       props:true,
+      meta: { requiresGuest: true }
     },
 
     {
@@ -64,6 +65,7 @@ const routes = [
       component:Dashboard,
       //Permitindo que todos os parametros da rota sejam passados como atributos
       props:true,
+      meta: { requiresAuth: true }
     },
 
   ]
@@ -71,6 +73,18 @@ const routes = [
   const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
     routes
+  })
+
+  router.beforeEach(async (to, from, next) => {
+    await controller.dispatch('checkAuth')
+    const isAuthenticated = controller.getters.isAuthenticated
+    if (to.meta.requiresAuth && !isAuthenticated) {
+      next('/login')
+    } else if (to.meta.requiresGuest && isAuthenticated) {
+      next('/dashboard')
+    } else {
+      next()
+    }
   })
   
   export default router
