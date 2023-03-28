@@ -23,13 +23,9 @@ export default{
                 if(resp.status === 201){
                     commit("setLoginUser", resp.data);
                     return alert("success");
-                }else if(resp.status === 401){
-                    return console.log("not undifynid");
-                }else if(resp.status === 400){
-                    return console.log("verify datatype");
                 }
-              }).catch(error => {
-                console.log(error);
+              }).catch(()=> {
+                return alert("Não foi encontrado nenhum login com tal username e senha fornecido! Por favor reveja seu username e senha!");
               });
         }
     }
