@@ -22,7 +22,7 @@ export default{
               }).then(resp => {
                 if(resp.status === 201){
                     commit("setLoginUser", resp.data);
-                    return console.log("success");
+                    return alert("success");
                 }else if(resp.status === 401){
                     return console.log("not undifynid");
                 }else if(resp.status === 400){
