@@ -75,11 +75,14 @@ const routes = [
     routes
   })
 
+  // Antes das rotas serem realmente redirecionadas é feito a verificação do token
   router.beforeEach(async (to, from, next) => {
     await controller.dispatch('checkAuth')
     const isAuthenticated = controller.getters.isAuthenticated
+    //Se não estar autenticado volta paro o login
     if (to.meta.requiresAuth && !isAuthenticated) {
       next('/login')
+    // Se estar autenticado redireciona para o dashboard
     } else if (to.meta.requiresGuest && isAuthenticated) {
       next('/dashboard')
     } else {

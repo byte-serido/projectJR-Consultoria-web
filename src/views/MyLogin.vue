@@ -47,6 +47,7 @@ export default {
         }
     },
     computed:{
+        //Fuction apra indentificar se os campos estão vazio ou não, se estiver retorna um booleam ativando ou não o button de enviar
         isReleased(){
             if(this.username == "" || this.password == ""){
                 return true;
@@ -57,6 +58,7 @@ export default {
     },
 
     methods:{
+        // Funcionalidade de login
         loginSubmit(){
             this.$store.dispatch('login',{username:this.username, password:this.password});
         }
