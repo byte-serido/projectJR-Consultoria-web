@@ -6,6 +6,7 @@
         <MyIntroAbout></MyIntroAbout>
         <MyDescription></MyDescription>
         <MyCards></MyCards>
+        <MyEquip></MyEquip>
     </main>
     <footer>
       <Footer></Footer>
@@ -18,8 +19,9 @@ import Footer from "@/components/MyFooter.vue"
 import MyIntroAbout from '@/components/about/MyIntroAbout.vue'
 import MyDescription from '@/components/about/MyDescription.vue';
 import MyCards from '@/components/about/MyCards.vue';
+import MyEquip from '@/components/about/MyEquip.vue'
 export default {
-    components: {MyIntroAbout, MyDescription, MyCards, NavBar, Footer}
+    components: {MyIntroAbout, MyDescription, MyCards, NavBar, Footer, MyEquip}
 }
 </script>
 <style scoped>
