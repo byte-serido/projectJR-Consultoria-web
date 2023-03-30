@@ -1,12 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
-
+import controller from '@/controller/index'
 //Configuração pra renderização tardia, pois os imports só viram quando for realmente necessario.
 const Home = () => import('./views/MyHome.vue');
 const About = () => import('./views/MyAbout.vue');
 const Services = () => import('./views/MyServices.vue');
 const Blog = () => import('./views/MyBlog.vue');
 const Contact = () => import('./views/MyContact.vue');
-const Login = () => import('./views/admin/MyLogin.vue');
+const Login = () => import('./views/MyLogin.vue');
+const Dashboard = () => import('./views/MyDashboard.vue');
 
 const routes = [
     {
@@ -55,13 +56,38 @@ const routes = [
       component:Login,
       //Permitindo que todos os parametros da rota sejam passados como atributos
       props:true,
-    }
+      meta: { requiresGuest: true }
+    },
+
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component:Dashboard,
+      //Permitindo que todos os parametros da rota sejam passados como atributos
+      props:true,
+      meta: { requiresAuth: true }
+    },
 
   ]
   
   const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
     routes
+  })
+
+  // Antes das rotas serem realmente redirecionadas é feito a verificação do token
+  router.beforeEach(async (to, from, next) => {
+    await controller.dispatch('checkAuth')
+    const isAuthenticated = controller.getters.isAuthenticated
+    //Se não estar autenticado volta paro o login
+    if (to.meta.requiresAuth && !isAuthenticated) {
+      next('/login')
+    // Se estar autenticado redireciona para o dashboard
+    } else if (to.meta.requiresGuest && isAuthenticated) {
+      next('/dashboard')
+    } else {
+      next()
+    }
   })
   
   export default router
