@@ -1,18 +1,29 @@
 <template>
-     <section class="navbar-container">
+     <header class="navbar-container">
         <div class="container navbar">
-            <div class="avatar">YOU</div>
+            <div class="profile">
+                <div class="avatar">YOU</div>
+                <span>{{ username }}</span>
+            </div>
             <button class="menu-button" @click="onLogout()">Logout</button>
         </div>
-    </section>
+    </header>
 </template>
 <script>
 export default {
+    data(){
+        return{
+            username:""
+        }
+    },
     methods:{
         onLogout(){
             this.$store.dispatch("logout")
             this.$router.push("/login");
         }
+    },
+    created(){
+        this.username = window.localStorage.getItem('username');
     }
 }
 </script>
@@ -60,5 +71,17 @@ export default {
         width: 50px;
         border: #023F5C 1px solid;
         border-radius: 50px;
+    }
+
+    .profile{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap:20px;
+    }
+
+    .profile span{
+        color: #023F5C;
+        font-size: 1rem;
     }
 </style>
