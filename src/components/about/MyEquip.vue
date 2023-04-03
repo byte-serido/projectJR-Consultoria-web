@@ -268,7 +268,7 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 0px;
+        padding: 10px;
         gap: 10px;
     }
 
@@ -276,24 +276,25 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 0px;
-        gap: 30px;
+        gap: 20px;
+        padding: 0px 0px 30px;
     }
 
     .ident8{
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 0px;
-        gap: 30px;
+        gap: 20px;
+        padding: 0px 0px 30px;
+        
     }
 
     .ident13{
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 0px;
-        gap: 30px;
+        gap: 20px;
+        padding: 0px 0px 30px;
     }
 
 
