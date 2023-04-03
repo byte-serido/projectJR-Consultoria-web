@@ -53,7 +53,7 @@
                     <div class="Dimage5">
                         
                     </div>
-                    <div class="ident">
+                    <div class="ident5">
                         <h3>Lilian Nikole</h3>
                         <p class="title">Consultora de Gestão de Pessoas</p>
                     </div>
@@ -80,7 +80,7 @@
                     <div class="Dimage8">
                         
                     </div>
-                    <div class="ident">
+                    <div class="ident8">
                         <h3>Ithalo Damasceno</h3>
                         <p class="title">Consultor de Marketinh Inbound</p>
                     </div>
@@ -131,7 +131,7 @@
                     <div class="Dimage13">
                         
                     </div>
-                    <div class="ident">
+                    <div class="ident13">
                         <h3>Geovanna Peixoto</h3>
                         <p class="title">Consultora de Projetos</p>
                     </div>
@@ -178,7 +178,6 @@ export default {
     .equip-container{
         background-color: #023F5C;
         font-family: 'Inter', sans-serif;
-        
     }
 
     .equip{
@@ -192,6 +191,8 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        justify-content: center;
+        align-items: center;
         gap: 20px;
         padding: 0px 65px;
         /* width: 1280px;
@@ -211,11 +212,14 @@ export default {
         font-family: 'Inter';
         font-style: normal;
         font-weight: 400;
-        font-size: 1.125rem;
+        font-size: 1.2rem;
         line-height: 150%;
         letter-spacing: -0.01em;
-        width: 1150px;
-        height: 81px;
+        line-height: 150%;
+        /* width: 1150px;
+        height: 81px; */
+        padding: 0PX 60PX;
+        align-self: stretch;
         color: #F7F9FC;
     }
 
@@ -243,6 +247,8 @@ export default {
         gap: 30px;
         flex-wrap: wrap;
         padding: 0px 65px;
+        align-items: center;
+        justify-content: center;
     }
 
     .linha{
@@ -265,6 +271,31 @@ export default {
         padding: 0px;
         gap: 10px;
     }
+
+    .ident5{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 30px;
+    }
+
+    .ident8{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 30px;
+    }
+
+    .ident13{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 30px;
+    }
+
 
 
 
