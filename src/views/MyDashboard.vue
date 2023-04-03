@@ -8,7 +8,7 @@
 
             <!-- // Div que contem tudo do usuario e o menu -->
             <div class="container-profile">
-                <button>
+                <button @click="isMenu=!isMenu">
                     <img class="menu-icon" src="@/assets/dashboard/icon-list.svg" alt="Icone de menu de opções.">
                 </button>
                 <div class="avatar"></div>
@@ -24,13 +24,56 @@
     <main class="container dashbord">
         <!-- Menu com animação se for ativado -->
         <transition>
-            <template v-if="isMenu">
-                <div>oi</div>
-            </template>
+            <!-- Menu que irá aparecer quando for clicado -->
+            <div class="menu" v-if="isMenu">
+                <div class="item">
+                    <span>Cadastrar Adm</span>
+                    <img src="@/assets/dashboard/icon-user-plus.svg" alt="Icone de usuarios">
+                </div>
+                <div class="item">
+                    <span>Listar Adms</span>
+                    <img src="@/assets/dashboard/icon-users.svg" alt="Icone Lista de usuarios">
+                </div>
+                <div class="item">
+                    <span>Cadastrar Membro</span>
+                    <img src="@/assets/dashboard/icon-user-plus.svg" alt="Icone de Membro">
+                </div>
+                <div class="item">
+                    <span>Listar Membros</span>
+                    <img src="@/assets/dashboard/icon-users.svg" alt="Icone Lista de Membro">
+                </div>
+                <div class="item">
+                    <span>Cadastrar Serviço</span>
+                    <img src="@/assets/dashboard/icon-briefcase.svg" alt="Icone de Serviços">
+                </div>
+                <div class="item">
+                    <span>Listar Serviço</span>
+                    <img src="@/assets/dashboard/icon-layers.svg" alt="Icone de Lista de Serviços">
+                </div>
+                <div class="item">
+                    <span>Cadastrar Depoimentos</span>
+                    <img src="@/assets/dashboard/icon-message-circle.svg" alt="Icone de depoimentos">
+                </div>
+                <div class="item">
+                    <span>Listar Depoimentos</span>
+                    <img src="@/assets/dashboard/icon-message-circle.svg" alt="Icone de Lista depoimentos">
+                </div>
+                <div class="item">
+                    <span>Criar Post</span>
+                    <img src="@/assets/dashboard/icon-layout.svg" alt="Icone de Post">
+                </div>
+                <div class="item">
+                    <span>Listar Posts</span>
+                    <img src="@/assets/dashboard/icon-cards.svg" alt="Icone de Listar Posts">
+                </div>
+            </div>
         </transition>
         <!-- Conteudo que ficara mudando dependendo da escolha no menu -->
         <div class="container-dashbord">
-            <h1>ola</h1>
+            <article>
+                <p>Olá aqui será onde teremos cadastros e listas, uiiiiiii!!!</p>
+                <hr>
+            </article>
         </div>
     </main>
 </template>
@@ -38,7 +81,7 @@
 export default {
     data(){
         return{
-            isMenu: false,
+            isMenu: true,
             username:"",
         }
     },
@@ -54,6 +97,8 @@ export default {
 }
 </script>
 <style scoped>
+
+    /* Nav Bar */
     header{
         font-family: 'Assistant', sans-serif;
     }
@@ -120,9 +165,66 @@ export default {
         width: 26px;
     }
 
+    /* Dashboard */
     .dashbord{
         display: flex;
         flex-direction: row;
+        min-height: 100%;
+        min-width: 100%;
+    }
+
+    /* Menu */
+    .menu{
+        max-width: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex: 1;
+        border-right: 1px solid rgb(230, 227, 227);
+    }
+
+    .menu .item{
+        padding-left:10px;
+        padding-right: 10px;
+        padding-top: 22px ;
+        padding-bottom:22px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-width: 94%;
+        cursor: pointer;
+        position: relative;
+        transition: all 400ms ease;
+    }
+
+    .menu .item:hover{
+        background-color: rgb(206, 202, 202);
+    }
+
+    .menu .item span{
+        color: #023F5C;
+        font-size: 0.9rem;
+        font-weight: 500;
+        
+    }
+
+    .menu .item img{
+        height: 18px;
+        width: 18px;
+    }
+
+    /* Body */
+    .container-dashbord {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100%;
+        flex: 2;
+    }
+
+    .container-dashbord article p{
+        color: black;
     }
 
 </style>
