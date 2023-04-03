@@ -28,7 +28,7 @@
                     </router-link>
                 </div>
                 <!-- Button para para fazer login-->
-                <button :class="isReleased ? 'card-button-disabled' : 'card-button'" :disabled="isReleased">
+                <button @click="loginSubmit()" :class="isReleased ? 'card-button-disabled' : 'card-button'" :disabled="isReleased">
                     Entrar
                 </button>
             </div>
@@ -47,12 +47,20 @@ export default {
         }
     },
     computed:{
+        //Fuction apra indentificar se os campos estão vazio ou não, se estiver retorna um booleam ativando ou não o button de enviar
         isReleased(){
             if(this.username == "" || this.password == ""){
                 return true;
             }else{
                 return false;
             }
+        }
+    },
+
+    methods:{
+        // Funcionalidade de login
+        loginSubmit(){
+            this.$store.dispatch('login',{username:this.username, password:this.password});
         }
     }
 }
