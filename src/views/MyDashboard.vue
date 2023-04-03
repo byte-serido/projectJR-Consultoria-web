@@ -1,24 +1,46 @@
 <template>
-     <header class="navbar-container">
-        <div class="container navbar">
-            <div class="profile">
-                <div class="avatar">YOU</div>
+    <!-- Nav bar superior -->
+    <header>
+        <!-- Coloca todos em linha -->
+        <div class="navbar">
+            <!-- // Div que contem tudo do usuario e o menu -->
+            <div class="container-profile">
+                <div>
+                    <img src="" alt="">
+                </div>
+                <div class="avatar"></div>
                 <span>{{ username }}</span>
             </div>
-            <button class="menu-button" @click="onLogout()">Logout</button>
+
+            <!-- Button de saida -->
+            <button @click="onLogout()">
+                <img src="" alt="">
+            </button>
         </div>
     </header>
+    <main class="container dashbord">
+        <transition>
+            <template v-if="isMenu">
+                <div>oi</div>
+            </template>
+        </transition>
+        
+        <div class="container-dashbord">
+            <h1>ola</h1>
+        </div>
+    </main>
 </template>
 <script>
 export default {
     data(){
         return{
-            username:""
+            isMenu: false,
+            username:"",
         }
     },
     methods:{
         onLogout(){
-            this.$store.dispatch("logout")
+            this.$store.dispatch("logout");
             this.$router.push("/login");
         }
     },
@@ -28,60 +50,46 @@ export default {
 }
 </script>
 <style scoped>
-    .navbar-container {
-        padding: 20px 60px;
-        background-color: #FFFFFF;
+    header{
         font-family: 'Assistant', sans-serif;
-        border-bottom: #eeebeb 1px solid; 
     }
     .navbar{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 16px 60px;
+        background-color: white;
+        border-bottom: 1px solid rgb(230, 227, 227);
     }
-    .menu-button{
-        border-radius: 6px;
-        padding: 10px;
+
+    .navbar .container-profile{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .container-profile .avatar{
         background-color: #023F5C;
-        border: #023F5C solid 1px;
-        color: #FFFFFF;
-        font-size: 1.25rem;
-        font-weight: 400;
-        font-family: 'Assistant', sans-serif;
-        line-height: 1.5rem;
-        cursor: pointer;
-        box-sizing: border-box;
-        position: relative;
-        transition: all 400ms ease;
-        letter-spacing: -0.01rem;
-    }
-    .menu-button:hover{
-        color: #41A8D3;
-        background-color: #FFFFFF;
-        border: #41A8D3 1px solid;
-    }
-
-    .avatar{
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #FFFFFF;
-        color: #023F5C;
-        height: 50px;
-        width: 50px;
-        border: #023F5C 1px solid;
-        border-radius: 50px;
+        color: aliceblue;
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
     }
 
-    .profile{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap:20px;
-    }
-
-    .profile span{
+    .container-profile span{
         color: #023F5C;
         font-size: 1rem;
+        font-weight: 600;
     }
+
+    .dashbord{
+        display: flex;
+        flex-direction: row;
+    }
+
 </style>
