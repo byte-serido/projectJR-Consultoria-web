@@ -2,7 +2,7 @@
     <section class="dep-container">
         <div class="container dep">
             <p>DEPOIMENTOS DE CLIENTES E PARCEIROS</p>
-            <Loading v-if="loading"></Loading>
+            <MyLoadingDepoiment v-if="loading"></MyLoadingDepoiment>
             <MyCardDep 
                 :i="index"
                 :length="depoiments.length"
@@ -19,10 +19,10 @@
 </template>
 
 <script>
+import MyLoadingDepoiment from '../MyLoadingDepoiment.vue';
 import MyCardDep from './MyCardDep.vue';
-import Loading from "@/components/MyLoading.vue"
 export default {
-    components:{MyCardDep, Loading},
+    components:{ MyCardDep, MyLoadingDepoiment },
     data () {
       return {
         index: 0,

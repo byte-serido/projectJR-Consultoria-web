@@ -5,7 +5,7 @@
                 <h2>SERVIÇOS</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.</p>
             </article>
-            <Loading v-if="loading"></Loading>
+            <MyLoadingService v-if="loading"></MyLoadingService>
             <div class="box-container" v-else>
                 <div class="box" v-for="service in services" :key="service.id">
                     <img src="../../assets/serv/stack.svg">
@@ -18,9 +18,9 @@
     </section>
 </template>
 <script>
-import Loading from "@/components/MyLoading.vue"
+import MyLoadingService from "../MyLoadingService.vue"
 export default {
-    components:{Loading},
+    components:{ MyLoadingService },
     computed:{
         loading(){
             return this.$store.getters.getIsValid
