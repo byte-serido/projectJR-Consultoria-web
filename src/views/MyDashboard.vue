@@ -23,7 +23,7 @@
     </header>
     <main class="container dashbord">
         <!-- Menu com animação se for ativado -->
-        <transition>
+        <transition name="slide" mode="out-in">
             <!-- Menu que irá aparecer quando for clicado -->
             <div class="menu" v-if="isMenu">
                 <div class="item">
@@ -81,7 +81,7 @@
 export default {
     data(){
         return{
-            isMenu: true,
+            isMenu: false,
             username:"",
         }
     },
@@ -227,4 +227,19 @@ export default {
         color: black;
     }
 
+    /* Animação */
+    @keyframes slide-in{
+        from {transform: translateX(-300px);}
+        to {transform: translateX(0);}
+    }
+    @keyframes slide-out {
+        from {transform: translateX(0);}
+        to {transform: translateX(-300px);}
+    }
+    .slide-enter-active{
+        animation: slide-in 0.5s ease;
+    }
+    .slide-leave-active{
+        animation: slide-out 0.5s ease;
+    }
 </style>
