@@ -444,6 +444,21 @@ export default {
         background-size: cover;
     }
 
+    
+    @media(max-width:1200px){
+        
+        .time{
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        flex-wrap: none;
+        padding: 0px 65px;
+        align-items: center;
+        justify-content: center;
+    }
+
+        
+    }
 
     
 </style>
