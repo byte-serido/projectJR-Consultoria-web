@@ -242,4 +242,60 @@ export default {
     .slide-leave-active{
         animation: slide-out 0.5s ease;
     }
+
+    @media (max-width:860px){
+        .menu{
+            background-color: white;
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: absolute;
+            border-right: 1px solid rgb(230, 227, 227);
+        }
+        .menu .item img{
+            display: none;
+        }
+        .menu .item{
+            min-width: 93%;
+        }
+    }
+
+    @media (max-width:660px){
+        .menu .item{
+            min-width: 91%;
+        }
+    }
+
+    @media (max-width:560px){
+        .menu .item{
+            min-width: 90%;
+        }
+    }
+
+    @media (max-width:460px){
+        .menu .item{
+            min-width: 88%;
+        }
+
+        .menu .item span{
+            color: #023F5C;
+            font-size: 0.7rem;
+            font-weight: 500;
+            
+        }
+    }
+
+    @media (max-width:390px){
+        .menu .item{
+            min-width: 86%;
+        }
+
+        .menu .item span{
+            color: #023F5C;
+            font-size: 0.7rem;
+            font-weight: 500;
+            
+        }
+    }
 </style>
