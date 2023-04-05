@@ -143,6 +143,7 @@ export default {
         position: relative;
         transition: all 400ms ease;
         border-radius: 10%;
+        height: 30px;
     }
 
     .container-profile button:active{
