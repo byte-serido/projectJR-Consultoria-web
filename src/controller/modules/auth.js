@@ -2,7 +2,7 @@ import axios from 'axios';
 import router from '@/router';
 export default{
     state:{
-        user:{},
+        user:null,
         token:null
     },
     getters:{
@@ -41,9 +41,10 @@ export default{
               }).then(resp => {
                 if(resp.status === 201){
                     const token = resp.data.token;
+                    const username = resp.data.user.username;
                     commit('setToken', token);
                     localStorage.setItem('token', token);
-                    commit("setLoginUser", {username:resp.data.username, password:resp.data.password,mod:resp.data.mod});
+                    localStorage.setItem('username',username)
                     router.push("/dashboard");
                 }
               }).catch(()=> {
@@ -55,6 +56,7 @@ export default{
         logout({ commit }) {
             commit('clearToken')
             localStorage.removeItem('token')
+            localStorage.removeItem('username')
         },
 
         // Funcionalidade que checa se o token estar autenticado ou não!
