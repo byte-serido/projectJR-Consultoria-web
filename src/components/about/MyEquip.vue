@@ -30,7 +30,7 @@
                     <div class="Dimage3">
                         
                     </div>
-                    <div class="ident">
+                    <div class="ident3">
                         <h3>Lorena Ramalho</h3>
                         <p class="title">Gerente de Gestão de Pessoas</p>
                     </div>
@@ -41,7 +41,7 @@
                     <div class="Dimage4">
                         
                     </div>
-                    <div class="ident">
+                    <div class="ident4">
                         <h3>Eduarda Lima</h3>
                         <p class="title">Gerente de Marketing Outbound</p>
                     </div>
@@ -92,7 +92,7 @@
                     <div class="Dimage9">
                         
                     </div>
-                    <div class="ident">
+                    <div class="ident9">
                         <h3>Sabrina Christina</h3>
                         <p class="title">Consultora de Marketinh Inbound</p>
                     </div>
@@ -101,7 +101,7 @@
                     <div class="Dimage10">
                         
                     </div>
-                    <div class="ident">
+                    <div class="ident10">
                         <h3>Luana Vaz</h3>
                         <p class="title">Consultora de Gestão de Pessoas</p>
                     </div>
@@ -268,6 +268,22 @@ export default {
         gap: 10px;
     }
 
+    .ident3{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 0px 0px 30px;
+    }
+
+    .ident4{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 0px 0px 30px;
+    }
+
     .ident5{
         display: flex;
         flex-direction: column;
@@ -283,6 +299,22 @@ export default {
         gap: 20px;
         padding: 0px 0px 30px;
         
+    }
+
+    .ident9{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 0px 0px 30px;
+    }
+
+    .ident10{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 0px 0px 30px;
     }
 
     .ident13{
