@@ -110,7 +110,7 @@
                     <div class="Dimage11">
                         
                     </div>
-                    <div class="ident">
+                    <div class="ident11">
                         <h3>Michel Almeida</h3>
                         <p class="title">Consultor de Projetos</p>
                     </div>
@@ -119,7 +119,7 @@
                     <div class="Dimage12">
                         
                     </div>
-                    <div class="ident">
+                    <div class="ident12">
                         <h3>Simone Neves</h3>
                         <p class="title">Consultora de Projetos</p>
                     </div> 
@@ -272,16 +272,16 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 20px;
-        padding: 0px 0px 30px;
+        padding: 10px;
+        gap: 10px;
     }
 
     .ident4{
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 20px;
-        padding: 0px 0px 30px;
+        padding: 10px;
+        gap: 10px;
     }
 
     .ident5{
@@ -305,16 +305,32 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 20px;
-        padding: 0px 0px 30px;
+        padding: 10px;
+        gap: 10px;
     }
 
     .ident10{
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 20px;
-        padding: 0px 0px 30px;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .ident11{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .ident12{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        gap: 10px;
     }
 
     .ident13{
@@ -472,6 +488,51 @@ export default {
         background-size: cover;
     }
 
+    @media(max-width:1507px){
+
+        .ident9{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 0px 0px 30px;
+    }
+
+        .ident10{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 0px 0px 30px;
+    }
+
+        .ident11{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 0px 0px 30px;
+    }
+
+        .ident12{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 0px 0px 30px;
+    }
+    }
+
+    @media(max-width:1503px){
+        .ident4{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 0px 0px 30px;
+    }
+    }
+
     
     @media(max-width:1200px){
         
@@ -483,6 +544,20 @@ export default {
         padding: 0px 65px;
         align-items: center;
         justify-content: center;
+    }
+
+        
+    }
+
+    @media(max-width:1193px){
+        
+        .ident4{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 10px;
+            gap: 10px;
+    
     }
 
         
