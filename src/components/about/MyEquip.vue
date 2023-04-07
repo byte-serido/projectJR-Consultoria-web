@@ -209,17 +209,13 @@ export default {
     }
 
     .head{
-        font-family: 'Inter';
+        font-family: 'Asap';
         font-style: normal;
         font-weight: 400;
-        font-size: 1.2rem;
-        line-height: 150%;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: justify;
         letter-spacing: -0.01em;
-        line-height: 150%;
-        /* width: 1150px;
-        height: 81px; */
-        padding: 0PX 60PX;
-        align-self: stretch;
         color: #F7F9FC;
     }
 
@@ -458,6 +454,109 @@ export default {
     }
 
         
+    }
+
+    @media(max-width:1020px){
+
+
+        .head{
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 24px;
+            letter-spacing: -0.01em;
+            text-align: justify;
+            align-self: stretch;
+            color: #F7F9FC;
+        }
+
+        h2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 2.1rem;
+            line-height: 130%;
+            color: #4CB8E7;
+        }
+
+        article{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        
+    }
+
+    }
+
+    @media(max-width:1000px){
+        h2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 2.1rem;
+            line-height: 130%;
+            color: #4CB8E7;
+        }
+
+        article{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+    }
+
+    
+    @media(max-width:800px){
+
+        h2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 2rem;
+            line-height: 130%;
+            color: #4CB8E7;
+        }
+        
+        .head{
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 0.9rem;
+            line-height: 24PX;
+            text-align: justify;
+            letter-spacing: -0.01em;
+            align-self: stretch;
+            color: #F7F9FC;
+        }
+
+        article{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
     }
 
     
