@@ -192,9 +192,8 @@ export default {
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
-        align-items: center;
         gap: 20px;
-        padding: 0px 65px;
+        padding: 0px 120px;
         /* width: 1280px;
         height: 148px; */
     }
@@ -212,7 +211,7 @@ export default {
         font-family: 'Asap';
         font-style: normal;
         font-weight: 400;
-        font-size: 16px;
+        font-size: 1.2rem;
         line-height: 24px;
         text-align: justify;
         letter-spacing: -0.01em;
@@ -664,6 +663,16 @@ export default {
         gap: 20px;
     }
 
+    }
+
+    @media(max-width:884px){
+        article{
+            padding: 0;
+        }
+
+        .time{
+            padding: 0;
+        }
     }
 
     
