@@ -1,4 +1,5 @@
 <template>
+  <!-- Exibe essa tela quando o servidor estiver em manuntenção ou fora do ar -->
   <template v-if="loading">
     <div class="error-conect">
       <div class="error-text">
@@ -9,6 +10,7 @@
       </div>
     </div>
   </template>
+  <!-- Exibe essa tela quando o servidor estiver funcionando normalmente-->
   <template v-else>
     <router-view></router-view>
   </template>
@@ -18,10 +20,12 @@
 export default {
   name: 'App',
   computed:{
+    // verifica se está conectado a API
     loading(){
       return this.$store.getters.getIsConnect
     }
   },
+  // altera o estado para identificar se está conectado ou não
   async mounted(){
     await this.$store.dispatch("setInConnect")
   }

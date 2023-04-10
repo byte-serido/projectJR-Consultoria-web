@@ -32,6 +32,7 @@ export default {
     },
     methods:{
         next(){
+            // verifica se tem novos depoimentos a serem exibidos
             if (this.index === this.length) {
                 this.index = 0;
                 this.$emit('next', this.index)

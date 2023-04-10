@@ -5,6 +5,7 @@
                 <h2>SERVIÇOS</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.</p>
             </article>
+            <!-- exibe o componente Loading enquanto espera o carregamento dos serviços  -->
             <MyLoadingService v-if="loading"></MyLoadingService>
             <div class="box-container" v-else>
                 <div class="box" v-for="service in services" :key="service.id">
@@ -22,13 +23,16 @@ import MyLoadingService from "../MyLoadingService.vue"
 export default {
     components:{ MyLoadingService },
     computed:{
+        // verifica se é valido
         loading(){
             return this.$store.getters.getIsValid
         },
+        // verifica os serviços
         services(){
             return this.$store.getters.getServices
         }
     },
+    // altera o estado
     async mounted(){
         await this.$store.dispatch("setInServices")
     }
