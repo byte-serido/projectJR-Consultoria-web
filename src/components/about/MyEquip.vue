@@ -30,7 +30,7 @@
                     <div class="Dimage3">
                         
                     </div>
-                    <div class="ident">
+                    <div class="ident3">
                         <h3>Lorena Ramalho</h3>
                         <p class="title">Gerente de Gestão de Pessoas</p>
                     </div>
@@ -41,7 +41,7 @@
                     <div class="Dimage4">
                         
                     </div>
-                    <div class="ident">
+                    <div class="ident4">
                         <h3>Eduarda Lima</h3>
                         <p class="title">Gerente de Marketing Outbound</p>
                     </div>
@@ -92,7 +92,7 @@
                     <div class="Dimage9">
                         
                     </div>
-                    <div class="ident">
+                    <div class="ident9">
                         <h3>Sabrina Christina</h3>
                         <p class="title">Consultora de Marketinh Inbound</p>
                     </div>
@@ -101,7 +101,7 @@
                     <div class="Dimage10">
                         
                     </div>
-                    <div class="ident">
+                    <div class="ident10">
                         <h3>Luana Vaz</h3>
                         <p class="title">Consultora de Gestão de Pessoas</p>
                     </div>
@@ -110,7 +110,7 @@
                     <div class="Dimage11">
                         
                     </div>
-                    <div class="ident">
+                    <div class="ident11">
                         <h3>Michel Almeida</h3>
                         <p class="title">Consultor de Projetos</p>
                     </div>
@@ -119,7 +119,7 @@
                     <div class="Dimage12">
                         
                     </div>
-                    <div class="ident">
+                    <div class="ident12">
                         <h3>Simone Neves</h3>
                         <p class="title">Consultora de Projetos</p>
                     </div> 
@@ -192,9 +192,8 @@ export default {
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
-        align-items: center;
         gap: 20px;
-        padding: 0px 65px;
+        padding: 0px 120px;
         /* width: 1280px;
         height: 148px; */
     }
@@ -209,17 +208,13 @@ export default {
     }
 
     .head{
-        font-family: 'Inter';
+        font-family: 'Asap';
         font-style: normal;
         font-weight: 400;
         font-size: 1.2rem;
-        line-height: 150%;
+        line-height: 24px;
+        text-align: justify;
         letter-spacing: -0.01em;
-        line-height: 150%;
-        /* width: 1150px;
-        height: 81px; */
-        padding: 0PX 60PX;
-        align-self: stretch;
         color: #F7F9FC;
     }
 
@@ -272,6 +267,22 @@ export default {
         gap: 10px;
     }
 
+    .ident3{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .ident4{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        gap: 10px;
+    }
+
     .ident5{
         display: flex;
         flex-direction: column;
@@ -287,6 +298,38 @@ export default {
         gap: 20px;
         padding: 0px 0px 30px;
         
+    }
+
+    .ident9{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .ident10{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .ident11{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .ident12{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        gap: 10px;
     }
 
     .ident13{
@@ -444,6 +487,51 @@ export default {
         background-size: cover;
     }
 
+    @media(max-width:1507px){
+
+        .ident9{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 0px 0px 30px;
+    }
+
+        .ident10{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 0px 0px 30px;
+    }
+
+        .ident11{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 0px 0px 30px;
+    }
+
+        .ident12{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 0px 0px 30px;
+    }
+    }
+
+    @media(max-width:1503px){
+        .ident4{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 0px 0px 30px;
+    }
+    }
+
     
     @media(max-width:1200px){
         
@@ -458,6 +546,133 @@ export default {
     }
 
         
+    }
+
+    @media(max-width:1193px){
+        
+        .ident4{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 10px;
+            gap: 10px;
+    
+    }
+
+        
+    }
+
+    @media(max-width:1020px){
+
+
+        .head{
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 24px;
+            letter-spacing: -0.01em;
+            text-align: justify;
+            align-self: stretch;
+            color: #F7F9FC;
+        }
+
+        h2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 2.1rem;
+            line-height: 130%;
+            color: #4CB8E7;
+        }
+
+        article{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        
+    }
+
+    }
+
+    @media(max-width:1000px){
+        h2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 2.1rem;
+            line-height: 130%;
+            color: #4CB8E7;
+        }
+
+        article{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+    }
+
+    
+    @media(max-width:800px){
+
+        h2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 2rem;
+            line-height: 130%;
+            color: #4CB8E7;
+        }
+        
+        .head{
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 0.9rem;
+            line-height: 24PX;
+            text-align: justify;
+            letter-spacing: -0.01em;
+            align-self: stretch;
+            color: #F7F9FC;
+        }
+
+        article{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    }
+
+    @media(max-width:884px){
+        article{
+            padding: 0;
+        }
+
+        .time{
+            padding: 0;
+        }
     }
 
     
