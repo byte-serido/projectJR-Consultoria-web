@@ -181,7 +181,7 @@ export default {
     }
 
     .equip{
-        padding: 80px;
+        padding: 80px 30px;
         display: flex;
         flex-direction: column;
         gap: 30px;
