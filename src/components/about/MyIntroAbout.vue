@@ -64,28 +64,28 @@ export default {
     }
     
     @media(max-width:1130PX){
-        article{
-        padding: 152px 150px 152px 80px;
-    }
+            article{
+            padding: 152px 150px 152px 80px;
+        }
     }
     
     @media(max-width:1060PX){
         article{
-        padding: 152px 100px 152px 80px;
-        justify-content: center;
-        text-align: center;
-    }
+            padding: 152px 100px 152px 80px;
+            justify-content: center;
+            text-align: center;
+        }
 
 
 
-    img{
-        display: none;
-    }
+        img{
+                display: none;
+        }
     }
     
     @media(max-width:480PX){
         article{
-            padding: 152px 50px 152px 80px;
+            padding: 160px 30px;
         }
     }
 </style>
