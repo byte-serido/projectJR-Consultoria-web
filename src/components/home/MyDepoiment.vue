@@ -2,7 +2,9 @@
     <section class="dep-container">
         <div class="container dep">
             <p>DEPOIMENTOS DE CLIENTES E PARCEIROS</p>
+            <!-- exibe o componente Loading enquanto espera o retorno do Card de depoimentos -->
             <MyLoadingDepoiment v-if="loading"></MyLoadingDepoiment>
+            <!-- exibe o Card de depoimentos -->
             <MyCardDep 
                 :i="index"
                 :length="depoiments.length"
@@ -29,13 +31,16 @@ export default {
       }
     },   
     computed:{
+        // verifica se está valido
         loading(){
             return this.$store.getters.getIsValid
         },
+        // verifica se tem novos depoimentos
         depoiments(){
             return this.$store.getters.getDepoiments
         }
     },
+    // altera o estado
     async mounted(){
         await this.$store.dispatch("setInDepoiments")
     }

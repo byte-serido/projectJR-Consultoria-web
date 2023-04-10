@@ -1,6 +1,7 @@
 <template>
     <section class="blog-container">
         <div class="container blog">
+            <!-- exibe o componente de blog -->
             <MyBlog 
                 :principal="principal"
                 :post1="post1"

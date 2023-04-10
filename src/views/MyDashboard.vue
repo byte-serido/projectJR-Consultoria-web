@@ -88,6 +88,9 @@ export default {
     methods:{
         onLogout(){
             this.$store.dispatch("logout");
+            // altera o estado 
+            this.$store.dispatch("logout")
+            // adiciona o sufixo /login a URL da rota
             this.$router.push("/login");
         }
     },
