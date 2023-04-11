@@ -3,7 +3,7 @@
         <div class="container service">
             <article>
                 <h2>SERVIÇOS</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.</p>
+                <p>Conheça todos nossos serviçõs e soluções inovadoras. Todos nossos serviços visão melhorar você e sua empresa de forma completa! </p>
             </article>
             <!-- exibe o componente Loading enquanto espera o carregamento dos serviços  -->
             <MyLoadingService v-if="loading"></MyLoadingService>
