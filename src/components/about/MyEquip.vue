@@ -30,7 +30,7 @@
                     <div class="Dimage3">
                         
                     </div>
-                    <div class="ident3">
+                    <div class="ident">
                         <h3>Lorena Ramalho</h3>
                         <p class="title">Gerente de Gestão de Pessoas</p>
                     </div>
@@ -41,7 +41,7 @@
                     <div class="Dimage4">
                         
                     </div>
-                    <div class="ident4">
+                    <div class="ident">
                         <h3>Eduarda Lima</h3>
                         <p class="title">Gerente de Marketing Outbound</p>
                     </div>
@@ -53,7 +53,7 @@
                     <div class="Dimage5">
                         
                     </div>
-                    <div class="ident5">
+                    <div class="ident">
                         <h3>Lilian Nikole</h3>
                         <p class="title">Consultora de Gestão de Pessoas</p>
                     </div>
@@ -80,7 +80,7 @@
                     <div class="Dimage8">
                         
                     </div>
-                    <div class="ident8">
+                    <div class="ident">
                         <h3>Ithalo Damasceno</h3>
                         <p class="title">Consultor de Marketinh Inbound</p>
                     </div>
@@ -92,7 +92,7 @@
                     <div class="Dimage9">
                         
                     </div>
-                    <div class="ident9">
+                    <div class="ident">
                         <h3>Sabrina Christina</h3>
                         <p class="title">Consultora de Marketinh Inbound</p>
                     </div>
@@ -101,7 +101,7 @@
                     <div class="Dimage10">
                         
                     </div>
-                    <div class="ident10">
+                    <div class="ident">
                         <h3>Luana Vaz</h3>
                         <p class="title">Consultora de Gestão de Pessoas</p>
                     </div>
@@ -110,7 +110,7 @@
                     <div class="Dimage11">
                         
                     </div>
-                    <div class="ident11">
+                    <div class="ident">
                         <h3>Michel Almeida</h3>
                         <p class="title">Consultor de Projetos</p>
                     </div>
@@ -119,7 +119,7 @@
                     <div class="Dimage12">
                         
                     </div>
-                    <div class="ident12">
+                    <div class="ident">
                         <h3>Simone Neves</h3>
                         <p class="title">Consultora de Projetos</p>
                     </div> 
@@ -131,7 +131,7 @@
                     <div class="Dimage13">
                         
                     </div>
-                    <div class="ident13">
+                    <div class="ident">
                         <h3>Geovanna Peixoto</h3>
                         <p class="title">Consultora de Projetos</p>
                     </div>
@@ -181,10 +181,10 @@ export default {
     }
 
     .equip{
-        padding: 80px 30px;
+        padding: 80px 80px;
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 60px;
     }
 
     article{
@@ -193,9 +193,6 @@ export default {
         align-items: flex-start;
         justify-content: center;
         gap: 20px;
-        padding: 0px 120px;
-        /* width: 1280px;
-        height: 148px; */
     }
 
     h2{
@@ -241,7 +238,6 @@ export default {
         display: flex;
         gap: 30px;
         flex-wrap: wrap;
-        padding: 0px 65px;
         align-items: center;
         justify-content: center;
     }
@@ -252,97 +248,21 @@ export default {
     }
 
     .card{
+        height: 400px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 0px;
-        gap: 15px;
+        gap: 10px;
     }
 
     .ident{
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding: 10px;
         gap: 10px;
     }
 
-    .ident3{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px;
-        gap: 10px;
-    }
-
-    .ident4{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px;
-        gap: 10px;
-    }
-
-    .ident5{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-        padding: 0px 0px 30px;
-    }
-
-    .ident8{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-        padding: 0px 0px 30px;
-        
-    }
-
-    .ident9{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px;
-        gap: 10px;
-    }
-
-    .ident10{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px;
-        gap: 10px;
-    }
-
-    .ident11{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px;
-        gap: 10px;
-    }
-
-    .ident12{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px;
-        gap: 10px;
-    }
-
-    .ident13{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-        padding: 0px 0px 30px;
-    }
-
-
-
-
+    /* Imagens */
     .Dimage1{
         background-color: white;
         width: 280px;
