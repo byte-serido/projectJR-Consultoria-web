@@ -4,8 +4,10 @@
 
       <section class="content">
         <h2 class="headline">CONHEÇA A <strong>PROJECT JR.</strong></h2>
-        <p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus.</p>
-        <button class="button">Conheça nossa História</button>
+        <p class="body">A Project Junior é uma empresa júnior formada por estudantes do curso de Engenharia de Produção da Universidade Federal Rural do Semi-Árido (UFERSA). Como uma empresa júnior, seu objetivo é fornecer soluções de consultoria e projetos para empresas e organizações em diversas áreas, incluindo gestão da qualidade, gestão de processos, planejamento estratégico, gestão de pessoas, entre outras...</p>
+        <router-link to="/about" tag="a"  active-class="active">
+          <button class="button">Conheça nossa História</button>
+        </router-link>
       </section>
 
       <section class="wrapper">

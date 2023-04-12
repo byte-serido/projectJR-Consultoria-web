@@ -59,7 +59,7 @@ export default {
     }
 
     .footer{
-        padding: 86px 75px 86px 255px;
+        padding: 86px 80px;
         display: flex;
         flex-direction: row;
         align-items: center;
