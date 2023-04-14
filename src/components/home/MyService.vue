@@ -81,6 +81,10 @@ export default {
         color: #EDF0F7;
     }
 
+    article p{
+        font-size: 1.28rem;
+    }
+
     p{
         color: #1A202C;
         font-family: 'Inter';
@@ -99,24 +103,25 @@ export default {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        gap: 36px;
+        gap: 32px;
     }
 
     .box{
-        height: 240px;
-        width: 246px;
+        height: 300px;
+        width: 280px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        justify-content: space-between;
         padding: 40px;
-        gap: 20px;
+        gap: 10px;
         background: #115A7B;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
     }
 
     .p-box{
-        max-width: 200px;
+        max-width: 300px;
         font-family: 'Asap';
         font-style: normal;
         text-align: left;
