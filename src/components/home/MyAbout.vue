@@ -34,7 +34,7 @@ export default {
 
   .about{
     display: flex;
-    padding: 80px 189px;
+    padding: 80px 80px;
     gap: 40px;
   }
   

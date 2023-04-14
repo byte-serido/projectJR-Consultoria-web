@@ -49,7 +49,7 @@ import MyBlog from './MyBlog.vue';
         font-family: 'Inter',sans-serif;
     }
     .blog{
-        padding: 60px 61px;
+        padding: 60px 80px;
         display: flex;
         flex-direction: column;
     }

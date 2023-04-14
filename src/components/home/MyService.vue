@@ -49,7 +49,7 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 60px 92px;
+        padding: 60px 80px;
         gap: 50px;
         justify-content: space-between;
     }
