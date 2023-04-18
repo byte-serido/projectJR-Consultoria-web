@@ -12,23 +12,30 @@
   </template>
   <!-- Exibe essa tela quando o servidor estiver funcionando normalmente-->
   <template v-else>
-    <router-view></router-view>
+      <router-view v-slot="{ Component }">
+        <Transition name="slide" mode="out-in">
+          <component :is="Component" :key="$route.path"></component>        
+        </Transition>
+      </router-view>
   </template>
 </template>
 
 <script>
+import { Transition } from 'vue';
+
 export default {
-  name: 'App',
-  computed:{
-    // verifica se está conectado a API
-    loading(){
-      return this.$store.getters.getIsConnect
-    }
-  },
-  // altera o estado para identificar se está conectado ou não
-  async mounted(){
-    await this.$store.dispatch("setInConnect")
-  }
+    name: "App",
+    computed: {
+        // verifica se está conectado a API
+        loading() {
+            return this.$store.getters.getIsConnect;
+        }
+    },
+    // altera o estado para identificar se está conectado ou não
+    async mounted() {
+        await this.$store.dispatch("setInConnect");
+    },
+    components: { Transition }
 }
 </script>
 
@@ -69,5 +76,16 @@ export default {
     text-align: center;
     max-width: 500px;
     font-weight: 600;
+  }
+
+  .slide-enter-active,
+  .slide-leave-active {
+    transition: opacity 1s, transform 1s;
+  }
+
+  .slide-enter-from,
+  .slide-leave-to {
+    opacity: 0;
+    transform: translateX(-30%);
   }
 </style>
