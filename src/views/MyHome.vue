@@ -1,4 +1,5 @@
 <template>
+  <div>
     <header>
       <NavBar></NavBar>
     </header>
@@ -9,10 +10,11 @@
         <MyDepoiment></MyDepoiment>
         <MyPostBlog></MyPostBlog>
         <MyContact></MyContact>
-    </main>
-    <footer>
-      <Footer></Footer>
-    </footer>
+      </main>
+      <footer>
+        <Footer></Footer>
+      </footer>
+  </div>
 </template>
 
 <script>

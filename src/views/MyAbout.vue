@@ -1,4 +1,5 @@
 <template >
+  <div>
     <header>
       <NavBar></NavBar>
     </header>
@@ -11,6 +12,7 @@
     <footer>
       <Footer></Footer>
     </footer>
+  </div>
 </template>
 
 <script>
