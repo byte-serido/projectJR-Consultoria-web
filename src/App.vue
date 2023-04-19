@@ -12,11 +12,9 @@
   </template>
   <!-- Exibe essa tela quando o servidor estiver funcionando normalmente-->
   <template v-else>
-      <router-view v-slot="{ Component }">
-        <Transition name="slide" mode="out-in">
-          <component :is="Component" :key="$route.path"></component>        
-        </Transition>
-      </router-view>
+    <Transition name="slide" mode="out-in">     
+      <router-view></router-view>
+    </Transition>
   </template>
 </template>
 
@@ -80,7 +78,7 @@ export default {
 
   .slide-enter-active,
   .slide-leave-active {
-    transition: opacity 1s, transform 1s;
+    transition: opacity 0.6s, transform 0.6s;
   }
 
   .slide-enter-from,
