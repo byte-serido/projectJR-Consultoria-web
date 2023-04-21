@@ -8,7 +8,7 @@
                     <p class="action-call">Fale conosco agora e descubra como podemos ajudá-lo.</p>
                 </article>
                 <button>
-                    Solicite nosso Diagnóstico gratuito
+                    Entre em contato conosco!
                 </button>
             </div>
             <img class="img-hero" src="../../assets/hero/girl_happy.svg" alt="Imagem de uma moça linda e feliz!">
