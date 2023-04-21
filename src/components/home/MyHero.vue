@@ -7,9 +7,14 @@
                     <p class="body">Ajudamos você a encontrar a melhor forma de otimizar os processos da sua empresa, alcançar os melhores resultados e destacar seu negócio no mercado.</p>
                     <p class="action-call">Fale conosco agora e descubra como podemos ajudá-lo.</p>
                 </article>
-                <button>
-                    Entre em contato conosco!
-                </button>
+                <router-link to="/faleConosco" src="MyContact.vue" active-class="active">
+                    <button>
+                        <transition name="fade" mode="out-in">
+                            Entre em contato conosco!
+                        </transition>
+                    </button>
+                </router-link>
+
             </div>
             <img class="img-hero" src="../../assets/hero/girl_happy.svg" alt="Imagem de uma moça linda e feliz!">
         </div>
@@ -17,8 +22,9 @@
 </template>
 
 <script>
+
 export default {
-    
+
 }
 </script>
 
@@ -162,7 +168,7 @@ export default {
                 height: 600px;
         }
     }
-
+    
     @media (max-width:848px){
         .hero{
             padding: 61px 0px 0px 20px;
