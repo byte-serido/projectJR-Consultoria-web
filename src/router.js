@@ -8,12 +8,21 @@ const Blog = () => import('./views/MyBlog.vue');
 const Contact = () => import('./views/MyContact.vue');
 const Login = () => import('./views/MyLogin.vue');
 const Dashboard = () => import('./views/MyDashboard.vue');
+const FaleConosco = () => import('./components/home/MyContact.vue');
 
 const routes = [
     {
       path: '/',
       name: 'home',
       component: Home,
+      //Permitindo que todos os parametros da rota sejam passados como atributos
+      props:true,
+    },
+
+    {
+      path: '/faleConosco',
+      name: 'FaleConosco',
+      component: FaleConosco,
       //Permitindo que todos os parametros da rota sejam passados como atributos
       props:true,
     },
