@@ -22,6 +22,10 @@
                         <router-link class="menu-button" to="/blog" active-class="active">
                             <a>Blog</a>
                         </router-link>
+                        
+                        <router-link class="menu-button" to="/login" active-class="active">
+                            <a>Login</a>
+                        </router-link>
                     </div>
                 </div>
                 <div class="social">
