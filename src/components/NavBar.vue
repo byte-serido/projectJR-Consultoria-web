@@ -1,12 +1,12 @@
-<template lang="pt-br">
+<template>
     <section class="navbar-container">
         <div class="container navbar">
             <img src="../assets/nav/logo-bar.svg" alt="Logo da ByteSeridó Jr">
             <div class="menu-bar">
-                <router-link class="menu-button" to="/" tag="a" active-class="active" exact>
+                <router-link class="menu-button" to="/" active-class="active" exact>
                     <a>Início</a>
                 </router-link>
-                <router-link class="menu-button" to="/about" tag="a"  active-class="active">
+                <router-link class="menu-button" to="/about" active-class="active">
                     <a>Quem somos</a>
                 </router-link>
                 <button 
@@ -26,16 +26,20 @@
                             :value="index"
                         >
                             <div class="list-item">
-                                <router-link class="item" to="" tag="a"  active-class="active">{{ item.title }}</router-link>
+                                <router-link class="item" to="" active-class="active">{{ item.title }}</router-link>
                             </div>
                         </div>
                     </v-list>
                 </v-menu>
-                <router-link class="menu-button" to="/blog" tag="a"  active-class="active">
+                <router-link class="menu-button" to="/blog" active-class="active">
                     <a>Blog</a>
                 </router-link>
             </div>
-            <button class="nav-button">Agende um Diagnóstico</button>
+            <router-link to="/contact" src="MyContact.vue" active-class="active">
+                <transition name="fade" mode="out-in">
+                    <button class="nav-button">Agende um Diagnóstico</button>
+                </transition>
+            </router-link>
         </div>
     </section>
 </template>

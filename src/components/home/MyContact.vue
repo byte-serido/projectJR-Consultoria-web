@@ -1,5 +1,5 @@
 
-78<template lang="pt-br">
+<template lang="pt-br">
     <section class="contact-container">
         <div class="container contact">
             <div class="contatos">

@@ -5,10 +5,9 @@ const Home = () => import('./views/MyHome.vue');
 const About = () => import('./views/MyAbout.vue');
 const Services = () => import('./views/MyServices.vue');
 const Blog = () => import('./views/MyBlog.vue');
-const Contact = () => import('./views/MyContact.vue');
 const Login = () => import('./views/MyLogin.vue');
 const Dashboard = () => import('./views/MyDashboard.vue');
-const FaleConosco = () => import('./components/home/MyContact.vue');
+const Contact = () => import('./views/MyContact.vue');
 
 const routes = [
     {
@@ -21,9 +20,9 @@ const routes = [
     },
 
     {
-      path: '/faleConosco',
-      name: 'FaleConosco',
-      component: FaleConosco,
+      path: '/contact',
+      name: 'contact',
+      component: Contact,
       //Permitindo que todos os parametros da rota sejam passados como atributos
       props:true,
     },
@@ -50,15 +49,6 @@ const routes = [
       path: '/blog',
       name: 'blog',
       component: Blog,
-      //Permitindo que todos os parametros da rota sejam passados como atributos
-      props:true,
-      meta: { transition: 'slide-left' },
-    },
-
-    {
-      path: '/contact',
-      name: 'contact',
-      component: Contact,
       //Permitindo que todos os parametros da rota sejam passados como atributos
       props:true,
       meta: { transition: 'slide-left' },
