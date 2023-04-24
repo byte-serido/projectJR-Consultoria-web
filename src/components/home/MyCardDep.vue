@@ -98,12 +98,12 @@ export default {
         flex: 1;
         color: #023F5C;
         flex-direction: column;
-        gap: 50px;
+        gap: 28px;
         align-items: flex-start;
     }
 
     .coment{
-        max-width: 294px;
+        max-width: 400px;
         font-family: "Asap",sans-serif;
         font-size: 1.375rem;
         line-height: 35.2px;
@@ -114,6 +114,7 @@ export default {
     .person-row{
         min-width:100%;
         display: flex;
+        max-width:400px;
         gap: 10px;
         align-items: center;
         justify-content: flex-start;

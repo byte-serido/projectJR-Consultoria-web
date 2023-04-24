@@ -28,7 +28,8 @@
                     </router-link>
                 </div>
                 <!-- Button para para fazer login-->
-                <button @click="loginSubmit()" :class="isReleased ? 'card-button-disabled' : 'card-button'" :disabled="isReleased">
+                <div v-if="loading" class="spinner"></div>
+                <button v-else @click="loginSubmit() " :class="isReleased ? 'card-button-disabled' : 'card-button'" :disabled="isReleased">
                     Entrar
                 </button>
             </div>
@@ -43,7 +44,8 @@ export default {
         return{
             username:"",
             password:"",
-            isVisiblity:false
+            isVisiblity:false,
+            loading: false,
         }
     },
     computed:{
@@ -60,6 +62,10 @@ export default {
     methods:{
         // Funcionalidade de login
         loginSubmit(){
+            this.loading = true;
+            setTimeout(() => {
+                this.loading = false;
+            }, 2000);
             this.$store.dispatch('login',{username:this.username, password:this.password});
         }
     }
@@ -188,6 +194,20 @@ export default {
         font-weight: 700;
         color:  #3f4547;
         border: none;
+    }
+
+    .spinner {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #3498db;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
     }
 
     /* Responsividade */

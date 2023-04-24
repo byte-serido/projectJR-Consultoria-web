@@ -17,6 +17,7 @@ const routes = [
       component: Home,
       //Permitindo que todos os parametros da rota sejam passados como atributos
       props:true,
+      meta: { transition: 'slide-left' },
     },
 
     {
@@ -33,6 +34,7 @@ const routes = [
       component: About,
       //Permitindo que todos os parametros da rota sejam passados como atributos
       props:true,
+      meta: { transition: 'slide-left' },
     },
 
     {
@@ -41,6 +43,7 @@ const routes = [
       component: Services,
       //Permitindo que todos os parametros da rota sejam passados como atributos
       props:true,
+      meta: { transition: 'slide-left' },
     },
 
     {
@@ -49,6 +52,7 @@ const routes = [
       component: Blog,
       //Permitindo que todos os parametros da rota sejam passados como atributos
       props:true,
+      meta: { transition: 'slide-left' },
     },
 
     {
@@ -57,6 +61,7 @@ const routes = [
       component: Contact,
       //Permitindo que todos os parametros da rota sejam passados como atributos
       props:true,
+      meta: { transition: 'slide-left' },
     },
 
     {
@@ -65,7 +70,7 @@ const routes = [
       component:Login,
       //Permitindo que todos os parametros da rota sejam passados como atributos
       props:true,
-      meta: { requiresGuest: true }
+      meta: { requiresGuest: true, transition: 'slide-left' },
     },
 
     {
@@ -74,7 +79,7 @@ const routes = [
       component:Dashboard,
       //Permitindo que todos os parametros da rota sejam passados como atributos
       props:true,
-      meta: { requiresAuth: true }
+      meta: { requiresAuth: true, transition: 'slide-left' }
     },
 
   ]
@@ -97,6 +102,12 @@ const routes = [
     } else {
       next()
     }
+  })
+
+  router.afterEach((to, from) => {
+    const toDepth = to.path.split('/').length
+    const fromDepth = from.path.split('/').length
+    to.meta.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left'
   })
   
   export default router
