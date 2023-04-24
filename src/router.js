@@ -7,7 +7,7 @@ const Services = () => import('./views/MyServices.vue');
 const Blog = () => import('./views/MyBlog.vue');
 const Login = () => import('./views/MyLogin.vue');
 const Dashboard = () => import('./views/MyDashboard.vue');
-const Contact = () => import('./components/home/MyContact.vue');
+const Contact = () => import('./views/MyContact.vue');
 
 const routes = [
     {
