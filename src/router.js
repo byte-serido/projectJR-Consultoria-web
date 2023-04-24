@@ -8,6 +8,7 @@ const Blog = () => import('./views/MyBlog.vue');
 const Contact = () => import('./views/MyContact.vue');
 const Login = () => import('./views/MyLogin.vue');
 const Dashboard = () => import('./views/MyDashboard.vue');
+const FaleConosco = () => import('./components/home/MyContact.vue');
 
 const routes = [
     {
@@ -17,6 +18,14 @@ const routes = [
       //Permitindo que todos os parametros da rota sejam passados como atributos
       props:true,
       meta: { transition: 'slide-left' },
+    },
+
+    {
+      path: '/faleConosco',
+      name: 'FaleConosco',
+      component: FaleConosco,
+      //Permitindo que todos os parametros da rota sejam passados como atributos
+      props:true,
     },
 
     {

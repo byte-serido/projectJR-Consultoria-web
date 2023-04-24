@@ -34,9 +34,6 @@
                 <router-link class="menu-button" to="/blog" tag="a"  active-class="active">
                     <a>Blog</a>
                 </router-link>
-                <router-link class="menu-button" to="/contact" tag="a"  active-class="active">
-                    <a>Fale conosco</a>
-                </router-link>
             </div>
             <button class="nav-button">Agende um Diagnóstico</button>
         </div>
