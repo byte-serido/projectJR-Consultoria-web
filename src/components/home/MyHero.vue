@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <section class="hero-container">
         <div class="container hero">
             <div class="content-hero">
@@ -7,7 +7,7 @@
                     <p class="body">Ajudamos você a encontrar a melhor forma de otimizar os processos da sua empresa, alcançar os melhores resultados e destacar seu negócio no mercado.</p>
                     <p class="action-call">Fale conosco agora e descubra como podemos ajudá-lo.</p>
                 </article>
-                <router-link to="/faleConosco" src="MyContact.vue" active-class="active">
+                <router-link to="/contact" src="MyContact.vue" active-class="active">
                     <button>
                         <transition name="fade" mode="out-in">
                             Entre em contato conosco!
