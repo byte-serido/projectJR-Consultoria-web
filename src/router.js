@@ -8,6 +8,8 @@ const Blog = () => import('./views/MyBlog.vue');
 const Login = () => import('./views/MyLogin.vue');
 const Dashboard = () => import('./views/MyDashboard.vue');
 const Contact = () => import('./views/MyContact.vue');
+const DashBoardMember = () => import('@/components/dashboard/MyMembros.vue');
+const DashBoardAdms = () => import('@/components/dashboard/MyAdms.vue');
 
 const routes = [
     {
@@ -25,6 +27,7 @@ const routes = [
       component: Contact,
       //Permitindo que todos os parametros da rota sejam passados como atributos
       props:true,
+      meta: { transition: 'slide-left' },
     },
 
     {
@@ -69,7 +72,25 @@ const routes = [
       component:Dashboard,
       //Permitindo que todos os parametros da rota sejam passados como atributos
       props:true,
-      meta: { requiresAuth: true, transition: 'slide-left' }
+      meta: { requiresAuth: true, transition: 'slide-left' },
+      children:[
+        {
+          path: '/membros',
+          name: 'membros',
+          component:DashBoardMember,
+          //Permitindo que todos os parametros da rota sejam passados como atributos
+          props:true,
+          meta: { requiresAuth: true },
+        },
+        {
+          path: '/adms',
+          name: 'adms',
+          component:DashBoardAdms,
+          //Permitindo que todos os parametros da rota sejam passados como atributos
+          props:true,
+          meta: { requiresAuth: true, transition: 'slide-left' },
+        },
+      ]
     },
 
   ]
