@@ -1,82 +1,57 @@
 <template>
-    <div>
-        <!-- Nav bar superior -->
-        <header>
-    
-            <!-- Coloca todos em linha -->
-            <div class="navbar">
-    
-                <!-- // Div que contem tudo do usuario e o menu -->
-                <div class="container-profile">
-                    <button @click="isMenu=!isMenu">
-                        <img class="menu-icon" src="@/assets/dashboard/icon-list.svg" alt="Icone de menu de opções.">
-                    </button>
-                    <div class="avatar"></div>
-                    <span>{{ username }}</span>
-                </div>
-    
-                <!-- Button de saida -->
-                <button @click="onLogout()">
-                    <img class="button-icon" src="@/assets/dashboard/icon-log-out.svg" alt="Icone de indicado para sair.">
+    <!-- Nav bar superior -->
+    <header>
+
+        <!-- Coloca todos em linha -->
+        <div class="navbar">
+
+            <!-- // Div que contem tudo do usuario e o menu -->
+            <div class="container-profile">
+                <button @click="isMenu=!isMenu">
+                    <img class="menu-icon" src="@/assets/dashboard/icon-list.svg" alt="Icone de menu de opções.">
                 </button>
+                <div class="avatar"></div>
+                <span>{{ username }}</span>
             </div>
-        </header>
-        <main class="container dashbord">
-            <!-- Menu com animação se for ativado -->
-            <transition name="slide" mode="out-in">
-                <!-- Menu que irá aparecer quando for clicado -->
-                <div class="menu" v-if="isMenu">
-                    <div class="item">
-                        <span>Cadastrar Adm</span>
-                        <img src="@/assets/dashboard/icon-user-plus.svg" alt="Icone de usuarios">
-                    </div>
-                    <div class="item">
-                        <span>Listar Adms</span>
-                        <img src="@/assets/dashboard/icon-users.svg" alt="Icone Lista de usuarios">
-                    </div>
-                    <div class="item">
-                        <span>Cadastrar Membro</span>
-                        <img src="@/assets/dashboard/icon-user-plus.svg" alt="Icone de Membro">
-                    </div>
-                    <div class="item">
-                        <span>Listar Membros</span>
-                        <img src="@/assets/dashboard/icon-users.svg" alt="Icone Lista de Membro">
-                    </div>
-                    <div class="item">
-                        <span>Cadastrar Serviço</span>
-                        <img src="@/assets/dashboard/icon-briefcase.svg" alt="Icone de Serviços">
-                    </div>
-                    <div class="item">
-                        <span>Listar Serviço</span>
-                        <img src="@/assets/dashboard/icon-layers.svg" alt="Icone de Lista de Serviços">
-                    </div>
-                    <div class="item">
-                        <span>Cadastrar Depoimentos</span>
-                        <img src="@/assets/dashboard/icon-message-circle.svg" alt="Icone de depoimentos">
-                    </div>
-                    <div class="item">
-                        <span>Listar Depoimentos</span>
-                        <img src="@/assets/dashboard/icon-message-circle.svg" alt="Icone de Lista depoimentos">
-                    </div>
-                    <div class="item">
-                        <span>Criar Post</span>
-                        <img src="@/assets/dashboard/icon-layout.svg" alt="Icone de Post">
-                    </div>
-                    <div class="item">
-                        <span>Listar Posts</span>
-                        <img src="@/assets/dashboard/icon-cards.svg" alt="Icone de Listar Posts">
-                    </div>
-                </div>
-            </transition>
-            <!-- Conteudo que ficara mudando dependendo da escolha no menu -->
-            <div class="container-dashbord">
-                <article>
-                    <p>Olá aqui será onde teremos cadastros e listas, uiiiiiii!!!</p>
-                    <hr>
-                </article>
+
+            <!-- Button de saida -->
+            <button @click="onLogout()">
+                <img class="button-icon" src="@/assets/dashboard/icon-log-out.svg" alt="Icone de indicado para sair.">
+            </button>
+        </div>
+    </header>
+    <main class="dashbord">
+        <!-- Menu com animação se for ativado -->
+        <transition name="slide" mode="out-in">
+            <!-- Menu que irá aparecer quando for clicado -->
+            <div class="menu" v-if="isMenu">
+                <router-link class="item" to="" active-class="active" exact>
+                    <span>Administradores</span>
+                    <img src="@/assets/dashboard/icon-user-plus.svg" alt="Icone de usuarios">
+                </router-link>
+                <router-link class="item" to="/membros" active-class="active">
+                    <span>Membros</span>
+                    <img src="@/assets/dashboard/icon-user-plus.svg" alt="Icone de Membro">
+                </router-link>
+                <router-link class="item" to="" active-class="active">
+                    <span>Serviços</span>
+                    <img src="@/assets/dashboard/icon-briefcase.svg" alt="Icone de Serviços">
+                </router-link>
+                <router-link class="item" to="" active-class="active">
+                    <span>Depoimentos</span>
+                    <img src="@/assets/dashboard/icon-message-circle.svg" alt="Icone de depoimentos">
+                </router-link>
+                <router-link class="item" to="" active-class="active">
+                    <span>Posts</span>
+                    <img src="@/assets/dashboard/icon-layout.svg" alt="Icone de Post">
+                </router-link>
             </div>
-        </main>
-    </div>
+        </transition>
+        <!-- Conteudo que ficara mudando dependendo da escolha no menu -->
+        <div class="container-dashbord">
+            <router-view/>
+        </div>
+    </main>
 </template>
 <script>
 export default {
@@ -174,8 +149,8 @@ export default {
     .dashbord{
         display: flex;
         flex-direction: row;
-        min-height: 100%;
-        min-width: 100%;
+        height: 100%;
+        width: 100%;
     }
 
     /* Menu */
@@ -189,6 +164,7 @@ export default {
     }
 
     .menu .item{
+        text-decoration: none;
         padding-left:10px;
         padding-right: 10px;
         padding-top: 22px ;
