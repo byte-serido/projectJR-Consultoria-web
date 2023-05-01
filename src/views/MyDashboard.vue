@@ -187,11 +187,12 @@ export default {
 
     /* Body */
     .container-dashbord {
-        padding: 80px 60px;
+        padding: 60px 60px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         min-height: 100%;
+        width: 100%;
     }
 
     .container-dashbord article p{
