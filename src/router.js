@@ -8,8 +8,9 @@ const Blog = () => import('./views/MyBlog.vue');
 const Login = () => import('./views/MyLogin.vue');
 const Dashboard = () => import('./views/MyDashboard.vue');
 const Contact = () => import('./views/MyContact.vue');
-const DashBoardMember = () => import('@/components/dashboard/MyMembros.vue');
+const DashBoardMember = () => import('@/components/dashboard/MyMembers.vue');
 const DashBoardAdms = () => import('@/components/dashboard/MyAdms.vue');
+const DetailMember = () => import("@/components/dashboard/components/member/DetailMember.vue")
 
 const routes = [
     {
@@ -78,6 +79,14 @@ const routes = [
           path: '/membros',
           name: 'membros',
           component:DashBoardMember,
+          //Permitindo que todos os parametros da rota sejam passados como atributos
+          props:true,
+          meta: { requiresAuth: true },
+        },
+        {
+          path: '/detail',
+          name: 'detail',
+          component:DetailMember,
           //Permitindo que todos os parametros da rota sejam passados como atributos
           props:true,
           meta: { requiresAuth: true },
