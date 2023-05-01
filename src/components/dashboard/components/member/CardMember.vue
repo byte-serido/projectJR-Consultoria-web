@@ -1,16 +1,30 @@
 <template>
-    <div class="card">
-        <img :src="imgURL" alt="Imagem do Membro">
-        <article>
-            <p>{{ name }}</p>
-            <p>{{ role }}</p>
-            <p>{{ phone }}</p>
-        </article>
-    </div>
+    <router-link to="/detail">
+        <div class="card">
+            <img :src="imgURL" alt="Imagem do Membro">
+            <article>
+                <p>{{ name }}</p>
+                <p>{{ role }}</p>
+                <p>{{ phone }}</p>
+            </article>
+        </div>
+    </router-link>
 </template>
 
 <script>
 export default {
+    data(){
+        return{
+            member:{
+                name: this.name,
+                role: this.role,
+                imgURL: this.imgURL,
+                phone: this.phone,
+                registration: this.registration,
+                description: this.description,
+            },
+        }
+    },
     props:{
         name:{
             type:String,
@@ -36,14 +50,14 @@ export default {
             type: String,
             default:"Um bom membro de eguipe!"
         }
-    }
+    },
 }
 </script>
 
 <style scoped>
     .card{
         font-family: "Inter", sans-serif;
-        background-color: #ffffff;
+        background-color: #023F5C;
         border-radius: 8px;
         width: 300px;
         height: 300px;
@@ -51,6 +65,7 @@ export default {
         flex-direction: column;
         align-items: flex-start;
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        cursor: pointer;
     }
 
     .card img{
@@ -73,6 +88,11 @@ export default {
     .card article p{
         font-size: 0.8rem;
         font-weight: 500;
-        color: #023F5C;
+        color: #FFFFFF;
+    }
+
+    a{
+        text-decoration: none;
+        color: #FFFFFF;
     }
 </style>
