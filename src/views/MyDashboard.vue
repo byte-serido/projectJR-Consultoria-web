@@ -27,23 +27,18 @@
             <div class="menu" v-if="isMenu">
                 <router-link class="item" to="" active-class="active" exact>
                     <span>Administradores</span>
-                    <img src="@/assets/dashboard/icon-user-plus.svg" alt="Icone de usuarios">
                 </router-link>
                 <router-link class="item" to="/membros" active-class="active">
                     <span>Membros</span>
-                    <img src="@/assets/dashboard/icon-user-plus.svg" alt="Icone de Membro">
                 </router-link>
                 <router-link class="item" to="" active-class="active">
                     <span>Serviços</span>
-                    <img src="@/assets/dashboard/icon-briefcase.svg" alt="Icone de Serviços">
                 </router-link>
                 <router-link class="item" to="" active-class="active">
                     <span>Depoimentos</span>
-                    <img src="@/assets/dashboard/icon-message-circle.svg" alt="Icone de depoimentos">
                 </router-link>
                 <router-link class="item" to="" active-class="active">
                     <span>Posts</span>
-                    <img src="@/assets/dashboard/icon-layout.svg" alt="Icone de Post">
                 </router-link>
             </div>
         </transition>
@@ -57,7 +52,7 @@
 export default {
     data(){
         return{
-            isMenu: false,
+            isMenu: true,
             username:"",
         }
     },
@@ -116,6 +111,7 @@ export default {
     }
 
     .container-profile button{
+        display: none;
         background-color: transparent;
         border: none;
         cursor: pointer;
@@ -155,27 +151,23 @@ export default {
 
     /* Menu */
     .menu{
-        max-width: 300px;
+        width: 260px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        flex: 1;
         border-right: 1px solid rgb(230, 227, 227);
     }
 
     .menu .item{
+        padding: 22px;
+        box-sizing: border-box;
         text-decoration: none;
-        padding-left:10px;
-        padding-right: 10px;
-        padding-top: 22px ;
-        padding-bottom:22px;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        min-width: 94%;
+        width: 100%;
         cursor: pointer;
         position: relative;
         transition: all 400ms ease;
+        border-bottom: 1px solid rgb(230, 227, 227);
     }
 
     .menu .item:hover{
@@ -186,7 +178,6 @@ export default {
         color: #023F5C;
         font-size: 0.9rem;
         font-weight: 500;
-        
     }
 
     .menu .item img{
@@ -196,12 +187,11 @@ export default {
 
     /* Body */
     .container-dashbord {
+        padding: 80px 60px;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        align-items: flex-start;
         min-height: 100%;
-        flex: 2;
     }
 
     .container-dashbord article p{
@@ -231,7 +221,6 @@ export default {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            position: absolute;
             border-right: 1px solid rgb(230, 227, 227);
         }
         .menu .item img{
