@@ -1,21 +1,21 @@
 <template>
-    <router-link to="/detail">
-        <div class="card">
-            <img :src="imgURL" alt="Imagem do Membro">
-            <article>
-                <p>{{ name }}</p>
-                <p>{{ role }}</p>
-                <p>{{ phone }}</p>
-            </article>
-        </div>
-    </router-link>
+
+    <div class="card" @click="onDetailRedirect()">
+        <img :src="imgURL" alt="Imagem do Membro">
+        <article>
+            <p>{{ name }}</p>
+            <p>{{ role }}</p>
+            <p>{{ phone }}</p>
+        </article>
+    </div>
+  
 </template>
 
 <script>
 export default {
     data(){
         return{
-            member:{
+            user:{
                 name: this.name,
                 role: this.role,
                 imgURL: this.imgURL,
@@ -43,7 +43,7 @@ export default {
             required: true,
         },
         registration:{
-            type: String,
+            type: Number,
             required: true,
         },
         description:{
@@ -51,6 +51,13 @@ export default {
             default:"Um bom membro de eguipe!"
         }
     },
+
+    methods:{
+        onDetailRedirect(){
+            const objeto = encodeURIComponent(JSON.stringify(this.user));
+            return this.$router.push({ name: 'detail', params: { user: objeto}})
+        }
+    }
 }
 </script>
 
