@@ -84,11 +84,10 @@ const routes = [
           meta: { requiresAuth: true },
         },
         {
-          path: '/detail',
+          path: '/detail/:user',
           name: 'detail',
           component:DetailMember,
           //Permitindo que todos os parametros da rota sejam passados como atributos
-          props:true,
           meta: { requiresAuth: true },
         },
         {
