@@ -2,30 +2,29 @@
     <div class="container-details">
         <div class="data-details">
             <h1>Detalhes</h1>
-            
             <div class="card-detail">
                 <div>
-                    <img :src="member.imgURL" alt="Imagemm Avatar" height="200" width="200">
+                    <img :src="objeto.imgURL" alt="Imagemm Avatar" height="200" width="200">
                 </div>
                 <div class="card-item">
                     <h2>Nome:</h2>
-                    <input type="text" v-model="member.name"/>
+                    <input type="text" v-model="objeto.name">
                 </div>
                 <div class="card-item">
                     <h2>Área de trabalho:</h2>
-                    <input type="text" v-model="member.role"/>
+                    <input type="text" v-model="objeto.role"/>
                 </div>
                 <div class="card-item">
                     <h2>Celular de contato:</h2>
-                    <input type="number" v-model="member.phone"/>
+                    <input type="number" v-model="objeto.phone"/>
                 </div>
                 <div class="card-item">
                     <h2>Matrícula:</h2>
-                    <input type="number" v-model="member.registration"/>
+                    <input type="number" v-model="objeto.registration"/>
                 </div>
                 <div class="card-item">
                     <h2>Descrição:</h2>
-                    <textarea v-model="member.description" rows="7"/>
+                    <textarea v-model="objeto.description" rows="7"/>
                 </div>
             </div>
         </div>
@@ -40,16 +39,12 @@
 export default{
     data(){
         return{
-            member:{
-                name: "José Flávio da Silva Maia",
-                role: "Desenvolvedor Front-End",
-                imgURL: "https://cdn-icons-png.flaticon.com/512/6596/6596121.png",
-                phone: 84999314153,
-                registration: 201800011100,
-                description: "Um bom colega de trabalho, trabalhador, amigavel, gentil e centrado!",
-            },
+            objeto:{}
         }
-    }
+    },
+    mounted() {
+        this.objeto = JSON.parse(decodeURIComponent(this.$route.params.user));
+    },
 }
 </script>
 
