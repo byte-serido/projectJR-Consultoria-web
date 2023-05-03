@@ -16,7 +16,7 @@
 
             <!-- Button de saida -->
             <button @click="onLogout()">
-                <img class="button-icon" src="@/assets/dashboard/icon-log-out.svg" alt="Icone de indicado para sair.">
+                <img class="button-icon" src="@/assets/dashboard/icon-layout.svg" alt="Icone de indicado para sair.">
             </button>
         </div>
     </header>
