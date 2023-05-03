@@ -2,7 +2,7 @@
     <div class="container-membros">
         <div class="title-row">
             <span>Membros</span>
-            <button>
+            <button @click="onRedirectCreateMember()">
                 <p>Novo Membro</p> <fa :icon="['fa', 'add']" style=" color: #ffffff;" size="lg"/>
             </button>
         </div>
@@ -69,6 +69,11 @@ export default{
                 },
             ]
         }
+    },
+    methods:{
+       onRedirectCreateMember(){
+            return this.$router.push({name:'create-member'});
+       } 
     }
 }
 </script>
