@@ -79,6 +79,7 @@ export default{
 </script>
 <style scoped>
     .container-membros{
+        width: 100%;
         color: black;
         display: flex;
         flex-direction: column;
@@ -124,6 +125,6 @@ export default{
     .grid-membros{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        gap: 40px;
+        gap: 20px;
     }
 </style>
