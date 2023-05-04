@@ -33,16 +33,16 @@ export default {
     methods:{
         next(){
             // verifica se tem novos depoimentos a serem exibidos
-            if(this.length === 1){
-                return null;
+            if(this.length != null){
+                if (this.index === this.length) {
+                    this.index = 0;
+                    this.$emit('next', 0)
+                }else{
+                    this.index++
+                    this.$emit('next', this.index)
+                }
             }
-            else if (this.index === this.length) {
-                this.index = 0;
-                this.$emit('next', this.index)
-            }else{
-                this.index++
-                this.$emit('next', this.index)
-            }
+           
         }
     },
     props:{
