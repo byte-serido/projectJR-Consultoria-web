@@ -25,8 +25,8 @@ export default{
     },
 
     actions:{
-        getMembers({commit}){
-            axios.get("https://pjr-api.onrender.com/member/getall").then(resp =>{
+        async getMembers({commit}){
+            await axios.get("https://pjr-api.onrender.com/member/getall").then(resp =>{
                 if(resp.status !== 200){
                     commit('setIsValidMember', true);
                     
@@ -38,23 +38,24 @@ export default{
                 commit('setIsValidMember', true);
             })
         },
-        createMember({name,role,phone,registration,description,imgUrl}){
-            axios.post("https://pjr-api.onrender.com/member/create",{
-                name: name,
-                role: role,
-                phone: phone,
-                registration: registration,
-                description:description,
-                imgUrl:imgUrl
-            }).then(resp =>{
-                if(resp.status !== 200){
-                    alert("Membro não cadastrado, verifique os dados e tente novamente !!")
-                }else{
-                    alert("Membro cadastrado com sucesso!!")
-                }
-            }).catch((error)=>{
-                alert(error)
-            })
+        async createMember(member){
+            return console.log(member.name);
+            // await axios.post("https://pjr-api.onrender.com/member/create",{
+            //     name: member.name,
+            //     role: member.role,
+            //     phone: member.phone,
+            //     registration: member.registration,
+            //     description:member.description,
+            //     imgUrl:member.imgUrl
+            // }).then(resp =>{
+            //     if(resp.status !== 200){
+            //         return console.log("Membro não cadastrado, verifique os dados e tente novamente !!")
+            //     }else{
+            //         return console.log("Membro cadastrado com sucesso!!")
+            //     }
+            // }).catch((error)=>{
+            //     return console(error)
+            // })
         }
     }
 }
