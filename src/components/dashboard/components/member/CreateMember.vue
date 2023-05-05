@@ -26,29 +26,66 @@
             </div>
             <div class="form-item">
                 <h2>Imagem:</h2>
-                <img src="@/assets/dashboard/img_examble.svg" alt="Imagem de exemplo" height="300" width="300">
+                <input type="file" @change="onFileSelected">
+                <img :src="imageUrl" alt="Imagem de exemplo" height="300" width="300">
             </div>
         </form>
         <div class="form-button">
-            <button type="submit">Salvar</button>
-            <button class="cancel">Cancelar</button>
+            <button @click="createMember" type="submit">Salvar</button>
+            <button @click="uploadImage" class="cancel">Cancelar</button>
         </div>
     </div>
 </template>
 <script>
+import img from '@/assets/dashboard/img_examble.svg'
+import {storage} from "../../../../firebase" 
+import {ref,uploadBytes, getDownloadURL} from "firebase/storage"
 export default{
     data(){
         return{
             membro:{
-                nome:"",
+                name:"",
                 role:"",
-                phone:Number,
-                registration:Number,
-                description:"",
-                imgURL:""
-            }
+                phone:null,
+                registration:null,
+                description:""
+            },
+            imageUrl:img,
+            imageFile:null,
         }
     },
+
+    methods:{
+        async createMember(){
+            const imgAux = await this.uploadImage();
+            await this.$store.dispatch("createMember",{
+                nome:this.membro.name,
+                role:this.membro.role,
+                phone:this.membro.phone,
+                registration:this.membro.registration,
+                description:this.membro.description,
+                imgUrl:imgAux === null ?  null : imgAux
+            })
+        },
+
+        onFileSelected(event) {
+            const file = event.target.files[0];
+            this.imageFile = file;
+            this.imageUrl = URL.createObjectURL(file);
+        },
+
+        async uploadImage() {
+            if(this.imageFile === null){
+                return null;
+            }
+
+            const storageRef = ref(storage, `member/${this.imageFile.name}`);
+            uploadBytes(storageRef, this.imageFile.name);
+            const url =  getDownloadURL(ref(storage,`member/${this.imageFile.name}`));
+            return url;
+        },
+           
+    }
 }
 </script>
 
