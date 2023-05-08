@@ -3,24 +3,16 @@
         <div class="container navbar">
             <img src="../assets/nav/logo-bar.svg" alt="Logo da ByteSeridó Jr">
             <div class="menu-bar">
-                <router-link class="menu-button" to="/" active-class="active" exact>
-                    <a>Início</a>
+                <router-link  to="/" active-class="active" exact>
+                    <q-btn class="menu-button" label="Início"> </q-btn>
                 </router-link>
-                <router-link class="menu-button" to="/about" active-class="active">
-                    <a>Quem somos</a>
+                <router-link  to="/about" active-class="active">
+                    <q-btn class="menu-button" label="Quem somos">
+                    </q-btn>
                 </router-link>
-                <button 
-                    class="button-services"
-                    id="menu-activator"
-                >
-                    Serviços
-                    <img src="@/assets/nav/arrow-down.svg">
-                </button>
-
-                <v-menu transition="scale-transition" activator="#menu-activator" open-on-hover>
-                    <v-list>
-                        <div
-                            class="list-itens"
+                <q-btn-dropdown class="button-services" label="Services" auto-close>
+                    <q-list style="min-width: 200">
+                        <div class="list-itens"
                             v-for="(item, index) in items"
                             :key="index"
                             :value="index"
@@ -29,11 +21,13 @@
                                 <router-link class="item" to="" active-class="active">{{ item.title }}</router-link>
                             </div>
                         </div>
-                    </v-list>
-                </v-menu>
-                <router-link class="menu-button" to="/blog" active-class="active">
-                    <a>Blog</a>
+                    </q-list>
+                </q-btn-dropdown>
+                <router-link to="/blog" active-class="active">
+                    <q-btn class="menu-button" label="Blog">
+                    </q-btn>
                 </router-link>
+               
             </div>
             <router-link to="/contact" src="MyContact.vue" active-class="active">
                 <transition name="fade" mode="out-in">
@@ -72,52 +66,59 @@ export default {
     .menu-bar{
         display: flex;
         gap: 50px;
+        align-items: center;
     }
     li{
         list-style: none;
     }
     .menu-button{
+        text-transform: none;
         background-color: transparent;
         border: none;
         color: #FFFFFF;
         font-size: 1.25rem;
         font-weight: 400;
         font-family: 'Assistant', sans-serif;
-        line-height: 1.5rem;
         cursor: pointer;
         box-sizing: border-box;
         position: relative;
         transition: all 400ms ease;
         letter-spacing: -0.01rem;
+        line-height: 0rem;
+        padding: 20px;
+        min-height:0
+    }
+    .menu-button::before{
+        box-shadow: none;
     }
     .menu-button:hover{
+        background-color: #023F5C;
         color: #41A8D3;
     }
 
     .button-services{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 5px;
+        text-transform: none;
         background-color: transparent;
-        border: none;
         color: #FFFFFF;
         font-size: 1.25rem;
         font-weight: 400;
         font-family: 'Assistant', sans-serif;
-        line-height: 1.5rem;
         cursor: pointer;
         box-sizing: border-box;
         position: relative;
         transition: all 400ms ease;
         letter-spacing: -0.01rem;
+        line-height: 0rem;
+        min-height:20px
     }
 
+    .button-services::before{
+        box-shadow: none;
+    }
     .button-services:hover{
-        filter: invert(48%) sepia(63%) saturate(445%) hue-rotate(152deg) brightness(109%) contrast(91%);
-        color:  #41A8D3;
+        background-color: #023F5C;
+        color: #41A8D3;
     }
-
     .nav-button{
         font-family: 'Assistant', sans-serif;
         color: #FFFFFF;
@@ -146,6 +147,7 @@ export default {
     .list-itens{
         padding: 20px;
         color: #41A8D3;
+        font-size: 1rem;
         background-color: transparent;
         cursor: pointer;
         box-sizing: border-box;
