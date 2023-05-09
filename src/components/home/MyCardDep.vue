@@ -4,18 +4,18 @@
             <article class="card-article">
                 <div class="container-text">
                     <img class="aspas" src="../../assets/dep/icon-aspas.svg" alt="Icone de aspas">
-                    <p class="coment">{{ coment }}</p>
+                    <p class="coment">{{ depoiments[i].testimony}}</p>
                 </div>
                 <div class="person-row">
                     <img class="avatar" src="../../assets/dep/avatar-generic.svg" alt="Avatar">
                     <article class="person-article">
-                        <p class="name-person">{{ name }}</p>
-                        <p class="off-comp">{{ office }}/{{ company }}</p>
+                        <p class="name-person">{{ depoiments[i].name }}</p>
+                        <p class="off-comp">{{ depoiments[i].office }}/{{ depoiments[i].company }}</p>
                     </article>
                 </div>
             </article>
             <div class="r-button">
-                <button @click="next">Proximo <img class="arrow" src="../../assets/dep/icon-arrow-right.svg" alt="Seta apontando para a direita"></button>
+                <button @click="next()">Proximo <img class="arrow" src="../../assets/dep/icon-arrow-right.svg" alt="Seta apontando para a direita"></button>
             </div>
         </div>
         <div class="img-padrao">
@@ -27,48 +27,25 @@
 export default {
     data(){
         return{
-            index: this.i
+            i: 0,
+        } 
+    },
+    computed:{
+        depoiments(){
+            return this.$store.getters.getDepoiments;
         }
     },
     methods:{
         next(){
             // verifica se tem novos depoimentos a serem exibidos
-            if(this.length === 1){
+            if(this.depoiments.length === 1){
                 return null;
             }
-            else if (this.index === this.length) {
-                this.index = 0;
-                this.$emit('next', this.index)
+            else if (this.i >= this.depoiments.length) {
+                this.i=0;
             }else{
-                this.index++
-                this.$emit('next', this.index)
+                this.i++
             }
-        }
-    },
-    props:{
-        length:{
-            type: Number,
-            required: true,
-        },
-        i:{
-            type: Number,
-            required: true,
-            default: 0
-        },
-        name:{
-            type: String,
-        },
-        coment:{
-            type: String,
-        },
-        office:{
-            type: String,
-        },
-        company:{
-            type: String,
-        },
-        imageUrl:{
-            type: String,
         }
     },
 }
@@ -158,6 +135,7 @@ export default {
         font-weight: 600;
         font-size: 1rem;
         letter-spacing: -1%;
+        margin: 0;
     }
 
     .off-comp{
@@ -166,6 +144,7 @@ export default {
         font-size: 1rem;
         letter-spacing: -1%;
         color: #4CB8E7;
+        margin: 0;
     }
 
     .img-padrao{

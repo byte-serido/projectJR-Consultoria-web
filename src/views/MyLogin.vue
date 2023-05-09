@@ -91,8 +91,8 @@ export default {
     }
 
     .card-login{
+        width: 500px;
         padding: 54px 40px;
-        min-width: 379px;
         background-color: #E1E5ED;
         border-radius: 6px;
         display: flex;
@@ -118,13 +118,13 @@ export default {
 
     .input-login{
         font-family: 'Inter', sans-serif;
+        min-width: 100%;
         padding: 16px;
         background-color: white;
         border: solid 1px white;
         border-radius: 4px;
         font-size: 1rem;
         font-weight: 700;
-        min-width: 91%;
         position: relative;
         transition: all 400ms ease;
     }
