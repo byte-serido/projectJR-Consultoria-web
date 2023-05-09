@@ -38,17 +38,14 @@ export default {
     methods:{
         next(){
             // verifica se tem novos depoimentos a serem exibidos
-            // if(this.depoiments.length === 1){
-            //     return null;
-            // }
-            // else if (this.i >= this.depoiments.length) {
-            //     this.i=0;
-            // }else{
-            //     this.i++
-            // }
-
-            this.index = (this.index + 1) %this.length,
-            this.$emit('next', this.index)
+            if(this.depoiments.length === 1){
+                return null;
+            }
+            else if (this.i >= this.depoiments.length) {
+                this.i=0;
+            }else{
+                this.i++
+            }
         }
     },
 }
