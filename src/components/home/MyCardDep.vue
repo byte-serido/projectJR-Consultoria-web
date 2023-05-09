@@ -135,6 +135,7 @@ export default {
         font-weight: 600;
         font-size: 1rem;
         letter-spacing: -1%;
+        margin: 0;
     }
 
     .off-comp{
@@ -143,6 +144,7 @@ export default {
         font-size: 1rem;
         letter-spacing: -1%;
         color: #4CB8E7;
+        margin: 0;
     }
 
     .img-padrao{
