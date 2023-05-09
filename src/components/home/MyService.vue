@@ -100,15 +100,11 @@ export default {
     .box-container{
         flex-wrap: wrap;
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
-        align-items: center;
-        gap: 32px;
+        gap: 24px;
     }
 
     .box{
-        height: 300px;
-        width: 280px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;

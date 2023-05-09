@@ -5,17 +5,7 @@
             <!-- exibe o componente Loading enquanto espera o retorno do Card de depoimentos -->
             <MyLoadingDepoiment v-if="loading"></MyLoadingDepoiment>
             <!-- exibe o Card de depoimentos -->
-            <MyCardDep 
-                :i="index"
-                :length="depoiments.length"
-                :name="depoiments[index].name" 
-                :coment="depoiments[index].testimony" 
-                :company="depoiments[index].company" 
-                :office="depoiments[index].office" 
-                :image-url="depoiments[index].imgUrl"
-                @next="index = $event"
-                v-else
-            />
+            <MyCardDep v-else/>
         </div>
     </section>
 </template>
@@ -27,7 +17,6 @@ export default {
     components:{ MyCardDep, MyLoadingDepoiment },
     data () {
       return {
-        index: 0,
       }
     },   
     computed:{
@@ -35,10 +24,6 @@ export default {
         loading(){
             return this.$store.getters.getIsValid
         },
-        // verifica se tem novos depoimentos
-        depoiments(){
-            return this.$store.getters.getDepoiments
-        }
     },
     // altera o estado
     async mounted(){

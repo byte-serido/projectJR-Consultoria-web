@@ -62,6 +62,7 @@ export default {
         color: black;
         font-size: 4.5rem;
         font-weight: 700;
+        line-height: 76px;
         letter-spacing: 0.01rem;
     }
 

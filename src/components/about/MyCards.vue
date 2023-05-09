@@ -5,7 +5,7 @@
                 <h2>MISSÃO, VISÃO E VALORES</h2>
             </header>
             <div class="wrapper">
-                <div class="card 1">
+                <div class="card">
                     <figure>
                         <img src="../../assets/about/icon-target.svg" alt="Alvo">
                     </figure>
@@ -14,7 +14,7 @@
                         Formar, por meio da vivência empresarial, lideranças unidas, inconformadas e comprometidas com a evolução da realidade do empreendedorismo brasileiro.
                     </span>
                 </div>
-                <div class="card 2">
+                <div class="card">
                     <figure>
                         <img src="../../assets/about/icon-eye.svg" alt="Alvo">
                     </figure>
@@ -23,7 +23,7 @@
                         Ser uma empresa do interior em que impacta a vivência da organizações, sendo modelo de inovação e qualidade executando serviços de gestão empresarial com credibilidade e excelência.
                     </span>
                 </div>
-                <div class="card 3">
+                <div class="card">
                     <figure>
                         <img src="../../assets/about/icon-star.svg" alt="Alvo">
                     </figure>
@@ -52,6 +52,11 @@
         font-family: 'Inter', normal;
     }
 
+    h2{
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+
     .cards{
         color: black;
         display: flex;
@@ -59,8 +64,6 @@
         align-items: center;
         padding: 50px 80px;
         gap: 50px;
-        width: 932px;
-        height: 385px;
     }
 
     header{
@@ -73,19 +76,18 @@
 
     .wrapper{
         display: flex;
-        gap: 40px;
+        justify-content: space-around;
         width: 100%;
-        height: 290px;
+        gap: 20px;
     }
 
     .card{
+        width: 360px;
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: 40px;
         gap: 15px;
-        width: 284px;
-        height: 220px;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
         transition: transform 0.3s;
@@ -105,6 +107,7 @@
 
     .card span{
         font-family: 'Asap', normal;
+        max-width: 260px;
         font-weight: 600;
         font-size: 0.875rem;
         line-height: 150%;
@@ -125,28 +128,15 @@
 
     @media(max-width:1098px){
         .cards{
-            max-width: 880px;
             padding: 50px 20px;
         }
 
         .wrapper{
             gap: 20px;
         }
-
-        .card{
-            max-width: 250px;
-        }
     }
 
     @media(max-width: 940px){
-
-        .cards{
-            max-width: 800px;
-        }
-        .card{
-            max-width: 200px;
-            gap: 8px;
-        }
 
         .card span{
             line-height: 130%;
@@ -160,10 +150,7 @@
     }
 
     @media(max-width: 840px){
-        .cards{
-            max-width: 600px;
-        }
-
+    
         .wrapper{
             gap: 10px;
         }
@@ -188,14 +175,12 @@
     @media(max-width: 640px){
         
         header{
-            font-size: 1.800rem;
+            font-size: 1.8rem;
             line-height: 120%;
             text-align: center;
         }
 
         .cards{
-            height: 900px;
-            max-width: 80%;
             padding-bottom: 70px;
         }
         .wrapper{
