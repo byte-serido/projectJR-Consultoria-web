@@ -128,28 +128,15 @@
 
     @media(max-width:1098px){
         .cards{
-            max-width: 880px;
             padding: 50px 20px;
         }
 
         .wrapper{
             gap: 20px;
         }
-
-        .card{
-            max-width: 250px;
-        }
     }
 
     @media(max-width: 940px){
-
-        .cards{
-            max-width: 800px;
-        }
-        .card{
-            max-width: 200px;
-            gap: 8px;
-        }
 
         .card span{
             line-height: 130%;
@@ -163,10 +150,7 @@
     }
 
     @media(max-width: 840px){
-        .cards{
-            max-width: 600px;
-        }
-
+    
         .wrapper{
             gap: 10px;
         }
@@ -191,14 +175,12 @@
     @media(max-width: 640px){
         
         header{
-            font-size: 1.800rem;
+            font-size: 1.8rem;
             line-height: 120%;
             text-align: center;
         }
 
         .cards{
-            height: 900px;
-            max-width: 80%;
             padding-bottom: 70px;
         }
         .wrapper{
