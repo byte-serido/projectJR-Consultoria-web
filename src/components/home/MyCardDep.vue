@@ -11,7 +11,7 @@
                 navigation
                 arrows
                 height="100%"
-                class="text-white shadow-1 rounded-borders"
+                class="carrosel text-white shadow-1 rounded-borders"
             >   
                 <q-carousel-slide v-for="(depoiment,i) in depoiments" :name="(i+1)" :key="i"  class="card-article">
                     <div class="container-text">
@@ -49,7 +49,7 @@ export default {
 
 <style scoped>
     .card{
-        height: 469px;
+        height: 480px;
         min-width: 100%;
         display: flex;
         background-color: #F7F9FC;
@@ -60,19 +60,23 @@ export default {
     .content{
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
-        min-height: 410px;
+        align-items: center;
+    }
+
+    .carrosel{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 
     .card-article{
         padding: 40px 80px;
         display: flex;
-        height: 100%;
-        flex: 1;
         color: #023F5C;
         flex-direction: column;
         gap: 28px;
-        align-items: flex-start;
+        align-items:center;
     }
 
     .coment{
@@ -196,11 +200,27 @@ export default {
         .card-article{
             gap:20px
         }
+
+        .img-padrao{
+            display: none;
+        }
+
+        .content{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     }
 
     @media (max-width:800px){
         .img-padrao{
             display: none;
+        }
+
+        .card{
+            height: 530px;
+            
         }
 
         .card-article{
@@ -209,6 +229,10 @@ export default {
     }
 
     @media (max-width:560px){
+        .card{
+            height: 540px;
+            
+        }
         .card-article{
             padding: 40px 50px;
         }
