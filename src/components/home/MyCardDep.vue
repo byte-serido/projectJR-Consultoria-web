@@ -1,25 +1,34 @@
 <template>
     <div class="card">
         <div class="content">
-            <article class="card-article">
-                <div class="container-text">
-                    <img class="aspas" src="../../assets/dep/icon-aspas.svg" alt="Icone de aspas">
-                    <p class="coment">{{ depoiments[i].testimony}}</p>
-                </div>
-                <div class="person-row">
-                    <img class="avatar" src="../../assets/dep/avatar-generic.svg" alt="Avatar">
-                    <article class="person-article">
-                        <p class="name-person">{{ depoiments[i].name }}</p>
-                        <p class="off-comp">{{ depoiments[i].office }}/{{ depoiments[i].company }}</p>
-                    </article>
-                </div>
-            </article>
-            <div class="r-button">
-                <button @click="next()">Proximo <img class="arrow" src="../../assets/dep/icon-arrow-right.svg" alt="Seta apontando para a direita"></button>
-            </div>
+            <q-carousel
+                v-model="slide"
+                transition-prev="scale"
+                transition-next="scale"
+                swipeable
+                animated
+                control-color="blue"
+                navigation
+                arrows
+                height="100%"
+                class="text-white shadow-1 rounded-borders"
+            >   
+                <q-carousel-slide v-for="(depoiment,i) in depoiments" :name="(i+1)" :key="i"  class="card-article">
+                    <div class="container-text">
+                        <img class="aspas" src="../../assets/dep/icon-aspas.svg" alt="Icone de aspas">
+                        <p class="coment">{{ depoiment.testimony}}</p>
+                    </div>
+                    <div class="person-row">
+                        <img class="avatar" src="../../assets/dep/avatar-generic.svg" alt="Avatar">
+                        <article class="person-article">
+                            <p class="name-person">{{ depoiment.name }}</p>
+                            <p class="off-comp">{{ depoiment.office }}/{{ depoiment.company }}</p>
+                        </article>
+                    </div>
+                </q-carousel-slide>
+            </q-carousel>
         </div>
-        <div class="img-padrao">
-        </div>
+        <div class="img-padrao"></div>
     </div>
 </template>
 
@@ -27,25 +36,12 @@
 export default {
     data(){
         return{
-            i: 0,
-        } 
+            slide:1,
+        }
     },
     computed:{
         depoiments(){
             return this.$store.getters.getDepoiments;
-        }
-    },
-    methods:{
-        next(){
-            // verifica se tem novos depoimentos a serem exibidos
-            if(this.depoiments.length === 1){
-                return null;
-            }
-            else if (this.i >= this.depoiments.length) {
-                this.i=0;
-            }else{
-                this.i++
-            }
         }
     },
 }
@@ -57,8 +53,7 @@ export default {
         min-width: 100%;
         display: flex;
         background-color: #F7F9FC;
-        align-items: center;
-        border-radius: 20px;
+        border-radius: 4px;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 
@@ -72,6 +67,7 @@ export default {
     .card-article{
         padding: 40px 80px;
         display: flex;
+        height: 100%;
         flex: 1;
         color: #023F5C;
         flex-direction: column;
@@ -150,7 +146,7 @@ export default {
     .img-padrao{
         flex: 2;
         min-height: 100%;  
-        border-radius: 0px 20px 20px 0px;
+        border-radius: 0px 4px 4px 0px;
         background-image: url("../../assets/dep/img-padrao.svg");
         background-size: cover;
         text-decoration: none;
