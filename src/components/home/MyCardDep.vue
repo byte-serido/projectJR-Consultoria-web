@@ -243,13 +243,9 @@ export default {
     }
 
     @media (max-width:460px){
-        .content{
-            min-height: 50%;
-        }
         .card{
-            min-width: 90%;
-            height: 300px;
-            padding:36px 26px ;
+            min-width: 100%;
+            height: 400px;
         }
 
         .card-article{
