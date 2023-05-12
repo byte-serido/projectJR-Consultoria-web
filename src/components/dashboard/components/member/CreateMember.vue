@@ -56,6 +56,7 @@ export default{
     },
 
     methods:{
+        // Função para criar um membro
         async createMember(){
             const imgAux = await this.uploadImage();
             await this.$store.dispatch("createMember",{
@@ -68,12 +69,14 @@ export default{
             })
         },
 
+        //Função que seta a imagem na tela antes de salvar
         onFileSelected(event) {
             const file = event.target.files[0];
             this.imageFile = file;
             this.imageUrl = URL.createObjectURL(file);
         },
 
+        // Função que faz o upload da imagem no bucket
         async uploadImage() {
             if(this.imageFile === null){
                 return null;
