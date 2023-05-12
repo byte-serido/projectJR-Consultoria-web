@@ -1,7 +1,6 @@
 <template>
     <!-- Nav bar superior -->
     <header>
-
         <!-- Coloca todos em linha -->
         <div class="navbar">
 
@@ -16,7 +15,7 @@
 
             <!-- Button de saida -->
             <button @click="onLogout()">
-                <img class="button-icon" src="@/assets/dashboard/icon-layout.svg" alt="Icone de indicado para sair.">
+                <fa :icon="['fa', 'right-from-bracket']" style=" color: #023F5C;" size="lg"/>
             </button>
         </div>
     </header>
