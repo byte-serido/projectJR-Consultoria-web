@@ -105,11 +105,14 @@ export default{
 
     h1{
         color:#023F5C;
-        font-size: 1.4rem;
+        font-size: 2rem;
         font-weight: 700;
     }
 
     h2{
+        margin: 0;
+        padding: 0;
+        font-size: 1.4rem;
         color:#023F5C;
         font-weight: 600;
     }
