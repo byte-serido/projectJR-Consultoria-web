@@ -4,7 +4,7 @@
             <h1>Detalhes</h1>
             <div class="card-detail">
                 <div>
-                    <img :src="objeto.imgURL" alt="Imagemm Avatar" height="200" width="200">
+                    <img class="avatar" :src="objeto.imgURL" alt="Imagemm Avatar">
                 </div>
                 <div class="card-item">
                     <h2>Nome:</h2>
@@ -59,15 +59,29 @@ export default{
         width: 100%;
     }
 
+    .card-detail .avatar{
+        height: 400px;
+        width: 540px;
+        border-radius: 4px;
+    }
+
     h1{
         color:#023F5C;
-        font-size: 1.4rem;
+        font-size: 2rem;
         font-weight: 700;
     }
 
     h2{
+        margin: 0;
+        padding: 0;
         color:#023F5C;
         font-weight: 600;
+        font-size: 1.6rem;
+    }
+
+    p{
+        margin: 0;
+        padding: 0;
     }
 
     .data-details{
