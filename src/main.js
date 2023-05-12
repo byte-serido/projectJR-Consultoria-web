@@ -10,9 +10,9 @@ import quasarUserOptions from './quasar-user-options'
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 /* import specific icons */
-import {faEye, faEyeSlash, faAdd } from '@fortawesome/free-solid-svg-icons'
+import {faEye, faEyeSlash, faAdd, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 /* add icons to the library */
-library.add(faEye,faEyeSlash, faAdd)
+library.add(faEye,faEyeSlash, faAdd, faRightFromBracket)
 
 createApp(App)
     .use(Quasar, quasarUserOptions)
