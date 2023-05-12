@@ -38,7 +38,7 @@
 </template>
 <script>
 import img from '@/assets/dashboard/img_examble.svg'
-import {storage} from "../../../../firebase" 
+import { storage } from "../../../../firebase";
 import {ref,uploadBytes, getDownloadURL} from "firebase/storage"
 export default{
     data(){
@@ -79,13 +79,19 @@ export default{
         // Função que faz o upload da imagem no bucket
         async uploadImage() {
             if(this.imageFile === null){
-                return null;
+                console.log("Por favor escolha uma imagem!!");
+            }else{
+                try{
+                    const storageRef = ref(storage, `member/${this.imageFile.name}`);
+                    await uploadBytes(storageRef, this.imageFile);
+                    const url =  await getDownloadURL(storageRef);
+                    console.log("Imagem ssalva com sucesso, aqui estar a url: "+ url);
+                }catch(error){
+                    console.error(error)
+                }
+            
             }
-
-            const storageRef = ref(storage, `member/${this.imageFile.name}`);
-            uploadBytes(storageRef, this.imageFile.name);
-            const url =  getDownloadURL(ref(storage,`member/${this.imageFile.name}`));
-            return url;
+            
         },
            
     }
