@@ -78,6 +78,11 @@ export default{
 }
 </script>
 <style scoped>
+
+    p{
+        margin: 0;
+        padding: 0;
+    }
     .container-membros{
         width: 100%;
         color: black;
@@ -126,5 +131,6 @@ export default{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 20px;
+        padding-bottom: 40px;
     }
 </style>

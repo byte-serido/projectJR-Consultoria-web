@@ -3,9 +3,9 @@
     <div class="card" @click="onDetailRedirect()">
         <img :src="imgURL" alt="Imagem do Membro">
         <article>
-            <p>{{ name }}</p>
-            <p>{{ role }}</p>
-            <p>{{ phone }}</p>
+            <p>Nome: {{ name }}</p>
+            <p>Área: {{ role }}</p>
+            <p>Contato: {{ phone }}</p>
         </article>
     </div>
   
@@ -66,8 +66,6 @@ export default {
         font-family: "Inter", sans-serif;
         background-color: #023F5C;
         border-radius: 8px;
-        width: 300px;
-        height: 300px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -76,7 +74,7 @@ export default {
     }
 
     .card img{
-        height: 200px;
+        height: 240px;
         width: 100%;
         border-top-right-radius: 8px;
         border-top-left-radius: 8px;
@@ -89,11 +87,10 @@ export default {
         flex-direction: column;
         align-items: flex-start;
         padding: 10px;
-        gap: 8px;
     }
 
     .card article p{
-        font-size: 0.8rem;
+        font-size: 1rem;
         font-weight: 500;
         color: #FFFFFF;
     }
