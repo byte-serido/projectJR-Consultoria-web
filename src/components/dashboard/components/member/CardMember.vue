@@ -63,6 +63,8 @@ export default {
 
 <style scoped>
     .card{
+        max-width: 400px;
+        max-height: 400px;
         font-family: "Inter", sans-serif;
         background-color: #023F5C;
         border-radius: 8px;
