@@ -65,7 +65,7 @@ export default{
                 phone:this.membro.phone,
                 registration:this.membro.registration,
                 description:this.membro.description,
-                imgUrl:imgAux === null ?  null : imgAux
+                imgUrl:imgAux === null ?  "" : imgAux
             })
         },
 
@@ -79,7 +79,7 @@ export default{
         // Função que faz o upload da imagem no bucket
         async uploadImage() {
             if(this.imageFile === null){
-                console.log("Por favor escolha uma imagem!!");
+                return ""
             }else{
                 try{
                     const storageRef = ref(storage, `member/${this.imageFile.name}`);
