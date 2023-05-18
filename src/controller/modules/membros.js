@@ -3,15 +3,15 @@ import axios from 'axios';
 export default{
     state:{
         members:[],
-        IsValidMember:true,
+        IsValid:true,
     },
 
     getters:{
         getMembers(state){
            return state.members;
         },
-        getIsValidMember(state){
-            return state.IsValidMember;
+        getIsValid(state){
+            return state.IsValid;
         }
     },
 
@@ -19,23 +19,23 @@ export default{
         setMembers(state, member){
             state.members = member;
         },
-        setIsValidMember(state, isValid){
-            state.isValidMember = isValid;
+        setIsValid(state, isValid){
+            state.isValid = isValid;
         }
     },
 
     actions:{
         async getMembers({commit}){
             await axios.get("https://pjr-api.onrender.com/member/getall").then(resp =>{
-                if(resp.status !== 200){
-                    commit('setIsValidMember', true);
+                if(resp.status === 200){
+                    commit('setMembers',resp.data);
+                    commit('setIsValid', false);
                     
                 }else{
-                    commit('setMembers',resp.data);
-                    commit('setIsValidMember', false);
+                    commit('setIsValid', true);
                 }
             }).catch(()=>{
-                commit('setIsValidMember', true);
+                commit('setIsValid', true);
             })
         },
         // Ao receber os dados sempre estavm undfined .
