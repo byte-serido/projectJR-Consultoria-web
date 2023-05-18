@@ -31,8 +31,8 @@
             </div>
         </form>
         <div class="form-button">
-            <button @click="createMember" type="submit">Salvar</button>
-            <button @click="uploadImage" class="cancel">Cancelar</button>
+            <button @click="createMember()" type="submit">Salvar</button>
+            <button @click="uploadImage()" class="cancel">Cancelar</button>
         </div>
     </div>
 </template>
@@ -40,6 +40,7 @@
 import img from '@/assets/dashboard/img_examble.svg'
 import { storage } from "../../../../firebase";
 import {ref,uploadBytes, getDownloadURL} from "firebase/storage"
+import axios from 'axios';
 export default{
     data(){
         return{
@@ -59,13 +60,22 @@ export default{
         // Função para criar um membro
         async createMember(){
             const imgAux = await this.uploadImage();
-            await this.$store.dispatch("createMember",{
-                nome:this.membro.name,
+            const member={
+                name:this.membro.name,
                 role:this.membro.role,
-                phone:this.membro.phone,
-                registration:this.membro.registration,
+                number:this.membro.phone.toString(),
+                registration:this.membro.registration.toString(),
                 description:this.membro.description,
                 imgUrl:imgAux === null ?  "" : imgAux
+            }
+            await axios.post("https://pjr-api.onrender.com/member/create",member).then(resp =>{
+                if(resp.status !== 200){
+                    return console.log("Membro não cadastrado, verifique os dados e tente novamente !!")
+                }else{
+                    return console.log("Membro cadastrado com sucesso!!")
+                }
+            }).catch((error)=>{
+                return console.log(error);
             })
         },
 
@@ -78,20 +88,19 @@ export default{
 
         // Função que faz o upload da imagem no bucket
         async uploadImage() {
-            if(this.imageFile === null){
-                return ""
-            }else{
-                try{
+            try{
+                if(this.imageFile === null){
+                    return ""
+                }else{
                     const storageRef = ref(storage, `member/${this.imageFile.name}`);
                     await uploadBytes(storageRef, this.imageFile);
                     const url =  await getDownloadURL(storageRef);
                     console.log("Imagem ssalva com sucesso, aqui estar a url: "+ url);
-                }catch(error){
-                    console.error(error)
+                    return url.toString()
                 }
-            
-            }
-            
+            }catch(error){
+                console.error(error)
+            } 
         },
            
     }
