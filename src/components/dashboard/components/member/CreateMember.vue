@@ -66,13 +66,13 @@ export default{
                 number:this.membro.phone.toString(),
                 registration:this.membro.registration.toString(),
                 description:this.membro.description,
-                imgUrl:imgAux === null ?  "" : imgAux
+                imgUrl:imgAux
             }
             await axios.post("https://pjr-api.onrender.com/member/create",member).then(resp =>{
                 if(resp.status !== 200){
-                    return console.log("Membro não cadastrado, verifique os dados e tente novamente !!")
+                    return alert("Membro não cadastrado, verifique os dados e tente novamente !!")
                 }else{
-                    return console.log("Membro cadastrado com sucesso!!")
+                    return alert("Membro cadastrado com sucesso!!")
                 }
             }).catch((error)=>{
                 return console.log(error);
