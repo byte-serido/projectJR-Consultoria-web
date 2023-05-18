@@ -16,6 +16,7 @@ export default {
     data(){
         return{
             user:{
+                id: this.id,
                 name: this.name,
                 role: this.role,
                 imgURL: this.imgURL,
@@ -26,6 +27,10 @@ export default {
         }
     },
     props:{
+        id:{
+            type: String,
+            required:true,
+        },
         name:{
             type:String,
             required: true,

@@ -12,6 +12,7 @@
         <div class="grid-membros" v-else >
             <div  v-for="(member, index) in members" :key="index">
                 <Card
+                    :id = "member.id"
                     :name = "member.name"
                     :role = "member.role"
                     :imgURL = "member.imgUrl"
