@@ -36,11 +36,51 @@
     </div>
 </template>
 <script>
+import { storage } from "../../../../firebase";
+import {ref,uploadBytes, getDownloadURL, deleteObject} from "firebase/storage"
+// import axios from 'axios';
 export default{
     data(){
         return{
-            objeto:{}
+            objeto:{},
+            imageFile:null,
+            imageUrl: this.objeto.imgURL,
         }
+    },
+
+    methods:{
+        async updateMember(){
+            try {
+                if (this.imageFile === null) {
+                // Se nenhuma nova imagem for selecionada, retorne a URL existente ou uma string vazia
+                return this.member.imageUrl || "";
+                } else {
+                // Exclua a imagem atual
+                if (this.member.imageUrl) {
+                    const currentImageRef = ref(storage, this.member.imageUrl);
+                    await deleteObject(currentImageRef);
+                }
+
+                // Faça o upload da nova imagem
+                const storageRef = ref(storage, `member/${this.imageFile.name}`);
+                await uploadBytes(storageRef, this.imageFile);
+
+                // Obtenha a nova URL da imagem
+                const url = await getDownloadURL(storageRef);
+                console.log("Imagem salva com sucesso. Aqui está a nova URL: " + url);
+
+                return url.toString();
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        },
+        //Função que seta a imagem na tela antes de salvar
+        onFileSelected(event) {
+            const file = event.target.files[0];
+            this.imageFile = file;
+            this.imageUrl = URL.createObjectURL(file);
+        },
     },
     mounted() {
         this.objeto = JSON.parse(decodeURIComponent(this.$route.params.user));
