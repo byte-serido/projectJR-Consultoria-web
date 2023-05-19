@@ -4,7 +4,8 @@
             <h1>Detalhes</h1>
             <div class="card-detail">
                 <div>
-                    <img class="avatar" :src="objeto.imgURL" alt="Imagemm Avatar">
+                    <img class="avatar" :src="urlImg" alt="Imagemm Avatar">
+                    <input type="file" @change="onFileSelected">
                 </div>
                 <div class="card-item">
                     <h2>Nome:</h2>
@@ -31,59 +32,84 @@
         <div class="settings-details">
             <h1>Configurações</h1>
             <button class="remove"><p>Deletar Membro</p></button>
-            <button><p>Salvar Alterações</p></button>
+            <button @click="updateMember()"><p>Salvar Alterações</p></button>
         </div>
     </div>
 </template>
 <script>
 import { storage } from "../../../../firebase";
 import {ref,uploadBytes, getDownloadURL, deleteObject} from "firebase/storage"
+import axios from "axios";
 // import axios from 'axios';
 export default{
     data(){
         return{
             objeto:{},
             imageFile:null,
-            imageUrl: this.objeto.imgURL,
+            urlImg:"",
         }
     },
 
     methods:{
+        // Função para criar um membro
         async updateMember(){
+            const imgAux = await this.updateImageMember();
+            const member={
+                id: this.objeto.id,
+                name:this.objeto.name,
+                role:this.objeto.role,
+                number:this.objeto.phone.toString(),
+                registration:this.objeto.registration.toString(),
+                description:this.objeto.description,
+                imgUrl:imgAux
+            }
+            await axios.put("https://pjr-api.onrender.com/member/update",member).then(resp =>{
+                if(resp.status !== 201){
+                    return alert("Membro não alterado, verifique os dados e tente novamente !!")
+                }else{
+                    return alert("Membro alterado com sucesso!!")
+                }
+            }).catch((error)=>{
+                return console.log(error);
+            })
+        },
+        async updateImageMember(){
             try {
                 if (this.imageFile === null) {
-                // Se nenhuma nova imagem for selecionada, retorne a URL existente ou uma string vazia
-                return this.member.imageUrl || "";
+                    // Se nenhuma nova imagem for selecionada, retorne a URL existente ou uma string vazia
+                    return this.objeto.imgURL || "";
                 } else {
                 // Exclua a imagem atual
-                if (this.member.imageUrl) {
-                    const currentImageRef = ref(storage, this.member.imageUrl);
+                if (this.objeto.imgURL) {
+                    const currentImageRef = ref(storage, this.objeto.imgURL);
                     await deleteObject(currentImageRef);
                 }
+                    // Faça o upload da nova imagem
+                    const storageRef = ref(storage, `member/${this.imageFile.name}`);
+                    await uploadBytes(storageRef, this.imageFile);
 
-                // Faça o upload da nova imagem
-                const storageRef = ref(storage, `member/${this.imageFile.name}`);
-                await uploadBytes(storageRef, this.imageFile);
+                    // Obtenha a nova URL da imagem
+                    const url = await getDownloadURL(storageRef);
+                    console.log("Imagem salva com sucesso. Aqui está a nova URL: " + url);
 
-                // Obtenha a nova URL da imagem
-                const url = await getDownloadURL(storageRef);
-                console.log("Imagem salva com sucesso. Aqui está a nova URL: " + url);
-
-                return url.toString();
+                    return url.toString();
                 }
             } catch (error) {
-                console.error(error);
+                console.log(error);
             }
         },
-        //Função que seta a imagem na tela antes de salvar
-        onFileSelected(event) {
+         //Função que seta a imagem na tela antes de salvar
+         onFileSelected(event) {
             const file = event.target.files[0];
             this.imageFile = file;
-            this.imageUrl = URL.createObjectURL(file);
+            this.urlImg = URL.createObjectURL(file);
         },
     },
+
     mounted() {
-        this.objeto = JSON.parse(decodeURIComponent(this.$route.params.user));
+        const objetoJson = JSON.parse(decodeURIComponent(this.$route.params.user));
+        this.objeto = objetoJson;
+        this.urlImg = objetoJson.imgURL
     },
 }
 </script>
