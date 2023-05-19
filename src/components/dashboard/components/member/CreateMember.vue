@@ -32,7 +32,7 @@
         </form>
         <div class="form-button">
             <button @click="createMember()" type="submit">Salvar</button>
-            <button @click="uploadImage()" class="cancel">Cancelar</button>
+            <button class="cancel">Cancelar</button>
         </div>
     </div>
 </template>
