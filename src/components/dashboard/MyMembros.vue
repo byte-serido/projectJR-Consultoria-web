@@ -26,7 +26,7 @@
 </template>
 <script>
 import Card from "@/components/dashboard/components/member/CardMember.vue"
-import Loading from "@/components/dashboard/MySpinnerLoading.vue"
+import Loading from "@/components/MySpinnerLoading.vue"
 // import Loading from "@/components/dashboard/MySpinnerLoading.vue"
 export default{
     components:{Card, Loading},
