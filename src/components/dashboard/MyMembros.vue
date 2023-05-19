@@ -41,11 +41,11 @@ export default{
         },
 
         isLoading(){
-            return this.$store.getters.getIsValid
+            return this.$store.getters.getValid
         }
     },
-    async mounted(){
-        await this.$store.dispatch("getMembers");
+    mounted(){
+        this.$store.dispatch('getMembers');
     }
 }
 </script>
