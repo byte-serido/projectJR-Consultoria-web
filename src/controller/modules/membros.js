@@ -3,15 +3,15 @@ import axios from 'axios';
 export default{
     state:{
         members:[],
-        IsValid:true,
+        valid:true,
     },
 
     getters:{
         getMembers(state){
-           return state.members;
+            return state.members;
         },
-        getIsValid(state){
-            return state.IsValid;
+        getValid(state){
+            return state.valid;
         }
     },
 
@@ -19,8 +19,8 @@ export default{
         setMembers(state, member){
             state.members = member;
         },
-        setIsValid(state, isValid){
-            state.isValid = isValid;
+        setValid(state, isValid){
+            state.valid = isValid;
         }
     },
 
@@ -29,13 +29,13 @@ export default{
             await axios.get("https://pjr-api.onrender.com/member/getall").then(resp =>{
                 if(resp.status === 200){
                     commit('setMembers',resp.data);
-                    commit('setIsValid', false);
+                    commit('setValid', false);
                     
                 }else{
-                    commit('setIsValid', true);
+                    commit('setValid', true);
                 }
             }).catch(()=>{
-                commit('setIsValid', true);
+                commit('setValid', true);
             })
         },
     }
