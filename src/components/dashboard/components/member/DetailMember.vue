@@ -54,7 +54,7 @@ export default{
     methods:{
 
          //Função que seta a imagem na tela antes de salvar
-         onFileSelected(event) {
+        onFileSelected(event) {
             const file = event.target.files[0];
             this.imageFile = file;
             this.urlImg = URL.createObjectURL(file);
@@ -74,9 +74,10 @@ export default{
             }
             await axios.put("https://pjr-api.onrender.com/member/update",member).then(resp =>{
                 if(resp.status !== 201){
-                    return alert("Membro não alterado, verifique os dados e tente novamente !!")
+                    alert("Membro não alterado, verifique os dados e tente novamente !!")
                 }else{
-                    return alert("Membro alterado com sucesso!!")
+                    alert("Membro alterado com sucesso!!")
+                    router.push("/membros");
                 }
             }).catch((error)=>{
                 return console.log(error);
@@ -116,7 +117,7 @@ export default{
                     return alert("Erro ao deletar membro, verifique os dados e tente novamente !!")
                 }else{
                     alert("Membro deletado com sucesso!!")
-                    router.pop();
+                    router.push("/membros");
                 }
             }).catch((error)=>{
                 return console.log(error);
