@@ -40,6 +40,7 @@
 import img from '@/assets/dashboard/img_examble.svg'
 import { storage } from "../../../../firebase";
 import {ref,uploadBytes, getDownloadURL} from "firebase/storage"
+import router from '@/router';
 import axios from 'axios';
 export default{
     data(){
@@ -70,9 +71,10 @@ export default{
             }
             await axios.post("https://pjr-api.onrender.com/member/create",member).then(resp =>{
                 if(resp.status !== 200){
-                    return alert("Membro não cadastrado, verifique os dados e tente novamente !!")
+                    alert("Membro não cadastrado, verifique os dados e tente novamente !!")
                 }else{
-                    return alert("Membro cadastrado com sucesso!!")
+                    alert("Membro cadastrado com sucesso!!")
+                    router.push("/membros");
                 }
             }).catch((error)=>{
                 return console.log(error);
