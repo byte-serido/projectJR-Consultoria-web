@@ -44,8 +44,8 @@ export default{
             return this.$store.getters.getValid
         }
     },
-    mounted(){
-        this.$store.dispatch('getMembers');
+    async mounted(){
+        await this.$store.dispatch('getMembers');
     }
 }
 </script>
