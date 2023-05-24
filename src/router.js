@@ -8,75 +8,72 @@ const Blog = () => import('./views/MyBlog.vue');
 const Login = () => import('./views/MyLogin.vue');
 const Dashboard = () => import('./views/MyDashboard.vue');
 const Contact = () => import('./views/MyContact.vue');
-
-const routes = [
-    {
-      path: '/',
-      name: 'home',
-      component: Home,
-      //Permitindo que todos os parametros da rota sejam passados como atributos
-      props:true,
-      meta: { transition: 'slide-left' },
-    },
-
-    {
-      path: '/contact',
-      name: 'contact',
-      component: Contact,
-      //Permitindo que todos os parametros da rota sejam passados como atributos
-      props:true,
-    },
-
-    {
-      path: '/about',
-      name: 'about',
-      component: About,
-      //Permitindo que todos os parametros da rota sejam passados como atributos
-      props:true,
-      meta: { transition: 'slide-left' },
-    },
-
-    {
-      path: '/services',
-      name: 'services',
-      component: Services,
-      //Permitindo que todos os parametros da rota sejam passados como atributos
-      props:true,
-      meta: { transition: 'slide-left' },
-    },
-
-    {
-      path: '/blog',
-      name: 'blog',
-      component: Blog,
-      //Permitindo que todos os parametros da rota sejam passados como atributos
-      props:true,
-      meta: { transition: 'slide-left' },
-    },
-
-    {
-      path: '/login',
-      name: 'login',
-      component:Login,
-      //Permitindo que todos os parametros da rota sejam passados como atributos
-      props:true,
-      meta: { requiresGuest: true, transition: 'slide-left' },
-    },
-
-    {
-      path: '/dashboard',
-      name: 'dashboard',
-      component:Dashboard,
-      //Permitindo que todos os parametros da rota sejam passados como atributos
-      props:true,
-      meta: { requiresAuth: true, transition: 'slide-left' }
-    },
-
-  ]
   
   const router = createRouter({
-    history: createWebHistory(process.env.BASE_URL),
-    routes
+    history: createWebHistory(),
+    routes:[
+      {
+        path: '/',
+        name: 'home',
+        component: Home,
+        //Permitindo que todos os parametros da rota sejam passados como atributos
+        props:true,
+        meta: { transition: 'slide-left' },
+      },
+  
+      {
+        path: '/contact',
+        name: 'contact',
+        component: Contact,
+        //Permitindo que todos os parametros da rota sejam passados como atributos
+        props:true,
+      },
+  
+      {
+        path: '/about',
+        name: 'about',
+        component: About,
+        //Permitindo que todos os parametros da rota sejam passados como atributos
+        props:true,
+        meta: { transition: 'slide-left' },
+      },
+  
+      {
+        path: '/services',
+        name: 'services',
+        component: Services,
+        //Permitindo que todos os parametros da rota sejam passados como atributos
+        props:true,
+        meta: { transition: 'slide-left' },
+      },
+  
+      {
+        path: '/blog',
+        name: 'blog',
+        component: Blog,
+        //Permitindo que todos os parametros da rota sejam passados como atributos
+        props:true,
+        meta: { transition: 'slide-left' },
+      },
+  
+      {
+        path: '/login',
+        name: 'login',
+        component:Login,
+        //Permitindo que todos os parametros da rota sejam passados como atributos
+        props:true,
+        meta: { requiresGuest: true, transition: 'slide-left' },
+      },
+  
+      {
+        path: '/dashboard',
+        name: 'dashboard',
+        component:Dashboard,
+        //Permitindo que todos os parametros da rota sejam passados como atributos
+        props:true,
+        meta: { requiresAuth: true, transition: 'slide-left' }
+      },
+    ]
   })
 
   // Antes das rotas serem realmente redirecionadas é feito a verificação do token
