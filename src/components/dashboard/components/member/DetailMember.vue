@@ -2,30 +2,31 @@
     <div class="container-details">
         <div class="data-details">
             <h1>Detalhes</h1>
-            <div class="card-detail">
+            <SpinnerLoading v-if="isLoading"></SpinnerLoading>
+            <div class="card-detail" v-else>
                 <div>
-                    <img class="avatar" :src="urlImg" alt="Imagemm Avatar">
+                    <img class="avatar" :src="urlImg === null ? member.imgUrl : urlImg" alt="Imagemm Avatar">
                     <input type="file" @change="onFileSelected">
                 </div>
                 <div class="card-item">
                     <h2>Nome:</h2>
-                    <input type="text" v-model="objeto.name">
+                    <input type="text" v-model="member.name">
                 </div>
                 <div class="card-item">
                     <h2>Área de trabalho:</h2>
-                    <input type="text" v-model="objeto.role"/>
+                    <input type="text" v-model="member.role"/>
                 </div>
                 <div class="card-item">
                     <h2>Celular de contato:</h2>
-                    <input type="number" v-model="objeto.phone"/>
+                    <input type="number" v-model="member.number"/>
                 </div>
                 <div class="card-item">
                     <h2>Matrícula:</h2>
-                    <input type="number" v-model="objeto.registration"/>
+                    <input type="number" v-model="member.registration"/>
                 </div>
                 <div class="card-item">
                     <h2>Descrição:</h2>
-                    <textarea v-model="objeto.description" rows="7"/>
+                    <textarea v-model="member.description" rows="7"/>
                 </div>
             </div>
         </div>
@@ -39,15 +40,27 @@
 <script>
 import { storage } from "../../../../firebase";
 import {ref,uploadBytes, getDownloadURL, deleteObject} from "firebase/storage"
+import SpinnerLoading from "@/components/MySpinnerLoading.vue"
 import router from '@/router';
 import axios from "axios";
 // import axios from 'axios';
 export default{
+    components:{
+        SpinnerLoading,
+    },
     data(){
         return{
-            objeto:{},
             imageFile:null,
-            urlImg:"",
+            urlImg:null,
+        }
+    },
+
+    computed:{
+        member(){
+            return this.$store.getters.getMember
+        },
+        isLoading(){
+            return this.$store.getters.getValidMember
         }
     },
 
@@ -62,15 +75,14 @@ export default{
 
         // Função para criar um membro
         async updateMember(){
-            const imgAux = await this.updateImageMember();
             const member={
-                id: this.objeto.id,
-                name:this.objeto.name,
-                role:this.objeto.role,
-                number:this.objeto.phone.toString(),
-                registration:this.objeto.registration.toString(),
-                description:this.objeto.description,
-                imgUrl:imgAux
+                id: this.member.id,
+                name:this.member.name,
+                role:this.member.role,
+                number:this.member.number.toString(),
+                registration:this.member.registration.toString(),
+                description:this.member.description,
+                imgUrl: await this.updateImageMember()
             }
             await axios.put("https://pjr-api.onrender.com/member/update",member).then(resp =>{
                 if(resp.status !== 201){
@@ -87,32 +99,29 @@ export default{
             try {
                 if (this.imageFile === null) {
                     // Se nenhuma nova imagem for selecionada, retorne a URL existente ou uma string vazia
-                    return this.objeto.imgURL || "";
+                    return this.member.imgUrl;
                 } else {
                     // Exclua a imagem atual
-                    if (this.objeto.imgURL !== "") {
-
-                        const currentImageRef = ref(storage, this.objeto.imgURL);
+                    if (this.member.imgUrl !== '') {
+                        const currentImageRef = ref(storage, this.member.imgUrl);
                         await deleteObject(currentImageRef);
-                    } else{
-
-                        // Faça o upload da nova imagem
-                        const storageRef = ref(storage, `member/${this.imageFile.name}`);
-                        await uploadBytes(storageRef, this.imageFile);
-    
-                        // Obtenha a nova URL da imagem
-                        const url = await getDownloadURL(storageRef);
-                        console.log("Imagem salva com sucesso. Aqui está a nova URL: " + url);
-    
-                        return url.toString();
                     }
+                    // Faça o upload da nova imagem
+                    const storageRef = ref(storage, `member/${this.imageFile.name}`);
+                    await uploadBytes(storageRef, this.imageFile);
+
+                    // Obtenha a nova URL da imagem
+                    const url = await getDownloadURL(storageRef);
+
+                    return url;
                 }
             } catch (error) {
                 console.log(error);
             }
         },
+        //Fução de delecão
         async deleteMember(){
-            await axios.delete("https://pjr-api.onrender.com/member/delete",{ data: {id:this.objeto.id} }).then(resp =>{
+            await axios.delete("https://pjr-api.onrender.com/member/delete",{ data: {id:this.member.id} }).then(resp =>{
                 if(resp.status !== 201){
                     return alert("Erro ao deletar membro, verifique os dados e tente novamente !!")
                 }else{
@@ -125,10 +134,9 @@ export default{
         }
     },
 
-    mounted() {
+    async mounted() {
         const objetoJson = JSON.parse(decodeURIComponent(this.$route.params.user));
-        this.objeto = objetoJson;
-        this.urlImg = objetoJson.imgURL
+        await this.$store.dispatch('getMemberAction',objetoJson)
     },
 }
 </script>
