@@ -15,15 +15,7 @@
 export default {
     data(){
         return{
-            user:{
-                id: this.id,
-                name: this.name,
-                role: this.role,
-                imgURL: this.imgURL,
-                phone: this.phone,
-                registration: this.registration,
-                description: this.description,
-            },
+           idMember:this.id
         }
     },
     props:{
@@ -59,7 +51,7 @@ export default {
 
     methods:{
         onDetailRedirect(){
-            const objeto = encodeURIComponent(JSON.stringify(this.user));
+            const objeto = encodeURIComponent(JSON.stringify(this.idMember));
             return this.$router.push({ name: 'detail', params: { user: objeto}})
         }
     }
