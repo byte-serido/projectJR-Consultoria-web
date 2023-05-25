@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import controller from '@/controller/index'
+
 //Configuração pra renderização tardia, pois os imports só viram quando for realmente necessario.
 const Home = () => import('./views/MyHome.vue');
 const About = () => import('./views/MyAbout.vue');
@@ -10,8 +11,8 @@ const Dashboard = () => import('./views/MyDashboard.vue');
 const Contact = () => import('./views/MyContact.vue');
 const DashBoardMember = () => import('@/components/dashboard/MyMembros.vue');
 const DashBoardAdms = () => import('@/components/dashboard/MyAdms.vue');
-const DetailMember = () => import("@/components/dashboard/components/member/DetailMember.vue")
-const CreateMember = () => import("@/components/dashboard/components/member/CreateMember.vue")
+const DetailMember = () => import("@/components/dashboard/components/member/DetailMember.vue");
+const CreateMember = () => import("@/components/dashboard/components/member/CreateMember.vue");
 
 const routes = [
     {
@@ -19,7 +20,7 @@ const routes = [
       name: 'home',
       component: Home,
       //Permitindo que todos os parametros da rota sejam passados como atributos
-      props:true,
+      props: true,
       meta: { transition: 'slide-left' },
     },
 
@@ -28,7 +29,7 @@ const routes = [
       name: 'contact',
       component: Contact,
       //Permitindo que todos os parametros da rota sejam passados como atributos
-      props:true,
+      props: true,
       meta: { transition: 'slide-left' },
     },
 
@@ -37,7 +38,7 @@ const routes = [
       name: 'about',
       component: About,
       //Permitindo que todos os parametros da rota sejam passados como atributos
-      props:true,
+      props: true,
       meta: { transition: 'slide-left' },
     },
 
@@ -46,7 +47,7 @@ const routes = [
       name: 'services',
       component: Services,
       //Permitindo que todos os parametros da rota sejam passados como atributos
-      props:true,
+      props: true,
       meta: { transition: 'slide-left' },
     },
 
@@ -55,7 +56,7 @@ const routes = [
       name: 'blog',
       component: Blog,
       //Permitindo que todos os parametros da rota sejam passados como atributos
-      props:true,
+      props: true,
       meta: { transition: 'slide-left' },
     },
 
@@ -64,7 +65,7 @@ const routes = [
       name: 'login',
       component:Login,
       //Permitindo que todos os parametros da rota sejam passados como atributos
-      props:true,
+      props: true,
       meta: { requiresGuest: true, transition: 'slide-left' },
     },
 
@@ -73,7 +74,7 @@ const routes = [
       name: 'dashboard',
       component:Dashboard,
       //Permitindo que todos os parametros da rota sejam passados como atributos
-      props:true,
+      props: true,
       meta: { requiresAuth: true, transition: 'slide-left' },
       children:[
         {
@@ -81,7 +82,7 @@ const routes = [
           name: 'membros',
           component:DashBoardMember,
           //Permitindo que todos os parametros da rota sejam passados como atributos
-          props:true,
+          props: true,
           meta: { requiresAuth: true },
         },
         {
@@ -89,7 +90,7 @@ const routes = [
           name: 'create-member',
           component:CreateMember,
           //Permitindo que todos os parametros da rota sejam passados como atributos
-          props:true,
+          props: true,
           meta: { requiresAuth: true },
         },
         {
@@ -104,7 +105,7 @@ const routes = [
           name: 'adms',
           component:DashBoardAdms,
           //Permitindo que todos os parametros da rota sejam passados como atributos
-          props:true,
+          props: true,
           meta: { requiresAuth: true, transition: 'slide-left' },
         },
       ]
