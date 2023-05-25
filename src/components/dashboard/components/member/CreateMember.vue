@@ -30,9 +30,9 @@
                 <img :src="imageUrl" alt="Imagem de exemplo" height="300" width="300">
             </div>
         </form>
-        <div class="form-button">
+        <div class="form-button" >
             <button @click="createMember()" type="submit">Salvar</button>
-            <button class="cancel">Cancelar</button>
+            <button @click="cancel()" class="cancel">Cancelar</button>
         </div>
     </div>
 </template>
@@ -104,7 +104,10 @@ export default{
                 console.error(error)
             } 
         },
-           
+        
+        cancel(){
+            router.push("/membros");
+        }
     }
 }
 </script>
