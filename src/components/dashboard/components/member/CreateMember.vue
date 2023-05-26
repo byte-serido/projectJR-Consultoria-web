@@ -5,23 +5,23 @@
             <div class="form-grid">
                 <div class="form-item">
                     <h2>Nome:</h2>
-                    <input type="text" v-model="name">
+                    <input  :class="{error:v$.name.$error,input:!v$.name.$error}" type="text" v-model="v$.name.$model">
                 </div>
                 <div class="form-item">
                     <h2>Área de trabalho:</h2>
-                    <input type="text" v-model="role"/>
+                    <input :class="{error:v$.role.$error,input:!v$.role.$error}" type="text" v-model="v$.role.$model"/>
                 </div>
                 <div class="form-item">
                     <h2>Celular de contato:</h2>
-                    <input type="number" v-model="phone"/>
+                    <input :class="{error:v$.phone.$error,input:!v$.phone.$error}" type="number" v-model="v$.phone.$model"/>
                 </div>
                 <div class="form-item">
                     <h2>Matrícula:</h2>
-                    <input type="number" v-model="registration"/>
+                    <input :class="{error:v$.registration.$error,input:!v$.registration.$error}" type="number" v-model="v$.registration.$model"/>
                 </div>
                 <div class="form-item">
                     <h2>Descrição:</h2>
-                    <textarea v-model="description" rows="7"/>
+                    <textarea :class="{error:v$.description.$error,input:!v$.description.$error}" v-model="v$.description.$model" rows="10"/>
                 </div>
             </div>
             <div class="form-item">
@@ -37,12 +37,25 @@
     </div>
 </template>
 <script>
+//Imagem padrão
 import img from '@/assets/dashboard/img_examble.svg';
+// Imports do firebase
 import { storage } from "../../../../firebase";
 import {ref,uploadBytes, getDownloadURL} from "firebase/storage";
+// Import rotas e axios
 import router from '@/router';
 import axios from 'axios';
+//Vuelidate
+import { useVuelidate } from '@vuelidate/core'
+import { required, minLength, maxLength } from '@vuelidate/validators'
+
 export default{
+    setup(){
+        return{
+            v$: useVuelidate()
+        }
+    },
+
     data(){
         return{
             name:"",
@@ -54,6 +67,34 @@ export default{
             //Config de imagem preview
             imageUrl:img,
             imageFile:null,
+        }
+    },
+
+    validations () {
+        return {
+            name:{
+                required,
+                minLength: minLength(4)
+            },
+            role:{
+                required,
+                minLength: minLength(2)
+            },
+            phone:{
+                required,
+                maxLength:maxLength(11),
+                minLength: minLength(11)
+            },
+            registration:{
+                required,
+                maxLength:maxLength(11),
+                minLength: minLength(11)
+            },
+            description:{
+                required,
+                maxLength:maxLength(600),
+                minLength: minLength(30)
+            }
         }
     },
 
@@ -208,15 +249,15 @@ export default{
         flex-direction: column;
         gap: 4px;
     }
-    .form-item input{
+    .form-item .input{
         width: 100%;
         padding: 10px 6px;
         border: #8db5c7 solid 1px;
         border-radius: 4px;
     }
 
-    .form-item input:focus{
-        border: 2px solid #41A8D3;
+    .form-item .input:focus{
+        border: 1px solid #41A8D3;
         outline: none;
     }
 
@@ -238,7 +279,14 @@ export default{
     }
 
     .error{
+        width: 100%;
+        padding: 10px 6px;
+        border-radius: 4px;
         border: #ec3824 solid 1px;
-        color: #ec3824;
+    }
+
+    .error:focus{
+        border: #ec3824 solid 1px;
+        outline: none;
     }
 </style>
