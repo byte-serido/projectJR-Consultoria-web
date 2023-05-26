@@ -14,8 +14,19 @@
           src="@/assets/login/logo-login-min.svg"
           alt="Logo da empresa pequena"
         />
+
         <!-- Espaço para colocar inputs e texto com instruções, feito para centralizar tudo.-->
-        <div class="box-forgot-password">
+        <div class="box-forgot-password" v-if="isEmailSent">
+          <div class="box-email-sent">
+            <p>Link de recuperação de senha enviado!</p>
+            <p>
+              Verifique sua caixa de spam caso não encontre o email na sua caixa
+              de entrada.
+            </p>
+          </div>
+        </div>
+        <!-- Espaço para colocar inputs e texto com instruções, feito para centralizar tudo.-->
+        <div class="box-forgot-password" v-else>
           <p>
             Informe o email associado a sua conta e lhe enviaremos um link para
             definir uma nova senha
@@ -30,7 +41,7 @@
           <input
             class="input-forgot-password"
             type="email"
-            placeholder="confirmação de email"
+            placeholder="repita seu email"
             v-model="confirmacaoEmail"
             required
           />
@@ -38,7 +49,7 @@
         <!-- Button para submeter o formulário-->
         <div v-if="loading" class="spinner"></div>
         <button
-          v-else
+          v-else-if="!isEmailSent"
           :class="isButtonDisabled ? 'card-button-disabled' : 'card-button'"
           :disabled="isButtonDisabled"
           type="submit"
@@ -58,6 +69,7 @@ export default {
       confirmacaoEmail: '',
       isVisiblity: false,
       loading: false,
+      isEmailSent: false,
     };
   },
   computed: {
@@ -84,13 +96,14 @@ export default {
       /* Verifica se o form pode ser submetido com base nas validações usadas
       para determinar o estado do botão de submissão */
       if (!this.isButtonDisabled) {
-        // Exibe indicador de carregamento por 2s enquanto realiza a requisição a api
+        // Exibe indicador de carregamento enquanto realiza a requisição a api
         this.loading = true;
         setTimeout(() => {
           this.loading = false;
+          this.isEmailSent = true;
         }, 2000);
 
-        // this.$store.dispatch('', { email: this.email });
+        //requisição a api this.$store.dispatch('', { email: this.email });
       }
     },
   },
@@ -127,12 +140,21 @@ export default {
   gap: 64px;
 }
 
-.box-forgot-password {
+.box-forgot-password,
+.box-email-sent {
   display: flex;
   flex-direction: column;
   gap: 12px;
   align-items: center;
   min-width: 100%;
+}
+
+.box-email-sent p {
+  margin: 0;
+}
+
+.box-email-sent p:first-of-type {
+  font-size: 1.25rem;
 }
 
 .box-forgot-password p {
