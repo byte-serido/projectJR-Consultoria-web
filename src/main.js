@@ -2,7 +2,6 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import controller from './controller'
-import Vuelidate from 'vuelidate'
 
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -21,5 +20,4 @@ createApp(App)
     .component('fa', FontAwesomeIcon)
     .use(controller)
     .use(router)
-    .use(Vuelidate)
     .mount('#app');
