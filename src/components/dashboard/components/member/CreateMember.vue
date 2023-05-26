@@ -5,23 +5,23 @@
             <div class="form-grid">
                 <div class="form-item">
                     <h2>Nome:</h2>
-                    <input type="text" v-model="membro.name">
+                    <input type="text" v-model="name">
                 </div>
                 <div class="form-item">
                     <h2>Área de trabalho:</h2>
-                    <input type="text" v-model="membro.role"/>
+                    <input type="text" v-model="role"/>
                 </div>
                 <div class="form-item">
                     <h2>Celular de contato:</h2>
-                    <input type="number" v-model="membro.phone"/>
+                    <input type="number" v-model="phone"/>
                 </div>
                 <div class="form-item">
                     <h2>Matrícula:</h2>
-                    <input type="number" v-model="membro.registration"/>
+                    <input type="number" v-model="registration"/>
                 </div>
                 <div class="form-item">
                     <h2>Descrição:</h2>
-                    <textarea v-model="membro.description" rows="7"/>
+                    <textarea v-model="description" rows="7"/>
                 </div>
             </div>
             <div class="form-item">
@@ -37,21 +37,21 @@
     </div>
 </template>
 <script>
-import img from '@/assets/dashboard/img_examble.svg'
+import img from '@/assets/dashboard/img_examble.svg';
 import { storage } from "../../../../firebase";
-import {ref,uploadBytes, getDownloadURL} from "firebase/storage"
+import {ref,uploadBytes, getDownloadURL} from "firebase/storage";
 import router from '@/router';
 import axios from 'axios';
 export default{
     data(){
         return{
-            membro:{
-                name:"",
-                role:"",
-                phone:null,
-                registration:null,
-                description:""
-            },
+            name:"",
+            role:"",
+            phone:null,
+            registration:null,
+            description:"",
+
+            //Config de imagem preview
             imageUrl:img,
             imageFile:null,
         }
@@ -62,11 +62,11 @@ export default{
         async createMember(){
             const imgAux = await this.uploadImage();
             const member={
-                name:this.membro.name,
-                role:this.membro.role,
-                number:this.membro.phone.toString(),
-                registration:this.membro.registration.toString(),
-                description:this.membro.description,
+                name:this.name,
+                role:this.role,
+                number:this.phone.toString(),
+                registration:this.registration.toString(),
+                description:this.description,
                 imgUrl:imgAux
             }
             await axios.post("https://pjr-api.onrender.com/member/create",member).then(resp =>{
@@ -235,5 +235,10 @@ export default{
     img{
         cursor: pointer;
         border-radius: 4px;
+    }
+
+    .error{
+        border: #ec3824 solid 1px;
+        color: #ec3824;
     }
 </style>
