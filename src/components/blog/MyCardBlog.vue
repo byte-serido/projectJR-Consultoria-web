@@ -28,19 +28,8 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      post: {
-        category: "Categoria",
-        date: "27 de jan, 2023",
-        title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce rutrum ante a elit tristique, in pulvinar ligula interdum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla facilisi. Nulla facilisis risus id leo feugiat, a vestibulum urna tristique. Nam tristique, urna vitae lacinia semper, ipsum metus consequat dui, sed fermentum enim libero sed dui. Mauris viverra justo et turpis tincidunt, eget convallis justo tincidunt.",
-        name: "Fulano da silva",
-        profileImg: "",
-        role: "Cargo na empresa",
-      },
-    };
+  props: {
+    post: {},
   },
 };
 </script>
