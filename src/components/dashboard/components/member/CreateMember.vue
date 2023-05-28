@@ -2,26 +2,35 @@
     <div class="create-member">
         <form class="form">
             <h1>Crie um novo membro!</h1>
+            <div class="erros-list">
+                <div
+                    v-for="error of v$.$errors"
+                    :key="error.$uid"
+                    class="erros"
+                >
+                    <strong>{{ error.$message }}</strong>
+                </div>
+            </div>
             <div class="form-grid">
                 <div class="form-item">
                     <h2>Nome:</h2>
-                    <input  :class="{error:v$.name.$error,input:!v$.name.$error}" type="text" v-model="v$.name.$model">
+                    <input :class="{error:v$.name.$error,input:!v$.name.$error}" type="text" v-model="name" placeholder="Digite um nome!">
                 </div>
                 <div class="form-item">
                     <h2>Área de trabalho:</h2>
-                    <input :class="{error:v$.role.$error,input:!v$.role.$error}" type="text" v-model="v$.role.$model"/>
+                    <input :class="{error:v$.role.$error,input:!v$.role.$error}" type="text" v-model="role" placeholder="Digite sua área de trabalho!"/>
                 </div>
                 <div class="form-item">
                     <h2>Celular de contato:</h2>
-                    <input :class="{error:v$.phone.$error,input:!v$.phone.$error}" type="number" v-model="v$.phone.$model"/>
+                    <input :class="{error:v$.phone.$error,input:!v$.phone.$error}" type="number" v-model="phone" placeholder="Digite seu celular!"/>
                 </div>
                 <div class="form-item">
                     <h2>Matrícula:</h2>
-                    <input :class="{error:v$.registration.$error,input:!v$.registration.$error}" type="number" v-model="v$.registration.$model"/>
+                    <input :class="{error:v$.registration.$error,input:!v$.registration.$error}" type="number" v-model="registration" placeholder="Digite sua matrícula!"/>
                 </div>
                 <div class="form-item">
                     <h2>Descrição:</h2>
-                    <textarea :class="{error:v$.description.$error,input:!v$.description.$error}" v-model="v$.description.$model" rows="10"/>
+                    <textarea :class="{error:v$.description.$error,input:!v$.description.$error}" v-model="description" rows="10" placeholder="O mínimo de caracteres é 30 e o maximo são 600!"/>
                 </div>
             </div>
             <div class="form-item">
@@ -74,26 +83,31 @@ export default{
         return {
             name:{
                 required,
-                minLength: minLength(4)
+                minLength: minLength(4),
+                $lazy: true
             },
             role:{
                 required,
-                minLength: minLength(2)
+                minLength: minLength(2),
+                $lazy: true,
             },
             phone:{
                 required,
                 maxLength:maxLength(11),
-                minLength: minLength(11)
+                minLength: minLength(11),
+                $lazy: true
             },
             registration:{
                 required,
                 maxLength:maxLength(11),
-                minLength: minLength(11)
+                minLength: minLength(11),
+                $lazy: true
             },
             description:{
                 required,
                 maxLength:maxLength(600),
-                minLength: minLength(30)
+                minLength: minLength(30),
+                $lazy: true
             }
         }
     },
@@ -101,6 +115,12 @@ export default{
     methods:{
         // Função para criar um membro
         async createMember(){
+
+            //Verificando os dados
+            const isFormCorrect = await this.v$.$validate()
+            if (!isFormCorrect) return
+            
+            //Carregando image
             const imgAux = await this.uploadImage();
             const member={
                 name:this.name,
@@ -110,6 +130,7 @@ export default{
                 description:this.description,
                 imgUrl:imgAux
             }
+            //Requisição para salvar
             await axios.post("https://pjr-api.onrender.com/member/create",member).then(resp =>{
                 if(resp.status !== 200){
                     alert("Membro não cadastrado, verifique os dados e tente novamente !!")
@@ -145,7 +166,8 @@ export default{
                 console.error(error)
             } 
         },
-        
+
+        // Callback Page
         cancel(){
             router.push("/membros");
         }
@@ -288,5 +310,22 @@ export default{
     .error:focus{
         border: #ec3824 solid 1px;
         outline: none;
+    }
+
+    .erros-list{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .erros{
+        padding: 8px;
+        border: #ec3824 2px solid;
+        background-color: transparent;
+        color: #ec3824;
+        font-size: 1rem;
+        font-weight: bolder;
+        border-radius: 10px;
     }
 </style>
