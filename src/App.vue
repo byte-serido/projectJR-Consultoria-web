@@ -14,7 +14,7 @@
   <template v-else> 
     <router-view v-slot="{ Component }">
       <Transition name="slide" mode="out-in">
-        <div>
+        <div class="box">
           <component :is="Component" />
         </div>
       </Transition>
@@ -45,6 +45,10 @@ export default {
   #app{
     display: flex;
     flex-direction: column;
+    height: 100%;
+  }
+
+  .box{
     height: 100%;
   }
 
