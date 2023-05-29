@@ -15,7 +15,7 @@
 
             <!-- Button de saida -->
             <button @click="onLogout()">
-                <fa :icon="['fa', 'right-from-bracket']" style=" color: #023F5C;" size="lg"/>
+                <fa :icon="['fa', 'right-from-bracket']" style=" color: #FFFFFF;" size="lg"/>
             </button>
         </div>
     </header>
@@ -42,7 +42,7 @@
             </div>
         </transition>
         <!-- Conteudo que ficara mudando dependendo da escolha no menu -->
-        <div class="container-dashbord">
+        <div class="dashboard-content">
             <router-view/>
         </div>
     </main>
@@ -70,7 +70,6 @@ export default {
 }
 </script>
 <style scoped>
-
     /* Nav Bar */
     header{
         font-family: 'Assistant', sans-serif;
@@ -80,7 +79,7 @@ export default {
         justify-content: space-between;
         align-items: center;
         padding: 16px 60px;
-        background-color: white;
+        background-color: #023F5C;
         border-bottom: 1px solid rgb(230, 227, 227);
     }
 
@@ -93,18 +92,17 @@ export default {
     }
 
     .container-profile .avatar{
-        background-color: #023F5C;
+        background-color: #FFFFFF;
         display: flex;
         justify-content: center;
         align-items: center;
-        color: aliceblue;
         border-radius: 50%;
         height: 38px;
         width: 38px;
     }
 
     .container-profile span{
-        color: #023F5C;
+        color: #FFFFFF;
         font-size: 1.2rem;
         font-weight: 700;
     }
@@ -142,19 +140,21 @@ export default {
 
     /* Dashboard */
     .dashbord{
+        min-height: 100%;
+        width: 100%;
+        background-color:#e9eef2;
         display: flex;
         flex-direction: row;
-        height: 100%;
-        width: 100%;
     }
-
     /* Menu */
     .menu{
+        background-color: #023F5C;
         width: 260px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         border-right: 1px solid rgb(230, 227, 227);
+        min-height: 100%;   
     }
 
     .menu .item{
@@ -166,15 +166,15 @@ export default {
         cursor: pointer;
         position: relative;
         transition: all 400ms ease;
-        border-bottom: 1px solid rgb(230, 227, 227);
+        border-bottom: 1px solid #e9eef2;
     }
 
     .menu .item:hover{
-        background-color: rgb(206, 202, 202);
+        background-color: #042839;
     }
 
     .menu .item span{
-        color: #023F5C;
+        color: #FFFFFF;
         font-size: 0.9rem;
         font-weight: 500;
     }
@@ -185,16 +185,17 @@ export default {
     }
 
     /* Body */
-    .container-dashbord {
+    .dashboard-content {
         padding: 60px 60px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        min-height: 100%;
+        justify-content: space-between;
+        height: 100%;
         width: 100%;
     }
 
-    .container-dashbord article p{
+    .dashboard-content article p{
         color: black;
     }
 
