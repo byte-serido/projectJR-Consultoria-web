@@ -31,12 +31,21 @@
             Informe o email associado a sua conta e lhe enviaremos um link para
             definir uma nova senha
           </p>
+
+          <!-- Espaço para exibir mensagens de erro -->
+          <div class="errors-forgot-password" v-if="errors.length">
+            <p class="error" v-for="(error, index) of errors" :key="index">
+              {{ error }}
+            </p>
+          </div>
+
           <input
             class="input-forgot-password"
             type="email"
             placeholder="email"
             v-model="email"
             required
+            @blur="validateEmail"
           />
           <input
             class="input-forgot-password"
@@ -44,6 +53,7 @@
             placeholder="repita seu email"
             v-model="confirmacaoEmail"
             required
+            @blur="validateEmail"
           />
         </div>
         <!-- Button para submeter o formulário-->
@@ -65,11 +75,12 @@
 export default {
   data() {
     return {
-      email: '',
       confirmacaoEmail: '',
+      email: '',
+      errors: [],
+      isEmailSent: false,
       isVisiblity: false,
       loading: false,
-      isEmailSent: false,
     };
   },
   computed: {
@@ -104,6 +115,17 @@ export default {
         }, 2000);
 
         // requisição a api this.$store.dispatch('', { email: this.email });
+      }
+    },
+    // Valida se os dois inputs de email tem o mesmo valor
+    validateEmail() {
+      this.errors = [];
+      if (
+        this.email &&
+        this.confirmacaoEmail &&
+        this.email !== this.confirmacaoEmail
+      ) {
+        this.errors.push('Os emails não correspondem');
       }
     },
   },
@@ -158,6 +180,18 @@ export default {
   font-size: 1rem;
   font-weight: 700;
   text-align: center;
+}
+
+.errors-forgot-password {
+  background-color: #c10015;
+  width: 100%;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.errors-forgot-password p {
+  margin-bottom: 0;
+  color: #fff;
 }
 
 /* CSS dos inputs */
