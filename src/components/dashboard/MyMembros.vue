@@ -56,13 +56,13 @@ export default{
         padding: 0;
     }
     .container-membros{
-        width: 100%;
-        height: 100%;
         color: black;
         display: flex;
         flex-direction: column;
         font-family: "Inter" , sans-serif;
+        justify-content: space-between;
         gap: 60px;
+        height: 100%;
     }
 
     .title-row{
@@ -101,9 +101,9 @@ export default{
     }
 
     .grid-membros{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 20px;
+        display: flex;
+        flex-wrap: wrap;
         padding-bottom: 40px;
+        gap: 20px;
     }
 </style>
