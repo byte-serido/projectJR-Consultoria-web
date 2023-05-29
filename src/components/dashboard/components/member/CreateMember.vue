@@ -183,7 +183,6 @@ export default{
         flex-direction: column;
         font-family: "Inter" , sans-serif;
         gap: 60px;
-        width: 100%;
     }
 
     h1{
@@ -298,6 +297,7 @@ export default{
     img{
         cursor: pointer;
         border-radius: 4px;
+        border: #41A8D3 solid 2px;
     }
 
     .error{
