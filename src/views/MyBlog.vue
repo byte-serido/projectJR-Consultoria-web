@@ -4,7 +4,8 @@
   </header>
   <main>
     <CardBlog :post="mainPost"></CardBlog>
-    <CardPosts></CardPosts>
+    <CardPosts :posts="posts"></CardPosts>
+    <img src="" alt="" />
   </main>
   <footer>
     <Footer></Footer>
@@ -30,6 +31,45 @@ export default {
         profileImg: "",
         role: "Cargo na empresa",
       },
+
+      posts: [
+        {
+          id: 1,
+          category: "Categoria",
+          date: "27 de jan, 2023",
+          title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce rutrum ante a elit tristique, in pulvinar ligula interdum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+          name: "Fulano da silva",
+          profileImg: "",
+          role: "Cargo na empresa",
+          // img: "../assets/blog/postImage.svg",
+        },
+        {
+          id: 2,
+          category: "Categoria",
+          date: "27 de jan, 2023",
+          title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce rutrum ante a elit tristique, in pulvinar ligula interdum.",
+          name: "Fulano da silva",
+          profileImg: "",
+          role: "Cargo na empresa",
+          // img: "../assets/blog/postImage.svg",
+        },
+        {
+          id: 3,
+          category: "Categoria",
+          date: "27 de jan, 2023",
+          title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce rutrum ante a elit tristique, in pulvinar ligula interdum.",
+          name: "Fulano da silva",
+          profileImg: "",
+          role: "Cargo na empresa",
+          // img: "../assets/blog/postImage.svg",
+        },
+      ],
     };
   },
 };
