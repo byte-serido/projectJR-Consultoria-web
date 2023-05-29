@@ -103,7 +103,7 @@ export default {
           this.isEmailSent = true;
         }, 2000);
 
-        //requisição a api this.$store.dispatch('', { email: this.email });
+        // requisição a api this.$store.dispatch('', { email: this.email });
       }
     },
   },
@@ -151,10 +151,6 @@ export default {
 
 .box-email-sent p {
   margin: 0;
-}
-
-.box-email-sent p:first-of-type {
-  font-size: 1.25rem;
 }
 
 .box-forgot-password p {
