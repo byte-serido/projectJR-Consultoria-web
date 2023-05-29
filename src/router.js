@@ -9,6 +9,7 @@ const Login = () => import('./views/MyLogin.vue');
 const Dashboard = () => import('./views/MyDashboard.vue');
 const Contact = () => import('./views/MyContact.vue');
 const ForgotPassword = () => import('./views/MyForgotPassword.vue');
+const ResetPassword = () => import('./views/MyResetPassword.vue');
   
   const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
@@ -70,6 +71,15 @@ const ForgotPassword = () => import('./views/MyForgotPassword.vue');
         path: '/forgot-password',
         name: 'forgot-password',
         component: ForgotPassword,
+        //Permitindo que todos os parametros da rota sejam passados como atributos
+        props:true,
+        meta: { requiresGuest: true, transition: 'slide-left' },
+      },
+  
+      {
+        path: '/reset-password',
+        name: 'reset-password',
+        component: ResetPassword,
         //Permitindo que todos os parametros da rota sejam passados como atributos
         props:true,
         meta: { requiresGuest: true, transition: 'slide-left' },
