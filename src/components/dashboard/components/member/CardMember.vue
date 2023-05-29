@@ -60,10 +60,10 @@ export default {
 
 <style scoped>
     .card{
-        max-width: 400px;
+        width: 260px;
         max-height: 400px;
         font-family: "Inter", sans-serif;
-        background-color: #023F5C;
+        background-color:#FFFFFF;
         border-radius: 8px;
         display: flex;
         flex-direction: column;
@@ -80,22 +80,23 @@ export default {
     }
 
     .card article{
-        flex: 1;
         width: 100%;
         display: flex;
+        gap: 4px;
         flex-direction: column;
         align-items: flex-start;
         padding: 10px;
     }
 
     .card article p{
+        margin: 0;
         font-size: 1rem;
-        font-weight: 500;
-        color: #FFFFFF;
+        font-weight: 700;
+        color:#023F5C;
     }
 
     a{
         text-decoration: none;
-        color: #FFFFFF;
+        color: #023F5C;
     }
 </style>
