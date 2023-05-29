@@ -22,6 +22,14 @@
         <!-- Espaço para colocar inputs e texto de recuperação de senha, feito para centralizar tudo.-->
         <div class="box-reset-password" v-else>
           <p>Informe um nova senha para sua conta</p>
+
+          <!-- Espaço para exibir mensagens de erro -->
+          <div class="errors-reset-password" v-if="errors.length">
+            <p class="error" v-for="(error, index) of errors" :key="index">
+              {{ error }}
+            </p>
+          </div>
+
           <!-- Div especifica para criar um input com icone de visibilidade de senha-->
           <div class="container-input">
             <input
@@ -31,6 +39,7 @@
               minlength="8"
               v-model="password"
               required
+              @blur="validatePassword"
             />
             <button
               @click="isVisiblity = !isVisiblity"
@@ -58,6 +67,7 @@
               v-model="password2"
               minlength="8"
               required
+              @blur="validatePassword"
             />
             <button
               @click="isVisiblity2 = !isVisiblity2"
@@ -96,6 +106,7 @@
 export default {
   data() {
     return {
+      errors: [],
       isPasswordSubmited: false,
       isVisiblity: false,
       isVisiblity2: false,
@@ -134,6 +145,13 @@ export default {
         }, 2000);
 
         // requisição a api this.$store.dispatch('', { password: this.password });
+      }
+    },
+    // Valida se os dois inputs de senha tem o mesmo valor
+    validatePassword() {
+      this.errors = [];
+      if (this.password && this.password2 && this.password !== this.password2) {
+        this.errors.push('As senhas não correspondem');
       }
     },
   },
@@ -184,6 +202,18 @@ export default {
   font-size: 1rem;
   font-weight: 700;
   text-align: center;
+}
+
+.errors-reset-password {
+  background-color: #c10015;
+  width: 100%;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.errors-reset-password p {
+  margin-bottom: 0;
+  color: #fff;
 }
 
 /* CSS dos inputs */
