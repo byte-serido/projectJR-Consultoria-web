@@ -55,7 +55,7 @@ export default {
 .post-section {
   display: flex;
   flex-direction: column;
-  width: 623px;
+  width: 661px;
   max-width: 100%;
   padding: 23px 8px 0 23px;
   background: #f7f9fc;
