@@ -42,10 +42,12 @@ export default {
 </script>
 
 <style>
+
   #app{
     display: flex;
     flex-direction: column;
     height: 100%;
+    background-color: #e9eef2;
   }
 
   .box{
