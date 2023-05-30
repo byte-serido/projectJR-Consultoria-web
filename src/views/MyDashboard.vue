@@ -10,8 +10,10 @@
                     <img class="menu-icon" src="@/assets/dashboard/icon-list.svg" alt="Icone de menu de opções.">
                 </button>
                 <div class="avatar"></div>
-                <span>{{ username }}</span>
             </div>
+            <router-link to="/">
+                <img src="@/assets/nav/logo-bar.svg" alt="Imagem de Logo" height="32" width="32">
+            </router-link>
 
             <!-- Button de saida -->
             <button @click="onLogout()">
