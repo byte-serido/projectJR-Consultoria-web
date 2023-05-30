@@ -7,12 +7,12 @@
             <!-- // Div que contem tudo do usuario e o menu -->
             <div class="container-profile">
                 <button @click="isMenu=!isMenu">
-                    <img class="menu-icon" src="@/assets/dashboard/icon-list.svg" alt="Icone de menu de opções.">
+                    <fa :icon="['fa', 'bars']" style=" color: #FFFFFF;" size="lg"/>
                 </button>
                 <div class="avatar"></div>
             </div>
             <router-link to="/">
-                <img src="@/assets/nav/logo-bar.svg" alt="Imagem de Logo" height="32" width="32">
+                <img class="logo-home" src="@/assets/nav/logo-bar.svg" alt="Imagem de Logo">
             </router-link>
 
             <!-- Button de saida -->
@@ -53,7 +53,7 @@
 export default {
     data(){
         return{
-            isMenu: true,
+            isMenu: false,
             username:"",
         }
     },
@@ -99,8 +99,8 @@ export default {
         justify-content: center;
         align-items: center;
         border-radius: 50%;
-        height: 38px;
-        width: 38px;
+        height: 30px;
+        width: 30px;
     }
 
     .container-profile span{
@@ -110,23 +110,16 @@ export default {
     }
 
     .container-profile button{
-        display: none;
         background-color: transparent;
         border: none;
         cursor: pointer;
         position: relative;
         transition: all 400ms ease;
-        border-radius: 10%;
-        height: 30px;
+        border-radius: 4px;
     }
 
     .container-profile button:active{
         background-color: rgb(231, 226, 226);
-    }
-
-    .menu-icon{
-        height: 32px;
-        width: 32px;
     }
 
     .navbar button{
@@ -135,9 +128,9 @@ export default {
         cursor: pointer;
     }
 
-    .button-icon{
-        height: 26px;
-        width: 26px;
+    .logo-home{
+        height: 32px;
+        width: 32px;
     }
 
     /* Dashboard */
@@ -218,57 +211,78 @@ export default {
     }
 
     @media (max-width:860px){
+        .container-profile button{
+            display: block;
+            padding: 8px;
+        }
         .menu{
-            background-color: white;
-            max-width: 300px;
+            position: absolute;
+            z-index: 9999999;
+        }
+
+        .dashboard-content {
+            padding: 40px 40px;
+        }
+    }
+
+    @media (max-width:640px){
+        .navbar{
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            background-color: #023F5C;
+            border-bottom: 1px solid rgb(230, 227, 227);
+        }
+        .menu{
+            width: 200px;
+        }
+        .dashboard-content {
+            padding: 30px 30px;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            border-right: 1px solid rgb(230, 227, 227);
-        }
-        .menu .item img{
-            display: none;
-        }
-        .menu .item{
-            min-width: 93%;
+            align-items: center;
+            justify-content: space-between;
         }
     }
 
-    @media (max-width:660px){
-        .menu .item{
-            min-width: 91%;
+    @media (max-width:440px) {
+        .dashboard-content {
+            padding: 20px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
         }
-    }
-
-    @media (max-width:560px){
-        .menu .item{
-            min-width: 90%;
+        .navbar{
+            padding: 16px 12px;
         }
-    }
-
-    @media (max-width:460px){
-        .menu .item{
-            min-width: 88%;
-        }
-
-        .menu .item span{
-            color: #023F5C;
-            font-size: 0.7rem;
-            font-weight: 500;
-            
-        }
-    }
-
-    @media (max-width:390px){
-        .menu .item{
-            min-width: 86%;
+        .navbar .container-profile{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
         }
 
-        .menu .item span{
-            color: #023F5C;
-            font-size: 0.7rem;
-            font-weight: 500;
-            
+        .container-profile .avatar{
+            background-color: #FFFFFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            height: 26px;
+            width: 26px;
+        }
+
+        .container-profile span{
+            color: #FFFFFF;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .logo-home{
+            width: 26px;
+            height: 26px;
         }
     }
 </style>
