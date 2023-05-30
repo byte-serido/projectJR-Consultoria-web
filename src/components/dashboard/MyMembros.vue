@@ -106,4 +106,90 @@ export default{
         padding-bottom: 40px;
         gap: 20px;
     }
+    @media (max-width:860px){
+        .container-membros{
+            gap: 40px;
+        }
+
+        .title-row{
+            gap: 30px;
+        }
+        .title-row span{
+            font-size: 1.2rem;
+        }
+        .title-row button{
+            padding: 6px;
+            gap: 16px;
+        }
+
+        .title-row button p{
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        .grid-membros{
+            display: flex;
+            flex-wrap: wrap;
+            padding-bottom: 30px;
+            gap: 16px;
+        }
+    }
+
+    @media (max-width:640px){
+        .container-membros{
+            gap: 36px;
+        }
+
+        .title-row{
+            gap: 28px;
+        }
+        .title-row span{
+            font-size: 1.1rem;
+        }
+        .title-row button{
+            padding: 6px;
+            gap: 16px;
+        }
+
+        .title-row button p{
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        .grid-membros{
+            display: flex;
+            flex-wrap: wrap;
+            padding-bottom: 28px;
+            gap: 16px;
+        }
+    }
+
+    @media (max-width:440px){
+        .container-membros{
+            gap: 30px;
+        }
+
+        .title-row{
+            gap: 26px;
+        }
+        .title-row span{
+            font-size: 1rem;
+        }
+        .title-row button{
+            padding: 6px;
+            gap: 16px;
+        }
+
+        .title-row button p{
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        .grid-membros{
+            display: flex;
+            flex-wrap: wrap;
+            padding-bottom: 26px;
+            gap: 16px;
+        }
+    }
 </style>
