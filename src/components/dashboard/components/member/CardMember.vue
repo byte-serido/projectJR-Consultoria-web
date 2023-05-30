@@ -100,6 +100,7 @@ export default {
         color: #023F5C;
     }
 
+     /* Responsive */
     @media (max-width:860px){
         .card{
             width: 240px;

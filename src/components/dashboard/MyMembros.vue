@@ -106,6 +106,8 @@ export default{
         padding-bottom: 40px;
         gap: 20px;
     }
+    
+    /* Responsive */
     @media (max-width:860px){
         .container-membros{
             gap: 40px;

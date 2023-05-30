@@ -210,6 +210,7 @@ export default {
         animation: slide-out 0.5s ease;
     }
 
+     /* Responsive */
     @media (max-width:860px){
         .container-profile button{
             display: block;
