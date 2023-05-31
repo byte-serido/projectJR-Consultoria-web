@@ -274,4 +274,24 @@ export default{
         border: 2px solid #41A8D3;
         outline: none;
     }
+
+    @media (max-width:1188px){
+        .container-details{
+            padding-bottom: 40px;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            font-family: "Inter" , sans-serif;
+            gap: 60px;
+            width: 100%;
+        }
+    }
+
+    @media (max-width:610px){
+        .card-detail .avatar{
+            width: 100%;
+            height: 300px;
+            border-radius: 4px;
+        }
+    }
 </style>

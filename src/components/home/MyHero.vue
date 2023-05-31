@@ -33,6 +33,7 @@ export default {
         font-family: 'Inter', sans-serif;
         background-image: url("../../assets/hero/background.svg");
         background-size: cover;
+        background-color: #FFFFFF;
     }
 
     .hero{
