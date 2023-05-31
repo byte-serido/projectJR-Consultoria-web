@@ -37,7 +37,7 @@
                 <div class="form-item">
                     <span>Imagem:</span>
                     <input type="file" @change="onFileSelected">
-                    <img :src="imageUrl" alt="Imagem de exemplo">
+                    <img :class="{error:v$.imageFile.$error,input:!v$.imageFile.$error}" :src="imageUrl" alt="Imagem de exemplo">
                 </div>
             </div>
         </form>
@@ -112,6 +112,10 @@ export default{
                 maxLength:maxLength(600),
                 minLength: minLength(30),
                 $lazy: true
+            },
+            imageFile:{
+                required,
+                $lazy: true,
             }
         }
     },
@@ -158,7 +162,7 @@ export default{
         async uploadImage() {
             try{
                 if(this.imageFile === null){
-                    return ""
+                    alert("Por favor escolha uma imagem!!")
                 }else{
                     const storageRef = ref(storage, `member/${this.imageFile.name}`);
                     await uploadBytes(storageRef, this.imageFile);
