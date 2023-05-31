@@ -219,6 +219,7 @@ export default {
         .menu{
             position: absolute;
             z-index: 9999999;
+            height: 1400px;
         }
 
         .dashboard-content {
