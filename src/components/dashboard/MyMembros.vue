@@ -60,7 +60,6 @@ export default{
         display: flex;
         flex-direction: column;
         font-family: "Inter" , sans-serif;
-        justify-content: space-between;
         gap: 60px;
         height: 100%;
     }
