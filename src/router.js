@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import controller from '@/controller/index'
+
 //Configuração pra renderização tardia, pois os imports só viram quando for realmente necessario.
 const Home = () => import('./views/MyHome.vue');
 const About = () => import('./views/MyAbout.vue');
@@ -8,64 +9,67 @@ const Blog = () => import('./views/MyBlog.vue');
 const Login = () => import('./views/MyLogin.vue');
 const Dashboard = () => import('./views/MyDashboard.vue');
 const Contact = () => import('./views/MyContact.vue');
+const DashBoardMember = () => import('@/components/dashboard/MyMembros.vue');
+const DashBoardAdms = () => import('@/components/dashboard/MyAdms.vue');
+const DetailMember = () => import("@/components/dashboard/components/member/DetailMember.vue");
+const CreateMember = () => import("@/components/dashboard/components/member/CreateMember.vue");
 const ForgotPassword = () => import('./views/MyForgotPassword.vue');
 const ResetPassword = () => import('./views/MyResetPassword.vue');
-  
-  const router = createRouter({
-    history: createWebHistory(process.env.BASE_URL),
-    routes:[
-      {
-        path: '/',
-        name: 'home',
-        component: Home,
-        //Permitindo que todos os parametros da rota sejam passados como atributos
-        props:true,
-        meta: { transition: 'slide-left' },
-      },
-  
-      {
-        path: '/contact',
-        name: 'contact',
-        component: Contact,
-        //Permitindo que todos os parametros da rota sejam passados como atributos
-        props:true,
-      },
-  
-      {
-        path: '/about',
-        name: 'about',
-        component: About,
-        //Permitindo que todos os parametros da rota sejam passados como atributos
-        props:true,
-        meta: { transition: 'slide-left' },
-      },
-  
-      {
-        path: '/services',
-        name: 'services',
-        component: Services,
-        //Permitindo que todos os parametros da rota sejam passados como atributos
-        props:true,
-        meta: { transition: 'slide-left' },
-      },
-  
-      {
-        path: '/blog',
-        name: 'blog',
-        component: Blog,
-        //Permitindo que todos os parametros da rota sejam passados como atributos
-        props:true,
-        meta: { transition: 'slide-left' },
-      },
-  
-      {
-        path: '/login',
-        name: 'login',
-        component:Login,
-        //Permitindo que todos os parametros da rota sejam passados como atributos
-        props:true,
-        meta: { requiresGuest: true, transition: 'slide-left' },
-      },
+
+const routes = [
+    {
+      path: '/',
+      name: 'home',
+      component: Home,
+      //Permitindo que todos os parametros da rota sejam passados como atributos
+      props: true,
+      meta: { transition: 'slide-left' },
+    },
+
+    {
+      path: '/contact',
+      name: 'contact',
+      component: Contact,
+      //Permitindo que todos os parametros da rota sejam passados como atributos
+      props: true,
+      meta: { transition: 'slide-left' },
+    },
+
+    {
+      path: '/about',
+      name: 'about',
+      component: About,
+      //Permitindo que todos os parametros da rota sejam passados como atributos
+      props: true,
+      meta: { transition: 'slide-left' },
+    },
+
+    {
+      path: '/services',
+      name: 'services',
+      component: Services,
+      //Permitindo que todos os parametros da rota sejam passados como atributos
+      props: true,
+      meta: { transition: 'slide-left' },
+    },
+
+    {
+      path: '/blog',
+      name: 'blog',
+      component: Blog,
+      //Permitindo que todos os parametros da rota sejam passados como atributos
+      props: true,
+      meta: { transition: 'slide-left' },
+    },
+
+    {
+      path: '/login',
+      name: 'login',
+      component:Login,
+      //Permitindo que todos os parametros da rota sejam passados como atributos
+      props: true,
+      meta: { requiresGuest: true, transition: 'slide-left' },
+    },
   
       {
         path: '/forgot-password',
@@ -84,16 +88,55 @@ const ResetPassword = () => import('./views/MyResetPassword.vue');
         props:true,
         meta: { requiresGuest: true, transition: 'slide-left' },
       },
+
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component:Dashboard,
+      //Permitindo que todos os parametros da rota sejam passados como atributos
+      props: true,
+      meta: { requiresAuth: true, transition: 'slide-left' },
+      children:[
+        {
+          path: '/membros',
+          name: 'membros',
+          component:DashBoardMember,
+          //Permitindo que todos os parametros da rota sejam passados como atributos
+          props: true,
+          meta: { requiresAuth: true },
+        },
+        {
+          path: '/create-member',
+          name: 'create-member',
+          component:CreateMember,
+          //Permitindo que todos os parametros da rota sejam passados como atributos
+          props: true,
+          meta: { requiresAuth: true },
+        },
+        {
+          path: '/detail/:user',
+          name: 'detail',
+          component:DetailMember,
+          props:true,
+          //Permitindo que todos os parametros da rota sejam passados como atributos
+          meta: { requiresAuth: true },
+        },
+        {
+          path: '/adms',
+          name: 'adms',
+          component:DashBoardAdms,
+          //Permitindo que todos os parametros da rota sejam passados como atributos
+          props: true,
+          meta: { requiresAuth: true, transition: 'slide-left' },
+        },
+      ]
+    },
+
+  ]
   
-      {
-        path: '/dashboard',
-        name: 'dashboard',
-        component:Dashboard,
-        //Permitindo que todos os parametros da rota sejam passados como atributos
-        props:true,
-        meta: { requiresAuth: true, transition: 'slide-left' }
-      },
-    ]
+  const router = createRouter({
+    history: createWebHistory(process.env.BASE_URL),
+    routes
   })
 
   // Antes das rotas serem realmente redirecionadas é feito a verificação do token

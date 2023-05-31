@@ -1,82 +1,53 @@
 <template>
-    <div>
-        <!-- Nav bar superior -->
-        <header>
-    
-            <!-- Coloca todos em linha -->
-            <div class="navbar">
-    
-                <!-- // Div que contem tudo do usuario e o menu -->
-                <div class="container-profile">
-                    <button @click="isMenu=!isMenu">
-                        <img class="menu-icon" src="@/assets/dashboard/icon-list.svg" alt="Icone de menu de opções.">
-                    </button>
-                    <div class="avatar"></div>
-                    <span>{{ username }}</span>
-                </div>
-    
-                <!-- Button de saida -->
-                <button @click="onLogout()">
-                    <img class="button-icon" src="@/assets/dashboard/icon-log-out.svg" alt="Icone de indicado para sair.">
+    <!-- Nav bar superior -->
+    <header>
+        <!-- Coloca todos em linha -->
+        <div class="navbar">
+
+            <!-- // Div que contem tudo do usuario e o menu -->
+            <div class="container-profile">
+                <button @click="isMenu=!isMenu">
+                    <fa :icon="['fa', 'bars']" style=" color: #FFFFFF;" size="lg"/>
                 </button>
+                <div class="avatar"></div>
             </div>
-        </header>
-        <main class="container dashbord">
-            <!-- Menu com animação se for ativado -->
-            <transition name="slide" mode="out-in">
-                <!-- Menu que irá aparecer quando for clicado -->
-                <div class="menu" v-if="isMenu">
-                    <div class="item">
-                        <span>Cadastrar Adm</span>
-                        <img src="@/assets/dashboard/icon-user-plus.svg" alt="Icone de usuarios">
-                    </div>
-                    <div class="item">
-                        <span>Listar Adms</span>
-                        <img src="@/assets/dashboard/icon-users.svg" alt="Icone Lista de usuarios">
-                    </div>
-                    <div class="item">
-                        <span>Cadastrar Membro</span>
-                        <img src="@/assets/dashboard/icon-user-plus.svg" alt="Icone de Membro">
-                    </div>
-                    <div class="item">
-                        <span>Listar Membros</span>
-                        <img src="@/assets/dashboard/icon-users.svg" alt="Icone Lista de Membro">
-                    </div>
-                    <div class="item">
-                        <span>Cadastrar Serviço</span>
-                        <img src="@/assets/dashboard/icon-briefcase.svg" alt="Icone de Serviços">
-                    </div>
-                    <div class="item">
-                        <span>Listar Serviço</span>
-                        <img src="@/assets/dashboard/icon-layers.svg" alt="Icone de Lista de Serviços">
-                    </div>
-                    <div class="item">
-                        <span>Cadastrar Depoimentos</span>
-                        <img src="@/assets/dashboard/icon-message-circle.svg" alt="Icone de depoimentos">
-                    </div>
-                    <div class="item">
-                        <span>Listar Depoimentos</span>
-                        <img src="@/assets/dashboard/icon-message-circle.svg" alt="Icone de Lista depoimentos">
-                    </div>
-                    <div class="item">
-                        <span>Criar Post</span>
-                        <img src="@/assets/dashboard/icon-layout.svg" alt="Icone de Post">
-                    </div>
-                    <div class="item">
-                        <span>Listar Posts</span>
-                        <img src="@/assets/dashboard/icon-cards.svg" alt="Icone de Listar Posts">
-                    </div>
-                </div>
-            </transition>
-            <!-- Conteudo que ficara mudando dependendo da escolha no menu -->
-            <div class="container-dashbord">
-                <article>
-                    <p>Olá aqui será onde teremos cadastros e listas, uiiiiiii!!!</p>
-                    <hr>
-                </article>
+            <router-link to="/">
+                <img class="logo-home" src="@/assets/nav/logo-bar.svg" alt="Imagem de Logo">
+            </router-link>
+
+            <!-- Button de saida -->
+            <button @click="onLogout()">
+                <fa :icon="['fa', 'right-from-bracket']" style=" color: #FFFFFF;" size="lg"/>
+            </button>
+        </div>
+    </header>
+    <main class="dashbord">
+        <!-- Menu com animação se for ativado -->
+        <transition name="slide" mode="out-in">
+            <!-- Menu que irá aparecer quando for clicado -->
+            <div class="menu" v-if="isMenu">
+                <router-link class="item" to="" active-class="active" exact>
+                    <span>Administradores</span>
+                </router-link>
+                <router-link class="item" to="/membros" active-class="active">
+                    <span>Membros</span>
+                </router-link>
+                <router-link class="item" to="" active-class="active">
+                    <span>Serviços</span>
+                </router-link>
+                <router-link class="item" to="" active-class="active">
+                    <span>Depoimentos</span>
+                </router-link>
+                <router-link class="item" to="" active-class="active">
+                    <span>Posts</span>
+                </router-link>
             </div>
-        </main>
-    </div>
+        </transition>
+        <!-- Conteudo que ficara mudando dependendo da escolha no menu -->
+        <div class="dashboard-content">
+            <router-view/>
+        </div>
+    </main>
 </template>
 <script>
 export default {
@@ -101,7 +72,6 @@ export default {
 }
 </script>
 <style scoped>
-
     /* Nav Bar */
     header{
         font-family: 'Assistant', sans-serif;
@@ -111,7 +81,7 @@ export default {
         justify-content: space-between;
         align-items: center;
         padding: 16px 60px;
-        background-color: white;
+        background-color: #023F5C;
         border-bottom: 1px solid rgb(230, 227, 227);
     }
 
@@ -124,18 +94,17 @@ export default {
     }
 
     .container-profile .avatar{
-        background-color: #023F5C;
+        background-color: #FFFFFF;
         display: flex;
         justify-content: center;
         align-items: center;
-        color: aliceblue;
         border-radius: 50%;
-        height: 38px;
-        width: 38px;
+        height: 30px;
+        width: 30px;
     }
 
     .container-profile span{
-        color: #023F5C;
+        color: #FFFFFF;
         font-size: 1.2rem;
         font-weight: 700;
     }
@@ -146,17 +115,11 @@ export default {
         cursor: pointer;
         position: relative;
         transition: all 400ms ease;
-        border-radius: 10%;
-        height: 30px;
+        border-radius: 4px;
     }
 
     .container-profile button:active{
         background-color: rgb(231, 226, 226);
-    }
-
-    .menu-icon{
-        height: 32px;
-        width: 32px;
     }
 
     .navbar button{
@@ -165,52 +128,50 @@ export default {
         cursor: pointer;
     }
 
-    .button-icon{
-        height: 26px;
-        width: 26px;
+    .logo-home{
+        height: 32px;
+        width: 32px;
     }
 
     /* Dashboard */
     .dashbord{
+        min-height: 100%;
+        width: 100%;
+        background-color:#e9eef2;
         display: flex;
         flex-direction: row;
-        min-height: 100%;
-        min-width: 100%;
     }
-
     /* Menu */
     .menu{
-        max-width: 300px;
+        background-color: #023F5C;
+        width: 260px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        flex: 1;
         border-right: 1px solid rgb(230, 227, 227);
+        min-height: 100%;   
     }
 
     .menu .item{
-        padding-left:10px;
-        padding-right: 10px;
-        padding-top: 22px ;
-        padding-bottom:22px;
+        padding: 22px;
+        box-sizing: border-box;
+        text-decoration: none;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        min-width: 94%;
+        width: 100%;
         cursor: pointer;
         position: relative;
         transition: all 400ms ease;
+        border-bottom: 1px solid #e9eef2;
     }
 
     .menu .item:hover{
-        background-color: rgb(206, 202, 202);
+        background-color: #042839;
     }
 
     .menu .item span{
-        color: #023F5C;
+        color: #FFFFFF;
         font-size: 0.9rem;
         font-weight: 500;
-        
     }
 
     .menu .item img{
@@ -219,16 +180,17 @@ export default {
     }
 
     /* Body */
-    .container-dashbord {
+    .dashboard-content {
+        padding: 60px 60px;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 100%;
-        flex: 2;
+        align-items: flex-start;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
     }
 
-    .container-dashbord article p{
+    .dashboard-content article p{
         color: black;
     }
 
@@ -248,59 +210,81 @@ export default {
         animation: slide-out 0.5s ease;
     }
 
+     /* Responsive */
     @media (max-width:860px){
+        .container-profile button{
+            display: block;
+            padding: 8px;
+        }
         .menu{
-            background-color: white;
-            max-width: 300px;
+            position: absolute;
+            z-index: 9999999;
+            height: 1950px;
+        }
+
+        .dashboard-content {
+            padding: 40px 40px;
+        }
+    }
+
+    @media (max-width:640px){
+        .navbar{
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            background-color: #023F5C;
+            border-bottom: 1px solid rgb(230, 227, 227);
+        }
+        .menu{
+            width: 200px;
+        }
+        .dashboard-content {
+            padding: 30px 30px;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            position: absolute;
-            border-right: 1px solid rgb(230, 227, 227);
-        }
-        .menu .item img{
-            display: none;
-        }
-        .menu .item{
-            min-width: 93%;
+            align-items: center;
+            justify-content: space-between;
         }
     }
 
-    @media (max-width:660px){
-        .menu .item{
-            min-width: 91%;
+    @media (max-width:440px) {
+        .dashboard-content {
+            padding: 20px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
         }
-    }
-
-    @media (max-width:560px){
-        .menu .item{
-            min-width: 90%;
+        .navbar{
+            padding: 16px 12px;
         }
-    }
-
-    @media (max-width:460px){
-        .menu .item{
-            min-width: 88%;
-        }
-
-        .menu .item span{
-            color: #023F5C;
-            font-size: 0.7rem;
-            font-weight: 500;
-            
-        }
-    }
-
-    @media (max-width:390px){
-        .menu .item{
-            min-width: 86%;
+        .navbar .container-profile{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
         }
 
-        .menu .item span{
-            color: #023F5C;
-            font-size: 0.7rem;
-            font-weight: 500;
-            
+        .container-profile .avatar{
+            background-color: #FFFFFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            height: 26px;
+            width: 26px;
+        }
+
+        .container-profile span{
+            color: #FFFFFF;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .logo-home{
+            width: 26px;
+            height: 26px;
         }
     }
 </style>

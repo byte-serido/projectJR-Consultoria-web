@@ -11,10 +11,14 @@
     </div>
   </template>
   <!-- Exibe essa tela quando o servidor estiver funcionando normalmente-->
-  <template v-else>
-    <Transition name="slide" mode="out-in">     
-      <router-view></router-view>
-    </Transition>
+  <template v-else> 
+    <router-view v-slot="{ Component }">
+      <Transition name="slide" mode="out-in">
+        <div class="box">
+          <component :is="Component" />
+        </div>
+      </Transition>
+    </router-view>
   </template>
 </template>
 
@@ -38,9 +42,19 @@ export default {
 </script>
 
 <style>
+
+  html,body{
+    height: 100%;
+  }
+
   #app{
     display: flex;
     flex-direction: column;
+    height: 100%;
+    background-color: #e9eef2;
+  }
+
+  .box{
     height: 100%;
   }
 
