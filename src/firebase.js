@@ -15,7 +15,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig); 
+
 // Adicionando o Storage no app firebase
 const storage = getStorage(app);
 

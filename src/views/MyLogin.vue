@@ -77,7 +77,7 @@ export default {
         font-family: 'Inter', sans-serif;
         background-image: url("@/assets/login/background.svg");
         background-size: cover;
-        min-height: 100%;
+        height: 100%;
         padding-left:138px;
         padding-right: 138px;
     }
@@ -87,7 +87,7 @@ export default {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        min-height: 100%;
+        height: 100%;
     }
 
     .card-login{

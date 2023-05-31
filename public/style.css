@@ -22,7 +22,8 @@ html,body{
     height: 100%;
     font-family: 'Inter', sans-serif;
     background: white;
-    color: #F4F1F1;
+    background-color: #e9eef2;
+    color: #FFFFFF;
 }
 
 .container{
