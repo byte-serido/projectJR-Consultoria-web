@@ -15,11 +15,11 @@
 
                 <div class="form-item">
                     <span>Nome:</span>
-                    <input :class="{error:v$.name.$error,input:!v$.name.$error}" type="text" onkeypress="return isNaN(event.key)" v-model="name" placeholder="Digite um nome!">
+                    <input :class="{error:v$.name.$error,input:!v$.name.$error}" type="text" onkeypress="return isNaN(event.key) || event.key === ' '" v-model="name" placeholder="Digite um nome!">
                 </div>
                 <div class="form-item">
                     <span>Área de trabalho:</span>
-                    <input :class="{error:v$.role.$error,input:!v$.role.$error}" type="text" onkeypress="return isNaN(event.key)" v-model="role" placeholder="Digite sua área de trabalho!"/>
+                    <input :class="{error:v$.role.$error,input:!v$.role.$error}" type="text" onkeypress="return isNaN(event.key) || event.key === ' '" v-model="role" placeholder="Digite sua área de trabalho!"/>
                 </div>
                 <div class="form-item">
                     <span>Celular de contato:</span>
@@ -99,8 +99,6 @@ export default{
             },
             phone:{
                 required,
-                maxLength:maxLength(11),
-                minLength: minLength(11),
                 $lazy: true
             },
             registration:{

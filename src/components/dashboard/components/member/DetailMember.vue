@@ -10,11 +10,11 @@
                 </div>
                 <div class="card-item">
                     <h2>Nome:</h2>
-                    <input type="text"  v-model="member.name" onkeypress="return isNaN(event.key)">
+                    <input type="text"  v-model="member.name" onkeypress="return isNaN(event.key) || event.key === ' '">
                 </div>
                 <div class="card-item">
                     <h2>Área de trabalho:</h2>
-                    <input type="text" onkeypress="return isNaN(event.key)" v-model="member.role"/>
+                    <input type="text" onkeypress="return isNaN(event.key) || event.key === ' '" v-model="member.role"/>
                 </div>
                 <div class="card-item">
                     <h2>Celular de contato:</h2>
