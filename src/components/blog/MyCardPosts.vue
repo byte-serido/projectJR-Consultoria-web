@@ -1,23 +1,27 @@
 <template>
   <div class="posts-container">
     <div class="posts">
-      <div class="card" v-for="post in posts" :key="post.id">
-        <div class="img-post"></div>
-        <div class="header-section">
-          <p>{{ post.category }}</p>
-          <span>{{ post.date }}</span>
-        </div>
-        <div class="main-section">
-          <router-link to="#">{{ post.title }}</router-link>
-          <p>{{ post.description }}</p>
-        </div>
-        <div class="footer-section">
-          <img src="../../assets/blog/profile.svg" alt="Imagem de perfil" />
-          <div class="profile">
-            <p>{{ post.name }}</p>
-            <span>{{ post.role }}</span>
+      <div v-for="post in posts" :key="post.id">
+        <router-link :to="`/blog/${post.id}`">
+          <div class="card">
+            <div class="img-post"></div>
+            <div class="header-section">
+              <p>{{ post.category }}</p>
+              <span>{{ post.date }}</span>
+            </div>
+            <div class="main-section">
+              <router-link to="#">{{ post.title }}</router-link>
+              <p>{{ post.description }}</p>
+            </div>
+            <div class="footer-section">
+              <img src="../../assets/blog/profile.svg" alt="Imagem de perfil" />
+              <div class="profile">
+                <p>{{ post.name }}</p>
+                <span>{{ post.role }}</span>
+              </div>
+            </div>
           </div>
-        </div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -33,6 +37,9 @@ export default {
 };
 </script>
 <style scoped>
+a {
+  text-decoration: none;
+}
 .posts-container {
   display: flex;
   justify-content: center;

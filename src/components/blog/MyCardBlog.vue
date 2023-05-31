@@ -1,25 +1,27 @@
 <template>
   <div class="blog-container">
-    <div class="card">
-      <div class="img-post"></div>
-      <div class="post-section">
-        <div class="header-section">
-          <p>{{ post.category }}</p>
-          <span>{{ post.date }}</span>
-        </div>
-        <div class="main-section">
-          <router-link to="#">{{ post.title }}</router-link>
-          <p>{{ post.description }}</p>
-        </div>
-        <div class="footer-section">
-          <img src="../../assets/blog/profile.svg" alt="Imagem de perfil" />
-          <div class="profile">
-            <p>{{ post.name }}</p>
-            <span>{{ post.role }}</span>
+    <router-link :to="`/blog/${post.id}`" :post="post">
+      <div class="card">
+        <div class="img-post"></div>
+        <div class="post-section">
+          <div class="header-section">
+            <p>{{ post.category }}</p>
+            <span>{{ post.date }}</span>
+          </div>
+          <div class="main-section">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.description }}</p>
+          </div>
+          <div class="footer-section">
+            <img src="../../assets/blog/profile.svg" alt="Imagem de perfil" />
+            <div class="profile">
+              <p>{{ post.name }}</p>
+              <span>{{ post.role }}</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 <script>
@@ -30,6 +32,9 @@ export default {
 };
 </script>
 <style scoped>
+a {
+  text-decoration: none;
+}
 .blog-container {
   display: flex;
   justify-content: center;
@@ -79,7 +84,7 @@ export default {
   flex: 1;
 }
 
-.main-section a {
+.main-section h2 {
   font-family: "Inter";
   font-weight: 700;
   font-size: 28px;
