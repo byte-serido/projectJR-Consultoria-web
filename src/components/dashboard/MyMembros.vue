@@ -16,8 +16,8 @@
                     :name = "member.name"
                     :role = "member.role"
                     :imgURL = "member.imgUrl"
-                    :phone= "Number(member.number)"
-                    :registration = "Number(member.registration)"
+                    :phone= "member.number"
+                    :registration = "member.registration"
                     :description = "member.description"
                 />
             </div> 

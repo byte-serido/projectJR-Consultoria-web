@@ -10,19 +10,19 @@
                 </div>
                 <div class="card-item">
                     <h2>Nome:</h2>
-                    <input type="text" v-model="member.name">
+                    <input type="text"  v-model="member.name" onkeypress="return isNaN(event.key)">
                 </div>
                 <div class="card-item">
                     <h2>Área de trabalho:</h2>
-                    <input type="text" v-model="member.role"/>
+                    <input type="text" onkeypress="return isNaN(event.key)" v-model="member.role"/>
                 </div>
                 <div class="card-item">
                     <h2>Celular de contato:</h2>
-                    <input type="number" v-model="member.number"/>
+                    <input v-mask="['(##) ####-####', '(##) #-####-####']" v-model="member.number"/>
                 </div>
                 <div class="card-item">
                     <h2>Matrícula:</h2>
-                    <input type="number" v-model="member.registration"/>
+                    <input v-mask="'###########'" v-model="member.registration"/>
                 </div>
                 <div class="card-item">
                     <h2>Descrição:</h2>
@@ -42,9 +42,14 @@ import { storage } from "../../../../firebase";
 import {ref,uploadBytes, getDownloadURL, deleteObject} from "firebase/storage"
 import SpinnerLoading from "@/components/MySpinnerLoading.vue"
 import router from '@/router';
-import axios from "axios";
+
 // import axios from 'axios';
+import axios from "axios";
+// mascara
+import {mask} from 'vue-the-mask';
+
 export default{
+    directives: {mask},
     components:{
         SpinnerLoading,
     },

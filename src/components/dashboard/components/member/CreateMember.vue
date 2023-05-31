@@ -15,19 +15,19 @@
 
                 <div class="form-item">
                     <span>Nome:</span>
-                    <input :class="{error:v$.name.$error,input:!v$.name.$error}" type="text" v-model="name" placeholder="Digite um nome!">
+                    <input :class="{error:v$.name.$error,input:!v$.name.$error}" type="text" onkeypress="return isNaN(event.key)" v-model="name" placeholder="Digite um nome!">
                 </div>
                 <div class="form-item">
                     <span>Área de trabalho:</span>
-                    <input :class="{error:v$.role.$error,input:!v$.role.$error}" type="text" v-model="role" placeholder="Digite sua área de trabalho!"/>
+                    <input :class="{error:v$.role.$error,input:!v$.role.$error}" type="text" onkeypress="return isNaN(event.key)" v-model="role" placeholder="Digite sua área de trabalho!"/>
                 </div>
                 <div class="form-item">
                     <span>Celular de contato:</span>
-                    <input :class="{error:v$.phone.$error,input:!v$.phone.$error}" type="number" v-model="phone" placeholder="Digite seu celular!"/>
+                    <input :class="{error:v$.phone.$error,input:!v$.phone.$error}" v-model="phone" v-mask="['(##) ####-####', '(##) #-####-####']"  placeholder="Digite seu celular!"/>
                 </div>
                 <div class="form-item">
                     <span>Matrícula:</span>
-                    <input :class="{error:v$.registration.$error,input:!v$.registration.$error}" type="number" v-model="registration" placeholder="Digite sua matrícula!"/>
+                    <input :class="{error:v$.registration.$error,input:!v$.registration.$error}" v-model="registration" v-mask="'###########'" placeholder="Digite sua matrícula!"/>
                 </div>
                 <div class="form-item">
                     <span>Descrição:</span>
@@ -57,10 +57,14 @@ import {ref,uploadBytes, getDownloadURL} from "firebase/storage";
 import router from '@/router';
 import axios from 'axios';
 //Vuelidate
-import { useVuelidate } from '@vuelidate/core'
-import { required, minLength, maxLength } from '@vuelidate/validators'
+import { useVuelidate } from '@vuelidate/core';
+import { required, minLength, maxLength } from '@vuelidate/validators';
+
+// mascara
+import {mask} from 'vue-the-mask';
 
 export default{
+    directives: {mask},
     setup(){
         return{
             v$: useVuelidate()

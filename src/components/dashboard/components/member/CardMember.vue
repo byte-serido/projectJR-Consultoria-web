@@ -36,11 +36,11 @@ export default {
             default: "https://cdn-icons-png.flaticon.com/512/6596/6596121.png"
         },
         phone:{
-            type: Number,
+            type: String,
             required: true,
         },
         registration:{
-            type: Number,
+            type: String,
             required: true,
         },
         description:{
