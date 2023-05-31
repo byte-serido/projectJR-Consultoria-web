@@ -12,36 +12,38 @@
                 </div>
             </div>
             <div class="form-grid">
+
                 <div class="form-item">
-                    <h2>Nome:</h2>
+                    <span>Nome:</span>
                     <input :class="{error:v$.name.$error,input:!v$.name.$error}" type="text" v-model="name" placeholder="Digite um nome!">
                 </div>
                 <div class="form-item">
-                    <h2>Área de trabalho:</h2>
+                    <span>Área de trabalho:</span>
                     <input :class="{error:v$.role.$error,input:!v$.role.$error}" type="text" v-model="role" placeholder="Digite sua área de trabalho!"/>
                 </div>
                 <div class="form-item">
-                    <h2>Celular de contato:</h2>
+                    <span>Celular de contato:</span>
                     <input :class="{error:v$.phone.$error,input:!v$.phone.$error}" type="number" v-model="phone" placeholder="Digite seu celular!"/>
                 </div>
                 <div class="form-item">
-                    <h2>Matrícula:</h2>
+                    <span>Matrícula:</span>
                     <input :class="{error:v$.registration.$error,input:!v$.registration.$error}" type="number" v-model="registration" placeholder="Digite sua matrícula!"/>
                 </div>
                 <div class="form-item">
-                    <h2>Descrição:</h2>
+                    <span>Descrição:</span>
                     <textarea :class="{error:v$.description.$error,input:!v$.description.$error}" v-model="description" rows="10" placeholder="O mínimo de caracteres é 30 e o maximo são 600!"/>
                 </div>
-            </div>
-            <div class="form-item">
-                <h2>Imagem:</h2>
-                <input type="file" @change="onFileSelected">
-                <img :src="imageUrl" alt="Imagem de exemplo" height="300" width="300">
+                
+                <div class="form-item">
+                    <span>Imagem:</span>
+                    <input type="file" @change="onFileSelected">
+                    <img :src="imageUrl" alt="Imagem de exemplo">
+                </div>
             </div>
         </form>
         <div class="form-button" >
-            <button @click="createMember()" type="submit">Salvar</button>
-            <button @click="cancel()" class="cancel">Cancelar</button>
+                <button @click="createMember()" type="submit">Salvar</button>
+                <button @click="cancel()" class="cancel">Cancelar</button>
         </div>
     </div>
 </template>
@@ -183,18 +185,18 @@ export default{
         flex-direction: column;
         font-family: "Inter" , sans-serif;
         gap: 60px;
+        width: 100%;
     }
 
     h1{
         color:#023F5C;
-        font-size: 2rem;
+        font-size: 1.6rem;
         font-weight: 700;
+        line-height: 30px;
     }
 
-    h2{
-        margin: 0;
-        padding: 0;
-        font-size: 1.4rem;
+    span{
+        font-size: 1rem;
         color:#023F5C;
         font-weight: 600;
     }
@@ -202,19 +204,49 @@ export default{
     .form{
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 10px;
     }
 
     .form-grid{
         display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 40px;
+        width: 100%;
     }
 
     .form-button{
         display: flex;
         align-items: center;
         gap:10px;
+    }
+
+    .form-item{
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+    }
+
+    .form-item .input{
+        width: 100%;
+        padding: 10px 6px;
+        border: #8db5c7 solid 1px;
+        border-radius: 4px;
+    }
+
+    .form-item .input:focus{
+        border: 1px solid #41A8D3;
+        outline: none;
+    }
+
+    textarea{
+        padding: 10px 6px;
+        border: #8db5c7 solid 1px;
+        border-radius: 4px;
+    }
+
+    textarea:focus{
+        border: 2px solid #41A8D3;
+        outline: none;
     }
 
     button{
@@ -265,35 +297,6 @@ export default{
         appearance: textfield;
     }
 
-    .form-item{
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-    }
-    .form-item .input{
-        width: 100%;
-        padding: 10px 6px;
-        border: #8db5c7 solid 1px;
-        border-radius: 4px;
-    }
-
-    .form-item .input:focus{
-        border: 1px solid #41A8D3;
-        outline: none;
-    }
-
-    textarea{
-        min-width: 100%;
-        padding: 10px 6px;
-        border: #8db5c7 solid 1px;
-        border-radius: 4px;
-    }
-
-    textarea:focus{
-        border: 2px solid #41A8D3;
-        outline: none;
-    }
-
     img{
         cursor: pointer;
         border-radius: 4px;
@@ -327,5 +330,38 @@ export default{
         font-size: 1rem;
         font-weight: bolder;
         border-radius: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width:1188px){
+        .form-grid{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+        }
+    }
+
+    @media (max-width:860px){
+        .form{
+            width: 100%;
+        }
+        .form-grid{
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .form-item .input{
+            width: 100%;
+            padding: 10px 6px;
+            border: #8db5c7 solid 1px;
+            border-radius: 4px;
+        }
+
+        textarea{
+            padding: 10px 6px;
+            border: #8db5c7 solid 1px;
+            border-radius: 4px;
+        }
     }
 </style>
