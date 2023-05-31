@@ -22,6 +22,7 @@ export default {
   data() {
     return {
       mainPost: {
+        id: 1,
         category: "Categoria",
         date: "27 de jan, 2023",
         title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -34,7 +35,7 @@ export default {
 
       posts: [
         {
-          id: 1,
+          id: 2,
           category: "Categoria",
           date: "27 de jan, 2023",
           title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -46,7 +47,7 @@ export default {
           // img: "../assets/blog/postImage.svg",
         },
         {
-          id: 2,
+          id: 3,
           category: "Categoria",
           date: "27 de jan, 2023",
           title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -58,7 +59,7 @@ export default {
           // img: "../assets/blog/postImage.svg",
         },
         {
-          id: 3,
+          id: 4,
           category: "Categoria",
           date: "27 de jan, 2023",
           title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
