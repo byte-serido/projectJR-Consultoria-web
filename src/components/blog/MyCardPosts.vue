@@ -1,24 +1,22 @@
 <template>
   <div class="posts-container">
     <div class="posts">
-      <div v-for="post in posts" :key="post.id">
-        <router-link :to="`/blog/${post.id}`">
-          <div class="card">
-            <div class="img-post"></div>
-            <div class="header-section">
-              <p>{{ post.category }}</p>
-              <span>{{ post.date }}</span>
-            </div>
-            <div class="main-section">
-              <router-link to="#">{{ post.title }}</router-link>
-              <p>{{ post.description }}</p>
-            </div>
-            <div class="footer-section">
-              <img src="../../assets/blog/profile.svg" alt="Imagem de perfil" />
-              <div class="profile">
-                <p>{{ post.name }}</p>
-                <span>{{ post.role }}</span>
-              </div>
+      <div class="card" v-for="post in posts" :key="post.id">
+        <router-link :to="{ name: 'post', params: { id: post.id } }">
+          <div class="img-post"></div>
+          <div class="header-section">
+            <p>{{ post.category }}</p>
+            <span>{{ post.date }}</span>
+          </div>
+          <div class="main-section">
+            <router-link to="#">{{ post.title }}</router-link>
+            <p>{{ post.description }}</p>
+          </div>
+          <div class="footer-section">
+            <img src="../../assets/blog/profile.svg" alt="Imagem de perfil" />
+            <div class="profile">
+              <p>{{ post.name }}</p>
+              <span>{{ post.role }}</span>
             </div>
           </div>
         </router-link>
@@ -40,6 +38,12 @@ export default {
 a {
   text-decoration: none;
 }
+.card > a {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+}
 .posts-container {
   display: flex;
   justify-content: center;
@@ -56,7 +60,6 @@ a {
   width: 415px;
   background: #f7f9fc;
   margin-bottom: 26px;
-  max-width: 90%;
 }
 
 .card div {
@@ -186,10 +189,13 @@ a {
 
 @media (max-width: 768px) {
   .card {
-    flex-direction: column;
     height: 559px;
     width: 415px;
     max-width: 90%;
+  }
+
+  .card > a {
+    flex-direction: column;
   }
   .img-post {
     max-width: 100%;

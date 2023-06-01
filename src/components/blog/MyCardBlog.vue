@@ -1,7 +1,7 @@
 <template>
   <div class="blog-container">
-    <router-link :to="`/blog/${post.id}`" :post="post">
-      <div class="card">
+    <div class="card">
+      <router-link :to="`/blog/${post.id}`" :post="post">
         <div class="img-post"></div>
         <div class="post-section">
           <div class="header-section">
@@ -20,8 +20,8 @@
             </div>
           </div>
         </div>
-      </div>
-    </router-link>
+      </router-link>
+    </div>
   </div>
 </template>
 <script>
@@ -34,6 +34,12 @@ export default {
 <style scoped>
 a {
   text-decoration: none;
+}
+
+.card > a {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 .blog-container {
   display: flex;
@@ -184,10 +190,13 @@ a {
 
 @media (max-width: 768px) {
   .card {
-    flex-direction: column;
     height: 559px;
     width: 415px;
     max-width: 90%;
+  }
+
+  .card > a {
+    flex-direction: column;
   }
   .img-post {
     max-width: 100%;
