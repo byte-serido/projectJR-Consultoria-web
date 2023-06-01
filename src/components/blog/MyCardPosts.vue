@@ -3,13 +3,16 @@
     <div class="posts">
       <div class="card" v-for="post in posts" :key="post.id">
         <router-link :to="{ name: 'post', params: { id: post.id } }">
-          <div class="img-post"></div>
+          <div
+            class="img-post"
+            :style="{ background: `url(${post.img})` }"
+          ></div>
           <div class="header-section">
             <p>{{ post.category }}</p>
             <span>{{ post.date }}</span>
           </div>
           <div class="main-section">
-            <router-link to="#">{{ post.title }}</router-link>
+            <h2>{{ post.title }}</h2>
             <p>{{ post.description }}</p>
           </div>
           <div class="footer-section">
@@ -31,6 +34,10 @@
 export default {
   props: {
     posts: [],
+  },
+
+  mounted() {
+    this.posts.map((e) => console.log(e.img));
   },
 };
 </script>
@@ -70,7 +77,6 @@ a {
 .img-post {
   width: 415px;
   height: 224px;
-  background: url("../../assets/blog/post1.svg");
 }
 
 .header-section {
@@ -87,7 +93,7 @@ a {
   margin-bottom: 0;
 }
 
-.main-section a {
+.main-section h2 {
   font-family: "Inter";
   font-weight: 700;
   font-size: 28px;

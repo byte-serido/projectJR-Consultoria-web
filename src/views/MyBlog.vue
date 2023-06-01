@@ -44,7 +44,7 @@ export default {
           name: "Fulano da silva",
           profileImg: "",
           role: "Cargo na empresa",
-          // img: "../assets/blog/postImage.svg",
+          img: "http://localhost:8080/img/postImage.d7e6d514.svg",
         },
         {
           id: 3,
@@ -56,7 +56,7 @@ export default {
           name: "Fulano da silva",
           profileImg: "",
           role: "Cargo na empresa",
-          // img: "../assets/blog/postImage.svg",
+          img: "http://localhost:8080/img/postImage.d7e6d514.svg",
         },
         {
           id: 4,
@@ -68,7 +68,7 @@ export default {
           name: "Fulano da silva",
           profileImg: "",
           role: "Cargo na empresa",
-          // img: "../assets/blog/postImage.svg",
+          img: "http://localhost:8080/img/postImage.d7e6d514.svg",
         },
       ],
     };

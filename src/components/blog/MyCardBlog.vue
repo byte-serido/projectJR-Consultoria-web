@@ -1,7 +1,7 @@
 <template>
   <div class="blog-container">
     <div class="card">
-      <router-link :to="`/blog/${post.id}`" :post="post">
+      <router-link :to="{ name: 'post', params: { id: post.id } }" :post="post">
         <div class="img-post"></div>
         <div class="post-section">
           <div class="header-section">
