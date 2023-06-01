@@ -1,6 +1,5 @@
 <template>
   <div>
-    <p class="title">{{ $route.params.id }}</p>
     <p class="title">{{ post.title }}</p>
     <div class="container">
       <div class="post">
