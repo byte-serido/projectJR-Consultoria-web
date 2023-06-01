@@ -1,5 +1,6 @@
 <template>
-    <div class="container-membros">
+    <Loading v-if="isLoading"></Loading>
+    <div class="container-membros" v-else>
         <div class="title-row">
             <span>Membros</span>
             <button @click="onRedirectCreateMember()">
@@ -7,9 +8,7 @@
             </button>
         </div>
        
-        <Loading v-if="isLoading"></Loading>
-    
-        <div class="grid-membros" v-else >
+        <div class="grid-membros">
             <div  v-for="(member, index) in members" :key="index">
                 <Card
                     :id = "member.id"

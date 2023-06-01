@@ -29,7 +29,7 @@
                 </div>
                 <!-- Button para para fazer login-->
                 <div v-if="loading" class="spinner"></div>
-                <button v-else @click="loginSubmit() " :class="isReleased ? 'card-button-disabled' : 'card-button'" :disabled="isReleased">
+                <button v-else @click="loginSubmit()" :class="isReleased ? 'card-button-disabled' : 'card-button'" :disabled="isReleased">
                     Entrar
                 </button>
             </div>
@@ -61,12 +61,10 @@ export default {
 
     methods:{
         // Funcionalidade de login
-        loginSubmit(){
+        async loginSubmit(){
             this.loading = true;
-            setTimeout(() => {
-                this.loading = false;
-            }, 2000);
-            this.$store.dispatch('login',{username:this.username, password:this.password});
+            await this.$store.dispatch('login',{username:this.username, password:this.password});
+            this.loading = false;
         }
     }
 }
