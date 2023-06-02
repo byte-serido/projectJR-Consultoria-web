@@ -30,6 +30,17 @@
             </p>
           </div>
 
+          <input
+            class="input-reset-password"
+            type="text"
+            placeholder="código de verificação"
+            v-model="pincode"
+            minlength="6"
+            maxlength="6"
+            @blur="validatePincode"
+            required
+          />
+
           <!-- Div especifica para criar um input com icone de visibilidade de senha-->
           <div class="container-input">
             <input
