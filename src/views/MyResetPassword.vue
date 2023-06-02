@@ -210,7 +210,7 @@ export default {
   font-family: 'Inter', sans-serif;
   background-image: url('@/assets/login/background.svg');
   background-size: cover;
-  min-height: 100%;
+  height: 100%;
   padding-left: 138px;
   padding-right: 138px;
 }
