@@ -18,18 +18,21 @@
         <!-- Espaço para colocar inputs e texto com instruções, feito para centralizar tudo.-->
         <div class="box-forgot-password" v-if="isEmailSent">
           <div class="box-email-sent">
-            <p>Link de recuperação de senha enviado!</p>
+            <p>Código enviado!</p>
             <p>
               Verifique sua caixa de spam caso não encontre o email na sua caixa
               de entrada.
             </p>
+            <router-link class="card-button" to="/reset-password">
+              Definir nova senha
+            </router-link>
           </div>
         </div>
         <!-- Espaço para colocar inputs e texto com instruções, feito para centralizar tudo.-->
         <div class="box-forgot-password" v-else>
           <p>
-            Informe o email associado a sua conta e lhe enviaremos um link para
-            definir uma nova senha
+            Informe o email associado a sua conta e lhe enviaremos um código
+            para definir uma nova senha
           </p>
 
           <!-- Espaço para exibir mensagens de erro -->
@@ -137,7 +140,7 @@ export default {
   font-family: 'Inter', sans-serif;
   background-image: url('@/assets/login/background.svg');
   background-size: cover;
-  min-height: 100%;
+  height: 100%;
   padding-left: 138px;
   padding-right: 138px;
 }
@@ -227,6 +230,7 @@ export default {
   cursor: pointer;
   position: relative;
   transition: all 400ms ease;
+  text-decoration: none;
 }
 
 .card-button:hover {
@@ -264,7 +268,6 @@ export default {
 }
 
 /* Responsividade */
-
 @media (max-width: 1080px) {
   .container-forgot-password {
     font-family: 'Inter', sans-serif;
