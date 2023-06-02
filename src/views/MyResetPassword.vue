@@ -26,7 +26,7 @@
           <!-- Espaço para exibir mensagens de erro -->
           <div class="errors-reset-password" v-if="errors.length">
             <p class="error" v-for="(error, index) of errors" :key="index">
-              {{ error }}
+              {{ errorsMessages[error] }}
             </p>
           </div>
 
@@ -103,14 +103,22 @@
 </template>
 
 <script>
+const ERROR_MESSAGES = {
+  pincodeLength: 'O código de verificação deve ter 6 caracteres',
+  passwordMismatch: 'As senhas não correspondem',
+  passwordLength: 'A senha deve ter no mínimo 8 caracteres',
+};
+
 export default {
   data() {
     return {
+      errorsMessages: ERROR_MESSAGES,
       errors: [],
       isPasswordSubmited: false,
       isVisiblity: false,
       isVisiblity2: false,
       loading: false,
+      pincode: '',
       password: '',
       password2: '',
     };
@@ -147,11 +155,50 @@ export default {
         // requisição a api this.$store.dispatch('', { password: this.password });
       }
     },
-    // Valida se os dois inputs de senha tem o mesmo valor
     validatePassword() {
-      this.errors = [];
+      // Valida se os dois inputs de senha tem o mesmo valor
+      const PASSWORD_MISMATCH_KEY = 'passwordMismatch';
+
+      const passwordMismatchShown = this.errors.some(
+        (err) => err === PASSWORD_MISMATCH_KEY
+      );
       if (this.password && this.password2 && this.password !== this.password2) {
-        this.errors.push('As senhas não correspondem');
+        if (!passwordMismatchShown) this.errors.push(PASSWORD_MISMATCH_KEY);
+      } else {
+        if (passwordMismatchShown)
+          this.errors = this.errors.filter(
+            (err) => err !== PASSWORD_MISMATCH_KEY
+          );
+      }
+
+      // Valida se a senha tem pelo menos 8 digitos
+      const PASSWORD_LENGTH_KEY = 'passwordLength';
+
+      const passwordLengthShown = this.errors.some(
+        (err) => err === PASSWORD_LENGTH_KEY
+      );
+      if (this.password && this.password.length < 8) {
+        if (!passwordLengthShown) this.errors.push(PASSWORD_LENGTH_KEY);
+      } else {
+        if (passwordLengthShown)
+          this.errors = this.errors.filter(
+            (err) => err !== PASSWORD_LENGTH_KEY
+          );
+      }
+    },
+    // Valida se o código de verificação tem 6 caracteres
+    validatePincode() {
+      // Valida se o código tem 6 digitos
+      const PINCODE_LENGTH_KEY = 'pincodeLength';
+
+      const pincodeLengthShown = this.errors.some(
+        (err) => err === PINCODE_LENGTH_KEY
+      );
+      if (this.pincode && this.pincode.length !== 6) {
+        if (!pincodeLengthShown) this.errors.push(PINCODE_LENGTH_KEY);
+      } else {
+        if (pincodeLengthShown)
+          this.errors = this.errors.filter((err) => err !== PINCODE_LENGTH_KEY);
       }
     },
   },
@@ -209,6 +256,9 @@ export default {
   width: 100%;
   border-radius: 4px;
   padding: 4px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .errors-reset-password p {
