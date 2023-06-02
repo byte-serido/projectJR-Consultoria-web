@@ -166,51 +166,61 @@ export default {
         // requisição a api this.$store.dispatch('', { password: this.password });
       }
     },
+    /**
+     * Função de validação genérica para os campos do formulário
+     *
+     * @param {string} errorKey
+     * @param {boolean} errorCondition
+     */
+    validateFormField(errorKey, errorCondition) {
+      const isErrorVisible = this.errors.some((err) => err === errorKey);
+
+      /**
+       * Verifica se está dando erro e se ele ainda não está sendo mostrado,
+       * caso isso ocorra, o identificador do erro é adicionado ao array errors
+       * e sua mensagem é exibida.
+       *
+       * Caso o erro não esteja ocorrendo mas sua mensagem esteja visível, o
+       * identificador do erro é removido do array, deixando de exibir sua
+       * mensagem na tela.
+       */
+      if (errorCondition && !isErrorVisible) {
+        this.errors.push(errorKey);
+      } else if (isErrorVisible) {
+        this.errors = this.errors.filter((err) => err !== errorKey);
+      }
+    },
+    /**
+     * Valida os campos de senha
+     */
     validatePassword() {
       // Valida se os dois inputs de senha tem o mesmo valor
       const PASSWORD_MISMATCH_KEY = 'passwordMismatch';
+      const PASSWORD_MISMATCH_CONDITION =
+        this.password && this.password2 && this.password !== this.password2;
 
-      const passwordMismatchShown = this.errors.some(
-        (err) => err === PASSWORD_MISMATCH_KEY
+      this.validateFormField(
+        PASSWORD_MISMATCH_KEY,
+        PASSWORD_MISMATCH_CONDITION
       );
-      if (this.password && this.password2 && this.password !== this.password2) {
-        if (!passwordMismatchShown) this.errors.push(PASSWORD_MISMATCH_KEY);
-      } else {
-        if (passwordMismatchShown)
-          this.errors = this.errors.filter(
-            (err) => err !== PASSWORD_MISMATCH_KEY
-          );
-      }
 
       // Valida se a senha tem pelo menos 8 digitos
       const PASSWORD_LENGTH_KEY = 'passwordLength';
+      const PASSWORD_LENGTH_CONDITION =
+        this.password && this.password.length < 8;
 
-      const passwordLengthShown = this.errors.some(
-        (err) => err === PASSWORD_LENGTH_KEY
-      );
-      if (this.password && this.password.length < 8) {
-        if (!passwordLengthShown) this.errors.push(PASSWORD_LENGTH_KEY);
-      } else {
-        if (passwordLengthShown)
-          this.errors = this.errors.filter(
-            (err) => err !== PASSWORD_LENGTH_KEY
-          );
-      }
+      this.validateFormField(PASSWORD_LENGTH_KEY, PASSWORD_LENGTH_CONDITION);
     },
-    // Valida se o código de verificação tem 6 caracteres
+    /**
+     * Valida o campo do código de confirmação
+     */
     validatePincode() {
       // Valida se o código tem 6 digitos
       const PINCODE_LENGTH_KEY = 'pincodeLength';
+      const PINCODE_LENGTH_CONDITION =
+        this.pincode && this.pincode.length !== 6;
 
-      const pincodeLengthShown = this.errors.some(
-        (err) => err === PINCODE_LENGTH_KEY
-      );
-      if (this.pincode && this.pincode.length !== 6) {
-        if (!pincodeLengthShown) this.errors.push(PINCODE_LENGTH_KEY);
-      } else {
-        if (pincodeLengthShown)
-          this.errors = this.errors.filter((err) => err !== PINCODE_LENGTH_KEY);
-      }
+      this.validateFormField(PINCODE_LENGTH_KEY, PINCODE_LENGTH_CONDITION);
     },
   },
 };
