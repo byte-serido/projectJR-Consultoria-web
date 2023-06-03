@@ -86,7 +86,7 @@ a {
 .posts {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   max-width: 90%;
   width: 81rem;
 }
