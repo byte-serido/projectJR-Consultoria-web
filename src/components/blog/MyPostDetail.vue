@@ -212,7 +212,7 @@ export default {
 .post-section {
   width: 415px;
   max-width: 100%;
-  background: white;
+  background: #f7f9fc;
   padding: 30px 21px 21px 15px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
