@@ -4,7 +4,7 @@
   </header>
   <main>
     <!-- <CardBlog :post="mainPost"></CardBlog> -->
-    <CardPosts :posts="posts"></CardPosts>
+    <CardBlog :posts="posts"></CardBlog>
     <img src="" alt="" />
   </main>
   <footer>
@@ -15,9 +15,9 @@
 <script>
 import Footer from "@/components/MyFooter.vue";
 import NavBar from "@/components/NavBar.vue";
-import CardPosts from "@/components/blog/MyCardPosts.vue";
+import CardBlog from "@/components/blog/MyCardBlog.vue";
 export default {
-  components: { NavBar, Footer, CardPosts },
+  components: { NavBar, Footer, CardBlog },
   data() {
     return {
       posts: [
