@@ -193,6 +193,7 @@ export default {
   max-width: 100%;
   margin-bottom: 40px;
   background-color: #f7f9fc;
+  border-radius: 10px;
 }
 
 .img-side-post {
@@ -208,13 +209,15 @@ export default {
   width: 415px;
   max-width: 100%;
   background: white;
+  padding: 30px 21px 21px 15px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .header-section {
   display: flex;
   gap: 5px;
   align-items: center;
-  margin-top: 30px;
   font: "Inter";
   font-size: 0.813rem;
   color: #4a5468;
@@ -296,6 +299,14 @@ export default {
 @media (max-width: 768px) {
   .title {
     font-size: 1.375rem;
+  }
+
+  .header-section {
+    font-size: 0.625rem;
+  }
+
+  .link {
+    font-size: 0.75rem;
   }
 
   .person p {
