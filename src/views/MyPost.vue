@@ -3,7 +3,7 @@
     <NavBar></NavBar>
   </header>
   <main>
-    <MyPosts :id="mainPost.id" :post="mainPost"></MyPosts>
+    <MyPostDetail :id="mainPost.id" :post="mainPost"></MyPostDetail>
   </main>
   <footer>
     <Footer></Footer>
@@ -13,8 +13,7 @@
 <script>
 import Footer from "@/components/MyFooter.vue";
 import NavBar from "@/components/NavBar.vue";
-import MyPosts from "@/components/blog/MyPosts.vue";
-
+import MyPostDetail from "@/components/blog/MyPostDetail.vue";
 export default {
   data() {
     return {
@@ -37,7 +36,7 @@ export default {
   props: {
     id: Number,
   },
-  components: { MyPosts, Footer, NavBar },
+  components: { MyPostDetail, Footer, NavBar },
 };
 </script>
 <style>
