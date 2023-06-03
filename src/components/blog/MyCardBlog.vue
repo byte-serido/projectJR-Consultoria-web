@@ -95,11 +95,14 @@ a {
   width: 415px;
   background: #f7f9fc;
   margin-bottom: 26px;
+  border-radius: 10px;
 }
 
 .img-post {
   width: 415px;
   height: 224px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 10px;
 }
 
 .post-section {
@@ -108,6 +111,7 @@ a {
   flex-direction: column;
   padding: 23px 8px 0 23px;
   background: #f7f9fc;
+  border-radius: 10px;
 }
 
 .header-section {
@@ -135,6 +139,7 @@ a {
   color: #22749a;
   text-decoration: none;
   line-height: 140%;
+  margin: 0;
 }
 
 .main-section p {
@@ -209,8 +214,6 @@ a {
     width: 1296px;
     max-width: 100%;
     height: 465px;
-    margin-top: 46px;
-    margin-bottom: 30px;
   }
 
   .card > a {
