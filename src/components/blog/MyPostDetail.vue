@@ -69,7 +69,7 @@ export default {
 .title {
   font-family: "Inter";
   font-weight: 700;
-  font-size: 36.96px;
+  font-size: 2.31rem;
   line-height: 140%;
   text-align: center;
   color: #22749a;
@@ -108,7 +108,7 @@ export default {
 .content {
   font-family: "Inter";
   font-weight: 400;
-  font-size: 24.9302px;
+  font-size: 1.558rem;
   line-height: 140%;
   text-align: justify;
 }
@@ -127,7 +127,7 @@ export default {
 .header {
   height: 68px;
   font-family: "Inter";
-  font-size: 20.65px;
+  font-size: 1.291rem;
   line-height: 140%;
   border-bottom: 1px solid #cbd2e0;
 }
@@ -162,7 +162,7 @@ export default {
 }
 
 .person p {
-  font-size: 19.68px;
+  font-size: 1.23rem;
   font-family: "Inter";
   margin-bottom: 0;
   color: #023f5c;
@@ -172,7 +172,7 @@ export default {
 .person span {
   font-family: "Asap";
   font-weight: 400;
-  font-size: 14.31px;
+  font-size: 0.894rem;
   color: #4cb8e7;
 }
 
@@ -180,7 +180,7 @@ export default {
   margin: 16px 0 22px 0;
   font-family: "Inter";
   font-weight: 800;
-  font-size: 20.65px;
+  font-size: 1.291rem;
   line-height: 140%;
   color: #22749a;
 }
@@ -216,7 +216,7 @@ export default {
   align-items: center;
   margin-top: 30px;
   font: "Inter";
-  font-size: 13px;
+  font-size: 0.813rem;
   color: #4a5468;
 }
 
@@ -240,7 +240,7 @@ export default {
   font-family: "Inter";
   margin: 0 0 10px 0;
   font-weight: 700;
-  font-size: 28px;
+  font-size: 1.75rem;
   line-height: 140%;
   color: #22749a;
 }
@@ -248,66 +248,66 @@ export default {
 .link {
   font-family: "Inter";
   font-weight: 400;
-  font-size: 17.31px;
+  font-size: 1.082rem;
   line-height: 140%;
   color: #1a688a;
 }
 
 @media (max-width: 1200px) {
   .title {
-    font-size: 30px;
+    font-size: 1.875rem;
   }
 
   .content {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 
   .header {
-    font-size: 15px;
+    font-size: 0.938rem;
   }
 
   .side-container > p {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 
   .side-post-title {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 
   .link {
-    font-size: 15px;
+    font-size: 0.938rem;
   }
 }
 
 @media (max-width: 990px) {
   .title {
-    font-size: 26px;
+    font-size: 1.625rem;
   }
 
   .content {
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .side-post-title {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 }
 
 @media (max-width: 768px) {
   .title {
-    font-size: 22px;
+    font-size: 1.375rem;
   }
 
   .person p {
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .person span {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 
   .side-post-title {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 }
 
@@ -318,7 +318,7 @@ export default {
     align-items: center;
   }
   .title {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
   .post {
     max-width: 90%;
