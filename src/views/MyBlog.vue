@@ -5,7 +5,6 @@
   <main>
     <!-- <CardBlog :post="mainPost"></CardBlog> -->
     <CardBlog :posts="posts"></CardBlog>
-    <img src="" alt="" />
   </main>
   <footer>
     <Footer></Footer>
