@@ -1,35 +1,40 @@
 <template>
-  <div class="posts-container">
-    <div class="posts">
-      <div class="card" v-for="post in posts" :key="post.id">
-        <router-link :to="{ name: 'post', params: { id: post.id } }">
-          <div
-            class="img-post"
-            :style="{ background: `url(${post.img})` }"
-          ></div>
-          <div class="post-section">
-            <div class="header-section">
-              <p>{{ post.category }}</p>
-              <span>{{ post.date }}</span>
-            </div>
-            <div class="main-section">
-              <h2>{{ post.title }}</h2>
-              <p>{{ post.description }}</p>
-            </div>
-            <div class="footer-section">
-              <img src="../../assets/blog/profile.svg" alt="Imagem de perfil" />
-              <div class="profile">
-                <p>{{ post.name }}</p>
-                <span>{{ post.role }}</span>
+  <div class="blog-container">
+    <div class="posts-container">
+      <div class="posts">
+        <div class="card" v-for="post in posts" :key="post.id">
+          <router-link :to="{ name: 'post', params: { id: post.id } }">
+            <div
+              class="img-post"
+              :style="{ background: `url(${post.img})` }"
+            ></div>
+            <div class="post-section">
+              <div class="header-section">
+                <p>{{ post.category }}</p>
+                <span>{{ post.date }}</span>
+              </div>
+              <div class="main-section">
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.description }}</p>
+              </div>
+              <div class="footer-section">
+                <img
+                  src="../../assets/blog/profile.svg"
+                  alt="Imagem de perfil"
+                />
+                <div class="profile">
+                  <p>{{ post.name }}</p>
+                  <span>{{ post.role }}</span>
+                </div>
               </div>
             </div>
-          </div>
-        </router-link>
+          </router-link>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="load-text">
-    <p>Carregar mais postagens</p>
+    <div class="load-text">
+      <p>Carregar mais postagens</p>
+    </div>
   </div>
 </template>
 <script>
@@ -44,6 +49,10 @@ export default {
 };
 </script>
 <style scoped>
+.blog-container {
+  background: #fff;
+}
+
 a {
   text-decoration: none;
 }

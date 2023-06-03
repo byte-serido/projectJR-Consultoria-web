@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="post-container">
     <p class="title">{{ post.title }}</p>
     <div class="container">
       <div class="post">
@@ -59,6 +59,10 @@ export default {
 };
 </script>
 <style scoped>
+.post-container {
+  background: #fff;
+  padding-top: 62px;
+}
 .dot {
   height: 5px;
   width: 5px;
@@ -73,7 +77,7 @@ export default {
   line-height: 140%;
   text-align: center;
   color: #22749a;
-  margin: 62px 0 41px 0;
+  margin-bottom: 41px;
 }
 
 .container {
