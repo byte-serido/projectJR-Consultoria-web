@@ -50,11 +50,11 @@ a {
 
 .card:nth-child(1) {
   display: flex;
-  width: 81rem;
+  width: 1296px;
   max-width: 100%;
-  height: 29.063rem;
-  margin-top: 2.875rem;
-  margin-bottom: 1.875rem;
+  height: 465px;
+  margin-top: 46px;
+  margin-bottom: 30px;
 }
 
 .card:nth-child(1) > a {
@@ -62,13 +62,13 @@ a {
 }
 
 .card:nth-child(1) > a > .img-post {
-  width: 40.313rem;
-  height: 29.063rem;
+  width: 645px;
+  height: 465px;
   max-width: 50%;
 }
 
 .card:nth-child(1) > a > .post-section {
-  width: 41.313rem;
+  width: 661px;
   max-width: 100%;
 }
 
@@ -88,31 +88,31 @@ a {
   flex-wrap: wrap;
   justify-content: space-between;
   max-width: 90%;
-  width: 81rem;
+  width: 1296px;
 }
 
 .card {
-  width: 25.938rem;
+  width: 415px;
   background: #f7f9fc;
-  margin-bottom: 1.625rem;
+  margin-bottom: 26px;
 }
 
 .img-post {
-  width: 25.938rem;
-  height: 14rem;
+  width: 415px;
+  height: 224px;
 }
 
 .post-section {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 1.438rem 0.5rem 0 1.438rem;
+  padding: 23px 8px 0 23px;
   background: #f7f9fc;
 }
 
 .header-section {
   display: flex;
-  gap: 0.625rem;
+  gap: 10px;
   font-family: "Inter";
   font-size: 0.813rem;
   font-weight: 400;
@@ -149,7 +149,7 @@ a {
 .footer-section {
   display: flex;
   align-items: center;
-  margin-bottom: 1.375rem;
+  margin-bottom: 22px;
 }
 
 .profile p {
@@ -198,19 +198,19 @@ a {
   }
 
   .footer-section img {
-    width: 3.188rem;
-    height: 3.188rem;
+    width: 51px;
+    height: 51px;
   }
 }
 
 @media (max-width: 990px) {
   .card {
     display: flex;
-    width: 81rem;
+    width: 1296px;
     max-width: 100%;
-    height: 29.063rem;
-    margin-top: 2.875rem;
-    margin-bottom: 1.875rem;
+    height: 465px;
+    margin-top: 46px;
+    margin-bottom: 30px;
   }
 
   .card > a {
@@ -218,13 +218,13 @@ a {
   }
 
   .img-post {
-    width: 40.313rem;
-    height: 29.063rem;
+    width: 645px;
+    height: 465px;
     max-width: 50%;
   }
 
   .post-section {
-    width: 41.313rem;
+    width: 661px;
     max-width: 100%;
   }
 
@@ -244,8 +244,8 @@ a {
   }
 
   .footer-section img {
-    width: 2.875rem;
-    height: 2.875rem;
+    width: 46px;
+    height: 46px;
   }
 }
 
@@ -268,8 +268,8 @@ a {
 
 @media (max-width: 600px) {
   .card:nth-child(n) {
-    height: 34.938rem;
-    width: 25.938rem;
+    height: 559px;
+    width: 415px;
     max-width: 90%;
   }
 
@@ -279,13 +279,13 @@ a {
   .card:nth-child(n) > a > .img-post {
     max-width: 100%;
     background-repeat: no-repeat;
-    height: 14rem;
+    height: 224px;
     background-size: cover;
-    border-radius: 0.625rem 0.625rem 0 0;
+    border-radius: 10px 10px 0 0;
   }
 
   .card:nth-child(n) > a > .post-section {
-    width: 25.938rem;
+    width: 415px;
   }
 
   .posts {
@@ -312,8 +312,8 @@ a {
   }
 
   .footer-section img {
-    width: 2.625rem;
-    height: 2.625rem;
+    width: 42px;
+    height: 42px;
   }
 }
 
