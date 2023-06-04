@@ -14,13 +14,8 @@
           src="@/assets/login/logo-login-min.svg"
           alt="Logo da empresa pequena"
         />
-        <div class="box-reset-password" v-if="isPasswordSubmited">
-          <div class="box-password-submited">
-            <p>Senha redefinida com sucesso!</p>
-          </div>
-        </div>
         <!-- Espaço para colocar inputs e texto de recuperação de senha, feito para centralizar tudo.-->
-        <div class="box-reset-password" v-else>
+        <div class="box-reset-password">
           <p>Informe um nova senha para sua conta</p>
 
           <!-- Espaço para exibir mensagens de erro -->
@@ -110,7 +105,7 @@
         <!-- Button para submeter nova senha -->
         <div v-if="loading" class="spinner"></div>
         <button
-          v-else-if="!isPasswordSubmited"
+          v-else
           type="submit"
           :class="isButtonDiabled ? 'card-button-disabled' : 'card-button'"
           :disabled="isButtonDiabled"
@@ -141,7 +136,6 @@ export default {
         password: '',
         password2: '',
       },
-      isPasswordSubmited: false,
       isVisiblity: false,
       isVisiblity2: false,
       loading: false,
@@ -173,12 +167,15 @@ export default {
       if (!this.isButtonDiabled) {
         this.loading = true;
 
-        setTimeout(() => {
-          this.isPasswordSubmited = true;
-          this.loading = false;
-        }, 2000);
+        this.$store.dispatch('resetPassword', {
+          email: this.formData.email,
+          password: this.formData.password,
+          token: this.formData.pincode,
+        });
 
-        // requisição a api this.$store.dispatch('', { password: this.password });
+        setTimeout(() => {
+          this.$router.push('/login');
+        }, 2000);
       }
     },
     /**
