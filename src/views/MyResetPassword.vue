@@ -122,7 +122,7 @@ const ERROR_MESSAGES = {
   pincodeLength: 'O código de verificação deve ter 6 caracteres',
   passwordMismatch: 'As senhas não correspondem',
   passwordLength: 'A senha deve ter no mínimo 8 caracteres',
-  validEmail: 'Email inválido',
+  invalidEmail: 'Email inválido',
 };
 
 export default {
@@ -243,7 +243,7 @@ export default {
       // Valida se é um email válido
       const emailRegex = /^[A-Za-z0-9_!#$%&'*+/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/gm;
 
-      const VALID_EMAIL_KEY = 'validEmail';
+      const VALID_EMAIL_KEY = 'invalidEmail';
       const VALID_EMAIL_CONDITION =
         this.formData.email && !emailRegex.test(this.formData.email);
 
