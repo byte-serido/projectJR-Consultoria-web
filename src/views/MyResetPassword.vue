@@ -34,7 +34,7 @@
             class="input-reset-password"
             type="text"
             placeholder="código de verificação"
-            v-model="pincode"
+            v-model="formData.pincode"
             minlength="6"
             maxlength="6"
             @blur="validatePincode"
@@ -48,7 +48,7 @@
               :type="isVisiblity ? 'text' : 'password'"
               placeholder="senha"
               minlength="8"
-              v-model="password"
+              v-model="formData.password"
               required
               @blur="validatePassword"
             />
@@ -75,7 +75,7 @@
               class="input-reset-password"
               :type="isVisiblity2 ? 'text' : 'password'"
               placeholder="confirmação de senha"
-              v-model="password2"
+              v-model="formData.password2"
               minlength="8"
               required
               @blur="validatePassword"
@@ -125,13 +125,16 @@ export default {
     return {
       errorsMessages: ERROR_MESSAGES,
       errors: [],
+      formData: {
+        email: '',
+        pincode: '',
+        password: '',
+        password2: '',
+      },
       isPasswordSubmited: false,
       isVisiblity: false,
       isVisiblity2: false,
       loading: false,
-      pincode: '',
-      password: '',
-      password2: '',
     };
   },
   computed: {
@@ -197,7 +200,9 @@ export default {
       // Valida se os dois inputs de senha tem o mesmo valor
       const PASSWORD_MISMATCH_KEY = 'passwordMismatch';
       const PASSWORD_MISMATCH_CONDITION =
-        this.password && this.password2 && this.password !== this.password2;
+        this.formData.password &&
+        this.formData.password2 &&
+        this.formData.password !== this.formData.password2;
 
       this.validateFormField(
         PASSWORD_MISMATCH_KEY,
@@ -207,7 +212,7 @@ export default {
       // Valida se a senha tem pelo menos 8 digitos
       const PASSWORD_LENGTH_KEY = 'passwordLength';
       const PASSWORD_LENGTH_CONDITION =
-        this.password && this.password.length < 8;
+        this.formData.password && this.formData.password.length < 8;
 
       this.validateFormField(PASSWORD_LENGTH_KEY, PASSWORD_LENGTH_CONDITION);
     },
@@ -218,7 +223,7 @@ export default {
       // Valida se o código tem 6 digitos
       const PINCODE_LENGTH_KEY = 'pincodeLength';
       const PINCODE_LENGTH_CONDITION =
-        this.pincode && this.pincode.length !== 6;
+        this.formData.pincode && this.formData.pincode.length !== 6;
 
       this.validateFormField(PINCODE_LENGTH_KEY, PINCODE_LENGTH_CONDITION);
     },
