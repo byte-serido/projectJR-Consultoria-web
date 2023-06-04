@@ -186,7 +186,7 @@ export default {
        */
       if (errorCondition && !isErrorVisible) {
         this.errors.push(errorKey);
-      } else if (isErrorVisible) {
+      } else if (!errorCondition && isErrorVisible) {
         this.errors = this.errors.filter((err) => err !== errorKey);
       }
     },
