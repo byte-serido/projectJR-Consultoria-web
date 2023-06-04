@@ -32,6 +32,15 @@
 
           <input
             class="input-reset-password"
+            type="email"
+            placeholder="email"
+            v-model="formData.email"
+            @blur="validateEmail"
+            required
+          />
+
+          <input
+            class="input-reset-password"
             type="text"
             placeholder="código de verificação"
             v-model="formData.pincode"
