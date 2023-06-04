@@ -172,10 +172,6 @@ export default {
           password: this.formData.password,
           token: this.formData.pincode,
         });
-
-        setTimeout(() => {
-          this.$router.push('/login');
-        }, 2000);
       }
     },
     /**

@@ -89,7 +89,9 @@ export default{
                 })
                 if (res.status === 400) {
                     alert(res.data.error)
+                    return;
                 }
+                router.push('/login')
             } catch (err) {
                 alert("Serviço de redefinição de senha indisponível")
             }
