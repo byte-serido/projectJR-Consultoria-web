@@ -79,6 +79,20 @@ export default{
             } catch(err) {
                 alert("Serviço de redefinição de senha indisponível")
             }
+        },
+
+        // Funcionalidade de redefinição de senha
+        async resetPassword(_, {email, password, token}) {
+            try {
+                const res = await axios.post(`https://pjr-api.onrender.com/auth/reset_password/`, {
+                    email, password, token
+                })
+                if (res.status === 400) {
+                    alert(res.data.error)
+                }
+            } catch (err) {
+                alert("Serviço de redefinição de senha indisponível")
+            }
         }
     }
 }
