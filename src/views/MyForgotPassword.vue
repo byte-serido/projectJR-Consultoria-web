@@ -38,7 +38,7 @@
           <!-- Espaço para exibir mensagens de erro -->
           <div class="errors-forgot-password" v-if="errors.length">
             <p class="error" v-for="(error, index) of errors" :key="index">
-              {{ error }}
+              {{ errorsMessages[error] }}
             </p>
           </div>
 
@@ -48,7 +48,7 @@
             placeholder="email"
             v-model="email"
             required
-            @blur="validateEmail"
+            @input="validateEmail"
           />
           <input
             class="input-forgot-password"
@@ -56,7 +56,7 @@
             placeholder="repita seu email"
             v-model="confirmacaoEmail"
             required
-            @blur="validateEmail"
+            @input="validateEmail"
           />
         </div>
         <!-- Button para submeter o formulário-->
@@ -75,12 +75,18 @@
 </template>
 
 <script>
+const ERROR_MESSAGES = {
+  invalidEmail: 'Email inválido',
+  emailMismatch: 'Os emails não correspondem',
+};
+
 export default {
   data() {
     return {
       confirmacaoEmail: '',
       email: '',
       errors: [],
+      errorsMessages: ERROR_MESSAGES,
       isEmailSent: false,
       isVisiblity: false,
       loading: false,
@@ -95,7 +101,7 @@ export default {
       if (
         this.email === '' ||
         this.confirmacaoEmail === '' ||
-        this.email !== this.confirmacaoEmail
+        this.errors.length > 0
       ) {
         return true;
       } else {
@@ -112,7 +118,7 @@ export default {
       if (!this.isButtonDisabled) {
         // Exibe indicador de carregamento enquanto realiza a requisição a api
         this.loading = true;
-        
+
         this.$store.dispatch('requestPasswordResetToken', this.email);
 
         setTimeout(() => {
@@ -121,16 +127,48 @@ export default {
         }, 1500);
       }
     },
-    // Valida se os dois inputs de email tem o mesmo valor
-    validateEmail() {
-      this.errors = [];
-      if (
-        this.email &&
-        this.confirmacaoEmail &&
-        this.email !== this.confirmacaoEmail
-      ) {
-        this.errors.push('Os emails não correspondem');
+    /**
+     * Função de validação genérica para os campos do formulário
+     *
+     * @param {string} errorKey
+     * @param {boolean} errorCondition
+     */
+    validateFormField(errorKey, errorCondition) {
+      const isErrorVisible = this.errors.some((err) => err === errorKey);
+
+      /**
+       * Verifica se está dando erro e se ele ainda não está sendo mostrado,
+       * caso isso ocorra, o identificador do erro é adicionado ao array errors
+       * e sua mensagem é exibida.
+       *
+       * Caso o erro não esteja ocorrendo mas sua mensagem esteja visível, o
+       * identificador do erro é removido do array, deixando de exibir sua
+       * mensagem na tela.
+       */
+      if (errorCondition && !isErrorVisible) {
+        this.errors.push(errorKey);
+      } else if (!errorCondition && isErrorVisible) {
+        this.errors = this.errors.filter((err) => err !== errorKey);
       }
+    },
+    /**
+     * Função de validação dos campos de email
+     */
+    validateEmail() {
+      // Valida se é um email válido
+      const emailRegex = /^[A-Za-z0-9_!#$%&'*+/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/gm;
+
+      const VALID_EMAIL_KEY = 'invalidEmail';
+      const VALID_EMAIL_CONDITION = this.email && !emailRegex.test(this.email);
+
+      this.validateFormField(VALID_EMAIL_KEY, VALID_EMAIL_CONDITION);
+
+      // Valida se os dois inputs de email tem o mesmo valor
+      const EMAIL_MISMATCH_KEY = 'emailMismatch';
+      const EMAIL_MISMATCH_CONDITION =
+        this.confirmacaoEmail && this.email !== this.confirmacaoEmail;
+
+      this.validateFormField(EMAIL_MISMATCH_KEY, EMAIL_MISMATCH_CONDITION);
     },
   },
 };
@@ -191,6 +229,9 @@ export default {
   width: 100%;
   border-radius: 4px;
   padding: 4px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .errors-forgot-password p {
