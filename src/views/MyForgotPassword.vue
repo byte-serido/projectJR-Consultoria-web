@@ -112,12 +112,13 @@ export default {
       if (!this.isButtonDisabled) {
         // Exibe indicador de carregamento enquanto realiza a requisição a api
         this.loading = true;
+        
+        this.$store.dispatch('requestPasswordResetToken', this.email);
+
         setTimeout(() => {
           this.loading = false;
           this.isEmailSent = true;
-        }, 2000);
-
-        // requisição a api this.$store.dispatch('', { email: this.email });
+        }, 1500);
       }
     },
     // Valida se os dois inputs de email tem o mesmo valor
