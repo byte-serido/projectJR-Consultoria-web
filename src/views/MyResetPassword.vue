@@ -30,7 +30,7 @@
             type="email"
             placeholder="email"
             v-model="formData.email"
-            @blur="validateEmail"
+            @input="validateEmail"
             required
           />
 
@@ -41,7 +41,7 @@
             v-model="formData.pincode"
             minlength="6"
             maxlength="6"
-            @blur="validatePincode"
+            @input="validatePincode"
             required
           />
 
@@ -54,7 +54,7 @@
               minlength="8"
               v-model="formData.password"
               required
-              @blur="validatePassword"
+              @input="validatePassword"
             />
             <button
               @click="isVisiblity = !isVisiblity"
@@ -82,7 +82,7 @@
               v-model="formData.password2"
               minlength="8"
               required
-              @blur="validatePassword"
+              @input="validatePassword"
             />
             <button
               @click="isVisiblity2 = !isVisiblity2"
