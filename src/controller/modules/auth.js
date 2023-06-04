@@ -71,7 +71,7 @@ export default{
         },
 
         // Funcionalidade que solicita o envio de um email com um token de redefinição de senha
-        async requestPasswordResetToken({ commit }, email) {
+        async requestPasswordResetToken(_, email) {
             try {
                 await axios.post(`https://pjr-api.onrender.com/auth/forgot_password/`, {
                     email
