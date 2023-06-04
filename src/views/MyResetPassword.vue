@@ -154,9 +154,11 @@ export default {
      */
     isButtonDiabled() {
       if (
-        this.password === '' ||
-        this.password2 === '' ||
-        this.password !== this.password2
+        this.formData.email === '' ||
+        this.formData.pincode === '' ||
+        this.formData.password === '' ||
+        this.formData.password2 === '' ||
+        this.errors.length > 0
       ) {
         return true;
       } else {
