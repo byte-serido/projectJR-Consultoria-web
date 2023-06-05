@@ -29,7 +29,7 @@
                 <router-link class="item" to="" active-class="active" exact>
                     <span>Administradores</span>
                 </router-link>
-                <router-link class="item" to="/membros" active-class="active">
+                <router-link @click="isMenu=!isMenu" class="item" to="/membros" active-class="active">
                     <span>Membros</span>
                 </router-link>
                 <router-link class="item" to="" active-class="active">
@@ -184,9 +184,9 @@ export default {
         padding: 60px 60px;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         justify-content: space-between;
-        height: 100%;
+        min-height: 100%;
         width: 100%;
     }
 
