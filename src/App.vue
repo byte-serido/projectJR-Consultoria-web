@@ -16,11 +16,9 @@
   <!-- Exibe essa tela quando o servidor estiver funcionando normalmente-->
   <template v-else>
     <router-view v-slot="{ Component }">
-      <Transition name="slide" mode="out-in">
-        <div class="box">
-          <component :is="Component" />
-        </div>
-      </Transition>
+      <div class="box">
+        <component :is="Component" />
+      </div>
     </router-view>
   </template>
 </template>
@@ -53,7 +51,7 @@ body {
 #app {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  height: 100%;
   background-color: #e9eef2;
 }
 

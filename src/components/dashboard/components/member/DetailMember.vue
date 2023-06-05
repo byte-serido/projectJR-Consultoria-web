@@ -1,9 +1,9 @@
 <template>
-    <div class="container-details">
+    <SpinnerLoading v-if="isLoading"></SpinnerLoading>
+    <div class="container-details" v-else>
         <div class="data-details">
             <h1>Detalhes</h1>
-            <SpinnerLoading v-if="isLoading"></SpinnerLoading>
-            <div class="card-detail" v-else>
+            <div class="card-detail">
                 <div>
                     <img class="avatar" :src="urlImg === null ? member.imgUrl : urlImg" alt="Imagemm Avatar">
                     <input type="file" @change="onFileSelected">
@@ -30,10 +30,17 @@
                 </div>
             </div>
         </div>
-        <div class="settings-details">
+        
+        <div class="settings-details" >
             <h1>Configurações</h1>
-            <button @click="deleteMember()" class="remove"><p>Deletar Membro</p></button>
-            <button @click="updateMember()"><p>Salvar Alterações</p></button>
+            <template v-if="!isAlter">
+                <SpinnerLoading></SpinnerLoading>
+            </template>
+            <button @click="updateMember()" v-else><p>Salvar Alterações</p></button>
+            <template v-if="!isDeleted">
+                <SpinnerLoading></SpinnerLoading>
+            </template>
+            <button @click="deleteMember()" class="remove" v-else><p>Deletar Membro</p></button>
         </div>
     </div>
 </template>
@@ -57,6 +64,10 @@ export default{
         return{
             imageFile:null,
             urlImg:null,
+
+            //Validação para loading
+            isAlter:true,
+            isDeleted:true
         }
     },
 
@@ -80,6 +91,8 @@ export default{
 
         // Função para criar um membro
         async updateMember(){
+            //loading
+            this.isAlter = !this.isAlter
             const member={
                 id: this.member.id,
                 name:this.member.name,
@@ -99,6 +112,7 @@ export default{
             }).catch((error)=>{
                 return console.log(error);
             })
+            this.isAlter = !this.isAlter
         },
         async updateImageMember(){
             try {
@@ -126,6 +140,7 @@ export default{
         },
         //Fução de delecão
         async deleteMember(){
+            this.isDeleted = !this.isDeleted
             await axios.delete("https://pjr-api.onrender.com/member/delete",{ data: {id:this.member.id} }).then(resp =>{
                 if(resp.status !== 201){
                     return alert("Erro ao deletar membro, verifique os dados e tente novamente !!")
@@ -136,6 +151,7 @@ export default{
             }).catch((error)=>{
                 return console.log(error);
             })
+            this.isDeleted = !this.isDeleted
         }
     },
 
@@ -194,6 +210,7 @@ export default{
         flex:1;
         flex-direction: column;
         gap: 32px;
+        height: 25%;
     }
 
     button{

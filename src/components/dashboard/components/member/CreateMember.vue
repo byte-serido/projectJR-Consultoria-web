@@ -42,8 +42,13 @@
             </div>
         </form>
         <div class="form-button" >
+            <template v-if="isCreated">
                 <button @click="createMember()" type="submit">Salvar</button>
-                <button @click="cancel()" class="cancel">Cancelar</button>
+            </template>
+            <template v-else>
+                <Loading></Loading>
+            </template>
+            <button @click="cancel()" class="cancel">Cancelar</button>
         </div>
     </div>
 </template>
@@ -59,12 +64,14 @@ import axios from 'axios';
 //Vuelidate
 import { useVuelidate } from '@vuelidate/core';
 import { required, minLength, maxLength } from '@vuelidate/validators';
-
+//Spiner de carregamento
+import Loading from "@/components/MySpinnerLoading.vue"
 // mascara
 import {mask} from 'vue-the-mask';
 
 export default{
     directives: {mask},
+    components:{Loading},
     setup(){
         return{
             v$: useVuelidate()
@@ -78,6 +85,9 @@ export default{
             phone:null,
             registration:null,
             description:"",
+
+            //Config de loading
+            isCreated:true,
 
             //Config de imagem preview
             imageUrl:img,
@@ -123,11 +133,12 @@ export default{
     methods:{
         // Função para criar um membro
         async createMember(){
-
+            this.isCreated= !this.isCreated
             //Verificando os dados
             const isFormCorrect = await this.v$.$validate()
-            if (!isFormCorrect) return
-            
+            if (!isFormCorrect){
+                return this.isCreated= !this.isCreated
+            } 
             //Carregando image
             const imgAux = await this.uploadImage();
             const member={
@@ -143,12 +154,13 @@ export default{
                 if(resp.status !== 200){
                     alert("Membro não cadastrado, verifique os dados e tente novamente !!")
                 }else{
-                    alert("Membro cadastrado com sucesso!!")
                     router.push("/membros");
+                    alert("Membro cadastrado com sucesso!!")
                 }
             }).catch((error)=>{
                 return console.log(error);
             })
+            this.isCreated= !this.isCreated
         },
 
         //Função que seta a imagem na tela antes de salvar
@@ -223,7 +235,7 @@ export default{
     .form-button{
         display: flex;
         align-items: center;
-        gap:10px;
+        gap:32px;
     }
 
     .form-item{
