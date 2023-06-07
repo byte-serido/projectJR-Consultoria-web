@@ -93,7 +93,7 @@ const routes = [
   },
 
   {
-    path: '/reset-password',
+    path: '/reset-password/:token',
     name: 'reset-password',
     component: ResetPassword,
     //Permitindo que todos os parametros da rota sejam passados como atributos
