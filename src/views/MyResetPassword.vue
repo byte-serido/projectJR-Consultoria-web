@@ -129,7 +129,7 @@ export default {
       errors: [],
       formData: {
         email: '',
-        pincode: '',
+        token: '',
         password: '',
         password2: '',
       },
@@ -172,7 +172,7 @@ export default {
           this.$store.dispatch('resetPassword', {
             email: this.formData.email,
             password: this.formData.password,
-            token: this.formData.pincode,
+            token: this.formData.token,
           });
         } catch (err) {
           this.errors.push(err.message);
@@ -233,7 +233,7 @@ export default {
       // Valida se o código tem 6 digitos
       const PINCODE_LENGTH_KEY = 'pincodeLength';
       const PINCODE_LENGTH_CONDITION =
-        this.formData.pincode && this.formData.pincode.length !== 6;
+        this.formData.token && this.formData.token.length !== 6;
 
       this.validateFormField(PINCODE_LENGTH_KEY, PINCODE_LENGTH_CONDITION);
     },
@@ -253,7 +253,7 @@ export default {
   },
 
   created() {
-    this.formData.pincode = this.$route.params.token;
+    this.formData.token = this.$route.params.token;
   },
 };
 </script>
