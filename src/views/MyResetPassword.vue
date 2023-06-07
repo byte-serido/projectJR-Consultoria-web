@@ -34,17 +34,6 @@
             required
           />
 
-          <input
-            class="input-reset-password"
-            type="text"
-            placeholder="código de verificação"
-            v-model="formData.pincode"
-            minlength="6"
-            maxlength="6"
-            @input="validatePincode"
-            required
-          />
-
           <!-- Div especifica para criar um input com icone de visibilidade de senha-->
           <div class="container-input">
             <input
@@ -119,7 +108,6 @@
 
 <script>
 const ERROR_MESSAGES = {
-  pincodeLength: 'O código de verificação deve ter 6 caracteres',
   passwordMismatch: 'As senhas não correspondem',
   passwordLength: 'A senha deve ter no mínimo 8 caracteres',
   invalidEmail: 'Email inválido',
@@ -149,7 +137,6 @@ export default {
     isButtonDiabled() {
       if (
         this.formData.email === '' ||
-        this.formData.pincode === '' ||
         this.formData.password === '' ||
         this.formData.password2 === '' ||
         this.errors.length > 0
@@ -245,6 +232,10 @@ export default {
 
       this.validateFormField(VALID_EMAIL_KEY, VALID_EMAIL_CONDITION);
     },
+  },
+
+  created() {
+    this.formData.pincode = this.$route.params.token;
   },
 };
 </script>
