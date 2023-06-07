@@ -18,21 +18,18 @@
         <!-- Espaço para colocar inputs e texto com instruções, feito para centralizar tudo.-->
         <div class="box-forgot-password" v-if="isEmailSent">
           <div class="box-email-sent">
-            <p>Código enviado!</p>
+            <p>Link enviado!</p>
             <p>
               Verifique sua caixa de spam caso não encontre o email na sua caixa
               de entrada.
             </p>
-            <router-link class="card-button" to="/reset-password">
-              Definir nova senha
-            </router-link>
           </div>
         </div>
         <!-- Espaço para colocar inputs e texto com instruções, feito para centralizar tudo.-->
         <div class="box-forgot-password" v-else>
           <p>
-            Informe o email associado a sua conta e lhe enviaremos um código
-            para definir uma nova senha
+            Informe o email associado a sua conta e lhe enviaremos um link para
+            definir uma nova senha
           </p>
 
           <!-- Espaço para exibir mensagens de erro -->
