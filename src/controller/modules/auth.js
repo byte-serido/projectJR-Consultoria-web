@@ -88,8 +88,7 @@ export default{
                     email, password, token
                 })
                 if (res.status === 400) {
-                    alert(res.data.error)
-                    return;
+                    throw new Error(res.data.error);
                 }
                 router.push('/login')
             } catch (err) {
