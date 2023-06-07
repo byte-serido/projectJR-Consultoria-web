@@ -107,10 +107,19 @@
 </template>
 
 <script>
+const API_ERROR_MESSAGES = {
+  'User not found': 'Usuário não encontrado',
+  'Token is not valid': 'Link de redefinição inválido',
+  'Token expired, generate a new one':
+    'Link expirado, tente novamente com outro link',
+  'Cannot reset password, try again':
+    'A redefinição de senha falhou, tente novamente mais tarde',
+};
 const ERROR_MESSAGES = {
   passwordMismatch: 'As senhas não correspondem',
   passwordLength: 'A senha deve ter no mínimo 8 caracteres',
   invalidEmail: 'Email inválido',
+  ...API_ERROR_MESSAGES,
 };
 
 export default {
@@ -139,7 +148,11 @@ export default {
         this.formData.email === '' ||
         this.formData.password === '' ||
         this.formData.password2 === '' ||
-        this.errors.length > 0
+        this.errors.filter(
+          // Garante que o botão de submissão do form não ficará desabilitado se
+          // o erro sendo mostrado for um erro da API
+          (err) => !Object.keys(API_ERROR_MESSAGES).some((key) => key === err)
+        ).length > 0
       ) {
         return true;
       } else {
@@ -154,11 +167,16 @@ export default {
       if (!this.isButtonDiabled) {
         this.loading = true;
 
-        this.$store.dispatch('resetPassword', {
-          email: this.formData.email,
-          password: this.formData.password,
-          token: this.formData.pincode,
-        });
+        try {
+          this.errors = [];
+          this.$store.dispatch('resetPassword', {
+            email: this.formData.email,
+            password: this.formData.password,
+            token: this.formData.pincode,
+          });
+        } catch (err) {
+          this.errors.push(err.message);
+        }
       }
     },
     /**
