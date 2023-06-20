@@ -69,5 +69,31 @@ export default{
               commit('clearToken')
             }
         },
+
+        // Funcionalidade que solicita o envio de um email com um token de redefinição de senha
+        async requestPasswordResetToken(_, email) {
+            try {
+                await axios.post(`https://pjr-api.onrender.com/auth/forgot_password/`, {
+                    email
+                })
+            } catch(err) {
+                alert("Serviço de redefinição de senha indisponível")
+            }
+        },
+
+        // Funcionalidade de redefinição de senha
+        async resetPassword(_, {email, password, token}) {
+            try {
+                const res = await axios.post(`https://pjr-api.onrender.com/auth/reset_password/`, {
+                    email, password, token
+                })
+                if (res.status === 400) {
+                    throw new Error(res.data.error);
+                }
+                router.push('/login')
+            } catch (err) {
+                alert("Serviço de redefinição de senha indisponível")
+            }
+        }
     }
 }

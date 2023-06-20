@@ -11,9 +11,13 @@ const Dashboard = () => import('./views/MyDashboard.vue');
 const Contact = () => import('./views/MyContact.vue');
 const DashBoardMember = () => import('@/components/dashboard/MyMembros.vue');
 const DashBoardAdms = () => import('@/components/dashboard/MyAdms.vue');
-const DetailMember = () => import("@/components/dashboard/components/member/DetailMember.vue");
-const CreateMember = () => import("@/components/dashboard/components/member/CreateMember.vue");
+const DetailMember = () =>
+  import('@/components/dashboard/components/member/DetailMember.vue');
+const CreateMember = () =>
+  import('@/components/dashboard/components/member/CreateMember.vue');
 const Post = () => import('./views/MyPost.vue');
+const ForgotPassword = () => import('./views/MyForgotPassword.vue');
+const ResetPassword = () => import('./views/MyResetPassword.vue');
 
 const routes = [
   {
@@ -67,13 +71,31 @@ const routes = [
     component: Post,
     //Permitindo que todos os parametros da rota sejam passados como atributos
     props: true,
-    meta: { transition: 'slide-left' }
+    meta: { transition: 'slide-left' },
   },
 
   {
     path: '/login',
     name: 'login',
     component: Login,
+    //Permitindo que todos os parametros da rota sejam passados como atributos
+    props: true,
+    meta: { requiresGuest: true, transition: 'slide-left' },
+  },
+
+  {
+    path: '/forgot-password',
+    name: 'forgot-password',
+    component: ForgotPassword,
+    //Permitindo que todos os parametros da rota sejam passados como atributos
+    props: true,
+    meta: { requiresGuest: true, transition: 'slide-left' },
+  },
+
+  {
+    path: '/reset-password/:token',
+    name: 'reset-password',
+    component: ResetPassword,
     //Permitindo que todos os parametros da rota sejam passados como atributos
     props: true,
     meta: { requiresGuest: true, transition: 'slide-left' },
@@ -119,35 +141,34 @@ const routes = [
         props: true,
         meta: { requiresAuth: true, transition: 'slide-left' },
       },
-    ]
+    ],
   },
-
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
 // Antes das rotas serem realmente redirecionadas é feito a verificação do token
 router.beforeEach(async (to, from, next) => {
-  await controller.dispatch('checkAuth')
-  const isAuthenticated = controller.getters.isAuthenticated
+  await controller.dispatch('checkAuth');
+  const isAuthenticated = controller.getters.isAuthenticated;
   //Se não estar autenticado volta paro o login
   if (to.meta.requiresAuth && !isAuthenticated) {
-    next('/login')
+    next('/login');
     // Se estar autenticado redireciona para o dashboard
   } else if (to.meta.requiresGuest && isAuthenticated) {
-    next('/dashboard')
+    next('/dashboard');
   } else {
-    next()
+    next();
   }
-})
+});
 
 router.afterEach((to, from) => {
-  const toDepth = to.path.split('/').length
-  const fromDepth = from.path.split('/').length
-  to.meta.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left'
-})
+  const toDepth = to.path.split('/').length;
+  const fromDepth = from.path.split('/').length;
+  to.meta.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left';
+});
 
-export default router
+export default router;
