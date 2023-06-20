@@ -41,6 +41,9 @@
                 <router-link class="item" to="" active-class="active">
                     <span>Posts</span>
                 </router-link>
+                <router-link @click="isMenu=!isMenu"  class="item" to="/usuarios" active-class="active">
+                    <span>Usuários</span>
+                </router-link>
             </div>
         </transition>
         <!-- Conteudo que ficara mudando dependendo da escolha no menu -->

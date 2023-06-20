@@ -11,6 +11,7 @@ const Dashboard = () => import('./views/MyDashboard.vue');
 const Contact = () => import('./views/MyContact.vue');
 const DashBoardMember = () => import('@/components/dashboard/MyMembros.vue');
 const DashBoardAdms = () => import('@/components/dashboard/MyAdms.vue');
+const DashBoardUser = () => import('@/components/dashboard/MyUsuarios.vue');
 const DetailMember = () =>
   import('@/components/dashboard/components/member/DetailMember.vue');
 const CreateMember = () =>
@@ -141,6 +142,14 @@ const routes = [
         props: true,
         meta: { requiresAuth: true, transition: 'slide-left' },
       },
+      {
+        path: '/usuarios',
+        name: 'usuarios',
+        component: DashBoardUser,
+        //Permitindo que todos os parametros da rota sejam passados como atributos
+        props: true,
+        meta: { requiresAuth: true },
+      }
     ],
   },
 ];
