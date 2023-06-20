@@ -19,11 +19,14 @@ export default {
 
   actions: {
     async fetchUserList({ commit }) {
-      await axios
-        .get('https://pjr-api.onrender.com/user/getall')
-        .then((resp) => {
-          commit('setUsers', resp.data);
-        });
+      try {
+        const resp = await axios.get(
+          'https://pjr-api.onrender.com/user/getall'
+        );
+        commit('setUsers', resp.data);
+      } catch (err) {
+        return;
+      }
     },
   },
 };
