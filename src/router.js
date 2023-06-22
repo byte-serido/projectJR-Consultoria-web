@@ -16,6 +16,7 @@ const DetailMember = () =>
 const CreateMember = () =>
   import('@/components/dashboard/components/member/CreateMember.vue');
 const DashBoardPosts = () => import('./components/dashboard/MyPostes.vue');
+const CreatePost = () => import('./components/dashboard/components/posts/CreatePost.vue')
 const Post = () => import('./views/MyPost.vue');
 const ForgotPassword = () => import('./views/MyForgotPassword.vue');
 const ResetPassword = () => import('./views/MyResetPassword.vue');
@@ -146,6 +147,14 @@ const routes = [
         path: '/posts',
         name: 'Posts',
         component: DashBoardPosts,
+        //Permitindo que todos os parametros da rota sejam passados como atributos
+        props: true,
+        meta: { requiresAuth: true },
+      },
+      {
+        path: '/create-post',
+        name: 'create-post',
+        component: CreatePost,
         //Permitindo que todos os parametros da rota sejam passados como atributos
         props: true,
         meta: { requiresAuth: true },
