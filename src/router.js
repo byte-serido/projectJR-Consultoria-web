@@ -16,6 +16,8 @@ const DetailMember = () =>
   import('@/components/dashboard/components/member/DetailMember.vue');
 const CreateMember = () =>
   import('@/components/dashboard/components/member/CreateMember.vue');
+const CreateUser = () =>
+  import('@/components/dashboard/components/user/CreateUser.vue');
 const Post = () => import('./views/MyPost.vue');
 const ForgotPassword = () => import('./views/MyForgotPassword.vue');
 const ResetPassword = () => import('./views/MyResetPassword.vue');
@@ -149,7 +151,15 @@ const routes = [
         //Permitindo que todos os parametros da rota sejam passados como atributos
         props: true,
         meta: { requiresAuth: true },
-      }
+      },
+      {
+        path: '/create-user',
+        name: 'create-user',
+        component: CreateUser,
+        //Permitindo que todos os parametros da rota sejam passados como atributos
+        props: true,
+        meta: { requiresAuth: true },
+      },
     ],
   },
 ];
