@@ -15,6 +15,9 @@ export default {
     setUsers(state, users) {
       state.users = users;
     },
+    addUser(state, user) {
+      state.users = [user, ...state.users];
+    },
   },
 
   actions: {
