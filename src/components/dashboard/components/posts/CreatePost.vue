@@ -176,7 +176,7 @@ export default {
         if (this.imageFile === null) {
           alert("Por favor escolha uma imagem!!");
         } else {
-          const storageRef = ref(storage, `member/${this.imageFile.title}`);
+          const storageRef = ref(storage, `post/${this.imageFile.title}`);
           await uploadBytes(storageRef, this.description);
           const url = await getDownloadURL(storageRef);
           console.log("Imagem ssalva com sucesso, aqui estar a url: " + url);
@@ -353,7 +353,7 @@ img {
 @media (max-width: 1188px) {
   .form-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
   }
 }

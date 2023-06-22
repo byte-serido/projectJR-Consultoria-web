@@ -2,44 +2,55 @@
   <Loading v-if="isLoading"></Loading>
   <div class="container-posts" v-else>
     <div class="title-row">
-      <span>Posts</span>
-      <button @click="onRedirectCreateMember()">
-        <p>Novo Post</p>
+      <span>Postagens</span>
+      <button @click="onRedirectCreatePost()">
+        <p>Nova postagem</p>
         <fa :icon="['fa', 'add']" style="color: #ffffff" size="lg" />
       </button>
     </div>
 
     <div class="grid-posts">
-      <Card></Card>
+      <div v-for="(post, index) in posts" :key="index">
+        <Card :title="post.title" :autor="post.autor" :imgURL="post.imgURL" />
+      </div>
     </div>
   </div>
 </template>
 <script>
+import Card from "@/components/dashboard/components/posts/CardPost.vue";
 import Loading from "@/components/MySpinnerLoading.vue";
-import Card from "./components/posts/CardPost.vue";
+import axios from "axios";
 // import Loading from "@/components/dashboard/MySpinnerLoading.vue"
 export default {
-  components: { Loading, Card },
-  methods: {
-    onRedirectCreateMember() {
-      return this.$router.push({ name: "create-member" });
-    },
+  components: { Card, Loading },
+  data() {
+    return {
+      posts: {},
+      isLoading: true,
+    };
   },
-  computed: {
-    posts() {
-      return this.$store.getters.getPosts;
+  methods: {
+    onRedirectCreatePost() {
+      return this.$router.push({ name: "create-post" });
     },
 
-    isLoading() {
-      return this.$store.getters.getValidPosts;
+    async getPosts() {
+      await axios
+        .get("https://pjr-api.onrender.com/post/getall")
+        .then((resp) => {
+          this.posts = resp.data;
+          this.isLoading = false;
+        })
+        .catch(() => {
+          this.valid = true;
+        });
     },
   },
   async mounted() {
-    await this.$store.dispatch("getPosts");
+    await this.getPosts();
   },
 };
-</script>
-<style scoped>
+</script><style scoped>
 p {
   margin: 0;
   padding: 0;

@@ -1,13 +1,42 @@
 <template>
   <div class="card" @click="onDetailRedirect()">
+    <img :src="imgURL" alt="Imagem da postagem" />
     <article>
-      <p>Cartão</p>
+      <p>Título: {{ title }}</p>
+      <p>Autor: {{ autor }}</p>
     </article>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      idPost: this.id,
+    };
+  },
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    autor: {
+      type: String,
+      required: true,
+    },
+    imgURL: {
+      type: String,
+      default: "https://cdn-icons-png.flaticon.com/512/6596/6596121.png",
+    },
+  },
+
+  methods: {
+    onDetailRedirect() {
+      const objeto = encodeURIComponent(JSON.stringify(this.idPost));
+      return this.$router.push({ name: "detail", params: { user: objeto } });
+    },
+  },
+};
 </script>
 
 <style scoped>
