@@ -14,6 +14,8 @@ const DashBoardAdms = () => import('@/components/dashboard/MyAdms.vue');
 const DashBoardUser = () => import('@/components/dashboard/MyUsuarios.vue');
 const DetailMember = () =>
   import('@/components/dashboard/components/member/DetailMember.vue');
+const DetailUser = () =>
+  import('@/components/dashboard/components/user/DetailUser.vue');
 const CreateMember = () =>
   import('@/components/dashboard/components/member/CreateMember.vue');
 const CreateUser = () =>
@@ -158,6 +160,14 @@ const routes = [
         component: CreateUser,
         //Permitindo que todos os parametros da rota sejam passados como atributos
         props: true,
+        meta: { requiresAuth: true },
+      },
+      {
+        path: '/users/:user',
+        name: 'detail-user',
+        component: DetailUser,
+        props: true,
+        //Permitindo que todos os parametros da rota sejam passados como atributos
         meta: { requiresAuth: true },
       },
     ],
