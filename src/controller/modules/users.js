@@ -60,5 +60,29 @@ export default {
         }
       }
     },
+    async updateUser({ commit }, user) {
+      try {
+        const resp = await axios.post(
+          'https://pjr-api.onrender.com/user/update',
+          {
+            id: user.id,
+            username: user.username,
+            name: user.name,
+            email: user.email,
+            password: user.password,
+            mod: user.mod,
+          }
+        );
+        if (resp.status === 200) {
+          commit('updateUser', user);
+        }
+      } catch (error) {
+        if (error.response) {
+          throw new Error(error.response.data.error);
+        } else {
+          throw new Error('Um erro ocorreu');
+        }
+      }
+    },
   },
 };
