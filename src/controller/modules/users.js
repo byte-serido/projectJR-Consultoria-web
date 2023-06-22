@@ -24,6 +24,9 @@ export default {
         return u;
       });
     },
+    removeUser(state, id) {
+      state.users = state.users.filter((user) => user.id !== id);
+    },
   },
 
   actions: {
