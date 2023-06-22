@@ -18,6 +18,12 @@ export default {
     addUser(state, user) {
       state.users = [user, ...state.users];
     },
+    updateUser(state, user) {
+      state.users = state.users.map((u) => {
+        if (u.id === user.id) return user;
+        return u;
+      });
+    },
   },
 
   actions: {
