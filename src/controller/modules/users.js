@@ -87,5 +87,24 @@ export default {
         }
       }
     },
+    async deleteUser({ commit }, id) {
+      try {
+        const resp = await axios.delete(
+          'https://pjr-api.onrender.com/user/delete',
+          {
+            id: id,
+          }
+        );
+        if (resp.status === 200) {
+          commit('removeUser', id);
+        }
+      } catch (error) {
+        if (error.response) {
+          throw new Error(error.response.data.error);
+        } else {
+          throw new Error('Um erro ocorreu');
+        }
+      }
+    },
   },
 };
