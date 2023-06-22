@@ -31,5 +31,28 @@ export default {
         return;
       }
     },
+    async createUser({ commit }, user) {
+      try {
+        const resp = await axios.post(
+          'https://pjr-api.onrender.com/auth/register',
+          {
+            username: user.username,
+            name: user.name,
+            email: user.email,
+            password: user.password,
+            mod: user.mod,
+          }
+        );
+        if (resp.status === 200) {
+          commit('addUser', resp.data.user);
+        }
+      } catch (error) {
+        if (error.response) {
+          throw new Error(error.response.data.error);
+        } else {
+          throw new Error('Um erro ocorreu');
+        }
+      }
+    },
   },
 };
