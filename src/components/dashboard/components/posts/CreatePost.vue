@@ -1,7 +1,7 @@
 <template>
-  <div class="create-member">
+  <div class="create-post">
     <form class="form">
-      <h1>Crie um novo membro!</h1>
+      <h1>Crie uma nova postagem!</h1>
       <div class="erros-list">
         <div v-for="error of v$.$errors" :key="error.$uid" class="erros">
           <strong>{{ error.$message }}</strong>
@@ -9,44 +9,23 @@
       </div>
       <div class="form-grid">
         <div class="form-item">
-          <span>Nome:</span>
+          <span>Título:</span>
           <input
-            :class="{ error: v$.name.$error, input: !v$.name.$error }"
+            :class="{ error: v$.title.$error, input: !v$.title.$error }"
             type="text"
             onkeypress="return isNaN(event.key) || event.key === ' '"
-            v-model="name"
-            placeholder="Digite um nome!"
+            v-model="title"
+            placeholder="Digite um título!"
           />
         </div>
         <div class="form-item">
-          <span>Área de trabalho:</span>
+          <span>Autor:</span>
           <input
-            :class="{ error: v$.role.$error, input: !v$.role.$error }"
+            :class="{ error: v$.autor.$error, input: !v$.autor.$error }"
             type="text"
             onkeypress="return isNaN(event.key) || event.key === ' '"
-            v-model="role"
-            placeholder="Digite sua área de trabalho!"
-          />
-        </div>
-        <div class="form-item">
-          <span>Celular de contato:</span>
-          <input
-            :class="{ error: v$.phone.$error, input: !v$.phone.$error }"
-            v-model="phone"
-            v-mask="['(##) ####-####', '(##) #-####-####']"
-            placeholder="Digite seu celular!"
-          />
-        </div>
-        <div class="form-item">
-          <span>Matrícula:</span>
-          <input
-            :class="{
-              error: v$.registration.$error,
-              input: !v$.registration.$error,
-            }"
-            v-model="registration"
-            v-mask="'###########'"
-            placeholder="Digite sua matrícula!"
+            v-model="autor"
+            placeholder="Digite o nome do autor!"
           />
         </div>
         <div class="form-item">
@@ -61,7 +40,6 @@
             placeholder="O mínimo de caracteres é 30 e o maximo são 600!"
           />
         </div>
-
         <div class="form-item">
           <span>Imagem:</span>
           <input type="file" @change="onFileSelected" />
@@ -75,7 +53,7 @@
     </form>
     <div class="form-button">
       <template v-if="isCreated">
-        <button @click="createMember()" type="submit">Salvar</button>
+        <button @click="createPost()" type="submit">Salvar</button>
       </template>
       <template v-else>
         <Loading></Loading>
@@ -95,7 +73,7 @@ import router from "@/router";
 import axios from "axios";
 //Vuelidate
 import { useVuelidate } from "@vuelidate/core";
-import { maxLength, minLength, required } from "@vuelidate/validators";
+import { minLength, required } from "@vuelidate/validators";
 //Spiner de carregamento
 import Loading from "@/components/MySpinnerLoading.vue";
 // mascara
@@ -112,11 +90,9 @@ export default {
 
   data() {
     return {
-      name: "",
-      role: "",
-      phone: null,
-      registration: null,
+      title: "",
       description: "",
+      autor: null,
 
       //Config de loading
       isCreated: true,
@@ -129,30 +105,18 @@ export default {
 
   validations() {
     return {
-      name: {
+      title: {
         required,
         minLength: minLength(4),
         $lazy: true,
       },
-      role: {
-        required,
-        minLength: minLength(2),
-        $lazy: true,
-      },
-      phone: {
-        required,
-        $lazy: true,
-      },
-      registration: {
-        required,
-        maxLength: maxLength(11),
-        minLength: minLength(11),
-        $lazy: true,
-      },
       description: {
         required,
-        maxLength: maxLength(600),
         minLength: minLength(30),
+        $lazy: true,
+      },
+      autor: {
+        required,
         $lazy: true,
       },
       imageFile: {
@@ -164,7 +128,7 @@ export default {
 
   methods: {
     // Função para criar um membro
-    async createMember() {
+    async createPost() {
       this.isCreated = !this.isCreated;
       //Verificando os dados
       const isFormCorrect = await this.v$.$validate();
@@ -173,25 +137,24 @@ export default {
       }
       //Carregando image
       const imgAux = await this.uploadImage();
-      const member = {
-        name: this.name,
-        role: this.role,
-        number: this.phone.toString(),
-        registration: this.registration.toString(),
+      const post = {
+        title: this.title,
         description: this.description,
+        autor: this.autor.toString(),
         imgUrl: imgAux,
       };
       //Requisição para salvar
       await axios
-        .post("https://pjr-api.onrender.com/member/create", member)
+        .post("https://pjr-api.onrender.com/post/create", post)
         .then((resp) => {
-          if (resp.status !== 200) {
+          console.log(resp.status);
+          if (resp.status !== 201) {
             alert(
-              "Membro não cadastrado, verifique os dados e tente novamente !!"
+              "Postagem não cadastrada, verifique os dados e tente novamente !!"
             );
           } else {
-            router.push("/membros");
-            alert("Membro cadastrado com sucesso!!");
+            router.push("/posts");
+            alert("Postagem cadastrada com sucesso!!");
           }
         })
         .catch((error) => {
@@ -213,8 +176,8 @@ export default {
         if (this.imageFile === null) {
           alert("Por favor escolha uma imagem!!");
         } else {
-          const storageRef = ref(storage, `member/${this.imageFile.name}`);
-          await uploadBytes(storageRef, this.imageFile);
+          const storageRef = ref(storage, `member/${this.imageFile.title}`);
+          await uploadBytes(storageRef, this.description);
           const url = await getDownloadURL(storageRef);
           console.log("Imagem ssalva com sucesso, aqui estar a url: " + url);
           return url.toString();
@@ -226,14 +189,14 @@ export default {
 
     // Callback Page
     cancel() {
-      router.push("/membros");
+      router.push("/posts");
     },
   },
 };
 </script>
 
 <style scoped>
-.create-member {
+.create-post {
   padding-bottom: 40px;
   color: black;
   display: flex;
