@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" @click="goToDetailsPage()">
     <p>
       Nome: <span>{{ name }}</span>
     </p>
@@ -30,6 +30,14 @@ export default {
     name: {
       type: String,
       required: true,
+    },
+  },
+  methods: {
+    goToDetailsPage() {
+      this.$router.push({
+        name: 'detail-user',
+        params: { user: this.id },
+      });
     },
   },
 };
