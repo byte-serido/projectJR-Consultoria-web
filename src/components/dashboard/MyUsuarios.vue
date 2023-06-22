@@ -3,7 +3,7 @@
   <div class="container-usuarios" v-else>
     <div class="title-row">
       <span>Usuários</span>
-      <button>
+      <button @click="redirectToCreateUser()">
         <p>Novo usuário</p>
         <fa :icon="['fa', 'add']" style="color: #ffffff" size="lg" />
       </button>
@@ -40,6 +40,11 @@ export default {
     return {
       finishedLoading: false,
     };
+  },
+  methods: {
+    redirectToCreateUser() {
+      return this.$router.push({ name: 'create-user' });
+    },
   },
   async mounted() {
     await this.$store.dispatch('fetchUserList');
