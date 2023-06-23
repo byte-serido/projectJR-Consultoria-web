@@ -89,16 +89,13 @@
 
     <div class="settings-details">
       <h1>Configurações</h1>
-      <template v-if="showUpdateSpinner">
-        <SpinnerLoading></SpinnerLoading>
+      <SpinnerLoading v-if="showButtonSpinner"></SpinnerLoading>
+      <template v-else>
+        <button @click="updateUser()"><p>Salvar Alterações</p></button>
+        <button @click="deleteUser()" class="remove">
+          <p>Deletar usuário</p>
+        </button>
       </template>
-      <button @click="updateUser()" v-else><p>Salvar Alterações</p></button>
-      <template v-if="showDeleteSpinner">
-        <SpinnerLoading></SpinnerLoading>
-      </template>
-      <button @click="deleteUser()" class="remove" v-else>
-        <p>Deletar usuário</p>
-      </button>
     </div>
   </div>
 </template>
@@ -139,8 +136,7 @@ export default {
         },
       ],
       isLoading: true,
-      showUpdateSpinner: false,
-      showDeleteSpinner: false,
+      showButtonSpinner: false,
       showNotFound: false,
     };
   },
@@ -180,10 +176,10 @@ export default {
      * Realiza a atualização do usuário
      */
     async updateUser() {
-      this.showUpdateSpinner = true;
+      this.showButtonSpinner = true;
       const isFormValid = await this.v$.$validate();
       if (!isFormValid) {
-        return (this.showUpdateSpinner = false);
+        return (this.showButtonSpinner = false);
       }
 
       try {
@@ -197,7 +193,7 @@ export default {
         });
         this.$router.push({ name: 'usuarios' });
       } catch (error) {
-        this.showUpdateSpinner = false;
+        this.showButtonSpinner = false;
         alert(`${error.message}`);
       }
     },
@@ -205,12 +201,12 @@ export default {
      * Realiza a exclusão do usuário
      */
     async deleteUser() {
-      this.showDeleteSpinner = true;
+      this.showButtonSpinner = true;
       try {
         await this.$store.dispatch('deleteUser', this.$route.params.user);
         this.$router.push({ name: 'usuarios' });
       } catch (error) {
-        this.showDeleteSpinner = false;
+        this.showButtonSpinner = false;
         alert(`${error.message}`);
       }
     },
@@ -269,6 +265,7 @@ export default {
   color: black;
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
   font-family: 'Inter', sans-serif;
   gap: 60px;
   width: 100%;
