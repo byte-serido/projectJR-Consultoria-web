@@ -42,7 +42,7 @@ export default {
     },
     async createUser({ commit }, user) {
       try {
-        const resp = await axios.put(
+        const resp = await axios.post(
           'https://pjr-api.onrender.com/auth/register',
           {
             username: user.username,
@@ -65,7 +65,7 @@ export default {
     },
     async updateUser({ commit }, user) {
       try {
-        const resp = await axios.post(
+        const resp = await axios.put(
           'https://pjr-api.onrender.com/user/update',
           {
             id: user.id,
