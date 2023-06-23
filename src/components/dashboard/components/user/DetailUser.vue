@@ -293,6 +293,7 @@ p {
 }
 
 .data-details {
+  width: 100%;
   flex: 2;
   display: flex;
   flex-direction: column;
