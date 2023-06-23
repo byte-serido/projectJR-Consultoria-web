@@ -189,11 +189,11 @@ export default {
       try {
         await this.$store.dispatch('updateUser', {
           id: this.$route.params.user,
-          username: this.formData.Username,
-          email: this.formData.Email,
-          password: this.formData.Senha,
-          name: this.formData.Nome,
-          mod: this.formData.mod,
+          username: this.userData.Username,
+          email: this.userData.Email,
+          password: this.userData.Senha,
+          name: this.userData.Nome,
+          mod: this.userData.mod,
         });
         this.$router.push({ name: 'usuarios' });
       } catch (error) {
