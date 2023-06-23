@@ -92,7 +92,9 @@ export default {
         const resp = await axios.delete(
           'https://pjr-api.onrender.com/user/delete',
           {
-            id: id,
+            data: {
+              id: id,
+            },
           }
         );
         if (resp.status === 200) {
