@@ -254,6 +254,10 @@ export default {
         alert(`${error.message}`);
       }
     },
+    /**
+     * Realiza a validação da senha atual do usuário fazendo uma chamada a api
+     * de login
+     */
     async validatePassword() {
       this.validacaoSenhaAntiga = 'Validando senha...';
       try {
@@ -276,6 +280,10 @@ export default {
         return false;
       }
     },
+    /**
+     * Verifica se a senha digitada no campo senha atual é a senha correta do
+     * usuário, se for, os campos de edição de senha são destravados
+     */
     async checkPassword() {
       // caso o campo esteja vazio não há o que validar
       if (!this.userData.senhaAntiga.length) {
