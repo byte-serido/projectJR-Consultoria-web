@@ -60,21 +60,42 @@
             </option>
           </select>
         </div>
+
+        <hr />
+
+        <h2 class="change-password-title">Alterar senha</h2>
+
         <div class="card-item">
-          <label for="update-user-password-input">Senha:</label>
+          <label for="update-user-new-password-input">Senha atual:</label>
           <input
-            id="update-user-password-input"
+            :disabled="isNewPasswordFieldsEnabled"
+            id="update-user-new-password-input"
             :class="{
-              error: v$.userData.Senha.$error,
-              input: !v$.userData.Senha.$error,
+              error: v$.userData.senhaAntiga.$error,
+              input: !v$.userData.senhaAntiga.$error,
             }"
             type="password"
-            v-model="userData.Senha"
+            v-model="userData.senhaAntiga"
+            @blur="checkPassword()"
+          />
+        </div>
+        <div class="card-item">
+          <label for="update-user-password-input">Nova senha:</label>
+          <input
+            :disabled="!isNewPasswordFieldsEnabled"
+            id="update-user-password-input"
+            :class="{
+              error: v$.userData.senha.$error,
+              input: !v$.userData.senha.$error,
+            }"
+            type="password"
+            v-model="userData.senha"
           />
         </div>
         <div class="card-item">
           <label for="update-user-password2-input">Confirmação de senha:</label>
           <input
+            :disabled="!isNewPasswordFieldsEnabled"
             id="update-user-password2-input"
             :class="{
               error: v$.userData.confirmacaoSenha.$error,
@@ -102,9 +123,16 @@
 
 <script>
 import SpinnerLoading from '@/components/MySpinnerLoading.vue';
+import {
+  email,
+  minLength,
+  required,
+  requiredIf,
+  sameAs,
+} from '@/utils/i18n-validators';
 import { useVuelidate } from '@vuelidate/core';
 import { helpers } from '@vuelidate/validators';
-import { required, email, minLength, sameAs } from '@/utils/i18n-validators';
+import axios from 'axios';
 
 export default {
   setup() {
@@ -121,8 +149,10 @@ export default {
         Nome: '',
         Email: '',
         Username: '',
+        currentUsername: '',
         mod: '',
-        Senha: '',
+        senha: '',
+        senhaAntiga: '',
         confirmacaoSenha: '',
       },
       modOptions: [
@@ -138,6 +168,7 @@ export default {
       isLoading: true,
       showButtonSpinner: false,
       showNotFound: false,
+      isNewPasswordFieldsEnabled: false,
     };
   },
   computed: {
@@ -163,10 +194,12 @@ export default {
         const foundUser = this.usersList.filter((user) => user.id === id)[0];
         this.userData = {
           confirmacaoSenha: '',
+          currentUsername: foundUser.username,
           Email: foundUser.email,
           mod: foundUser.mod,
           Nome: foundUser.name,
-          Senha: '',
+          senha: '',
+          senhaAntiga: '',
           Username: foundUser.username,
         };
       }
@@ -187,7 +220,7 @@ export default {
           id: this.$route.params.user,
           username: this.userData.Username,
           email: this.userData.Email,
-          password: this.userData.Senha,
+          password: this.userData.senha,
           name: this.userData.Nome,
           mod: this.userData.mod,
         });
@@ -210,6 +243,31 @@ export default {
         alert(`${error.message}`);
       }
     },
+    async validatePassword() {
+      try {
+        const resp = await axios.post(
+          'https://pjr-api.onrender.com/auth/login',
+          {
+            username: this.userData.currentUsername,
+            password: this.userData.senhaAntiga,
+          }
+        );
+        if (resp.status === 201) {
+          return true;
+        }
+        return false;
+      } catch (error) {
+        return false;
+      }
+    },
+    async checkPassword() {
+      const senhaValida = await this.validatePassword();
+      this.isNewPasswordFieldsEnabled = senhaValida;
+      if (!senhaValida) {
+        this.userData.senha = '';
+        this.userData.confirmacaoSenha = '';
+      }
+    },
   },
   validations() {
     return {
@@ -230,19 +288,32 @@ export default {
           minLength: minLength(4),
           $lazy: true,
         },
-        Senha: {
-          required,
-          minLength: minLength(8),
+        senhaAntiga: {
+          minLength: helpers.withMessage(
+            'O campo "Senha atual" deve ter no mínimo 8 caracteres',
+            minLength(8)
+          ),
+          $lazy: true,
+        },
+        senha: {
+          required: helpers.withMessage(
+            'O campo "Nova senha" é obrigatório',
+            requiredIf(this.isNewPasswordFieldsEnabled)
+          ),
+          minLength: helpers.withMessage(
+            'O campo "Nova senha" deve ter no mínimo 8 caracteres',
+            minLength(8)
+          ),
           $lazy: true,
         },
         confirmacaoSenha: {
           required: helpers.withMessage(
             'O campo "Confirmação de senha" é obrigatório',
-            required
+            requiredIf(this.isNewPasswordFieldsEnabled)
           ),
           sameAs: helpers.withMessage(
-            'Os campos "Senha" e "Confirmação de senha" não correspondem',
-            sameAs(this.userData.Senha)
+            'Os campos "Senha atual" e "Confirmação de senha" não correspondem',
+            sameAs(this.userData.senha)
           ),
           $lazy: true,
         },
@@ -272,11 +343,16 @@ export default {
 }
 
 h1,
-.not-found h2 {
+.not-found h2,
+.change-password-title {
   color: #023f5c;
   font-size: 2rem;
   font-weight: 700;
   line-height: normal;
+}
+
+.change-password-title {
+  font-size: 1.5rem;
 }
 
 label {
