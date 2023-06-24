@@ -78,6 +78,15 @@
             v-model="userData.senhaAntiga"
             @blur="checkPassword()"
           />
+          <span
+            :class="{
+              'old-password-validation': true,
+              erro: erroSenha,
+            }"
+            v-if="validacaoSenhaAntiga"
+          >
+            {{ validacaoSenhaAntiga }}
+          </span>
         </div>
         <div class="card-item">
           <label for="update-user-password-input">Nova senha:</label>
@@ -169,6 +178,8 @@ export default {
       showButtonSpinner: false,
       showNotFound: false,
       isNewPasswordFieldsEnabled: false,
+      validacaoSenhaAntiga: '',
+      erroSenha: false,
     };
   },
   computed: {
@@ -244,6 +255,7 @@ export default {
       }
     },
     async validatePassword() {
+      this.validacaoSenhaAntiga = 'Validando senha...';
       try {
         const resp = await axios.post(
           'https://pjr-api.onrender.com/auth/login',
@@ -253,16 +265,30 @@ export default {
           }
         );
         if (resp.status === 201) {
+          this.validacaoSenhaAntiga = '';
+          this.erroSenha = false;
           return true;
         }
         return false;
       } catch (error) {
+        this.validacaoSenhaAntiga = 'Senha incorreta';
+        this.erroSenha = true;
         return false;
       }
     },
     async checkPassword() {
+      // caso o campo esteja vazio não há o que validar
+      if (!this.userData.senhaAntiga.length) {
+        this.validacaoSenhaAntiga = '';
+        this.erroSenha = false;
+        return;
+      }
+
       const senhaValida = await this.validatePassword();
       this.isNewPasswordFieldsEnabled = senhaValida;
+
+      // Garante que os campos de nova senha vão estar vazios caso a senha
+      // antiga não valide
       if (!senhaValida) {
         this.userData.senha = '';
         this.userData.confirmacaoSenha = '';
@@ -412,6 +438,18 @@ button p,
 .btn p {
   font-size: 1rem;
   font-weight: 300;
+}
+
+.old-password-validation {
+  color: #023f5c;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.old-password-validation.erro {
+  color: #ec3824;
+  font-style: normal;
+  font-weight: 500;
 }
 
 .remove {
