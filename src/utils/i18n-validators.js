@@ -10,6 +10,7 @@ const messages = {
       email: '"{model}" não é um email válido',
       minLength: 'O campo "{property}" deve ter no mínimo {min} caracteres',
       required: 'O campo "{property}" é obrigatório',
+      requiredIf: 'O campo "{property}" é obrigatório',
       sameAs: 'Os campos "{property}" e "{equalTo}" não correspondem',
     },
   },
@@ -27,6 +28,10 @@ const withI18nMessage = createI18nMessage({
 
 // Insere novas mensagens nos validadores
 export const required = withI18nMessage(validators.required);
+
+export const requiredIf = withI18nMessage(validators.requiredIf, {
+  withArguments: true,
+});
 
 export const minLength = withI18nMessage(validators.minLength, {
   withArguments: true,
