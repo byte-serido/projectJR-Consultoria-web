@@ -72,7 +72,7 @@ export default {
             username: user.username,
             name: user.name,
             email: user.email,
-            password: user.password,
+            password: user.password ? user.password : undefined,
             mod: user.mod,
           }
         );
