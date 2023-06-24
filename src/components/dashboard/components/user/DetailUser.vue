@@ -71,11 +71,11 @@
             :disabled="isNewPasswordFieldsEnabled"
             id="update-user-new-password-input"
             :class="{
-              error: v$.userData.senhaAntiga.$error,
-              input: !v$.userData.senhaAntiga.$error,
+              error: v$.userData.senhaAtual.$error,
+              input: !v$.userData.senhaAtual.$error,
             }"
             type="password"
-            v-model="userData.senhaAntiga"
+            v-model="userData.senhaAtual"
             @blur="checkPassword()"
           />
           <span
@@ -158,10 +158,10 @@ export default {
         Nome: '',
         Email: '',
         Username: '',
-        currentUsername: '',
+        usernameAtual: '',
         mod: '',
         senha: '',
-        senhaAntiga: '',
+        senhaAtual: '',
         confirmacaoSenha: '',
       },
       modOptions: [
@@ -205,12 +205,12 @@ export default {
         const foundUser = this.usersList.filter((user) => user.id === id)[0];
         this.userData = {
           confirmacaoSenha: '',
-          currentUsername: foundUser.username,
+          usernameAtual: foundUser.username,
           Email: foundUser.email,
           mod: foundUser.mod,
           Nome: foundUser.name,
           senha: '',
-          senhaAntiga: '',
+          senhaAtual: '',
           Username: foundUser.username,
         };
       }
@@ -264,8 +264,8 @@ export default {
         const resp = await axios.post(
           'https://pjr-api.onrender.com/auth/login',
           {
-            username: this.userData.currentUsername,
-            password: this.userData.senhaAntiga,
+            username: this.userData.usernameAtual,
+            password: this.userData.senhaAtual,
           }
         );
         if (resp.status === 201) {
@@ -286,7 +286,7 @@ export default {
      */
     async checkPassword() {
       // caso o campo esteja vazio não há o que validar
-      if (!this.userData.senhaAntiga.length) {
+      if (!this.userData.senhaAtual.length) {
         this.validacaoSenhaAntiga = '';
         this.erroSenha = false;
         return;
@@ -322,7 +322,7 @@ export default {
           minLength: minLength(4),
           $lazy: true,
         },
-        senhaAntiga: {
+        senhaAtual: {
           minLength: helpers.withMessage(
             'O campo "Senha atual" deve ter no mínimo 8 caracteres',
             minLength(8)
