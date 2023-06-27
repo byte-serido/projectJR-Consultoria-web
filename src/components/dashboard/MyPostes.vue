@@ -11,7 +11,12 @@
 
     <div class="grid-posts">
       <div v-for="(post, index) in posts" :key="index">
-        <Card :title="post.title" :autor="post.autor" :imgURL="post.imgURL" />
+        <Card
+          :id="post.id"
+          :title="post.title"
+          :autor="post.autor"
+          :imgURL="post.imgURL"
+        />
       </div>
     </div>
   </div>

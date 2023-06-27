@@ -1,5 +1,5 @@
 <template>
-  <div class="card" @click="onDetailRedirect()">
+  <div class="card" @click="onDetailPostRedirect()">
     <img :src="imgURL" alt="Imagem da postagem" />
     <article>
       <p>Título: {{ title }}</p>
@@ -16,6 +16,10 @@ export default {
     };
   },
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     title: {
       type: String,
       required: true,
@@ -31,9 +35,13 @@ export default {
   },
 
   methods: {
-    onDetailRedirect() {
+    onDetailPostRedirect() {
       const objeto = encodeURIComponent(JSON.stringify(this.idPost));
-      return this.$router.push({ name: "detail", params: { user: objeto } });
+      console.log(objeto);
+      return this.$router.push({
+        name: "detail-post",
+        params: { post: objeto },
+      });
     },
   },
 };
