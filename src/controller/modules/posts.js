@@ -52,5 +52,19 @@ export default {
                 commit('setValid', true);
             })
         },
+        async getPostAction({ commit }, idPost) {
+            await axios.get(`https://pjr-api.onrender.com/post/getone${idPost}`).then(resp => {
+                if (resp.status === 200) {
+                    commit('setPost', resp.data);
+                    commit('setValidPost', false);
+
+                } else {
+                    commit('setValidPost', true);
+                }
+            }).catch(() => {
+                commit('setValidPost', true);
+            })
+        },
+
     }
 }
