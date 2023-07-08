@@ -127,7 +127,7 @@ export default {
   },
 
   methods: {
-    // Função para criar um membro
+    // Função para criar um post
     async createPost() {
       this.isCreated = !this.isCreated;
       //Verificando os dados
@@ -140,14 +140,13 @@ export default {
       const post = {
         title: this.title,
         description: this.description,
-        autor: this.autor.toString(),
+        autor: this.autor,
         imgUrl: imgAux,
       };
       //Requisição para salvar
       await axios
         .post("https://pjr-api.onrender.com/post/create", post)
         .then((resp) => {
-          console.log(resp.status);
           if (resp.status !== 201) {
             alert(
               "Postagem não cadastrada, verifique os dados e tente novamente !!"
@@ -176,8 +175,8 @@ export default {
         if (this.imageFile === null) {
           alert("Por favor escolha uma imagem!!");
         } else {
-          const storageRef = ref(storage, `post/${this.imageFile.title}`);
-          await uploadBytes(storageRef, this.description);
+          const storageRef = ref(storage, `post/${this.imageFile.name}`);
+          await uploadBytes(storageRef, this.imageFile);
           const url = await getDownloadURL(storageRef);
           console.log("Imagem ssalva com sucesso, aqui estar a url: " + url);
           return url.toString();

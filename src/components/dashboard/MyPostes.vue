@@ -15,7 +15,7 @@
           :id="post.id"
           :title="post.title"
           :autor="post.autor"
-          :imgURL="post.imgURL"
+          :imgURL="post.imgUrl"
         />
       </div>
     </div>
