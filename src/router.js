@@ -11,10 +11,15 @@ const Dashboard = () => import('./views/MyDashboard.vue');
 const Contact = () => import('./views/MyContact.vue');
 const DashBoardMember = () => import('@/components/dashboard/MyMembros.vue');
 const DashBoardAdms = () => import('@/components/dashboard/MyAdms.vue');
+const DashBoardUser = () => import('@/components/dashboard/MyUsuarios.vue');
 const DetailMember = () =>
   import('@/components/dashboard/components/member/DetailMember.vue');
+const DetailUser = () =>
+  import('@/components/dashboard/components/user/DetailUser.vue');
 const CreateMember = () =>
   import('@/components/dashboard/components/member/CreateMember.vue');
+const CreateUser = () =>
+  import('@/components/dashboard/components/user/CreateUser.vue');
 const DashBoardPosts = () => import('./components/dashboard/MyPostes.vue');
 const CreatePost = () => import('./components/dashboard/components/posts/CreatePost.vue');
 const DetailPost = () => import('./components/dashboard/components/posts/DetailPost.vue')
@@ -143,6 +148,30 @@ const routes = [
         //Permitindo que todos os parametros da rota sejam passados como atributos
         props: true,
         meta: { requiresAuth: true, transition: 'slide-left' },
+      },
+      {
+        path: '/usuarios',
+        name: 'usuarios',
+        component: DashBoardUser,
+        //Permitindo que todos os parametros da rota sejam passados como atributos
+        props: true,
+        meta: { requiresAuth: true },
+      },
+      {
+        path: '/create-user',
+        name: 'create-user',
+        component: CreateUser,
+        //Permitindo que todos os parametros da rota sejam passados como atributos
+        props: true,
+        meta: { requiresAuth: true },
+      },
+      {
+        path: '/users/:user',
+        name: 'detail-user',
+        component: DetailUser,
+        props: true,
+        //Permitindo que todos os parametros da rota sejam passados como atributos
+        meta: { requiresAuth: true },
       },
       {
         path: '/posts',

@@ -18,48 +18,42 @@
         />
       </router-link>
 
-      <!-- Button de saida -->
-      <button @click="onLogout()">
-        <fa
-          :icon="['fa', 'right-from-bracket']"
-          style="color: #ffffff"
-          size="lg"
-        />
-      </button>
-    </div>
-  </header>
-  <main class="dashbord">
-    <!-- Menu com animação se for ativado -->
-    <transition name="slide" mode="out-in">
-      <!-- Menu que irá aparecer quando for clicado -->
-      <div class="menu" v-if="isMenu">
-        <router-link class="item" to="" active-class="active" exact>
-          <span>Administradores</span>
-        </router-link>
-        <router-link
-          @click="isMenu = !isMenu"
-          class="item"
-          to="/membros"
-          active-class="active"
-        >
-          <span>Membros</span>
-        </router-link>
-        <router-link class="item" to="" active-class="active">
-          <span>Serviços</span>
-        </router-link>
-        <router-link class="item" to="" active-class="active">
-          <span>Depoimentos</span>
-        </router-link>
-        <router-link class="item" to="/posts" active-class="active">
-          <span>Posts</span>
-        </router-link>
-      </div>
-    </transition>
-    <!-- Conteudo que ficara mudando dependendo da escolha no menu -->
-    <div class="dashboard-content">
-      <router-view />
-    </div>
-  </main>
+            <!-- Button de saida -->
+            <button @click="onLogout()">
+                <fa :icon="['fa', 'right-from-bracket']" style=" color: #FFFFFF;" size="lg"/>
+            </button>
+        </div>
+    </header>
+    <main class="dashbord">
+        <!-- Menu com animação se for ativado -->
+        <transition name="slide" mode="out-in">
+            <!-- Menu que irá aparecer quando for clicado -->
+            <div class="menu" v-if="isMenu">
+                <router-link class="item" to="" active-class="active" exact>
+                    <span>Administradores</span>
+                </router-link>
+                <router-link @click="isMenu=!isMenu" class="item" to="/membros" active-class="active">
+                    <span>Membros</span>
+                </router-link>
+                <router-link class="item" to="" active-class="active">
+                    <span>Serviços</span>
+                </router-link>
+                <router-link class="item" to="" active-class="active">
+                    <span>Depoimentos</span>
+                </router-link>
+                <router-link class="item" to="/posts" active-class="active">
+                    <span>Posts</span>
+                </router-link>
+                <router-link @click="isMenu=!isMenu"  class="item" to="/usuarios" active-class="active">
+                    <span>Usuários</span>
+                </router-link>
+            </div>
+        </transition>
+        <!-- Conteudo que ficara mudando dependendo da escolha no menu -->
+        <div class="dashboard-content">
+            <router-view/>
+        </div>
+    </main>
 </template>
 <script>
 export default {
