@@ -20,6 +20,9 @@ const CreateMember = () =>
   import('@/components/dashboard/components/member/CreateMember.vue');
 const CreateUser = () =>
   import('@/components/dashboard/components/user/CreateUser.vue');
+const DashBoardPosts = () => import('./components/dashboard/MyPostes.vue');
+const CreatePost = () => import('./components/dashboard/components/posts/CreatePost.vue');
+const DetailPost = () => import('./components/dashboard/components/posts/DetailPost.vue')
 const Post = () => import('./views/MyPost.vue');
 const ForgotPassword = () => import('./views/MyForgotPassword.vue');
 const ResetPassword = () => import('./views/MyResetPassword.vue');
@@ -168,6 +171,30 @@ const routes = [
         component: DetailUser,
         props: true,
         //Permitindo que todos os parametros da rota sejam passados como atributos
+        meta: { requiresAuth: true },
+      },
+      {
+        path: '/posts',
+        name: 'Posts',
+        component: DashBoardPosts,
+        //Permitindo que todos os parametros da rota sejam passados como atributos
+        props: true,
+        meta: { requiresAuth: true },
+      },
+      {
+        path: '/create-post',
+        name: 'create-post',
+        component: CreatePost,
+        //Permitindo que todos os parametros da rota sejam passados como atributos
+        props: true,
+        meta: { requiresAuth: true },
+      },
+      {
+        path: '/detail-post/:post',
+        name: 'detail-post',
+        component: DetailPost,
+        //Permitindo que todos os parametros da rota sejam passados como atributos
+        props: true,
         meta: { requiresAuth: true },
       },
     ],
