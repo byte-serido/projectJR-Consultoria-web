@@ -102,7 +102,7 @@ export default{
                 description:this.member.description,
                 imgUrl: await this.updateImageMember()
             }
-            await axios.put("https://pjr-api.onrender.com/member/update",member).then(resp =>{
+            await axios.put("https://project-jr.onrender.com/member/update",member).then(resp =>{
                 if(resp.status !== 201){
                     alert("Membro não alterado, verifique os dados e tente novamente !!")
                 }else{
@@ -141,7 +141,7 @@ export default{
         //Fução de delecão
         async deleteMember(){
             this.isDeleted = !this.isDeleted
-            await axios.delete("https://pjr-api.onrender.com/member/delete",{ data: {id:this.member.id} }).then(resp =>{
+            await axios.delete("https://project-jr.onrender.com/member/delete",{ data: {id:this.member.id} }).then(resp =>{
                 if(resp.status !== 201){
                     return alert("Erro ao deletar membro, verifique os dados e tente novamente !!")
                 }else{

@@ -262,7 +262,7 @@ export default {
       this.validacaoSenhaAntiga = 'Validando senha...';
       try {
         const resp = await axios.post(
-          'https://pjr-api.onrender.com/auth/login',
+          'https://project-jr.onrender.com/auth/login',
           {
             username: this.userData.usernameAtual,
             password: this.userData.senhaAtual,

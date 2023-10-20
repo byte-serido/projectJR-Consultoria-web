@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   state: {
@@ -33,9 +33,9 @@ export default {
     async fetchUserList({ commit }) {
       try {
         const resp = await axios.get(
-          'https://pjr-api.onrender.com/user/getall'
+          "https://project-jr.onrender.com/user/getall"
         );
-        commit('setUsers', resp.data);
+        commit("setUsers", resp.data);
       } catch (err) {
         return;
       }
@@ -43,7 +43,7 @@ export default {
     async createUser({ commit }, user) {
       try {
         const resp = await axios.post(
-          'https://pjr-api.onrender.com/auth/register',
+          "https://project-jr.onrender.com/auth/register",
           {
             username: user.username,
             name: user.name,
@@ -53,20 +53,20 @@ export default {
           }
         );
         if (resp.status === 200) {
-          commit('addUser', resp.data.user);
+          commit("addUser", resp.data.user);
         }
       } catch (error) {
         if (error.response) {
           throw new Error(error.response.data.error);
         } else {
-          throw new Error('Um erro ocorreu');
+          throw new Error("Um erro ocorreu");
         }
       }
     },
     async updateUser({ commit }, user) {
       try {
         const resp = await axios.put(
-          'https://pjr-api.onrender.com/user/update',
+          "https://project-jr.onrender.com/user/update",
           {
             id: user.id,
             username: user.username,
@@ -77,20 +77,20 @@ export default {
           }
         );
         if (resp.status === 200) {
-          commit('updateUser', user);
+          commit("updateUser", user);
         }
       } catch (error) {
         if (error.response) {
           throw new Error(error.response.data.error);
         } else {
-          throw new Error('Um erro ocorreu');
+          throw new Error("Um erro ocorreu");
         }
       }
     },
     async deleteUser({ commit }, id) {
       try {
         const resp = await axios.delete(
-          'https://pjr-api.onrender.com/user/delete',
+          "https://project-jr.onrender.com/user/delete",
           {
             data: {
               id: id,
@@ -98,13 +98,13 @@ export default {
           }
         );
         if (resp.status === 200) {
-          commit('removeUser', id);
+          commit("removeUser", id);
         }
       } catch (error) {
         if (error.response) {
           throw new Error(error.response.data.error);
         } else {
-          throw new Error('Um erro ocorreu');
+          throw new Error("Um erro ocorreu");
         }
       }
     },
