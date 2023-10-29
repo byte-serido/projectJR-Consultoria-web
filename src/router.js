@@ -21,8 +21,10 @@ const CreateMember = () =>
 const CreateUser = () =>
   import('@/components/dashboard/components/user/CreateUser.vue');
 const DashBoardPosts = () => import('./components/dashboard/MyPostes.vue');
-const CreatePost = () => import('./components/dashboard/components/posts/CreatePost.vue');
-const DetailPost = () => import('./components/dashboard/components/posts/DetailPost.vue')
+const CreatePost = () =>
+  import('./components/dashboard/components/posts/CreatePost.vue');
+const DetailPost = () =>
+  import('./components/dashboard/components/posts/DetailPost.vue');
 const Post = () => import('./views/MyPost.vue');
 const ForgotPassword = () => import('./views/MyForgotPassword.vue');
 const ResetPassword = () => import('./views/MyResetPassword.vue');
@@ -56,7 +58,7 @@ const routes = [
   },
 
   {
-    path: '/services',
+    path: '/services/:service',
     name: 'services',
     component: Services,
     //Permitindo que todos os parametros da rota sejam passados como atributos
