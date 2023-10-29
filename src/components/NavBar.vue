@@ -11,7 +11,7 @@
         <router-link to="/about" active-class="active">
           <q-btn class="menu-button" label="Quem somos"> </q-btn>
         </router-link>
-        <q-btn-dropdown class="button-services" label="Services" auto-close>
+        <q-btn-dropdown class="button-services" label="Serviços" auto-close>
           <q-list style="min-width: 200">
             <div
               class="list-itens"
@@ -20,9 +20,12 @@
               :value="index"
             >
               <div class="list-item">
-                <router-link class="item" to="" active-class="active">{{
-                  item.title
-                }}</router-link>
+                <router-link
+                  class="item"
+                  :to="item.link"
+                  active-class="active"
+                  >{{ item.title }}</router-link
+                >
               </div>
             </div>
           </q-list>
@@ -41,15 +44,17 @@
 </template>
 
 <script>
+import { services } from '@/data';
+
 export default {
   data() {
     return {
-      items: [
-        { title: "Comunicação" },
-        { title: "Organização" },
-        { title: "Proatividade" },
-        { title: "Reuniões" },
-      ],
+      items: Object.keys(services).map((chave) => {
+        return {
+          title: services[chave].nome,
+          link: `/services/${chave}`,
+        };
+      }),
     };
   },
 };
@@ -58,7 +63,7 @@ export default {
 .navbar-container {
   padding: 25px 80px;
   background-color: #023f5c;
-  font-family: "Assistant", sans-serif;
+  font-family: 'Assistant', sans-serif;
 }
 .navbar {
   display: flex;
@@ -80,7 +85,7 @@ li {
   color: #ffffff;
   font-size: 1.25rem;
   font-weight: 400;
-  font-family: "Assistant", sans-serif;
+  font-family: 'Assistant', sans-serif;
   cursor: pointer;
   box-sizing: border-box;
   position: relative;
@@ -104,7 +109,7 @@ li {
   color: #ffffff;
   font-size: 1.25rem;
   font-weight: 400;
-  font-family: "Assistant", sans-serif;
+  font-family: 'Assistant', sans-serif;
   cursor: pointer;
   box-sizing: border-box;
   position: relative;
@@ -122,7 +127,7 @@ li {
   color: #41a8d3;
 }
 .nav-button {
-  font-family: "Assistant", sans-serif;
+  font-family: 'Assistant', sans-serif;
   color: #ffffff;
   background-color: #41a8d3;
   border: 1px solid #41a8d3;
@@ -147,7 +152,6 @@ a {
 }
 
 .list-itens {
-  padding: 20px;
   color: #41a8d3;
   font-size: 1rem;
   background-color: transparent;
@@ -163,6 +167,8 @@ a {
 }
 
 .item {
+  display: block;
+  padding: 20px;
   color: #41a8d3;
 }
 /* @media */
